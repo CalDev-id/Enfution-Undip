@@ -10,6 +10,14 @@ module.exports = {
     ],
 
     theme: {
+        container: {
+            padding: {
+                DEFAULT: '1.5rem',
+                lg: '3rem',
+            },
+            center: true,
+        },
+
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
@@ -17,5 +25,9 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    daisyui: {
+        themes: false,
+    },
+
+    plugins: [require('@tailwindcss/forms'), require("daisyui")],
 };
