@@ -1,12 +1,12 @@
 import Hero from "@/Components/Hero";
 import BasicLayout from "@/Layouts/BasicLayout";
+import { Head } from "@inertiajs/react";
 
 const HomePage = () => {
     return (
         <>
-            <BasicLayout>
-                
-            </BasicLayout>
+            <Head title="AYAM" />
+            <BasicLayout></BasicLayout>
         </>
     );
 };
