@@ -101,21 +101,29 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    
+
                     <div className="">
-                        <button onMouseOver={
-                            () => setIsHover(!isHover)
-                        }
-                        onMouseLeave={() => setIsHover(!isHover)}
-                        className="btn text-[#FFCE2E] bg-[#1E2E40] rounded-full text-xs px-7">
+                        <button
+                            onMouseOver={() => setIsHover(true)}
+                            onMouseLeave={() => setIsHover(false)}
+                            className=" py-1 text-[#FFCE2E] bg-[#1E2E40] rounded-full font-medium px-5 sm:px-11"
+                        >
                             Register Now
                         </button>
-                        <div className={isHover ? "bg-[#FFCE2E] px-5 py-2 absolute z-20 -bottom-24 md:-bottom-16" : "hidden"}>
+                        <div
+                            className={
+                                isHover
+                                    ? "bg-[#FFCE2E] px-5 rounded-xl py-2 absolute z-20 -bottom-28 md:-bottom-16"
+                                    : "hidden"
+                            }
+                        >
                             <p className="text-center text-xs">
                                 NATIONAL SEMINAR
                             </p>
                             <p className="text-center text-xs">
-                                DIPONEGORO BUSINESS<br />CASE COMPETITION
+                                DIPONEGORO BUSINESS
+                                <br />
+                                CASE COMPETITION
                             </p>
                         </div>
                     </div>
