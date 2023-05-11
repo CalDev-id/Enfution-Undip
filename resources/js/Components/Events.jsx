@@ -23,10 +23,10 @@ const Events = () => {
 
     return (
         <>
-            <h1 className="flex mx-auto justify-center text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl font-bold my-10">
+            <h1 className="flex mx-auto justify-center text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl font-bold my-3">
                 Our Series of Events
             </h1>
-
+            <div className="mb-10 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
             <div className="w-full xl:px-60 flex justify-evenly border-t-2 border-[#EB9928] border-b-2 py-2 font-semibold mx-auto">
                 <button
                     onClick={() => {
@@ -74,6 +74,8 @@ const Events = () => {
                         </p>
                         <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                         <p className="text-center">{dbccBawah}</p>
+                        
+                        <img className="container w-96 sm:w-[1200px] flex justify-center mx-auto my-10" src="images/timelineUtama.svg" alt="" />
                     </div>
                 )}
                 {selectedIndex == 2 && (
@@ -83,6 +85,8 @@ const Events = () => {
                         </p>
                         <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                         <p className="text-center">{sessionBawah}</p>
+                        <img className="container w-96 sm:w-[1200px] flex justify-center mx-auto my-10" src="images/timelineUtama.svg" alt="" />
+
                     </div>
                 )}
                 {selectedIndex == 3 && (
@@ -92,6 +96,8 @@ const Events = () => {
                         </p>
                         <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                         <p className="text-center">{clinicBawah}</p>
+                        <img className="container w-96 sm:w-[1200px] flex justify-center mx-auto my-10" src="images/timelineUtama.svg" alt="" />
+
                     </div>
                 )}
             </div>
