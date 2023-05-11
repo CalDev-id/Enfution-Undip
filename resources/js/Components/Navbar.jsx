@@ -69,62 +69,64 @@ const Navbar = () => {
                             alt=""
                         />
                     </div>
-                    <div className="hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1 font-semibold">
-                            <li>
-                                <a>Home</a>
-                            </li>
-                            <li tabIndex={0}>
-                                <a className="text-[#EB9928]">
-                                    DBCC
-                                    <svg
-                                        className="fill-current"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                                    </svg>
-                                </a>
-                                <ul className="p-2">
-                                    <li>
-                                        <a>Submenu 1</a>
-                                    </li>
-                                    <li>
-                                        <a>Submenu 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a>National Seminar</a>
-                            </li>
-                        </ul>
-                    </div>
-
                     <div className="">
-                        <button
-                            onMouseOver={() => setIsHover(true)}
-                            onMouseLeave={() => setIsHover(false)}
-                            className=" py-1 text-[#FFCE2E] bg-[#1E2E40] rounded-full font-medium px-5 sm:px-11"
-                        >
-                            Register Now
-                        </button>
-                        <div
-                            className={
-                                isHover
-                                    ? "bg-[#FFCE2E] px-5 rounded-xl py-2 absolute z-20 -bottom-28 md:-bottom-16"
-                                    : "hidden"
-                            }
-                        >
-                            <p className="text-center text-xs">
-                                NATIONAL SEMINAR
-                            </p>
-                            <p className="text-center text-xs">
-                                DIPONEGORO BUSINESS
-                                <br />
-                                CASE COMPETITION
-                            </p>
+                        <div className="hidden lg:flex mr-5">
+                            <ul className="menu menu-horizontal px-1 font-semibold">
+                                <li>
+                                    <a>Home</a>
+                                </li>
+                                <li tabIndex={0}>
+                                    <a className="text-[#EB9928]">
+                                        DBCC
+                                        <svg
+                                            className="fill-current"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                                        </svg>
+                                    </a>
+                                    <ul className="p-2">
+                                        <li>
+                                            <a>Submenu 1</a>
+                                        </li>
+                                        <li>
+                                            <a>Submenu 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>National Seminar</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="">
+                            <button
+                                onMouseOver={() => setIsHover(true)}
+                                onMouseLeave={() => setIsHover(false)}
+                                className=" py-1 text-[#FFCE2E] bg-[#1E2E40] rounded-full font-medium px-5 sm:px-11"
+                            >
+                                Register Now
+                            </button>
+                            <div
+                                className={
+                                    isHover
+                                        ? "bg-[#FFCE2E] px-5 rounded-xl py-2 absolute z-20 -bottom-28 md:-bottom-16"
+                                        : "hidden"
+                                }
+                            >
+                                <p className="text-center text-xs">
+                                    NATIONAL SEMINAR
+                                </p>
+                                <p className="text-center text-xs">
+                                    DIPONEGORO BUSINESS
+                                    <br />
+                                    CASE COMPETITION
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

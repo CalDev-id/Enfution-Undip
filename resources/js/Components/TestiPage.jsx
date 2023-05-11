@@ -1,4 +1,4 @@
-import Testi1, { Testi2 } from "./Testi";
+import Testi from "./Testi";
 
 const TestiPage = () => {
     const Testisatu =
@@ -11,36 +11,44 @@ const TestiPage = () => {
         "DBCC case dan format lombanya menarik dan challenging banget, value utama yang aku dapet sih time management yang baik dan critical thinking bener-bener dibutuhin buat bisa menyelesaikan case ini, especially yang final round.";
 
     return (
-        <div className="container">
-            <div className="mt-20">
-                <Testi1
-                    nama={"Michelle"}
-                    pesan={Testisatu}
-                    quote={"DBCC was a truly worthwhile experience"}
-                    asal={"Pelita Harapan University"}
-                    team={"Wonderwork Team"}
-                    imageURL={"testiMichael"}
-                />
-            </div>
-            <div className="mt-20">
-                <Testi2
-                    nama={"Muhammad Ariel Rabbani"}
-                    pesan={TestiTiga}
-                    quote={"It's a really good experience for me & my team"}
-                    asal={"Bina Nusantara University"}
-                    team={"Gatot Kaca Team"}
-                    imageURL={"manusia1"}
-                />
-            </div>
-            <div className="mt-20">
-                <Testi1
-                    nama={"Nisrina Tsaniya Khansa Kahfi"}
-                    pesan={TestiDua}
-                    quote={"DBCC 2022 has been quite a memorable journey!"}
-                    asal={"Prasetya Mulya University"}
-                    team={"Athena Team"}
-                    imageURL={"testiNisrina"}
-                />
+        <div>
+            <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl xl:mt-20 2xl:mt-36">
+                Testimonials
+            </h1>
+            <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
+
+            <div className="container xl:flex xl:justify-between">
+                <div className="mt-20">
+                    <Testi
+                        nama={"Muhammad Ariel Rabbani"}
+                        pesan={TestiTiga}
+                        quote={"It's a really good experience for me & my team"}
+                        asal={"Bina Nusantara University"}
+                        team={"Gatot Kaca Team"}
+                        imageURL={"manusia1"}
+                    />
+                </div>
+                <div className="">
+                    <Testi
+                        nama={"Michelle"}
+                        pesan={Testisatu}
+                        quote={"DBCC was a truly worthwhile experience"}
+                        asal={"Pelita Harapan University"}
+                        team={"Wonderwork Team"}
+                        imageURL={"testiMichael"}
+                    />
+                </div>
+
+                <div className="mt-20">
+                    <Testi
+                        nama={"Nisrina Tsaniya Khansa Kahfi"}
+                        pesan={TestiDua}
+                        quote={"DBCC 2022 has been quite a memorable journey!"}
+                        asal={"Prasetya Mulya University"}
+                        team={"Athena Team"}
+                        imageURL={"testi2"}
+                    />
+                </div>
             </div>
         </div>
     );

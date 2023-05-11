@@ -1,13 +1,14 @@
 import Bulat from "./Bulat";
-import Testi1, { Testi2 } from "./Testi";
+import Testi from "./Testi";
 
 const AboutUs = () => {
     return (
         <div className="w-full bg-[#FFF9EE] mb-10">
             <div className="container text-center mb-10">
-                <h1 className="font-semibold mb-10 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl xl:mt-20 2xl:mt-36">
+                <h1 className="font-semibold mb-3 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl xl:mt-20 2xl:mt-36">
                     About Us
                 </h1>
+                <div className="mb-10 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                 <p className="text-[#1E2E40] xl:px-52">
                     <span className="font-semibold text-[#EB9928] text-lg">
                         Diponegoro Business Case Competition (DBCC){" "}
@@ -22,12 +23,13 @@ const AboutUs = () => {
             </div>
 
             <div className="container text-center mb-10">
-                <h1 className="font-semibold mb-10 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-2xl xl:mt-10 2xl:mt-20">
+                <h1 className="font-semibold mb-3 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-2xl xl:mt-10 2xl:mt-20">
                     Our Theme
                 </h1>
+                <div className="mb-10 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                 <p className="text-[#1E2E40] xl:px-32">
                     This year's theme is{" "}
-                    <span className="font-semibold text-[#EB9928] text-lg">
+                    <span className="font-semibold text-[#EB9928]">
                         “The Role of Green Business in Achieving Sustainable
                         Economics“
                     </span>
@@ -53,16 +55,47 @@ const AboutUs = () => {
             </div>
 
             <img
-                className="w-96 flex justify-center mx-auto my-10"
+                className="w-96 sm:w-[450px] flex justify-center mx-auto my-16"
                 src="images/about.svg"
                 alt=""
             />
+            <div className="flex justify-center">
+                <div className="container grid grid-cols-2 sm:grid-cols-4 xl:px-52 my-16">
+                    <img
+                        className="w-56 flex justify-center mx-auto"
+                        src="images/1.svg"
+                        alt=""
+                    />
+                    <img
+                        className="w-56 flex justify-center mx-auto"
+                        src="images/2.svg"
+                        alt=""
+                    />
+                    <img
+                        className="w-56 flex justify-center mx-auto"
+                        src="images/3.svg"
+                        alt=""
+                    />
+                    <img
+                        className="w-56 flex justify-center mx-auto"
+                        src="images/4.svg"
+                        alt=""
+                    />
+                </div>
+            </div>
 
-            <div className="container grid grid-cols-2 sm:grid-cols-4 xl:px-52">
-                <Bulat isBawah={true} />
-                <Bulat isBawah={false} />
-                <Bulat isBawah={true} />
-                <Bulat isBawah={false} />
+            <div className="mb-20">
+                <h1 className="font-semibold mb-3 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
+                    About Us
+                </h1>
+                <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
+                <div className="mx-auto flex">
+                    <img
+                        className="container w-96 sm:w-[1200px] flex justify-center mx-auto my-10"
+                        src="images/timelineUtama.svg"
+                        alt=""
+                    />
+                </div>
             </div>
         </div>
     );
