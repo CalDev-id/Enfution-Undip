@@ -29,6 +29,10 @@ Route::get('/', function () {
     return Inertia::render('HomePage');
 })->name('home');
 
+Route::get('/national-seminar', function () {
+    return Inertia::render('NationalSeminar');
+})->name('national-seminar');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
