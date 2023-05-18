@@ -33,6 +33,10 @@ Route::get('/national-seminar', function () {
     return Inertia::render('NationalSeminar');
 })->name('national-seminar');
 
+Route::get('/form-dbcc', function () {
+    return Inertia::render('DBCC/FormDBCC');
+})->name('form-dbcc');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

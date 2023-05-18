@@ -1,8 +1,12 @@
 import AboutUs from "@/Components/AboutUs";
+import EventsSemnas from "@/Components/EventsSemnas";
 import Footer from "@/Components/Footer";
 import Hero from "@/Components/Hero";
 import Navbar from "@/Components/Navbar";
 import { Head } from "@inertiajs/react";
+import GallerySemnas from "@/Components/GallerySemnas";
+import Testi from "@/Components/Testi";
+import TestiPageSemnas from "@/Components/TestiPageSemnas";
 
 const NationalSeminar = () => {
     return (
@@ -12,7 +16,13 @@ const NationalSeminar = () => {
 
             <Hero active={"national"} />
 
-            <AboutUs active={"national"} />
+            <AboutUs active={"national"} />\
+
+            <EventsSemnas />
+
+            <GallerySemnas />
+            
+            <TestiPageSemnas />
             <Footer />
 
         </section>

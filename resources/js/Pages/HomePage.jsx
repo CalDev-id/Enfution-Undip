@@ -18,7 +18,7 @@ const HomePage = () => {
 
             <AboutUs active={"dbcc"} />
 
-            <Events />
+            <Events hrefDbcc={"/form-dbcc"}/>
 
             <Galery />
 
