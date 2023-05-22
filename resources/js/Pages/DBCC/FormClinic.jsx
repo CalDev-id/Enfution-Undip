@@ -1,13 +1,13 @@
-import { Head, Link } from "@inertiajs/react";
 import { useState } from "react";
+import { Head, Link } from "@inertiajs/react";
 
-const FormSession = () => {
+const FormClinic = () => {
     const [open, setOpen] = useState(false);
 
     return (
         <>
             <div className="bg-[#FFF9EE] pt-20 w-full min-h-screen text-[#1E2E40]">
-                <Head title="Registration -  Coaching Session" />
+                <Head title="Registration - Coaching Clinic" />
                 <div className="container pb-32 bg-[#FFF9EE]">
                     <h1 className="text-center font-semibold text-5xl mb-10">
                         Registration Form
@@ -19,12 +19,12 @@ const FormSession = () => {
                             </button>
                         </Link>
                         <Link href="/registration-coaching-session">
-                            <button className="btn rounded-none bg-[#1E2E40] w-24 sm:w-60">
+                            <button className="btn btn-outline w-24 sm:w-60 rounded-none">
                                 Coaching Session
                             </button>
                         </Link>
                         <Link href="/registration-coaching-clinic">
-                            <button className="btn btn-outline w-24 sm:w-60 rounded-none">
+                            <button className="btn rounded-none bg-[#1E2E40] w-24 sm:w-60">
                                 Coaching Clinic
                             </button>
                         </Link>
@@ -150,9 +150,8 @@ const FormSession = () => {
                     </div>
 
                     <div>
-                        <p className="font-semibold mt-8 md:mx-10">
-                            Are You a Participant of Diponegoro Business Case
-                            Competition?*
+                        <p className="font-semibold mt-5 md:mx-10">
+                        Is there a paper to be reviewed?<span className="text-[#EB9928]">*</span>{" "}
                         </p>
 
                         <div className="md:mx-10 mb-5">
@@ -185,33 +184,11 @@ const FormSession = () => {
                     </div>
 
                     <div className={open ? "block" : "hidden"}>
-                        <div className="grid grid-cols-1 md:grid-cols-2">
-                            <div className="mb-5 md:mx-10">
-                                <p className="font-semibold">
-                                    Team Name{" "}
-                                    <span className="text-[#EB9928]">*</span>{" "}
-                                </p>
-                                <input
-                                    type="text"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                                />
-                            </div>
-                            <div className="mb-5 md:mx-10">
-                                <p className="font-semibold">
-                                    DBCC Registration Code{" "}
-                                    <span className="text-[#EB9928]">*</span>{" "}
-                                </p>
-                                <input
-                                    type="text"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                                />
-                            </div>
-                        </div>
-
-                        <p className="font-semibold md:mx-10 mb-4">
-                            Upload Your DBCC Payment Slip Below!{" "}
-                            <span className="text-[#EB9928]">*</span>{" "}
+                        <p className="font-semibold md:mx-10 ">
+                        Upload Your Paper File Here
+                            
                         </p>
+                        <span className="text-[#EB9928] md:mx-10 mb-4">*No DBCC File</span>{" "}
                         <div className="grid md:grid-cols-2 md:mr-40 md:ml-10">
                             <input
                                 type="file"
@@ -226,7 +203,7 @@ const FormSession = () => {
                                 Cancel
                             </button>
                         </Link>
-                        <Link href="/">
+                        <Link href="/payment-confirmation-dbcc">
                             <button className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]">
                                 Next
                             </button>
@@ -243,4 +220,4 @@ const FormSession = () => {
     );
 };
 
-export default FormSession;
+export default FormClinic;

@@ -7,22 +7,22 @@ import Hero from "@/Components/Hero";
 import Navbar from "@/Components/Navbar";
 import TestiPage from "@/Components/TestiPage";
 import Galery from "@/Components/Gallery";
+import EventsHome from "@/Components/EventsHome";
+import Sponsors from "@/Components/Sponsors";
 
 const HomePage = () => {
     return (
         <section className="bg-[#FFF9EE]">
-            <Head title="DBCC" />
-            <Navbar active={"dbcc"} />
+            <Head title="Home" />
+            <Navbar active={"home"} />
 
-            <Hero active={"dbcc"} />
+            <Hero active={"home"} />
 
-            <AboutUs active={"dbcc"} />
+            <AboutUs active={"home"} />
 
-            <Events hrefDbcc={"/form-dbcc"}/>
+            <EventsHome/>
 
-            <Galery />
-
-            <TestiPage />
+            <Sponsors/>
 
             <Footer />
         </section>

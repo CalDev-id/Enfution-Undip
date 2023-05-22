@@ -160,7 +160,7 @@ const EventsSemnas = () => {
                                     </div>
                                 </div>
                                 <div className="flex justify-center my-20 flex-wrap">
-                                    <Link href="/">
+                                    <Link href="/registration-national-seminar">
                                         <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
                                             <p>Rp. xxx</p>
@@ -258,7 +258,7 @@ const EventsSemnas = () => {
                                         <p className="font-semibold text-xl">
                                             JUNY <span className="text-[#EB9928]"> 14th</span>, 2023
                                         </p>
-                                        <Link href="/">
+                                        <Link href="/registration-EarlyTalk1">
                                             <div className="bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
                                                 <p>REGISTER NOW</p>
                                             </div>
@@ -345,7 +345,7 @@ const EventsSemnas = () => {
                                         <p className="font-semibold text-xl">
                                             JUNY <span className="text-[#EB9928]"> 14th</span>, 2023
                                         </p>
-                                        <Link href="/">
+                                        <Link href="/registration-EarlyTalk2">
                                             <div className="bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
                                                 <p>REGISTER NOW</p>
                                             </div>
