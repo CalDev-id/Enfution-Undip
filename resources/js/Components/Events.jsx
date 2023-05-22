@@ -81,7 +81,7 @@ const Events = ({hrefDbcc}) => {
                                 <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                                 <p className="text-center">{dbccBawah}</p>
                                 <div className="flex justify-center my-20 flex-wrap">
-                                    <Link href="/form-dbcc">
+                                    <Link href="/registration-dbcc">
                                         <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
                                             <p>Rp. xxx</p>
@@ -121,7 +121,7 @@ const Events = ({hrefDbcc}) => {
                             <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                             <p className="text-center">{sessionBawah}</p>
                             <div className="flex justify-center my-20 flex-wrap">
-                                <Link href="/">
+                                <Link href="/registration-coaching-session">
                                     <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                         <p>Early Bird</p>
                                         <p>Rp. xxx</p>
@@ -161,7 +161,7 @@ const Events = ({hrefDbcc}) => {
                             <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                             <p className="text-center">{clinicBawah}</p>
                             <div className="flex justify-center my-20 flex-wrap">
-                                <Link href="/">
+                                <Link href="/registration-coaching-clinic">
                                     <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                         <p>Early Bird</p>
                                         <p>Rp. xxx</p>

@@ -33,9 +33,21 @@ Route::get('/national-seminar', function () {
     return Inertia::render('NationalSeminar');
 })->name('national-seminar');
 
-Route::get('/form-dbcc', function () {
+Route::get('/registration-dbcc', function () {
     return Inertia::render('DBCC/FormDBCC');
 })->name('form-dbcc');
+
+Route::get('/registration-coaching-session', function () {
+    return Inertia::render('CoachingSession/FormSession');
+})->name('form-session');
+
+Route::get('/registration-coaching-clinic', function () {
+    return Inertia::render('CoachingClinic/FormClinic');
+})->name('form-clinic');
+
+Route::get('/payment-confirmation', function () {
+    return Inertia::render('PaymentConfirmation');
+})->name('payment-confirmation');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
