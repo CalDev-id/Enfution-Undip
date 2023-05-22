@@ -33,20 +33,42 @@ Route::get('/national-seminar', function () {
     return Inertia::render('NationalSeminar');
 })->name('national-seminar');
 
+Route::get('/DBCC', function () {
+    return Inertia::render('DBCCPage');
+})->name('dbcc');
+
 Route::get('/registration-dbcc', function () {
     return Inertia::render('DBCC/FormDBCC');
 })->name('form-dbcc');
 
 Route::get('/registration-coaching-session', function () {
-    return Inertia::render('CoachingSession/FormSession');
+    return Inertia::render('DBCC/FormSession');
 })->name('form-session');
 
 Route::get('/registration-coaching-clinic', function () {
-    return Inertia::render('CoachingClinic/FormClinic');
+    return Inertia::render('DBCC/FormClinic');
 })->name('form-clinic');
 
-Route::get('/payment-confirmation', function () {
-    return Inertia::render('PaymentConfirmation');
+
+
+Route::get('/registration-national-seminar', function () {
+    return Inertia::render('Semnas/FormSemnas');
+})->name('form-semnas');
+Route::get('/registration-EarlyTalk1', function () {
+    return Inertia::render('Semnas/FormET1');
+})->name('form-et1');
+Route::get('/registration-EarlyTalk2', function () {
+    return Inertia::render('Semnas/FormET2');
+})->name('form-et2');
+
+
+
+Route::get('/payment-confirmation-dbcc', function () {
+    return Inertia::render('DBCC/PaymentConfirmation');
+})->name('payment-confirmation');
+
+Route::get('/payment-confirmation-semnas', function () {
+    return Inertia::render('Semnas/PaymentConfirmation');
 })->name('payment-confirmation');
 
 Route::get('/dashboard', function () {

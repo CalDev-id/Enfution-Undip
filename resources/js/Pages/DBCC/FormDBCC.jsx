@@ -302,7 +302,7 @@ const FormDBCC = () => {
                             Cancel
                         </button>
                     </Link>
-                    <Link href="/payment-confirmation">
+                    <Link href="/payment-confirmation-dbcc">
                         <button className="btn w-28 md:w-48 rounded-none bg-[#1E2E40] mx-5">
                             Next
                         </button>

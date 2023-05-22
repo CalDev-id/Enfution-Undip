@@ -6,6 +6,93 @@ import Guests from "./Guests";
 const AboutUs = ({ active }) => {
     return (
         <div>
+            {active === "home" && (
+                <div className="w-full bg-[#FFF9EE] mb-32 mt-5 sm:mt-0">
+                    <div className="container text-center mb-10">
+                        <h1 className="font-semibold mb-3 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
+                            About Us
+                        </h1>
+                        <div className="mb-10 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
+                        <div className="flex justify-center">
+                            <p className="text-[#1E2E40] xl:max-w-xl">
+                                <span className="font-semibold text-[#EB9928] text-lg">
+                                    Enfution{"  "}
+                                </span>
+                                is an annual event that held by Management
+                                Student Association, Diponegoro University,
+                                which consist of Diponegoro Business Case
+                                Competition and National Seminar. Enfution
+                                desire to help all parties to be confident in
+                                maximizing their skills and enhance the future.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="flex justify-center mb-10">
+                        <div className="md:w-96 text-center">
+                            <img
+                                className=""
+                                src="images/speaker/ProfSuhar.svg"
+                                alt=""
+                            />
+                            <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
+                                Prof. Dr. Suharnomo, S.E., M.Si
+                            </p>
+                            <p className="font-black text-[#EB9928] text-xl">
+                                Dean of Faculty of
+                                <br />
+                                Economics and Business
+                            </p>
+                            <p className="text-[#EB9928]">
+                                Diponegoro University
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="container text-center mb-10">
+                        <img
+                            src="images/kutip.png"
+                            alt=""
+                            className="flex justify-center mx-auto"
+                        />
+                        <p className="md:max-w-6xl text-center flex mx-auto my-8">
+                            The 15th Enfution is the biggest event held by MSA
+                            FEB Undip which consists of Diponegoro Business Case
+                            Competition (DBCC) and National Seminar. Enfution
+                            was established with the aim of enhancing students’
+                            knowledge, skills, critical thinking abilities, and
+                            to improve the overall quality of their education.
+                            Over the years, Enfution has consistently strived
+                            for excellence through ongoing development and
+                            improvement. With each passing year, Enfution has
+                            continued to make notable improvements, as evidenced
+                            by the growing number of participants, the high
+                            caliber of guest speakers, the expansion of event
+                            sections, and the increasing media coverage. With
+                            This year’s theme, “Optimizing Young Generation
+                            Creativity to Encounter Economic Development”, The
+                            15th Enfution provides participants with the
+                            opportunities to explore their interests, develop
+                            their talents, and improve their skills in various
+                            areas. By investing in the education and training of
+                            our youth, The 15th Enfution can help them unleash
+                            their full potential and contribute to the economic
+                            growth and development of our nation.
+                        </p>
+                        <img
+                            src="images/kutip2.png"
+                            alt=""
+                            className="flex justify-center mx-auto"
+                        />
+                    </div>
+
+                    <p className="font-semibold text-center mb-10">Now its your turn to take the chance, <br />are you ready for this?</p>
+
+                    <img src="images/LogoGabungan.svg" className="flex mx-auto max-w-xl my-20" alt="" />
+
+
+                </div>
+            )}
             {active === "dbcc" && (
                 <div className="w-full bg-[#FFF9EE] mb-10 mt-5 sm:mt-0">
                     <div className="container text-center mb-10">

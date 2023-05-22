@@ -34,11 +34,11 @@ const Navbar = ({ method = "get", active }) => {
                                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                             >
                                 <li>
-                                    <a>Item 1</a>
+                                    <Link href="/">Home</Link>
                                 </li>
                                 <li tabIndex={0}>
                                     <Link
-                                        href={route("home")}
+                                        href={route("dbcc")}
                                         className={
                                             active === "dbcc"
                                                 ? "text-[#EB9928] justify-between"
@@ -77,11 +77,22 @@ const Navbar = ({ method = "get", active }) => {
                         <div className="hidden lg:flex mr-5">
                             <ul className="menu menu-horizontal px-1 font-semibold">
                                 <li>
-                                    <a>Home</a>
+                                    <Link
+                                        href={route("home")}
+                                        className={
+                                            active === "home"
+                                                ? "text-[#EB9928]"
+                                                : ""
+                                        }
+                                        method={method}
+                                        as="button"
+                                    >
+                                        Home
+                                    </Link>
                                 </li>
                                 <li tabIndex={0}>
                                     <Link
-                                        href={route("home")}
+                                        href={route("dbcc")}
                                         className={
                                             active === "dbcc"
                                                 ? "text-[#EB9928]"
