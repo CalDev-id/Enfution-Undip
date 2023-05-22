@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "@inertiajs/react";
 
-const Events = () => {
+const Events = ({hrefDbcc}) => {
     const [selectedIndex, setSelectedIndex] = useState(1);
 
     const dbccAtas =
@@ -27,6 +28,7 @@ const Events = () => {
                 Our Series of Events
             </h1>
             <div className="mb-10 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
+            {/* <img src="images/eventTop.png" alt="" /> */}
             <div className="w-full xl:px-60 flex justify-evenly border-t-2 border-[#EB9928] border-b-2 py-2 font-semibold mx-auto">
                 <button
                     onClick={() => {
@@ -65,41 +67,129 @@ const Events = () => {
                     COACHING CLINIC
                 </button>
             </div>
-
-            <div className="container">
-                {selectedIndex == 1 && (
-                    <div className="py-10">
-                        <p className="mb-5 font-medium xl:mx-60 text-center">
-                            {dbccAtas}
-                        </p>
-                        <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
-                        <p className="text-center">{dbccBawah}</p>
-                        
-                        <img className="container w-96 sm:w-[1200px] flex justify-center mx-auto my-10" src="images/timelineUtama.svg" alt="" />
+            <div className="">
+                <div className="md:container">
+                    {selectedIndex == 1 && (
+                        <div className="py-10">
+                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                                <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
+                                    DBCC
+                                </h1>
+                                <p className="mb-5 font-medium xl:mx-60 text-center">
+                                    {dbccAtas}
+                                </p>
+                                <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
+                                <p className="text-center">{dbccBawah}</p>
+                                <div className="flex justify-center my-20 flex-wrap">
+                                    <Link href="/registration-dbcc">
+                                        <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                            <p>Early Bird</p>
+                                            <p>Rp. xxx</p>
+                                        </div>
+                                    </Link>
+                                    <Link href="/">
+                                        <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                            <p>Normal Registration</p>
+                                            <p>Rp. xxx</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <img
+                                    src="images/line.svg"
+                                    className=""
+                                    alt=""
+                                />
+                            </div>
+                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
+                                <img
+                                    className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
+                                    src="images/timelineUtama.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    )}
+                    {selectedIndex == 2 && (
+                        <div className="py-10">
+                        <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                            <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
+                                Coaching Session
+                            </h1>
+                            <p className="mb-5 font-medium xl:mx-60 text-center">
+                                {sessionAtas}
+                            </p>
+                            <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
+                            <p className="text-center">{sessionBawah}</p>
+                            <div className="flex justify-center my-20 flex-wrap">
+                                <Link href="/registration-coaching-session">
+                                    <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <p>Early Bird</p>
+                                        <p>Rp. xxx</p>
+                                    </div>
+                                </Link>
+                                <Link href="/">
+                                    <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <p>Normal Registration</p>
+                                        <p>Rp. xxx</p>
+                                    </div>
+                                </Link>
+                            </div>
+                            <img
+                                src="images/line.svg"
+                                className=""
+                                alt=""
+                            />
+                        </div>
+                        <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
+                            <img
+                                className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
+                                src="images/timelineUtama.svg"
+                                alt=""
+                            />
+                        </div>
                     </div>
-                )}
-                {selectedIndex == 2 && (
-                    <div className="py-10">
-                        <p className="mb-5 font-medium xl:mx-60 text-center">
-                            {sessionAtas}
-                        </p>
-                        <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
-                        <p className="text-center">{sessionBawah}</p>
-                        <img className="container w-96 sm:w-[1200px] flex justify-center mx-auto my-10" src="images/timelineUtama.svg" alt="" />
-
+                    )}
+                    {selectedIndex == 3 && (
+                        <div className="py-10">
+                        <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                            <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
+                                Coaching Clinic
+                            </h1>
+                            <p className="mb-5 font-medium xl:mx-60 text-center">
+                                {clinicAtas}
+                            </p>
+                            <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
+                            <p className="text-center">{clinicBawah}</p>
+                            <div className="flex justify-center my-20 flex-wrap">
+                                <Link href="/registration-coaching-clinic">
+                                    <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <p>Early Bird</p>
+                                        <p>Rp. xxx</p>
+                                    </div>
+                                </Link>
+                                <Link href="/">
+                                    <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <p>Normal Registration</p>
+                                        <p>Rp. xxx</p>
+                                    </div>
+                                </Link>
+                            </div>
+                            <img
+                                src="images/line.svg"
+                                className=""
+                                alt=""
+                            />
+                        </div>
+                        <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
+                            <img
+                                className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
+                                src="images/timelineUtama.svg"
+                                alt=""
+                            />
+                        </div>
                     </div>
-                )}
-                {selectedIndex == 3 && (
-                    <div className="py-10">
-                        <p className="mb-5 font-medium xl:mx-60 text-center">
-                            {clinicAtas}
-                        </p>
-                        <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
-                        <p className="text-center">{clinicBawah}</p>
-                        <img className="container w-96 sm:w-[1200px] flex justify-center mx-auto my-10" src="images/timelineUtama.svg" alt="" />
-
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </>
     );

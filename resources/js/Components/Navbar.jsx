@@ -1,6 +1,7 @@
+import { Link } from "@inertiajs/react";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ method = "get", active }) => {
     const [isHover, setIsHover] = useState(false);
 
     return (
@@ -36,29 +37,32 @@ const Navbar = () => {
                                     <a>Item 1</a>
                                 </li>
                                 <li tabIndex={0}>
-                                    <a className="justify-between">
-                                        Parent
-                                        <svg
-                                            className="fill-current"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24"
-                                            height="24"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                                        </svg>
-                                    </a>
-                                    <ul className="p-2">
-                                        <li>
-                                            <a>Submenu 1</a>
-                                        </li>
-                                        <li>
-                                            <a>Submenu 2</a>
-                                        </li>
-                                    </ul>
+                                    <Link
+                                        href={route("home")}
+                                        className={
+                                            active === "dbcc"
+                                                ? "text-[#EB9928] justify-between"
+                                                : "justify-between"
+                                        }
+                                        method={method}
+                                        as="button"
+                                    >
+                                        DBCC
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a>Item 3</a>
+                                    <Link
+                                        href={route("national-seminar")}
+                                        method={method}
+                                        className={
+                                            active === "national"
+                                                ? "text-[#EB9928]"
+                                                : ""
+                                        }
+                                        as="button"
+                                    >
+                                        National Seminar
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -76,29 +80,32 @@ const Navbar = () => {
                                     <a>Home</a>
                                 </li>
                                 <li tabIndex={0}>
-                                    <a className="text-[#EB9928]">
+                                    <Link
+                                        href={route("home")}
+                                        className={
+                                            active === "dbcc"
+                                                ? "text-[#EB9928]"
+                                                : ""
+                                        }
+                                        method={method}
+                                        as="button"
+                                    >
                                         DBCC
-                                        <svg
-                                            className="fill-current"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="20"
-                                            height="20"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                                        </svg>
-                                    </a>
-                                    <ul className="p-2">
-                                        <li>
-                                            <a>Submenu 1</a>
-                                        </li>
-                                        <li>
-                                            <a>Submenu 2</a>
-                                        </li>
-                                    </ul>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a>National Seminar</a>
+                                    <Link
+                                        href={route("national-seminar")}
+                                        method={method}
+                                        className={
+                                            active === "national"
+                                                ? "text-[#EB9928]"
+                                                : ""
+                                        }
+                                        as="button"
+                                    >
+                                        National Seminar
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

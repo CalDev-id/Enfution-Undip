@@ -10,16 +10,12 @@ import "swiper/css/navigation";
 
 const TestiPage = () => {
     const Testisatu =
-        "DBCC was a truly worthwhile experience! Spanning multiple months, we explored the nuances of analyzing and solving business problems through the lens of a well-prepared case. The judges' in-depth insights were also extremely helpful in assisting us in better understanding the factors that we had overlooked and could optimize on. Furthermore, we are also provided with coaching sessions throughout our journey, which provide valuable guidance in sharpening critical thinking and problem-solving skills for business cases. Overall, the event was an interactive simulation of business problem-solving and a memorable experience.";
+        "Kita selalu giving back not only take something. Nah dalam acara ini aku bisa bertemu dengan berbagai macam pihak dan kalangan, aku bisa sharing pengalaman aku dalam pembuatan resume, interview,  bahkan pembangunan social branding di sosial media. Aku juga bisa dapat dan juga berempati bersama teman teman yang nanya, dan juga antusiasmenya sangat tinggi sehingga aku pun ingin agar acara ini terus berlanjut agar memaksimalkan dampak  kepada generasi generasi muda di Indonesia supaya bisa terus saling berbagi dan terus belajar tiada henti mau dari aku ataupun dari siapapun";
 
     const TestiDua =
-        "The case, presentation and critical thinking stage, especially Q&A from the judges has been quite challenging and overall have provided the participants with an adequate learning curve through all the competition stages. Goodluck for all of the participants this year!";
-
-    const TestiTiga =
-        "DBCC case dan format lombanya menarik dan challenging banget, value utama yang aku dapet sih time management yang baik dan critical thinking bener-bener dibutuhin buat bisa menyelesaikan case ini, especially yang final round.";
-
+        "Seminar Nasional Enfution yang diselenggarakan oleh FEB UNDIP pada 2022 lalu sangatlah bermanfaat dan insightful terutama untuk menumbuhkan 'growth mindset' bagi generasi muda. Selain itu, mampu mengajak kita untuk lebih peka dalam mempersiapkan diri dalam menghadapi perkembangan zaman yang beriringan dengan adanya kecanggihan teknologi. Melalui event ini, mampu mendukung dalam membentuk ekosistem anak muda yang semakin peduli akan pengembangan diri terutama terkait 'mindset' dan 'agility skills'. Sukses untuk event berikutnya ya! Mari bersama memajukan anak muda Bangsa!";
     return (
-        <div>
+        <div className="mb-20">
             <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl xl:mt-20 2xl:mt-36">
                 Testimonials
             </h1>
@@ -42,8 +38,12 @@ const TestiPage = () => {
                         spaceBetween: 20,
                     },
                     768: {
-                        slidesPerView: 3,
-                        spaceBetween: 20,
+                        slidesPerView: 2,
+                        spaceBetween: 100,
+                    },
+                    1440: {
+                        slidesPerView: 2,
+                        spaceBetween: 300,
                     },
                 }}
                 modules={[Autoplay, Pagination, Navigation]}
@@ -53,27 +53,13 @@ const TestiPage = () => {
                     {" "}
                     <div className="md:mt-20">
                         <Testi
-                            nama={"Muhammad Ariel Rabbani"}
-                            pesan={TestiTiga}
-                            quote={
-                                "It's a really good experience for me & my team"
-                            }
-                            asal={"Bina Nusantara University"}
-                            team={"Gatot Kaca Team"}
-                            imageURL={"manusia1"}
-                        />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    {" "}
-                    <div className="">
-                        <Testi
-                            nama={"Michelle"}
+                            nama={"Josefina Purnomo"}
                             pesan={Testisatu}
-                            quote={"DBCC was a truly worthwhile experience"}
-                            asal={"Pelita Harapan University"}
-                            team={"Wonderwork Team"}
-                            imageURL={"testiMichael"}
+                            quote={
+                                "Aku percaya kalau di hidup ini kita itu selalu tidak ada henti hentinya buat belajar."
+                            }
+                            asal={"Content Creator"}
+                            imageURL={"josefina"}
                         />
                     </div>
                 </SwiperSlide>
@@ -81,14 +67,13 @@ const TestiPage = () => {
                     {" "}
                     <div className="md:mt-20">
                         <Testi
-                            nama={"Nisrina Tsaniya Khansa Kahfi"}
+                            nama={"Arfiana Mauliana"}
                             pesan={TestiDua}
                             quote={
-                                "DBCC 2022 has been quite a memorable journey!"
+                                "Sangat bermanfaat dan insightful terutama untuk menumbuhkan 'growth mindset' bagi generasi muda"
                             }
-                            asal={"Prasetya Mulya University"}
-                            team={"Athena Team"}
-                            imageURL={"testi2"}
+                            asal={"Content Creator"}
+                            imageURL={"arfiana"}
                         />
                     </div>
                 </SwiperSlide>
