@@ -11,17 +11,17 @@ const Hero = ({ active }) => {
                     <div className=""></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-3xl">
-                            <div className="flex mb-10">
+                            <div className="sm:flex sm:mb-10 mb-5">
                                 <img
                                     src="images/LogoEnfuHome.svg"
                                     className="flex mx-auto mb-5 sm:w-52 w-32 self-center"
                                     alt=""
                                 />
                                 <div>
-                                    <p className="mb-5 self-center font-semibold text-6xl">
+                                    <p className="sm:mb-5 self-center font-semibold sm:text-6xl text-3xl">
                                         The <span className="text-[#FFCE2E]">15th</span> Enfution
                                     </p>
-                                    <p className="font-light text-[#FFF9EE] text-xl">
+                                    <p className="font-light text-[#FFF9EE] sm:text-xl text-sm">
                                         Optimizing young generation creativity
                                         <br />
                                         to Encounter Economic Develpment
@@ -29,7 +29,7 @@ const Hero = ({ active }) => {
                                 </div>
                             </div>
 
-                            <div className="flex justify-center sm:text-base text-xl">
+                            <div className="flex justify-center text-base sm:text-xl">
                                 <a href="#">BUSINESS CASE</a>
                                 <p className="mx-2">|</p>
                                 <a href="#">NATIONAL SEMINAR</a>

@@ -14,7 +14,7 @@ const AboutUs = ({ active }) => {
                         </h1>
                         <div className="mb-10 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                         <div className="flex justify-center">
-                            <p className="text-[#1E2E40] xl:max-w-xl">
+                            <p className="text-[#1E2E40] xl:max-w-3xl">
                                 <span className="font-semibold text-[#EB9928] text-lg">
                                     Enfution{"  "}
                                 </span>
@@ -29,7 +29,7 @@ const AboutUs = ({ active }) => {
                     </div>
 
                     <div className="flex justify-center mb-10">
-                        <div className="md:w-96 text-center">
+                        <div className="md:w-96 text-center w-80">
                             <img
                                 className=""
                                 src="images/speaker/ProfSuhar.svg"
@@ -88,7 +88,7 @@ const AboutUs = ({ active }) => {
 
                     <p className="font-semibold text-center mb-10">Now its your turn to take the chance, <br />are you ready for this?</p>
 
-                    <img src="images/LogoGabungan.svg" className="flex mx-auto max-w-xl my-20" alt="" />
+                    <img src="images/LogoGabungan.svg" className="flex mx-auto sm:max-w-xl my-20 max-w-xs" alt="" />
 
 
                 </div>
