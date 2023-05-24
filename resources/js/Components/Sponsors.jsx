@@ -1,11 +1,11 @@
 const Sponsors = () => {
     return (
         <>
-            <div className="container flex justify-center my-40">
+            <div className="container sm:flex justify-center my-40">
                 <img
                     src="images/speaker/masaru.svg"
                     alt=""
-                    className="w-60 mr-10"
+                    className="w-60 mr-10 flex mx-auto sm:mx-0 sm:block mb-5 sm:mb-0"
                 />
                 <div className="self-center">
                     <p className="md:max-w-lg font-black text-xl mb-3">

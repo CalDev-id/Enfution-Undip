@@ -34,7 +34,18 @@ const Navbar = ({ method = "get", active }) => {
                                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                             >
                                 <li>
-                                    <Link href="/">Home</Link>
+                                    <Link
+                                        href="/"
+                                        className={
+                                            active === "home"
+                                                ? "text-[#EB9928] justify-between"
+                                                : "justify-between"
+                                        }
+                                        method={method}
+                                        as="button"
+                                    >
+                                        Home
+                                    </Link>
                                 </li>
                                 <li tabIndex={0}>
                                     <Link
@@ -121,31 +132,38 @@ const Navbar = ({ method = "get", active }) => {
                             </ul>
                         </div>
 
-                        <div className="">
-                            <button
-                                onMouseOver={() => setIsHover(true)}
-                                onMouseLeave={() => setIsHover(false)}
-                                className=" py-1 text-[#FFCE2E] bg-[#1E2E40] rounded-full font-medium px-5 sm:px-11"
-                            >
+                        <button
+                            // onMouseOver={() => setIsHover(true)}
+                            // onMouseLeave={() => setIsHover(false)}
+                            onClick={() => {
+                                setIsHover(!isHover);
+                            }}
+                        >
+                            <p className=" py-1 text-[#FFCE2E] bg-[#1E2E40] rounded-full font-medium px-7 sm:px-11">
                                 Register Now
-                            </button>
+                            </p>
                             <div
                                 className={
                                     isHover
-                                        ? "bg-[#FFCE2E] px-5 rounded-xl py-2 absolute z-20 -bottom-28 md:-bottom-16"
+                                        ? "bg-[#FFCE2E] sm:px-5 rounded-xl py-2 absolute z-20 -bottom-14 sm:-bottom-16"
                                         : "hidden"
                                 }
                             >
-                                <p className="text-center text-xs">
-                                    NATIONAL SEMINAR
-                                </p>
-                                <p className="text-center text-xs">
-                                    DIPONEGORO BUSINESS
-                                    <br />
-                                    CASE COMPETITION
-                                </p>
+                                <Link href={route("national-seminar")}>
+                                    <p className="text-center text-xs px-3">
+                                        NATIONAL SEMINAR
+                                    </p>
+                                </Link>
+                                <Link href={route("dbcc")}>
+                                    <p className="text-center text-xs px-2">
+                                        {" "}
+                                        DIPONEGORO BUSINESS
+                                        <br />
+                                        CASE COMPETITION
+                                    </p>
+                                </Link>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
