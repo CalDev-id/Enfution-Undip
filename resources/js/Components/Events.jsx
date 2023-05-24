@@ -103,7 +103,7 @@ const Events = ({hrefDbcc}) => {
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
                                 <img
                                     className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
-                                    src="images/timelineUtama.svg"
+                                    src="images/timelineDBCC99.svg"
                                     alt=""
                                 />
                             </div>
@@ -143,7 +143,7 @@ const Events = ({hrefDbcc}) => {
                         <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
                             <img
                                 className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
-                                src="images/timelineUtama.svg"
+                                src="images/timelineCS.svg"
                                 alt=""
                             />
                         </div>
@@ -168,7 +168,7 @@ const Events = ({hrefDbcc}) => {
                                     </div>
                                 </Link>
                                 <Link href="/">
-                                    <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                    <div className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] bg-opacity-50 text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                         <p>Normal Registration</p>
                                         <p>Rp. xxx</p>
                                     </div>
@@ -182,8 +182,8 @@ const Events = ({hrefDbcc}) => {
                         </div>
                         <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
                             <img
-                                className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
-                                src="images/timelineUtama.svg"
+                                className="w-full sm:w-[700px] flex justify-center mx-auto"
+                                src="images/timelineCC.svg"
                                 alt=""
                             />
                         </div>

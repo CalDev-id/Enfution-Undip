@@ -1,3 +1,5 @@
+import TimeLine from "./TimeLine";
+
 const EventsHome = () => {
     return (
         <>
@@ -108,13 +110,15 @@ const EventsHome = () => {
 
                         <img src="images/line.svg" className="" alt="" />
                     </div>
-                    <div className="container bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-10">
+                    <div className="container bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] pb-10">
                         <img
-                            className="container w-full sm:w-[1200px] flex justify-center mx-auto"
+                            className="container w-[1000px] sm:w-[1200px] flex justify-center mx-auto"
                             src="images/timelineSemnasHome.svg"
                             alt=""
                         />
+                        {/* <TimeLine/> */}
                     </div>
+                    
                 </div>
             </div>
             <img src="images/eventBtm.png" alt="" />
