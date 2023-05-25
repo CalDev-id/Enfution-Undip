@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "@inertiajs/react";
+import TimeLine from "./TimeLine";
 
-const Events = ({hrefDbcc}) => {
+const Events = ({ hrefDbcc }) => {
     const [selectedIndex, setSelectedIndex] = useState(1);
 
     const dbccAtas =
@@ -75,7 +76,7 @@ const Events = ({hrefDbcc}) => {
                                 <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     DBCC
                                 </h1>
-                                <p className="mb-5 font-medium xl:mx-60 text-center">
+                                <p className="mb-5 font-medium xl:max-w-2xl text-center flex mx-auto">
                                     {dbccAtas}
                                 </p>
                                 <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
@@ -101,93 +102,94 @@ const Events = ({hrefDbcc}) => {
                                 />
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
-                                <img
+                                {/* <img
                                     className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
                                     src="images/timelineDBCC99.svg"
                                     alt=""
-                                />
+                                /> */}
+                                <TimeLine />
                             </div>
                         </div>
                     )}
                     {selectedIndex == 2 && (
                         <div className="py-10">
-                        <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
-                            <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
-                                Coaching Session
-                            </h1>
-                            <p className="mb-5 font-medium xl:mx-60 text-center">
-                                {sessionAtas}
-                            </p>
-                            <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
-                            <p className="text-center">{sessionBawah}</p>
-                            <div className="flex justify-center my-20 flex-wrap">
-                                <Link href="/registration-coaching-session">
-                                    <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
-                                        <p>Early Bird</p>
-                                        <p>Rp. xxx</p>
-                                    </div>
-                                </Link>
-                                <Link href="/">
-                                    <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
-                                        <p>Normal Registration</p>
-                                        <p>Rp. xxx</p>
-                                    </div>
-                                </Link>
+                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                                <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
+                                    Coaching Session
+                                </h1>
+                                <p className="mb-5 font-medium xl:mx-60 text-center">
+                                    {sessionAtas}
+                                </p>
+                                <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
+                                <p className="text-center">{sessionBawah}</p>
+                                <div className="flex justify-center my-20 flex-wrap">
+                                    <Link href="/registration-coaching-session">
+                                        <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                            <p>Early Bird</p>
+                                            <p>Rp. xxx</p>
+                                        </div>
+                                    </Link>
+                                    <Link href="/">
+                                        <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                            <p>Normal Registration</p>
+                                            <p>Rp. xxx</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <img
+                                    src="images/line.svg"
+                                    className=""
+                                    alt=""
+                                />
                             </div>
-                            <img
-                                src="images/line.svg"
-                                className=""
-                                alt=""
-                            />
+                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
+                                <img
+                                    className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
+                                    src="images/timelineCS.svg"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                        <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
-                            <img
-                                className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
-                                src="images/timelineCS.svg"
-                                alt=""
-                            />
-                        </div>
-                    </div>
                     )}
                     {selectedIndex == 3 && (
                         <div className="py-10">
-                        <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
-                            <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
-                                Coaching Clinic
-                            </h1>
-                            <p className="mb-5 font-medium xl:mx-60 text-center">
-                                {clinicAtas}
-                            </p>
-                            <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
-                            <p className="text-center">{clinicBawah}</p>
-                            <div className="flex justify-center my-20 flex-wrap">
-                                <Link href="/registration-coaching-clinic">
-                                    <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
-                                        <p>Early Bird</p>
-                                        <p>Rp. xxx</p>
-                                    </div>
-                                </Link>
-                                <Link href="/">
-                                    <div className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] bg-opacity-50 text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
-                                        <p>Normal Registration</p>
-                                        <p>Rp. xxx</p>
-                                    </div>
-                                </Link>
+                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                                <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
+                                    Coaching Clinic
+                                </h1>
+                                <p className="mb-5 font-medium xl:mx-60 text-center">
+                                    {clinicAtas}
+                                </p>
+                                <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
+                                <p className="text-center">{clinicBawah}</p>
+                                <div className="flex justify-center my-20 flex-wrap">
+                                    <Link href="/registration-coaching-clinic">
+                                        <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                            <p>Early Bird</p>
+                                            <p>Rp. xxx</p>
+                                        </div>
+                                    </Link>
+                                    <Link href="/">
+                                        <div className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] bg-opacity-50 text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                            <p>Normal Registration</p>
+                                            <p>Rp. xxx</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <img
+                                    src="images/line.svg"
+                                    className=""
+                                    alt=""
+                                />
                             </div>
-                            <img
-                                src="images/line.svg"
-                                className=""
-                                alt=""
-                            />
+                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
+                                <img
+                                    className="w-full sm:w-[700px] flex justify-center mx-auto"
+                                    src="images/timelineCC.svg"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                        <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
-                            <img
-                                className="w-full sm:w-[700px] flex justify-center mx-auto"
-                                src="images/timelineCC.svg"
-                                alt=""
-                            />
-                        </div>
-                    </div>
                     )}
                 </div>
             </div>
