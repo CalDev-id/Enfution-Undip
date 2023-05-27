@@ -175,7 +175,7 @@ const Guests = () => {
                             Youtuber & Actor
                         </p>
                     </div>
-                    <div className="min-w-[155px] md:w-48 flex-col justify-center md:mx-auto pt-1 mr-2">
+                    <div className="min-w-[180px] md:w-48 flex-col justify-center md:mx-auto pt-1 mr-2">
                         <img
                             className="flex justify-center mx-auto transform translate-y-[35px] md:h-48"
                             src={`images/speaker/ge.svg`}
@@ -201,7 +201,7 @@ const Guests = () => {
                             CMO of Ayoblajar
                         </p>
                     </div>
-                    <div className="min-w-[155px] flex-col justify-center md:mx-auto pt-1 mr-2 md:w-48">
+                    <div className="min-w-[175px] flex-col justify-center md:mx-auto pt-1 mr-2 md:w-48">
                         <img
                             className="flex justify-center mx-auto transform translate-y-[35px] md:h-48"
                             src={`images/speaker/sadad.svg`}

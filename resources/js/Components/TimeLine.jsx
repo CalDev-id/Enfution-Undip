@@ -1,105 +1,87 @@
-$(".step").click(function () {
-    $(this).addClass("active").prevAll().addClass("active");
-    $(this).nextAll().removeClass("active");
-});
-
-$(".step01").click(function () {
-    $("#line-progress").css("width", "3%");
-    $(".discovery").addClass("active").siblings().removeClass("active");
-});
-
-$(".step02").click(function () {
-    $("#line-progress").css("width", "33%");
-    $(".strategy").addClass("active").siblings().removeClass("active");
-});
-
-$(".step03").click(function () {
-    $("#line-progress").css("width", "66%");
-    $(".creative").addClass("active").siblings().removeClass("active");
-});
-
-$(".step04").click(function () {
-    $("#line-progress").css("width", "100%");
-    $(".production").addClass("active").siblings().removeClass("active");
-});
-
-$(".step05").click(function () {
-    $("#line-progress").css("width", "100%");
-    $(".analysis").addClass("active").siblings().removeClass("active");
-});
+import { useState } from "react";
 
 const TimeLine = () => {
+    const [active, setActive] = useState(1);
+
     return (
         <>
             <h1 className="text-[#FFF9EE] text-center font-bold">TIMELINE</h1>
             <div className="process-wrapper">
                 <div id="progress-bar-container">
                     <ul className="flex justify-between">
-                        <li className="step step01 active">
+                        <li
+                            className={active == 1 ? "step step01 active" : "step step01"}
+                            onClick={() => {
+                                setActive(1);
+                            }}
+                        >
                             <div className="step-inner">July</div>
                         </li>
-                        <li className="step step02">
+                        <li
+                            className={active == 2 ? "step step02 active" : "step step02"}
+                            onClick={() => {
+                                setActive(2);
+                            }}
+                        >
                             <div className="step-inner">August</div>
                         </li>
-                        <li className="step step03">
+                        <li
+                            className={active == 3 ? "step step03 active" : "step step03"}
+                            onClick={() => {
+                                setActive(3);
+                            }}
+                        >
                             <div className="step-inner">September</div>
                         </li>
-                        <li className="step step04">
+                        <li
+                            className={active == 4 ? "step step04 active" : "step step04"}
+                            onClick={() => {
+                                setActive(4);
+                            }}
+                        >
                             <div className="step-inner">October</div>
                         </li>
                     </ul>
 
                     <div id="line">
-                        <div id="line-progress"></div>
+                        <div id="line-progress" className={active == 1 ? "w-[3%]" : active == 2 ? "w-[33%]" : active == 3 ? "w-[66%]": "w-[100%]"}></div>
                     </div>
                 </div>
 
                 <div id="progress-content-section">
-                    <div className="section-content discovery active">
-                        <h2>APRIL</h2>
-                        <p>16th - 21th July | Early Birth</p>
-                        <p>24th July - 15th August | Normal Registration</p>
-                    </div>
-
-                    <div className="section-content strategy">
-                        <h2>AUGUST</h2>
-                        <p>24th July - 15th August | Normal Registration</p>
-                        <p>19th August | Grand Opening</p>
-                        <p>20th August | Case Distribution</p>
-                        <p>31st August | Case Submission</p>
-                    </div>
-
-                    <div className="section-content creative">
-                        <h2>JUNI</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Donec neque justo, consequat non fermentum ac,
-                            tempor eu turpis. Proin nulla eros, placerat non
-                            ipsum ut, dapibus ullamcorper ex. Nulla in dapibus
-                            lorem. Suspendisse vitae velit ac ante consequat
-                            placerat ut sed eros. Nullam porttitor mattis mi, id
-                            fringilla ex consequat eu. Praesent pulvinar
-                            tincidunt leo et condimentum. Maecenas volutpat
-                            turpis at felis egestas malesuada. Phasellus sem
-                            odio, venenatis at ex a, lacinia suscipit orci.
-                        </p>
-                    </div>
-
-                    <div className="section-content production">
-                        <h2>JULI</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Donec neque justo, consequat non fermentum ac,
-                            tempor eu turpis. Proin nulla eros, placerat non
-                            ipsum ut, dapibus ullamcorper ex. Nulla in dapibus
-                            lorem. Suspendisse vitae velit ac ante consequat
-                            placerat ut sed eros. Nullam porttitor mattis mi, id
-                            fringilla ex consequat eu. Praesent pulvinar
-                            tincidunt leo et condimentum. Maecenas volutpat
-                            turpis at felis egestas malesuada. Phasellus sem
-                            odio, venenatis at ex a, lacinia suscipit orci.
-                        </p>
-                    </div>
+                    {active == 1 && (
+                        <div className="section-content discovery active">
+                            <h2 className="mb-2 font-semibold">July</h2>
+                            <p> <span className="text-[#EB9928]"> Early Bird : </span>16th - 21th July</p>
+                            <p><span className="text-[#EB9928]">Normal Registration :</span> 24th July - 15th August</p>
+                        </div>
+                    )}
+                    {active == 2 && (
+                        <div className="section-content strategy active">
+                            <h2 className="mb-2 font-semibold">AUGUST</h2>
+                            <p><span className="text-[#EB9928]">Normal Registration :</span> 24th July - 15th August</p>
+                            <p><span className="text-[#EB9928]">Grand Opening :</span> 19th August</p>
+                            <p><span className="text-[#EB9928]">Case Distribution :</span> 20th August</p>
+                            <p><span className="text-[#EB9928]">Case Submission :</span> 31st August</p>
+                        </div>
+                    )}
+                    {active == 3 && (
+                        <div className="section-content creative active">
+                            <h2 className="mb-2 font-semibold">SEPTEMBER</h2>
+                            <p> <span className="text-[#EB9928]">Announcement (top 20) : </span>16th September</p>
+                            <p><span className="text-[#EB9928]">Semifinal Paper Submission :</span> 23rd September</p>
+                        </div>
+                    )}
+                    {active == 4 && (
+                        <div className="section-content production active">
+                            <h2 className="mb-2 font-semibold">OCTOBER</h2>
+                            <p> <span className="text-[#EB9928]">Announcement (Top 10) :</span> 5th October</p>
+                            <p><span className="text-[#EB9928]">Live Q&A : </span>7st October</p>
+                            <p><span className="text-[#EB9928]">CT : </span>8th October</p>
+                            <p><span className="text-[#EB9928]">Final Assesment : </span>13st October</p>
+                            <p><span className="text-[#EB9928]">Winner Announcement : </span>15th October</p>
+                        </div>
+                    )}
 
                     <div className="section-content analysis">
                         <h2>AGUSTUS</h2>
@@ -231,7 +213,7 @@ const TimeLine = () => {
 
                     #progress-bar-container #line-progress {
                         content: " ";
-                        width: 3%;
+
                         height: 100%;
                         background: #207893;
                         background: linear-gradient(
@@ -253,7 +235,7 @@ const TimeLine = () => {
                     }
 
                     #progress-content-section .section-content {
-                        padding: 30px 40px;
+                        padding: 30px 10px;
                         text-align: center;
                     }
 
@@ -295,8 +277,6 @@ const TimeLine = () => {
                     }
                 `}
             </style>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         </>
     );
 };

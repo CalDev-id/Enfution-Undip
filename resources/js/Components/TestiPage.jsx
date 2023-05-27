@@ -20,7 +20,7 @@ const TestiPage = () => {
 
     return (
         <div>
-            <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl xl:mt-20 2xl:mt-36">
+            <h1 className="pt-10 font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl xl:mt-20 2xl:mt-36">
                 Testimonials
             </h1>
             <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>

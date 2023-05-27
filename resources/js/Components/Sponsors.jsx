@@ -5,7 +5,7 @@ const Sponsors = () => {
                 <img
                     src="images/speaker/masaru.svg"
                     alt=""
-                    className="w-60 mr-10 flex mx-auto sm:mx-0 sm:block mb-5 sm:mb-0"
+                    className="w-60 mr-10 flex mx-auto sm:mx-0 sm:block mb-5 sm:mb-0 sm:mr-20"
                 />
                 <div className="self-center">
                     <p className="md:max-w-lg font-black text-xl mb-3">
@@ -38,13 +38,13 @@ const Sponsors = () => {
                             Sponsored By
                         </p>
                     </div>
-                    <div className="flex justify-between">
-                        <div className="w-full mr-1 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-60 flex justify-center">
+                    <div className="flex justify-between flex-col sm:flex-row">
+                        <div className="w-full sm:mr-1 mb-3 sm:mb-0 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-60 flex justify-center">
                             <p className="text-[#EB9928] font-bold text-2xl text-center my-5">
                                 Media Partner
                             </p>
                         </div>
-                        <div className="w-full ml-2 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-60 flex justify-center">
+                        <div className="w-full sm:ml-2 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-60 flex justify-center">
                             <p className="text-[#EB9928] font-bold text-2xl text-center my-5">
                                 Community Partner
                             </p>
