@@ -72,7 +72,7 @@ const Events = ({ hrefDbcc }) => {
                 <div className="md:container">
                     {selectedIndex == 1 && (
                         <div className="py-10">
-                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                            <div className="bg-[#FFF9EE] rounded-[50px] px-4 sm:px-0 rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
                                 <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     DBCC
                                 </h1>
@@ -113,11 +113,11 @@ const Events = ({ hrefDbcc }) => {
                     )}
                     {selectedIndex == 2 && (
                         <div className="py-10">
-                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                            <div className="bg-[#FFF9EE] px-4 sm:px-0 rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
                                 <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     Coaching Session
                                 </h1>
-                                <p className="mb-5 font-medium xl:mx-60 text-center">
+                                <p className="mb-5 font-medium max-w-2xl flex mx-auto text-center">
                                     {sessionAtas}
                                 </p>
                                 <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
@@ -153,11 +153,11 @@ const Events = ({ hrefDbcc }) => {
                     )}
                     {selectedIndex == 3 && (
                         <div className="py-10">
-                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                            <div className="bg-[#FFF9EE]  px-4 sm:px-0 rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
                                 <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     Coaching Clinic
                                 </h1>
-                                <p className="mb-5 font-medium xl:mx-60 text-center">
+                                <p className="mb-5 font-medium max-w-3xl flex mx-auto text-center">
                                     {clinicAtas}
                                 </p>
                                 <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>

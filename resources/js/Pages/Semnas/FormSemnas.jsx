@@ -43,7 +43,7 @@ const FormSemnas = () => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
 
@@ -55,7 +55,7 @@ const FormSemnas = () => {
                             <input
                                 type="text"
                                 placeholder="Faculty/Department/Batch"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
 
@@ -77,7 +77,7 @@ const FormSemnas = () => {
                                     <input
                                         type="radio"
                                         name="radio-1"
-                                        className="checkbox mr-3 outline-1 outline-[#1E2E40]"
+                                        className="checkbox mr-3 outline-1 outline-[#1E2E40] focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     />
                                     <p className="">Female</p>
                                 </div>
@@ -91,7 +91,7 @@ const FormSemnas = () => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
                     </div>
@@ -105,7 +105,7 @@ const FormSemnas = () => {
                             <input
                                 type="text"
                                 placeholder="Place, DD/MM/YYYY"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
 
@@ -116,7 +116,7 @@ const FormSemnas = () => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
 
@@ -124,11 +124,22 @@ const FormSemnas = () => {
                             <p className="font-semibold">
                                 Status<span className="text-[#EB9928]">*</span>{" "}
                             </p>
-                            <input
+                            {/* <input
                                 type="text"
-                                placeholder="Undergraduate/Student/Non-Student"
+                                placeholder="//"
                                 className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                            />
+                            /> */}
+                            <div className="relative">
+                                <select
+                                    name="car_type"
+                                    className="focus:border-[#EB9928] focus:ring-[#EB9928] w-full appearance-none rounded-lg border-[1.5px] border-[#1E2E40] bg-transparent py-3 px-5 font-medium text-body-color outline-none transition active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                >
+                                    <option value="Sedan">Undergraduate</option>
+                                    <option value="Suv">Student</option>
+                                    <option value="Box">Non-Student</option>
+                                </select>
+                                <span className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color"></span>
+                            </div>
                         </div>
 
 
@@ -139,7 +150,7 @@ const FormSemnas = () => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
                         <div className="mb-5 md:mx-10">
@@ -150,7 +161,7 @@ const FormSemnas = () => {
                             <input
                                 
                                 type="email"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
                         <div className="mb-5 md:mx-10">
@@ -161,7 +172,7 @@ const FormSemnas = () => {
                             <input
                                 type="text"
                                 placeholder="if any"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
                     </div>
@@ -176,7 +187,7 @@ const FormSemnas = () => {
                     <div className="grid md:grid-cols-2 md:mr-40 md:ml-10">
                         <input
                             type="file"
-                            className="file-input file-input-bordered w-full"
+                            className="file-input file-input-bordered w-full focus:border-[#EB9928] focus:ring-[#EB9928]"
                         />
                     </div>
 

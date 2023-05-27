@@ -29,5 +29,5 @@ module.exports = {
         themes: false,
     },
 
-    plugins: [require('@tailwindcss/forms'), require("daisyui")],
+    plugins: [require('@tailwindcss/forms'), require("daisyui"), require("tailgrids/plugin")],
 };

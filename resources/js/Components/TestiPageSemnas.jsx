@@ -15,7 +15,7 @@ const TestiPage = () => {
     const TestiDua =
         "Seminar Nasional Enfution yang diselenggarakan oleh FEB UNDIP pada 2022 lalu sangatlah bermanfaat dan insightful terutama untuk menumbuhkan 'growth mindset' bagi generasi muda. Selain itu, mampu mengajak kita untuk lebih peka dalam mempersiapkan diri dalam menghadapi perkembangan zaman yang beriringan dengan adanya kecanggihan teknologi. Melalui event ini, mampu mendukung dalam membentuk ekosistem anak muda yang semakin peduli akan pengembangan diri terutama terkait 'mindset' dan 'agility skills'. Sukses untuk event berikutnya ya! Mari bersama memajukan anak muda Bangsa!";
     return (
-        <div className="mb-20">
+        <div className="mb-20 mt-10">
             <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl xl:mt-20 2xl:mt-36">
                 Testimonials
             </h1>

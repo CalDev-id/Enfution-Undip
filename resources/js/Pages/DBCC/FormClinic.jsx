@@ -42,7 +42,7 @@ const FormClinic = () => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
                         <div className="mb-5 md:mx-10">
@@ -52,7 +52,7 @@ const FormClinic = () => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
                         <div className="mb-5 md:mx-10">
@@ -61,7 +61,7 @@ const FormClinic = () => {
                             </p>
                             <input
                                 type="email"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
 
@@ -72,7 +72,7 @@ const FormClinic = () => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
                     </div>
@@ -85,7 +85,7 @@ const FormClinic = () => {
                             <input
                                 type="text"
                                 placeholder="Place, DD/MM/YYYY"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
 
@@ -97,7 +97,7 @@ const FormClinic = () => {
                             <input
                                 type="text"
                                 placeholder="Faculty/Department/Batch"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
                         <div className="md:mx-10 mb-5">
@@ -131,7 +131,7 @@ const FormClinic = () => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>
                     </div>

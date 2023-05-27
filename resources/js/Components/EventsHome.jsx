@@ -54,7 +54,7 @@ const EventsHome = () => {
                     </div>
                     <div className="container bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-10 mb-20">
                         <img
-                            className="container w-full sm:w-[1200px] flex justify-center mx-auto"
+                            className="container w-full sm:w-[1100px] flex justify-center mx-auto"
                             src="images/timelineDBCC.svg"
                             alt=""
                         />
@@ -112,7 +112,7 @@ const EventsHome = () => {
                     </div>
                     <div className="container bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] pb-10">
                         <img
-                            className="container w-[1000px] sm:w-[1200px] flex justify-center mx-auto"
+                            className="container w-full sm:w-[1100px] flex justify-center mx-auto pt-10"
                             src="images/timelineSemnasHome.svg"
                             alt=""
                         />
