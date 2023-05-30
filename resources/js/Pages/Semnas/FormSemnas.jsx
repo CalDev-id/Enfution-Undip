@@ -54,7 +54,7 @@ const FormSemnas = () => {
                             </p>
                             <input
                                 type="text"
-                                placeholder="Faculty/Department/Batch"
+                                placeholder="*ex Economi/Management/2021"
                                 className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                             />
                         </div>

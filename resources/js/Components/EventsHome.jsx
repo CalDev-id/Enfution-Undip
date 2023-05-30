@@ -28,7 +28,7 @@ const EventsHome = () => {
                                     ideas relevant to the company’s business
                                     conditions and the theme we have determined.
                                 </p>
-                                <div className="flex mb-3">
+                                <div className="flex mb-3 flex-wrap">
                                     <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mr-3">
                                         Coacing Session
                                     </p>
@@ -86,7 +86,7 @@ const EventsHome = () => {
                                     this dynamic era. Thus, they can contribute,
                                     lead change and development in Indonesia.
                                 </p>
-                                <div className="flex mb-3">
+                                <div className="flex mb-3 flex-wrap">
                                     <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mr-3">
                                         Early Talk 1
                                     </p>

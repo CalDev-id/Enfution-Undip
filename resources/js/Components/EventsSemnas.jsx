@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "@inertiajs/react";
+import TimeLine from "./TimeLine";
 
 const EventsSemnas = () => {
     const [selectedIndex, setSelectedIndex] = useState(1);
@@ -200,10 +201,13 @@ const EventsSemnas = () => {
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
                                 <img
-                                    className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
+                                    className="hidden container w-96 sm:w-[1200px] sm:flex justify-center mx-auto"
                                     src="images/timelineUtama.svg"
                                     alt=""
                                 />
+                                <div className="sm:hidden">
+                                    <TimeLine name={"semnas"} />
+                                </div>
                             </div>
                         </div>
                     )}
@@ -298,10 +302,13 @@ const EventsSemnas = () => {
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
                                 <img
-                                    className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
+                                    className="hidden container w-96 sm:w-[1200px] sm:flex justify-center mx-auto"
                                     src="images/timelineUtama.svg"
                                     alt=""
                                 />
+                                <div className="sm:hidden">
+                                    <TimeLine name={"et1"} />
+                                </div>
                             </div>
                         </div>
                     )}
@@ -392,10 +399,13 @@ const EventsSemnas = () => {
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
                                 <img
-                                    className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
+                                    className="hidden container w-96 sm:w-[1200px] sm:flex justify-center mx-auto"
                                     src="images/timelineUtama.svg"
                                     alt=""
                                 />
+                                <div className="sm:hidden">
+                                    <TimeLine name={"et2"} />
+                                </div>
                             </div>
                         </div>
                     )}
