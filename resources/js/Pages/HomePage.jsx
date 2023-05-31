@@ -32,7 +32,7 @@ const HomePage = () => {
                 <div
                     className={
                         modalOpen
-                            ? "fixed z-50 top-0 left-0 flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-90 px-4 py-5"
+                            ? "fixed z-50 top-0 left-0 flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-[75%] px-4 py-5"
                             : "hidden"
                     }
                 >
