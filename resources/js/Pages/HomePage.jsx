@@ -38,11 +38,19 @@ const HomePage = () => {
                 >
                     <div
                         // onClick={()=>{setModalOpen = false}}
-                        className="w-full h-full max-w-lg max-h-96 xl:max-w-[984px] xl:max-h-[561px] bg-cover bg-center bg-no-repeat py-16 md:py-20 rounded-3xl xl:rounded-none px-4 sm:px-8 text-center"
+                        className="w-full h-full sm:scale-75 max-w-lg max-h-96 xl:max-w-[984px] xl:max-h-[561px] bg-cover bg-center bg-no-repeat py-16 md:py-20 rounded-3xl xl:rounded-none px-4 sm:px-8 text-center"
                         style={{
                             backgroundImage: `url("images/subscribe.svg")`,
                         }}
                     >
+                        <img
+                            src="images/btnClose.svg"
+                            alt=""
+                            onClick={() => {
+                                setModalOpen(false);
+                            }}
+                            className="absolute right-32 top-16 cursor-pointer"
+                        />
                         <h3 className="pb-2 text-2xl font-bold text-dark sm:text-5xl">
                             Keep up with us
                         </h3>

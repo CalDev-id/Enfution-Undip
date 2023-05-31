@@ -13,7 +13,7 @@ const EventsHome = () => {
                             className="self-center w-60 sm:hidden flex justify-center mx-auto pt-20 mb-10"
                         />
                         <div className="flex md:px-20 justify-evenly sm:py-24 pb-24">
-                            <div className="self-center md:max-w-4xl">
+                            <div className="self-center md:max-w-3xl">
                                 <h1 className="font-semibold text-2xl mb-3">
                                     DBCC
                                 </h1>
@@ -68,7 +68,7 @@ const EventsHome = () => {
                             className="self-center w-60 sm:hidden flex justify-center mx-auto pt-20 mb-10"
                         />
                         <div className="flex md:px-20 justify-evenly sm:py-24 pb-24">
-                            <div className="self-center md:max-w-4xl">
+                            <div className="self-center md:max-w-2xl">
                                 <h1 className="font-semibold text-2xl mb-3">
                                     National Seminar
                                 </h1>
@@ -118,7 +118,6 @@ const EventsHome = () => {
                         />
                         {/* <TimeLine/> */}
                     </div>
-                    
                 </div>
             </div>
             <img src="images/eventBtm.png" alt="" />

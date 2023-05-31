@@ -81,10 +81,10 @@ const Events = ({ hrefDbcc }) => {
                                 </p>
                                 <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                                 <p className="text-center">{dbccBawah}</p>
-                                <h1 className="font-semibold pt-10 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl">
+                                <h1 className="font-semibold py-10 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl">
                                     Register Below
                                 </h1>
-                                <div className="flex justify-center my-10 flex-wrap">
+                                <div className="flex justify-center mb-20 flex-wrap">
                                     <Link href="/registration-dbcc">
                                         <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] hover:shadow-xl text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
@@ -122,20 +122,23 @@ const Events = ({ hrefDbcc }) => {
                                 <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     Coaching Session
                                 </h1>
-                                <p className="mb-5 font-medium max-w-2xl flex mx-auto text-center">
+                                <p className="mb-5 font-medium max-w-3xl flex mx-auto text-center">
                                     {sessionAtas}
                                 </p>
                                 <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                                 <p className="text-center">{sessionBawah}</p>
-                                <div className="flex justify-center my-20 flex-wrap">
+                                <h1 className="font-semibold py-10 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl">
+                                    Register Below
+                                </h1>
+                                <div className="flex justify-center mb-20 flex-wrap">
                                     <Link href="/registration-coaching-session">
-                                        <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E]  text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E]  text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
                                             <p>Rp. xxx</p>
                                         </div>
                                     </Link>
                                     <Link href="/">
-                                        <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Normal Registration</p>
                                             <p>Rp. xxx</p>
                                         </div>
@@ -148,12 +151,12 @@ const Events = ({ hrefDbcc }) => {
                                 />
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
-                                <img
+                                {/* <img
                                     className="hidden container w-96 sm:w-[1200px] sm:flex justify-center mx-auto"
                                     src="images/timelineCS.svg"
                                     alt=""
-                                />
-                                <div className="sm:hidden">
+                                /> */}
+                                <div className="">
                                     <TimeLine name={"cs"} />
                                 </div>
                             </div>
@@ -165,20 +168,23 @@ const Events = ({ hrefDbcc }) => {
                                 <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     Coaching Clinic
                                 </h1>
-                                <p className="mb-5 font-medium max-w-3xl flex mx-auto text-center">
+                                <p className="mb-5 font-medium max-w-4xl flex mx-auto text-center">
                                     {clinicAtas}
                                 </p>
                                 <div className="mb-5 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
                                 <p className="text-center">{clinicBawah}</p>
-                                <div className="flex justify-center my-20 flex-wrap">
+                                <h1 className="font-semibold py-10 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl">
+                                    Register Below
+                                </h1>
+                                <div className="flex justify-center mb-20 flex-wrap">
                                     <Link href="/registration-coaching-clinic">
-                                        <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
                                             <p>Rp. xxx</p>
                                         </div>
                                     </Link>
                                     <Link href="/">
-                                        <div className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] bg-opacity-50 text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] bg-opacity-50 text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Normal Registration</p>
                                             <p>Rp. xxx</p>
                                         </div>
@@ -191,13 +197,13 @@ const Events = ({ hrefDbcc }) => {
                                 />
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
-                                <img
+                                {/* <img
                                     className="hidden w-full sm:w-[700px] sm:flex justify-center mx-auto"
                                     src="images/timelineCC.svg"
                                     alt=""
-                                />
-                                <div className="sm:hidden">
-                                    <TimeLine name={"cc"}/>
+                                /> */}
+                                <div className="">
+                                    <TimeLine name={"cc"} />
                                 </div>
                             </div>
                         </div>

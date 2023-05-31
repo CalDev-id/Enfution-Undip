@@ -95,74 +95,78 @@ const PaymentConfirmation = ({ harga }) => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 mt-10">
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold text-center text-lg">
-                            Team Name{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                            />
-                        </div>
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold text-center text-lg">
-                            Bank Name{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                            />
-                        </div>
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold text-center text-lg">
-                            Account Name<span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="email"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                            />
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold text-center text-lg">
-                            Account Number{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                            />
-                        </div>
+                    <div className="md:mx-10 mb-5">
+                        <p className="font-semibold text-center text-lg">
+                            Name / Team Name{" "}
+                            <span className="text-[#EB9928]">*</span>{" "}
+                        </p>
+                        <input
+                            type="text"
+                            className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                        />
+                    </div>
+                    <div className="mb-5 md:mx-10">
+                        <p className="font-semibold text-center text-lg">
+                            Bank Name <span className="text-[#EB9928]">*</span>{" "}
+                        </p>
+                        <input
+                            type="text"
+                            className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                        />
+                    </div>
+                    <div className="mb-5 md:mx-10">
+                        <p className="font-semibold text-center text-lg">
+                            Account Name
+                            <span className="text-[#EB9928]">*</span>{" "}
+                        </p>
+                        <input
+                            type="email"
+                            className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                        />
                     </div>
 
-                <div className="text-center pt-10">
-                    <p className="font-semibold text-lg">Payment Proof<span className="text-[#EB9928]">*</span></p>
-                    <p className="text-[#EB9928] font-semibold mb-3">Payment Slip</p>
-                    <input
-                            type="file"
-                            className="file-input file-input-bordered sm:w-1/2"
+                    <div className="mb-5 md:mx-10">
+                        <p className="font-semibold text-center text-lg">
+                            Account Number{" "}
+                            <span className="text-[#EB9928]">*</span>{" "}
+                        </p>
+                        <input
+                            type="text"
+                            className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
                         />
+                    </div>
+                </div>
+
+                <div className="text-center pt-10">
+                    <p className="font-semibold text-lg">
+                        Payment Proof<span className="text-[#EB9928]">*</span>
+                    </p>
+                    <p className="text-[#EB9928] font-semibold mb-3">
+                        Payment Slip
+                    </p>
+                    <input
+                        type="file"
+                        className="file-input file-input-bordered sm:w-1/2"
+                    />
                 </div>
 
                 <div className="flex justify-center mt-20">
-                        <Link href="/">
-                            <button className="btn btn-outline w-28 sm:w-48 rounded-none mx-10">
-                                Back
-                            </button>
-                        </Link>
-                        <Link href="/">
-                            <button className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]">
-                                Submit
-                            </button>
-                        </Link>
-                    </div>
                     <Link href="/">
-                        <p className="underline text-center mt-10 font-light">
-                            Return to Homepage
-                        </p>
+                        <button className="btn btn-outline w-28 sm:w-48 rounded-none mx-10">
+                            Back
+                        </button>
                     </Link>
+                    <Link href="/">
+                        <button className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]">
+                            Submit
+                        </button>
+                    </Link>
+                </div>
+                <Link href="/">
+                    <p className="underline text-center mt-10 font-light">
+                        Return to Homepage
+                    </p>
+                </Link>
             </div>
         </div>
     );

@@ -19,7 +19,14 @@ const Hero = ({ active }) => {
                                 />
                                 <div>
                                     <p className="sm:mb-5 self-center font-semibold relative sm:text-6xl text-3xl">
-                                        The <span className="text-[#FFCE2E]">15<span className="text-base absolute top-0 pr-5">th </span> </span>  Enfution
+                                        The{" "}
+                                        <span className="text-[#FFCE2E]">
+                                            15
+                                            <span className="text-base absolute top-0 mr-5">
+                                                th{" "}
+                                            </span>{" "}
+                                        </span>{" "}
+                                        <span className="ml-2"> Enfution</span>
                                     </p>
                                     <p className="font-light text-[#FFF9EE] sm:text-xl text-sm">
                                         Optimizing young generation creativity
