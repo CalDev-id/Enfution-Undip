@@ -63,7 +63,7 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                                 <li>
                                     <Link
-                                        href={route("national-seminar")}
+                                        href={route("national-seminar.main")}
                                         method={method}
                                         className={
                                             active === "national"
@@ -117,7 +117,7 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                                 <li>
                                     <Link
-                                        href={route("national-seminar")}
+                                        href={route("national-seminar.main")}
                                         method={method}
                                         className={
                                             active === "national"
@@ -149,7 +149,7 @@ const Navbar = ({ method = "get", active }) => {
                                         : "hidden"
                                 }
                             >
-                                <Link href={route("national-seminar")}>
+                                <Link href={route("national-seminar.main")}>
                                     <p className="text-center text-xs px-3">
                                         NATIONAL SEMINAR
                                     </p>

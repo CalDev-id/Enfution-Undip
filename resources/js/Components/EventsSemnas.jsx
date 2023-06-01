@@ -160,19 +160,31 @@ const EventsSemnas = () => {
                                     </div>
                                 </div>
                                 <div className="flex justify-center my-20 flex-wrap">
-                                    <Link href="/registration-national-seminar">
+                                    <Link
+                                        href={route(
+                                            "national-seminar.form-semnas"
+                                        )}
+                                    >
                                         <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
                                             <p>Rp. xxx</p>
                                         </div>
                                     </Link>
-                                    <Link href="/">
+                                    <Link
+                                        href={route(
+                                            "national-seminar.form-semnas"
+                                        )}
+                                    >
                                         <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Pre-Sale 1</p>
                                             <p>Rp. xxx</p>
                                         </div>
                                     </Link>
-                                    <Link href="/">
+                                    <Link
+                                        href={route(
+                                            "national-seminar.form-semnas"
+                                        )}
+                                    >
                                         <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Pre-Sale 2</p>
                                             <p>Rp. xxx</p>
@@ -230,8 +242,11 @@ const EventsSemnas = () => {
                                             “Critical thinking is the ability to
                                             think for yourself and to reliably
                                             and responsibly make the decisions
-                                            that affect your life.” <span className="text-[#EB9928]"> - Diane
-                                            Halpern</span>
+                                            that affect your life.”{" "}
+                                            <span className="text-[#EB9928]">
+                                                {" "}
+                                                - Diane Halpern
+                                            </span>
                                         </p>
                                         <p className="mb-3">
                                             The upcoming Early Talk 1 event this
@@ -256,7 +271,12 @@ const EventsSemnas = () => {
                                             critical thinking itself.
                                         </p>
                                         <p className="font-semibold text-xl">
-                                            JUNY <span className="text-[#EB9928]"> 14th</span>, 2023
+                                            JUNY{" "}
+                                            <span className="text-[#EB9928]">
+                                                {" "}
+                                                14th
+                                            </span>
+                                            , 2023
                                         </p>
                                         <Link href="/registration-EarlyTalk1">
                                             <div className="bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
@@ -318,8 +338,10 @@ const EventsSemnas = () => {
                                         <p className="mb-3">xxx</p>
                                         <p className="italic mb-3">
                                             “Leadership is about taking
-                                            responsibility, not making excuses.” <span className="text-[#EB9928]">- Mitt Romney</span>
-                                            
+                                            responsibility, not making excuses.”{" "}
+                                            <span className="text-[#EB9928]">
+                                                - Mitt Romney
+                                            </span>
                                         </p>
                                         <p className="mb-3">
                                             By developing these qualities, we
@@ -343,7 +365,12 @@ const EventsSemnas = () => {
                                             for society as a whole
                                         </p>
                                         <p className="font-semibold text-xl">
-                                            JUNY <span className="text-[#EB9928]"> 14th</span>, 2023
+                                            JUNY{" "}
+                                            <span className="text-[#EB9928]">
+                                                {" "}
+                                                14th
+                                            </span>
+                                            , 2023
                                         </p>
                                         <Link href="/registration-EarlyTalk2">
                                             <div className="bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
