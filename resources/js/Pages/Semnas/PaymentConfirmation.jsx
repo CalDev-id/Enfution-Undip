@@ -31,7 +31,7 @@ const PaymentConfirmation = ({ harga }) => {
                     <div className="border border-black h-28 sm:h-40 w-80 ">
                         <img
                             src="images/bank/bni.svg"
-                            className="w-24 sm:w-28 flex mx-auto pt-10"
+                            className="w-24 sm:w-28 flex mx-auto sm:pt-10 pt-6"
                         />
                         <p className="text-[#EB9928] text-center text-sm sm:text-base">
                         Maya Simorangkir
@@ -91,7 +91,7 @@ const PaymentConfirmation = ({ harga }) => {
                     <p className="text-[#EB9928] font-semibold mb-3">Payment Slip</p>
                     <input
                             type="file"
-                            className="file-input file-input-bordered sm:w-1/2"
+                            className="file-input file-input-bordered sm:w-1/2 w-full"
                         />
                 </div>
 

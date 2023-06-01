@@ -20,7 +20,7 @@ module.exports = {
 
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['futura', ...defaultTheme.fontFamily.sans],
             },
         },
     },

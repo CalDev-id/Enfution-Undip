@@ -26,7 +26,7 @@ const HomePage = () => {
 
             <Sponsors />
 
-            <Footer />
+            <Footer active={"enfu"} />
 
             <section>
                 <div
@@ -38,11 +38,19 @@ const HomePage = () => {
                 >
                     <div
                         // onClick={()=>{setModalOpen = false}}
-                        className="w-full h-full max-w-lg max-h-96 xl:max-w-[984px] xl:max-h-[561px] bg-cover bg-center bg-no-repeat py-16 md:py-20 rounded-3xl xl:rounded-none px-4 sm:px-8 text-center"
+                        className="w-full h-full relative sm:scale-75 xl:scale-90 max-w-lg max-h-96 xl:max-w-[984px] xl:max-h-[561px] bg-cover bg-center bg-no-repeat py-16 md:py-20 rounded-3xl xl:rounded-none px-4 sm:px-8 text-center"
                         style={{
                             backgroundImage: `url("images/subscribe.svg")`,
                         }}
                     >
+                        <img
+                            src="images/btnClose.svg"
+                            alt=""
+                            onClick={() => {
+                                setModalOpen(false);
+                            }}
+                            className="absolute sm:right-32 sm:top-16 cursor-pointer right-8 top-8"
+                        />
                         <h3 className="pb-2 text-2xl font-bold text-dark sm:text-5xl">
                             Keep up with us
                         </h3>
@@ -77,6 +85,14 @@ const HomePage = () => {
                         >
                             maybe next time
                         </button>
+                        <img
+                            src="images/logoEnfu.svg"
+                            alt=""
+                            onClick={() => {
+                                setModalOpen(false);
+                            }}
+                            className="absolute sm:right-32 sm:top-16 cursor-pointer left-5 bottom-5 w-11 sm:hidden"
+                        />
                     </div>
                 </div>
             </section>

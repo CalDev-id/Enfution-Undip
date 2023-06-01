@@ -23,7 +23,7 @@ const DBCCPage = () => {
 
             <TestiPage />
 
-            <Footer />
+            <Footer active={"dbcc"} />
         </section>
 
     );

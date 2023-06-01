@@ -403,6 +403,85 @@ const TimeLine = ({ name }) => {
                                     setActive(1);
                                 }}
                             >
+                                <div className="step-inner">JUNE</div>
+                            </li>
+                            <li
+                                className={
+                                    active == 2
+                                        ? "step step02 active"
+                                        : "step step02"
+                                }
+                                onClick={() => {
+                                    setActive(2);
+                                }}
+                            >
+                                <div className="step-inner">JULY</div>
+                            </li>
+                        </ul>
+
+                        <div id="line">
+                            <div
+                                id="line-progress"
+                                className={
+                                    active == 1
+                                        ? "w-[33%]"
+                                        : active == 2
+                                        ? "w-[100%]"
+                                        : "w-[100%]"
+                                }
+                            ></div>
+                        </div>
+                    </div>
+
+                    <div id="progress-content-section">
+                        {active == 1 && (
+                            <div className="section-content discovery active">
+                                <h2 className="mb-2 font-semibold">JUNE</h2>
+                                <p>
+                                    {" "}
+                                    <span className="text-[#EB9928]">
+                                        {" "}
+                                        Open Registration :{" "}
+                                    </span>
+                                    14th July
+                                </p>
+                            </div>
+                        )}
+                        {active == 2 && (
+                            <div className="section-content strategy active">
+                                <h2 className="mb-2 font-semibold">JULY</h2>
+                                <p>
+                                    <span className="text-[#EB9928]">
+                                        Close Registration :
+                                    </span>{" "}
+                                    9th July
+                                </p>
+                                <p>
+                                    <span className="text-[#EB9928]">
+                                        Early Talk 2 :
+                                    </span>{" "}
+                                    15th July
+                                </p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            {name == "et2" && (
+                <div className="process-wrapper">
+                    <div id="progress-bar-container">
+                        <ul className="flex justify-evenly">
+                            <li
+                                className={
+                                    active == 1
+                                        ? "step step01 active"
+                                        : "step step01"
+                                }
+                                onClick={() => {
+                                    setActive(1);
+                                }}
+                            >
                                 <div className="step-inner">July</div>
                             </li>
                             <li
@@ -415,7 +494,7 @@ const TimeLine = ({ name }) => {
                                     setActive(2);
                                 }}
                             >
-                                <div className="step-inner">October</div>
+                                <div className="step-inner">September</div>
                             </li>
                         </ul>
 
@@ -454,13 +533,13 @@ const TimeLine = ({ name }) => {
                                     <span className="text-[#EB9928]">
                                         Close Registration :
                                     </span>{" "}
-                                    8th October
+                                    10th September
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
-                                        Summit :
+                                        Early Talk 2 :
                                     </span>{" "}
-                                    15th October
+                                    16th September
                                 </p>
                             </div>
                         )}
@@ -597,9 +676,8 @@ const TimeLine = ({ name }) => {
                     #progress-content-section {
                         width: 90%;
                         margin: auto;
-                        border: solid 1px #EB9928;
-                        
-                        border-radius: 4px;
+                        border: solid 1px #eb9928;
+                        border-radius: 25px;
                     }
 
                     #progress-content-section .section-content {
