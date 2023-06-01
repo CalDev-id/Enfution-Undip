@@ -36,7 +36,7 @@ const EventsHome = () => {
                                     <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mr-3">
                                         Coaching Clinic
                                     </p>
-                                    <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic">
+                                    <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mt-2 sm:mt-0">
                                         DBCC
                                     </p>
                                 </div>
@@ -94,7 +94,7 @@ const EventsHome = () => {
                                     <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mr-3">
                                         Early Talk 2
                                     </p>
-                                    <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic">
+                                    <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mt-2 sm:mt-0">
                                         National Seminar
                                     </p>
                                 </div>
