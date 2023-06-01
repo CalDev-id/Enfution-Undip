@@ -5,7 +5,7 @@ const Navbar = ({ method = "get", active }) => {
     const [isHover, setIsHover] = useState(false);
 
     return (
-        <div className="w-full fixed z-50 bg-[#FFF9EE]">
+        <div className="w-full fixed z-[999999999] bg-[#FFF9EE]">
             <div className="md:container">
                 <div className="navbar justify-between">
                     <div className="">
@@ -38,8 +38,8 @@ const Navbar = ({ method = "get", active }) => {
                                         href="/"
                                         className={
                                             active === "home"
-                                                ? "text-[#EB9928] justify-between"
-                                                : "justify-between"
+                                                ? "text-[#EB9928] justify-between active:bg-[#FFCE2E]"
+                                                : "justify-between active:bg-[#FFCE2E]"
                                         }
                                         method={method}
                                         as="button"
@@ -52,8 +52,8 @@ const Navbar = ({ method = "get", active }) => {
                                         href={route("dbcc")}
                                         className={
                                             active === "dbcc"
-                                                ? "text-[#EB9928] justify-between"
-                                                : "justify-between"
+                                                ? "text-[#EB9928] justify-between active:bg-[#FFCE2E]"
+                                                : "justify-between active:bg-[#FFCE2E]"
                                         }
                                         method={method}
                                         as="button"
@@ -67,8 +67,8 @@ const Navbar = ({ method = "get", active }) => {
                                         method={method}
                                         className={
                                             active === "national"
-                                                ? "text-[#EB9928]"
-                                                : ""
+                                                ? "text-[#EB9928] active:bg-[#FFCE2E]"
+                                                : "active:bg-[#FFCE2E]"
                                         }
                                         as="button"
                                     >
@@ -86,14 +86,14 @@ const Navbar = ({ method = "get", active }) => {
                     </div>
                     <div className="">
                         <div className="hidden lg:flex mr-5">
-                            <ul className="menu menu-horizontal px-1 font-semibold">
+                            <ul className="menu menu-horizontal px-1 font-semibold ">
                                 <li>
                                     <Link
                                         href={route("home")}
                                         className={
                                             active === "home"
-                                                ? "text-[#EB9928]"
-                                                : ""
+                                                ? "text-[#EB9928] active:bg-[#FFCE2E]"
+                                                : "active:bg-[#FFCE2E]"
                                         }
                                         method={method}
                                         as="button"
@@ -106,8 +106,8 @@ const Navbar = ({ method = "get", active }) => {
                                         href={route("dbcc")}
                                         className={
                                             active === "dbcc"
-                                                ? "text-[#EB9928]"
-                                                : ""
+                                                ? "text-[#EB9928] active:bg-[#FFCE2E]"
+                                                : "active:bg-[#FFCE2E]"
                                         }
                                         method={method}
                                         as="button"
@@ -121,8 +121,8 @@ const Navbar = ({ method = "get", active }) => {
                                         method={method}
                                         className={
                                             active === "national"
-                                                ? "text-[#EB9928]"
-                                                : ""
+                                                ? "text-[#EB9928] active:bg-[#FFCE2E]"
+                                                : "active:bg-[#FFCE2E]"
                                         }
                                         as="button"
                                     >
@@ -145,7 +145,7 @@ const Navbar = ({ method = "get", active }) => {
                             <div
                                 className={
                                     isHover
-                                        ? "bg-[#FFCE2E] sm:px-5 rounded-xl py-2 absolute z-20 -bottom-14 sm:-bottom-16"
+                                        ? "bg-[#FFCE2E] sm:px-4 rounded-xl py-2 absolute z-20 -bottom-16 sm:-bottom-16"
                                         : "hidden"
                                 }
                             >
@@ -154,6 +154,7 @@ const Navbar = ({ method = "get", active }) => {
                                         NATIONAL SEMINAR
                                     </p>
                                 </Link>
+                                <div className="my-1 flex mx-auto w-10 border-b border-black"></div>
                                 <Link href={route("dbcc")}>
                                     <p className="text-center text-xs px-2">
                                         {" "}

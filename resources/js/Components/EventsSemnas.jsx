@@ -184,13 +184,13 @@ const EventsSemnas = () => {
                                         </div>
                                     </Link>
                                     <Link href="/">
-                                        <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-t mb-5  from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t mb-5  from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Pre-Sale 1</p>
                                             <p>Rp. xxx</p>
                                         </div>
                                     </Link>
                                     <Link href="/">
-                                        <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Pre-Sale 2</p>
                                             <p>Rp. xxx</p>
                                         </div>

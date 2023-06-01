@@ -23,7 +23,7 @@ const NationalSeminar = () => {
             <GallerySemnas />
             
             <TestiPageSemnas />
-            <Footer />
+            <Footer active={"semnas"} />
 
         </section>
     );

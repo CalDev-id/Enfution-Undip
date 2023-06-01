@@ -3,7 +3,7 @@ import { Link } from "@inertiajs/react";
 const PaymentConfirmation = ({ harga }) => {
     return (
         <div className="w-full bg-[#FFF9EE] min-h-screen">
-            <div className="container flex-col flex justify-center mx-auto">
+            <div className="container flex-col flex justify-center mx-auto pb-20">
                 <h1 className="text-center font-semibold text-5xl mb-10 pt-20">
                     Payment Confirmation
                 </h1>
@@ -16,7 +16,7 @@ const PaymentConfirmation = ({ harga }) => {
                 </p>
 
                 <div className="flex justify-center md:px-10 lg:px-20">
-                    <div className="border-l border-t border-b border-black h-28 sm:h-40 w-80 self-center">
+                    <div className="border border-black h-28 sm:h-40 w-80 self-center">
                         <img
                             src="images/bank/gopay.svg"
                             className="w-24 sm:w-28 flex mx-auto pt-7 sm:pt-10"
@@ -34,13 +34,13 @@ const PaymentConfirmation = ({ harga }) => {
                             className="w-10 sm:w-14 flex mx-auto pt-5"
                         />
                         <p className="text-[#EB9928] text-center text-sm sm:text-base">
-                            Nandya Salma
+                            Theo Benaya
                         </p>
                         <p className="text-[#1E2E40] text-center text-sm sm:text-base">
-                            +62-813-9051-3323
+                            +62-813-8801-5849
                         </p>
                     </div>
-                    <div className="border-r border-t border-b border-black h-40 w-80 hidden md:block pt-10">
+                    <div className="border border-black h-40 w-80 pt-10 hidden sm:block">
                         <img
                             src="images/bank/ovo.svg"
                             className="sm:w-28 w-24 flex mx-auto"
@@ -54,7 +54,7 @@ const PaymentConfirmation = ({ harga }) => {
                     </div>
                 </div>
                 <div className="flex justify-center md:px-10 lg:px-20">
-                    <div className="border-l border-t border-b border-black h-28 sm:h-40 w-80 self-center">
+                    <div className="border border-black h-28 sm:h-40 w-80 self-center">
                         <img
                             src="images/bank/dana.svg"
                             className="w-24 sm:w-28 flex mx-auto pt-7 sm:pt-10"
@@ -63,27 +63,51 @@ const PaymentConfirmation = ({ harga }) => {
                             Nandya Salma
                         </p>
                         <p className="text-[#1E2E40] text-center text-sm sm:text-base">
-                            +62-813-9051-3323
+                            +62-812-2757-9209
                         </p>
                     </div>
                     <div className="border border-black h-28 sm:h-40 w-80 ">
                         <img
                             src="images/bank/paypal.svg"
-                            className="w-24 sm:w-28 flex mx-auto pt-5"
+                            className="w-24 sm:w-28 flex mx-auto pt-7"
                         />
                         <p className="text-[#EB9928] text-center text-sm sm:text-base">
-                            Nandya Salma
+                            @TheoBenaya
                         </p>
                         <p className="text-[#1E2E40] text-center text-sm sm:text-base">
-                            +62-813-9051-3323
+                            +62-813-8801-5849
+                        </p>
+                    </div>
+                    <div className="border border-black h-40 w-80 pt-5 hidden sm:block">
+                        <img
+                            src="images/bank/bri.svg"
+                            className="sm:w-28 w-24 flex mx-auto"
+                        />
+                        <p className="text-[#EB9928] text-center text-sm sm:text-base">
+                            Yesica Sihotang
+                        </p>
+                        <p className="text-[#1E2E40] text-center text-sm sm:text-base">
+                            033601120482509
                         </p>
                     </div>
                 </div>
-                <div className="flex justify-center md:px-10 lg:px-20 md:hidden">
-                    <div className="border border-black h-28 sm:h-40 w-60 ">
+                <div className="flex justify-center md:px-10 lg:px-20">
+                    <div className="border border-black h-28 sm:h-40 w-80 pt-2 sm:hidden">
+                        <img
+                            src="images/bank/bri.svg"
+                            className="sm:w-28 w-24 flex mx-auto"
+                        />
+                        <p className="text-[#EB9928] text-center text-sm sm:text-base">
+                            Yesica Sihotang
+                        </p>
+                        <p className="text-[#1E2E40] text-center text-sm sm:text-base">
+                            033601120482509
+                        </p>
+                    </div>
+                    <div className="border border-black h-28 sm:h-40 w-80 pt-5 sm:hidden">
                         <img
                             src="images/bank/ovo.svg"
-                            className="w-24 sm:w-28 flex mx-auto pt-5"
+                            className="sm:w-28 w-24 flex mx-auto"
                         />
                         <p className="text-[#EB9928] text-center text-sm sm:text-base">
                             Nandya Salma
@@ -146,7 +170,7 @@ const PaymentConfirmation = ({ harga }) => {
                     </p>
                     <input
                         type="file"
-                        className="file-input file-input-bordered sm:w-1/2"
+                        className="file-input file-input-bordered sm:w-1/2 w-full"
                     />
                 </div>
 

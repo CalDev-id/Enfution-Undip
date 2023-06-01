@@ -15,24 +15,24 @@ const FormSemnas = () => {
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
                         <Link href="/registration-national-seminar">
-                            <button className="btn rounded-none bg-[#1E2E40] w-24 sm:w-60">
+                            <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
                             National Seminar
                             </button>
                         </Link>
                         <Link href="/registration-EarlyTalk1">
-                            <button className="btn btn-outline w-24 sm:w-60 rounded-none">
+                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
                             Early Talk1
                             </button>
                         </Link>
                         <Link href="/registration-EarlyTalk2">
-                            <button className="btn btn-outline w-24 sm:w-60 rounded-none">
+                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
                             Early Talk 2
                             </button>
                         </Link>
                     </div>
 
-                    <p className="rounded-md border border-[#1E2E40] py-2 text-center italic hidden">
-                        Early Bird/Normal Registration
+                    <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5">
+                        Early Bird
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2">
@@ -192,8 +192,8 @@ const FormSemnas = () => {
                     </div>
 
 
-                    <div className="flex justify-center mt-28">
-                        <Link href="/">
+                    <div className="flex justify-center mt-10">
+                        <Link href="/national-seminar">
                             <button className="btn btn-outline w-28 sm:w-48 rounded-none mx-10">
                                 Cancel
                             </button>

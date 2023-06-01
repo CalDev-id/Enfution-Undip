@@ -8,7 +8,7 @@ const Sponsors = () => {
                     className="w-60 mr-10 flex mx-auto sm:mx-0 sm:block mb-5 sm:mb-0 sm:mr-20"
                 />
                 <div className="self-center">
-                    <p className="md:max-w-lg font-black text-xl mb-3">
+                    <p className="md:max-w-lg font-bold text-xl mb-3">
                         Creativity comes from looking for the unexpected and
                         stepping outside your own experience.
                     </p>
@@ -21,7 +21,7 @@ const Sponsors = () => {
                         outside your own experience. Computers simply cannot do
                         that.
                     </p>
-                    <p className="text-[#EB9928] font-black text-xl">
+                    <p className="text-[#EB9928] font-semibold text-xl">
                         Masaru Ibuka
                     </p>
                     <p className="text-[#1E2E40]">

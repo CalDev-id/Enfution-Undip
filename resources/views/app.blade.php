@@ -8,7 +8,8 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        {{-- <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
+        <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
 
         <!-- <link rel="stylesheet" href="build/assets/app-c310be9c.css"> -->
 

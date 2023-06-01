@@ -88,11 +88,11 @@ const Events = ({ hrefDbcc }) => {
                                     <Link href="/registration-dbcc">
                                         <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] hover:shadow-xl text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
-                                            <p>Rp. xxx</p>
+                                            <p>Rp. 230.000</p>
                                         </div>
                                     </Link>
-                                    <Link href="/">
-                                        <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl hover:shadow-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                    <Link href="">
+                                        <div className=" bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl opacity-50 hover:shadow-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Normal Registration</p>
                                             <p>Rp. xxx</p>
                                         </div>
@@ -134,11 +134,11 @@ const Events = ({ hrefDbcc }) => {
                                     <Link href="/registration-coaching-session">
                                         <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E]  text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
-                                            <p>Rp. xxx</p>
+                                            <p>Rp. 15.000</p>
                                         </div>
                                     </Link>
                                     <Link href="/">
-                                        <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Normal Registration</p>
                                             <p>Rp. xxx</p>
                                         </div>
@@ -180,11 +180,11 @@ const Events = ({ hrefDbcc }) => {
                                     <Link href="/registration-coaching-clinic">
                                         <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
-                                            <p>Rp. xxx</p>
+                                            <p>Rp. 15.000</p>
                                         </div>
                                     </Link>
                                     <Link href="/">
-                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] bg-opacity-50 text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] opacity-50 text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Normal Registration</p>
                                             <p>Rp. xxx</p>
                                         </div>
