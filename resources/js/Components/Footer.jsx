@@ -1,4 +1,6 @@
-const Footer = () => {
+import { Link } from "@inertiajs/react";
+
+const Footer = ({active}) => {
     return (
         <>
             <div className="bg-[#FFCE2E] py-10">
@@ -6,7 +8,7 @@ const Footer = () => {
                     <div className="container">
                         <div className="lg:flex justify-between items-center py-10">
                             <div className="sm:flex justify-evenly items-center">
-                                <div className="mr-20">
+                                <div className="mr-20 mb-5 sm:mb-0">
                                     <img
                                         className="w-36"
                                         src="images/LogoEnfu.svg"
@@ -15,7 +17,7 @@ const Footer = () => {
                                     <p className="text-[#EB9928] font-semibold text-lg">
                                         Contact Us
                                     </p>
-                                    <p>info.DBCC2023@gmail.com</p>
+                                    <p>{active == "dbcc" && ("info.DBCC2023@gmail.com")}{active == "semnas" && ("enfutionundip.semnas@gmail.com")}{active == "enfu" && ("enfutionthe15@gmail.com")}</p>
                                 </div>
                                 <div>
                                     <ul>
@@ -25,7 +27,7 @@ const Footer = () => {
                                                 className="w-10 mr-3"
                                                 alt=""
                                             />
-                                            <p>enfutionundip</p>
+                                            <Link href="https://www.instagram.com/enfutionundip/">enfutionundip</Link>
                                         </li>
                                         <li className="flex items-center mb-3">
                                             <img
@@ -33,7 +35,7 @@ const Footer = () => {
                                                 className="w-10 mr-3"
                                                 alt=""
                                             />
-                                            <p>@enfutionundip</p>
+                                            <Link href="https://www.tiktok.com/@enfutionundip">@enfutionundip</Link>
                                         </li>
                                         <li className="flex items-center">
                                             <img
@@ -41,7 +43,7 @@ const Footer = () => {
                                                 className="w-10 mr-3"
                                                 alt=""
                                             />
-                                            <p>Enfution Undip</p>
+                                            <Link href="https://www.linkedin.com/company/enfution/?originalSubdomain=id">Enfution Undip</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -51,11 +53,11 @@ const Footer = () => {
                                 <p className="text-[#EB9928] text-right font-semibold text-lg">
                                     Subscribe to
                                     <br />
-                                    Our the
-                                    <span className="text-[#FFCE2E]">
-                                        15th
-                                    </span>{" "}
-                                    Enfution
+                                    Our
+                                    <span className="text-[#FFCE2E]">{" "}
+                                    Newsletter
+                                    </span>
+                                    
                                 </p>
                                 <div className="relative my-2">
                                     <input

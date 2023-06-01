@@ -65,7 +65,7 @@ const PaymentConfirmation = (props) => {
                     <div className="border border-black h-28 sm:h-40 w-80 ">
                         <img
                             src="images/bank/bni.svg"
-                            className="w-24 sm:w-28 flex mx-auto pt-10"
+                            className="w-24 sm:w-28 flex mx-auto sm:pt-10 pt-6"
                         />
                         <p className="text-[#EB9928] text-center text-sm sm:text-base">
                             Maya Simorangkir
@@ -139,7 +139,7 @@ const PaymentConfirmation = (props) => {
                         </p>
                         <input
                             type="file"
-                            className="file-input file-input-bordered sm:w-1/2"
+                            className="file-input file-input-bordered sm:w-1/2 w-full"
                             onChange={(e) => {
                                 setSlip(e.target.files[0]);
                             }}
@@ -155,8 +155,6 @@ const PaymentConfirmation = (props) => {
                         <button className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]">
                             Submit
                         </button>
-                        {/* <Link href="/">
-                        </Link> */}
                     </div>
                 </form>
                 <Link href="/">

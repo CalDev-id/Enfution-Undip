@@ -20,7 +20,7 @@ module.exports = {
 
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['futura', ...defaultTheme.fontFamily.sans],
             },
         },
     },
@@ -29,5 +29,5 @@ module.exports = {
         themes: false,
     },
 
-    plugins: [require('@tailwindcss/forms'), require("daisyui")],
+    plugins: [require('@tailwindcss/forms'), require("daisyui"), require("tailgrids/plugin")],
 };

@@ -18,7 +18,7 @@ const NationalSeminar = () => {
             <EventsSemnas />
             <GallerySemnas />
             <TestiPageSemnas />
-            <Footer />
+            <Footer active={"semnas"} />
         </section>
     );
 };

@@ -38,7 +38,7 @@ const AboutUs = ({ active }) => {
                             <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
                                 Prof. Dr. Suharnomo, S.E., M.Si
                             </p>
-                            <p className="font-black text-[#EB9928] text-xl">
+                            <p className="font-bold text-[#EB9928] text-xl">
                                 Dean of Faculty of
                                 <br />
                                 Economics and Business

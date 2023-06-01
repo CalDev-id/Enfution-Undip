@@ -1,3 +1,5 @@
+import { Link } from "@inertiajs/react";
+
 const Hero = ({ active }) => {
     return (
         <section>
@@ -18,10 +20,17 @@ const Hero = ({ active }) => {
                                     alt=""
                                 />
                                 <div>
-                                    <p className="sm:mb-5 self-center font-semibold sm:text-6xl text-3xl">
-                                        The <span className="text-[#FFCE2E]">15th</span> Enfution
+                                    <p className="sm:mb-5 self-center font-bold relative sm:text-6xl text-3xl">
+                                        The{" "}
+                                        <span className="text-[#FFCE2E]">
+                                            15
+                                            <span className="sm:text-lg text-base absolute top-0 sm:mr-5">
+                                                th{" "}
+                                            </span>{" "}
+                                        </span>{" "}
+                                        <span className="pl-3 sm:pl-2"> Enfution</span>
                                     </p>
-                                    <p className="font-light text-[#FFF9EE] sm:text-xl text-sm">
+                                    <p className="font-normal text-[#FFF9EE] sm:text-xl text-sm">
                                         Optimizing young generation creativity
                                         <br />
                                         to Encounter Economic Develpment
@@ -30,9 +39,9 @@ const Hero = ({ active }) => {
                             </div>
 
                             <div className="flex justify-center text-base sm:text-xl">
-                                <a href="#">BUSINESS CASE</a>
+                                <Link href="/DBCC">BUSINESS CASE</Link>
                                 <p className="mx-2">|</p>
-                                <a href="#">NATIONAL SEMINAR</a>
+                                <Link href="/national-seminar">NATIONAL SEMINAR</Link>
                             </div>
                         </div>
                     </div>
@@ -71,12 +80,12 @@ const Hero = ({ active }) => {
                                 <br />
                                 Achieving a Sustainable Economy
                             </p>
-                            <div className="flex sm:text-base text-xs">
-                                <a href="#">COACHING CLINIC</a>
+                            <div className="flex sm:text-base text-sm">
+                                <Link href="/registration-coaching-clinic">COACHING CLINIC</Link>
                                 <p className="mx-2">|</p>
-                                <a href="#">COACHING SESSION</a>
+                                <Link href="/registration-coaching-session">COACHING SESSION</Link>
                                 <p className="mx-2">|</p>
-                                <a href="#">DBCC</a>
+                                <Link href="/registration-dbcc">DBCC</Link>
                             </div>
                         </div>
                     </div>
@@ -113,11 +122,11 @@ const Hero = ({ active }) => {
                                 Support Creative Economy
                             </p>
                             <div className="flex justify-center sm:text-base text-xs">
-                                <a href="#">EARLY TALK 1</a>
+                                <Link href="/registration-EarlyTalk1">EARLY TALK 1</Link>
                                 <p className="mx-2">|</p>
-                                <a href="#">EARLY TALK 2</a>
+                                <Link href="/registration-EarlyTalk2">EARLY TALK 2</Link>
                                 <p className="mx-2">|</p>
-                                <a href="#">NATIONAL SEMINAR</a>
+                                <Link href="/registration-national-seminar">NATIONAL SEMINAR</Link>
                             </div>
                         </div>
                     </div>

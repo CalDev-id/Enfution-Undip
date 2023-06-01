@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "@inertiajs/react";
+import TimeLine from "./TimeLine";
 
 const EventsSemnas = () => {
     const [selectedIndex, setSelectedIndex] = useState(1);
@@ -75,7 +76,7 @@ const EventsSemnas = () => {
                                 <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     National Seminar (Summit)
                                 </h1>
-                                <div className="flex flex-col md:flex-row">
+                                <div className="flex flex-col md:flex-row mb-5 sm:mb-0">
                                     <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0">
                                         <img
                                             className=""
@@ -96,14 +97,27 @@ const EventsSemnas = () => {
                                             economy
                                         </h1>
                                         <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
-                                            Lorem Ipsum{" "}
+                                            Coming Soon{" "}
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Nama Speaker
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex flex-col md:flex-row">
+                                <div className="flex flex-col md:flex-row mb-5 sm:mb-0">
+                                    <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0 sm:hidden">
+                                        <img
+                                            className=""
+                                            src="images/orangHitam.svg"
+                                            alt=""
+                                        />
+                                        <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
+                                            Coming Soon
+                                        </p>
+                                        <p className="text-[#EB9928] md:text-base text-sm text-center">
+                                            One of Indonesian Ring 1 government
+                                        </p>
+                                    </div>
                                     <div className="items-center self-center md:mr-20 px-4">
                                         <h1 className="text-xl font-semibold mb-3">
                                             The role of government and public
@@ -111,13 +125,13 @@ const EventsSemnas = () => {
                                             economy
                                         </h1>
                                         <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
-                                            Lorem Ipsum{" "}
+                                            Coming Soon{" "}
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Nama Speaker
                                         </p>
                                     </div>
-                                    <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0">
+                                    <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0 hidden sm:block">
                                         <img
                                             className=""
                                             src="images/orangHitam.svg"
@@ -152,20 +166,23 @@ const EventsSemnas = () => {
                                             economy
                                         </h1>
                                         <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
-                                            Lorem Ipsum{" "}
+                                            Coming Soon{" "}
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Nama Speaker
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex justify-center my-20 flex-wrap">
+                                <h1 className="font-semibold py-10 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl">
+                                    Register Below
+                                </h1>
+                                <div className="flex justify-center mb-20 flex-wrap">
                                     <Link
                                         href={route(
                                             "national-seminar.form-semnas"
                                         )}
                                     >
-                                        <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
                                             <p>Rp. xxx</p>
                                         </div>
@@ -175,7 +192,7 @@ const EventsSemnas = () => {
                                             "national-seminar.form-semnas"
                                         )}
                                     >
-                                        <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t mb-5  from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Pre-Sale 1</p>
                                             <p>Rp. xxx</p>
                                         </div>
@@ -185,7 +202,7 @@ const EventsSemnas = () => {
                                             "national-seminar.form-semnas"
                                         )}
                                     >
-                                        <div className="bg-opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Pre-Sale 2</p>
                                             <p>Rp. xxx</p>
                                         </div>
@@ -198,21 +215,19 @@ const EventsSemnas = () => {
                                 />
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
-                                <img
-                                    className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
-                                    src="images/timelineUtama.svg"
-                                    alt=""
-                                />
+                                <div className="">
+                                    <TimeLine name={"semnas"} />
+                                </div>
                             </div>
                         </div>
                     )}
                     {selectedIndex == 2 && (
                         <div className="py-10">
-                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 xl:px-20">
                                 <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     Early Talk 1
                                 </h1>
-                                <div className="flex flex-col md:flex-row mb-20">
+                                <div className="flex flex-col xl:flex-row mb-20">
                                     <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0">
                                         <img
                                             className=""
@@ -226,13 +241,13 @@ const EventsSemnas = () => {
                                             xxx
                                         </p>
                                     </div>
-                                    <div className="items-center self-center md:ml-20 px-4 max-w-2xl">
+                                    <div className="items-center self-center md:ml-16 px-4 max-w-2xl">
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Build Critical Thinking to Improve
                                             Economy Creative
                                         </p>{" "}
                                         <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
-                                            Lorem Ipsum{" "}
+                                            Coming Soon{" "}
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Nama Speaker
@@ -279,7 +294,7 @@ const EventsSemnas = () => {
                                             , 2023
                                         </p>
                                         <Link href="/registration-EarlyTalk1">
-                                            <div className="bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
+                                            <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
                                                 <p>REGISTER NOW</p>
                                             </div>
                                         </Link>
@@ -296,17 +311,15 @@ const EventsSemnas = () => {
                                 />
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
-                                <img
-                                    className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
-                                    src="images/timelineUtama.svg"
-                                    alt=""
-                                />
+                                <div className="">
+                                    <TimeLine name={"et1"} />
+                                </div>
                             </div>
                         </div>
                     )}
                     {selectedIndex == 3 && (
                         <div className="py-10">
-                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-32">
+                            <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-20">
                                 <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     Early Talk 2
                                 </h1>
@@ -330,7 +343,7 @@ const EventsSemnas = () => {
                                             to Become a Thought Leader
                                         </p>{" "}
                                         <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
-                                            Lorem Ipsum{" "}
+                                            Coming Soon{" "}
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Nama Speaker
@@ -390,11 +403,14 @@ const EventsSemnas = () => {
                                 />
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
-                                <img
-                                    className="container w-96 sm:w-[1200px] flex justify-center mx-auto"
+                                {/* <img
+                                    className="hidden container w-96 sm:w-[1200px] sm:flex justify-center mx-auto"
                                     src="images/timelineUtama.svg"
                                     alt=""
-                                />
+                                /> */}
+                                <div className="">
+                                    <TimeLine name={"et2"} />
+                                </div>
                             </div>
                         </div>
                     )}

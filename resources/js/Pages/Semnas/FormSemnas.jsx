@@ -60,26 +60,25 @@ const FormSemnas = (props) => {
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
                         <Link href={route("national-seminar.form-semnas")}>
-                            <button className="btn rounded-none bg-[#1E2E40] w-24 sm:w-60">
-                                National Seminar
+                            <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
+                            National Seminar
                             </button>
                         </Link>
                         <Link href={route("national-seminar.form-et1")}>
-                            <button className="btn btn-outline w-24 sm:w-60 rounded-none">
-                                Early Talk1
+                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
+                            Early Talk1
                             </button>
                         </Link>
                         <Link href={route("national-seminar.form-et2")}>
-                            <button className="btn btn-outline w-24 sm:w-60 rounded-none">
+                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
                                 Early Talk 2
                             </button>
                         </Link>
                     </div>
 
-                    <p className="rounded-md border border-[#1E2E40] py-2 text-center italic hidden">
-                        Early Bird/Normal Registration
+                    <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5">
+                        Early Bird
                     </p>
-
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="grid grid-cols-1 md:grid-cols-2">
                             <div className="md:mx-10 mb-5">
@@ -89,7 +88,7 @@ const FormSemnas = (props) => {
                                 </p>
                                 <input
                                     type="text"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(name) =>
                                         setName(name.target.value)
                                     }
@@ -108,8 +107,8 @@ const FormSemnas = (props) => {
                                 </p>
                                 <input
                                     type="text"
-                                    placeholder="Faculty/Department/Batch"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    placeholder="*ex Economic/Management/2021"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(faculty) =>
                                         setFaculty(faculty.target.value)
                                     }
@@ -137,7 +136,7 @@ const FormSemnas = (props) => {
                                         <input
                                             type="radio"
                                             name="radio-1"
-                                            className="checkbox mr-3 outline-1 outline-[#1E2E40]"
+                                            className="checkbox mr-3 outline-1 outline-[#1E2E40] focus:border-[#EB9928] focus:ring-[#EB9928]"
                                             onClick={(gender) =>
                                                 setGender("Female")
                                             }
@@ -170,7 +169,7 @@ const FormSemnas = (props) => {
                                 <input
                                     type="text"
                                     placeholder="Place, DD/MM/YYYY"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(place_dob) =>
                                         setPlaceDOB(place_dob.target.value)
                                     }
@@ -184,7 +183,7 @@ const FormSemnas = (props) => {
                                 </p>
                                 <input
                                     type="text"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(id_line) =>
                                         setLine(id_line.target.value)
                                     }
@@ -198,14 +197,19 @@ const FormSemnas = (props) => {
                                         *
                                     </span>{" "}
                                 </p>
-                                <input
-                                    type="text"
-                                    placeholder="Undergraduate/Student/Non-Student"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                                    onChange={(status) =>
-                                        setStatus(status.target.value)
-                                    }
-                                />
+                                <div className="relative">
+                                    <select
+                                        className="focus:border-[#EB9928] focus:ring-[#EB9928] w-full appearance-none rounded-lg border-[1.5px] border-[#1E2E40] bg-transparent py-3 px-5 font-medium text-body-color outline-none transition active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                        onChange={(status) =>
+                                            setStatus(status.target.value)
+                                        }
+                                    >
+                                        <option value="Undergraduate">Undergraduate</option>
+                                        <option value="Student">Student</option>
+                                        <option value="Non-Student">Non-Student</option>
+                                    </select>
+                                    <span className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color"></span>
+                                </div>
                             </div>
 
                             <div className="mb-5 md:mx-10">
@@ -217,7 +221,7 @@ const FormSemnas = (props) => {
                                 </p>
                                 <input
                                     type="text"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(email) =>
                                         setEmail(email.target.value)
                                     }
@@ -232,7 +236,7 @@ const FormSemnas = (props) => {
                                 </p>
                                 <input
                                     type="text"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(uni) =>
                                         setUnirversity(uni.target.value)
                                     }
@@ -248,7 +252,7 @@ const FormSemnas = (props) => {
                                 <input
                                     type="text"
                                     placeholder="if any"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(coupon) =>
                                         setCoupon(coupon.target.value)
                                     }
@@ -267,14 +271,14 @@ const FormSemnas = (props) => {
                             <input
                                 type="file"
                                 id="file-ktm"
-                                className="file-input file-input-bordered w-full"
+                                className="file-input file-input-bordered w-full focus:border-[#EB9928] focus:ring-[#EB9928]"
                                 onChange={(e) => {
                                     setKtm(e.target.files[0]);
                                 }}
                             />
                         </div>
 
-                        <div className="flex justify-center mt-28">
+                        <div className="flex justify-center mt-10">
                             <Link href={route("national-seminar.main")}>
                                 <button
                                     type="button"
@@ -285,12 +289,9 @@ const FormSemnas = (props) => {
                             </Link>
                             <button
                                 className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]"
-                                // onClick={handleSubmit}
                             >
                                 Next
                             </button>
-                            {/* <Link href="/payment-confirmation-semnas">
-                        </Link> */}
                         </div>
                     </form>
 
