@@ -28,21 +28,11 @@ const FormDBCC = () => {
                         Registration Form
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
-                        <Link href="/registration-dbcc">
+                        
                             <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
                                 DBCC
                             </button>
-                        </Link>
-                        <Link href="/registration-coaching-session">
-                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
-                                Coaching Session
-                            </button>
-                        </Link>
-                        <Link href="/registration-coaching-clinic">
-                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
-                                Coaching Clinic
-                            </button>
-                        </Link>
+
                     </div>
 
                     <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5">

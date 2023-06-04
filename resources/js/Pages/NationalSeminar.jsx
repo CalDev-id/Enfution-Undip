@@ -14,7 +14,7 @@ const NationalSeminar = () => {
             <Head title="National Seminar" />
             <Navbar active={"national"} />
             <Hero active={"national"} />
-            <AboutUs active={"national"} />\
+            <AboutUs active={"national"} />
             <EventsSemnas />
             <GallerySemnas />
             <TestiPageSemnas />

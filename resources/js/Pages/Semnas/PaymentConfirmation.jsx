@@ -7,6 +7,7 @@ const PaymentConfirmation = (props) => {
     const [account_number, setNumber] = useState("");
     const [bank_name, setBank] = useState("");
     const [payment_slip, setSlip] = useState("");
+    const [modalOpen, setModalOpen] = useState(true);
 
     const errors = props.errors;
     const name = props.name;
@@ -79,7 +80,6 @@ const PaymentConfirmation = (props) => {
                         </p>
                     </div>
                 </div>
-
                 <form onSubmit={handleSubmit} encType="multipart/form-data">
                     <div className="grid grid-cols-1 md:grid-cols-2 mt-10">
                         <div className="md:mx-10 mb-5">
@@ -167,6 +167,66 @@ const PaymentConfirmation = (props) => {
                     </p>
                 </Link>
             </div>
+
+            <section>
+                <div
+                    className={
+                        modalOpen
+                            ? "fixed z-50 top-0 left-0 flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-[75%] px-4 py-5"
+                            : "hidden"
+                    }
+                >
+                    <div
+                        // onClick={()=>{setModalOpen = false}}
+                        className="w-full h-full relative sm:scale-75 xl:scale-90 max-w-lg max-h-96 xl:max-w-[984px] xl:max-h-[561px] bg-cover bg-center bg-no-repeat py-8 md:py-20 rounded-3xl xl:rounded-none px-4 sm:px-8 text-center"
+                        style={{
+                            backgroundImage: `url("images/subscribe.svg")`,
+                        }}
+                    >
+                        <img
+                            src="images/btnClose.svg"
+                            alt=""
+                            onClick={() => {
+                                setModalOpen(false);
+                            }}
+                            className="absolute sm:right-32 sm:top-16 cursor-pointer right-8 top-8"
+                        />
+                        <h3 className="pb-2 text-2xl font-bold text-dark sm:text-5xl">
+                            Thank You!
+                        </h3>
+
+                        <p className="mb-5 text-base sm:text-lg leading-relaxed text-body-color max-w-md flex mx-auto">
+                            Your registration has completed. For further notice,
+                            will be announced through your email.
+                        </p>
+                        <p className=" text-sm text-center leading-relaxed text-body-color max-w-sm flex mx-auto justify-center">
+                            *we will give the link through email
+                        </p>
+
+                        <p className="mb-5 text-sm text-center leading-relaxed text-body-color max-w-sm flex mx-auto">
+                            *if within 2x24 hours you don’t receive any email
+                            from us, please contact us
+                        </p>
+
+                        <button
+                            className="underline italic"
+                            onClick={() => {
+                                setModalOpen(false);
+                            }}
+                        >
+                            Return to homepage
+                        </button>
+                        <img
+                            src="images/logoEnfu.svg"
+                            alt=""
+                            onClick={() => {
+                                setModalOpen(false);
+                            }}
+                            className="absolute sm:right-32 sm:top-16 cursor-pointer left-5 bottom-5 w-11 sm:hidden"
+                        />
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };

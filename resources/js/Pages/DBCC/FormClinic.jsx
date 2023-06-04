@@ -14,21 +14,9 @@ const FormClinic = () => {
                         Registration Form
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
-                        <Link href="/registration-dbcc">
-                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
-                                DBCC
-                            </button>
-                        </Link>
-                        <Link href="/registration-coaching-session">
-                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
-                                Coaching Session
-                            </button>
-                        </Link>
-                        <Link href="/registration-coaching-clinic">
-                            <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
-                                Coaching Clinic
-                            </button>
-                        </Link>
+                        <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
+                            Coaching Clinic
+                        </button>
                     </div>
 
                     <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5">
@@ -431,7 +419,7 @@ const FormClinic = () => {
                         Upload File <span className="text-[#EB9928]">*</span>{" "}
                     </p>
                     <p className="text-[#EB9928] mb-2 md:mx-10">
-                        Photo 3x4 (Formal)
+                        Photo {bundle && "All Member PDF"} 3x4 (Formal)
                     </p>
                     <div className="grid md:grid-cols-2 md:mr-40 md:ml-10">
                         <input

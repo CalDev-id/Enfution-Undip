@@ -105,12 +105,6 @@ const TimeLine = ({ name }) => {
                                     </span>{" "}
                                     24th July - 15th August
                                 </p>
-                                {/* <p>
-                                    <span className="text-[#EB9928]">
-                                        Grand Opening :
-                                    </span>{" "}
-                                    19th August
-                                </p> */}
                                 <p>
                                     <span className="text-[#EB9928]">
                                         Case Distribution :
@@ -139,7 +133,7 @@ const TimeLine = ({ name }) => {
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
-                                        Semifinal Video Submission :
+                                        Video Presentation Submission :
                                     </span>{" "}
                                     23rd September
                                 </p>
@@ -159,7 +153,7 @@ const TimeLine = ({ name }) => {
                                     <span className="text-[#EB9928]">
                                         Live Q&A :{" "}
                                     </span>
-                                    7st October
+                                    7th October
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
@@ -167,12 +161,6 @@ const TimeLine = ({ name }) => {
                                     </span>
                                     8th October
                                 </p>
-                                {/* <p>
-                                    <span className="text-[#EB9928]">
-                                        Final Assesment :{" "}
-                                    </span>
-                                    13st October
-                                </p> */}
                                 <p>
                                     <span className="text-[#EB9928]">
                                         Winner Announcement :{" "}
@@ -528,7 +516,9 @@ const TimeLine = ({ name }) => {
                         )}
                         {active == 2 && (
                             <div className="section-content strategy active">
-                                <h2 className="mb-2 font-semibold">OCTOBER</h2>
+                                <h2 className="mb-2 font-semibold">
+                                    September
+                                </h2>
                                 <p>
                                     <span className="text-[#EB9928]">
                                         Close Registration :

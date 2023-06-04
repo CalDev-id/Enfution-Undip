@@ -54,10 +54,10 @@ const Guests = () => {
                         <p className="z-10 relative md:text-lg font-semibold bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-5 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Wishnutama
                         </p>
-                        <p className="text-[#EB9928] hidden md:block md:text-lg text-sm font-thin">
+                        <p className="text-[#EB9928] italic hidden md:block md:text-lg text-sm">
                             Ex Minister of Tourism & <br /> Creative Economy
                         </p>
-                        <p className="text-[#EB9928] md:hidden md:text-lg text-sm font-thin">
+                        <p className="text-[#EB9928] italic md:hidden md:text-lg text-sm">
                             Ex Minister of Tourism & Creative Economy
                         </p>
                     </div>
@@ -70,7 +70,7 @@ const Guests = () => {
                         <p className="relative md:text-lg font-semibold z-10 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-3 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Sandiaga Uno
                         </p>
-                        <p className="text-[#EB9928] md:text-lg text-sm">
+                        <p className="text-[#EB9928] md:text-lg italic text-sm ">
                             Minister of Tourism & Creative Economy
                         </p>
                     </div>
@@ -88,8 +88,8 @@ const Guests = () => {
                         <p className="z-10 relative md:text-lg font-semibold bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-1 md:px-5 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Arief Muhammad
                         </p>
-                        <p className="text-[#EB9928] md:text-lg text-sm font-thin">
-                            Ex Minister of Tourism & <br /> Creative Economy
+                        <p className="text-[#EB9928] italic md:text-lg text-sm">
+                        Youtuber &<br /> Creativepreneur
                         </p>
                     </div>
                     <div className="w-fit flex-col justify-center md:mx-auto ml-2">
@@ -101,8 +101,8 @@ const Guests = () => {
                         <p className="relative md:text-lg font-semibold z-10 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-2 md:px-5 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Ernest Prakasa
                         </p>
-                        <p className="text-[#EB9928] md:text-lg text-sm">
-                            Minister of Tourism & <br /> Creative Economy
+                        <p className="text-[#EB9928] md:text-lg text-sm italic">
+                        Youtuber & Actor
                         </p>
                     </div>
                     <div className="w-fit flex-col justify-center md:mx-auto mr-2">
@@ -114,8 +114,9 @@ const Guests = () => {
                         <p className="relative md:text-lg font-semibold z-10 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-3 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Tasya Farasya
                         </p>
-                        <p className="text-[#EB9928] md:text-lg text-sm">
-                            Minister of Tourism & <br /> Creative Economy
+                        <p className="text-[#EB9928] md:text-lg text-sm italic">
+                        Youtuber &
+Beauty Influencer
                         </p>
                     </div>
                     <div className="w-fit flex-col justify-center md:mx-auto pt-1 mr-2">
@@ -127,8 +128,8 @@ const Guests = () => {
                         <p className="relative md:text-lg font-semibold z-10 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-2 md:px-5 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Jovial Da Lopez
                         </p>
-                        <p className="text-[#EB9928] md:text-base text-sm">
-                            Minister of Tourism & <br /> Creative Economy
+                        <p className="text-[#EB9928] md:text-base text-sm italic">
+                        Youtuber & Actor
                         </p>
                     </div>
                 </div>
@@ -145,8 +146,9 @@ const Guests = () => {
                         <p className="z-10 relative md:text-base font-semibold bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-1 md:px-2 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Hermawan K
                         </p>
-                        <p className="text-[#EB9928] md:text-base text-sm font-thin">
-                            Founder & Chairman of ACSB
+                        <p className="text-[#EB9928] md:text-base text-sm italic">
+                        Founder & Chairman
+of ACSB
                         </p>
                     </div>
                     <div className="md:w-48 flex-col justify-center md:mx-auto ml-2">
@@ -158,7 +160,7 @@ const Guests = () => {
                         <p className="relative md:text-base font-semibold z-10 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-2 md:px-2 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Keenan Pearce
                         </p>
-                        <p className="text-[#EB9928] md:text-base text-sm">
+                        <p className="text-[#EB9928] md:text-base text-sm italic">
                             Owner of Euphoria Project
                         </p>
                     </div>
@@ -171,11 +173,11 @@ const Guests = () => {
                         <p className="relative md:text-base font-semibold z-10 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-2 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Chandra Liow
                         </p>
-                        <p className="text-[#EB9928] md:text-base text-sm">
+                        <p className="text-[#EB9928] md:text-base text-sm italic">
                             Youtuber & Actor
                         </p>
                     </div>
-                    <div className="min-w-[180px] md:w-48 flex-col justify-center md:mx-auto pt-1 mr-2">
+                    <div className="min-w-[160px] md:w-48 flex-col justify-center md:mx-auto pt-1 mr-2">
                         <img
                             className="flex justify-center mx-auto transform translate-y-[35px] md:h-48"
                             src={`images/speaker/ge.svg`}
@@ -184,7 +186,7 @@ const Guests = () => {
                         <p className="relative md:text-base font-semibold z-10 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-2 md:px-2 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Ge Pamungkas
                         </p>
-                        <p className="text-[#EB9928] md:text-base text-sm">
+                        <p className="text-[#EB9928] md:text-base text-sm italic">
                             Youuber & Actor
                         </p>
                     </div>
@@ -197,11 +199,11 @@ const Guests = () => {
                         <p className="relative md:text-base font-semibold z-10 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-2 md:px-2 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             Nadhira N
                         </p>
-                        <p className="text-[#EB9928] md:text-base text-sm">
+                        <p className="text-[#EB9928] md:text-base text-sm italic">
                             CMO of Ayoblajar
                         </p>
                     </div>
-                    <div className="min-w-[175px] flex-col justify-center md:mx-auto pt-1 mr-2 md:w-48">
+                    <div className="min-w-[155px] flex-col justify-center md:mx-auto pt-1 mr-2 md:w-48">
                         <img
                             className="flex justify-center mx-auto transform translate-y-[35px] md:h-48"
                             src={`images/speaker/sadad.svg`}
@@ -210,7 +212,7 @@ const Guests = () => {
                         <p className="relative md:text-base font-semibold z-10 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-base text-white px-2 md:px-2 py-2 rounded-bl-3xl rounded-tr-3xl text-center">
                             M Sadad
                         </p>
-                        <p className="text-[#EB9928] md:text-base text-sm">
+                        <p className="text-[#EB9928] md:text-base text-sm italic">
                             CEO & Founder of Erigo
                         </p>
                     </div>

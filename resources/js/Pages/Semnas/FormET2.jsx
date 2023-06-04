@@ -58,7 +58,7 @@ const FormET2 = (props) => {
                         Registration Form ET2
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
-                        <Link href={route("national-seminar.form-semnas")}>
+                        {/* <Link href={route("national-seminar.form-semnas")}>
                             <button className="btn btn-outline w-28 sm:w-60 rounded-none">
                                 National Seminar
                             </button>
@@ -68,11 +68,10 @@ const FormET2 = (props) => {
                                 Early Talk1
                             </button>
                         </Link>
-                        <Link href={route("national-seminar.form-et2")}>
-                            <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
-                                Early Talk 2
-                            </button>
-                        </Link>
+                        <Link href={route("national-seminar.form-et2")}> */}
+                        <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
+                            Early Talk 2
+                        </button>
                     </div>
 
                     <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5">

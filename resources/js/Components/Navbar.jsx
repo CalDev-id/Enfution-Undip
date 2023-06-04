@@ -154,7 +154,7 @@ const Navbar = ({ method = "get", active }) => {
                                     </p>
                                 </Link>
                                 <div className="my-1 flex mx-auto w-10 border-b border-black"></div>
-                                <Link href={route("dbcc")}>
+                                <Link href={"/registration-dbcc"}>
                                     <p className="text-center text-xs px-2">
                                         {" "}
                                         DIPONEGORO BUSINESS
