@@ -34,7 +34,7 @@ const FormClinic = () => {
                     <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5">
                         Early Bird
                     </p>
-                    {/* <div className="md:mx-10 mb-5 hidden">
+                    <div className="md:mx-10 mb-5">
                         <p className="font-semibold">
                             Person / Bundle ?{" "}
                             <span className="text-[#EB9928]">*</span>{" "}
@@ -66,7 +66,7 @@ const FormClinic = () => {
                                 <p className="">Bundle</p>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                     {bundle && (
                         <p className="font-semibold text-[#EB9928] mb-3 md:mx-10">
                             1st Person
@@ -442,7 +442,8 @@ const FormClinic = () => {
 
                     <div>
                         <p className="font-semibold mt-5 md:mx-10">
-                        Is there a paper to be reviewed?<span className="text-[#EB9928]">*</span>{" "}
+                            Is there a paper to be reviewed?
+                            <span className="text-[#EB9928]">*</span>{" "}
                         </p>
 
                         <div className="md:mx-10 mb-5">
@@ -466,7 +467,6 @@ const FormClinic = () => {
                                         onChange={() => {
                                             setOpen(false);
                                         }}
-                                        
                                     />
                                     <p className="">No</p>
                                 </div>
@@ -476,10 +476,11 @@ const FormClinic = () => {
 
                     <div className={open ? "block" : "hidden"}>
                         <p className="font-semibold md:mx-10 ">
-                        Upload Your Paper File Here
-                            
+                            Upload Your Paper File Here
                         </p>
-                        <span className="text-[#EB9928] md:mx-10 mb-4">*No DBCC File</span>{" "}
+                        <span className="text-[#EB9928] md:mx-10 mb-4">
+                            *No DBCC File
+                        </span>{" "}
                         <div className="grid md:grid-cols-2 md:mr-40 md:ml-10">
                             <input
                                 type="file"

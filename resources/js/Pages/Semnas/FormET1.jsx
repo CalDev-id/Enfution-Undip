@@ -38,6 +38,11 @@ const FormET1 = (props) => {
         for (const d in data) {
             fd.append(`${d}`, data[d]);
         }
+
+        for (const key in fd) {
+            console.log(key);
+        }
+        // console.log(fd);
         router.post("/registration-EarlyTalk1", fd);
     };
 
@@ -124,7 +129,7 @@ const FormET1 = (props) => {
                                         <input
                                             type="radio"
                                             name="radio-1"
-                                            className="checkbox mr-3"
+                                            className="checkbox mr-3 focus:border-[#EB9928] focus:ring-[#EB9928]"
                                             onClick={(gender) =>
                                                 setGender("Male")
                                             }
@@ -152,7 +157,7 @@ const FormET1 = (props) => {
                                 </p>
                                 <input
                                     type="text"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(phone) =>
                                         setPhone(phone.target.value)
                                     }
@@ -203,6 +208,9 @@ const FormET1 = (props) => {
                                             setStatus(status.target.value)
                                         }
                                     >
+                                        <option value="" disabled selected>
+                                            Choose One
+                                        </option>
                                         <option value="Undergraduate">
                                             Undergraduate
                                         </option>

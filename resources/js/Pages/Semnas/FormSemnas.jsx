@@ -61,12 +61,12 @@ const FormSemnas = (props) => {
                     <div className="flex justify-center mb-8 w-full">
                         <Link href={route("national-seminar.form-semnas")}>
                             <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
-                            National Seminar
+                                National Seminar
                             </button>
                         </Link>
                         <Link href={route("national-seminar.form-et1")}>
                             <button className="btn btn-outline w-28 sm:w-60 rounded-none">
-                            Early Talk1
+                                Early Talk1
                             </button>
                         </Link>
                         <Link href={route("national-seminar.form-et2")}>
@@ -125,7 +125,7 @@ const FormSemnas = (props) => {
                                         <input
                                             type="radio"
                                             name="radio-1"
-                                            className="checkbox mr-3"
+                                            className="checkbox mr-3 focus:border-[#EB9928] focus:ring-[#EB9928]"
                                             onClick={(gender) =>
                                                 setGender("Male")
                                             }
@@ -153,7 +153,7 @@ const FormSemnas = (props) => {
                                 </p>
                                 <input
                                     type="text"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(phone) =>
                                         setPhone(phone.target.value)
                                     }
@@ -204,9 +204,16 @@ const FormSemnas = (props) => {
                                             setStatus(status.target.value)
                                         }
                                     >
-                                        <option value="Undergraduate">Undergraduate</option>
+                                        <option value="" disabled selected>
+                                            Choose One
+                                        </option>
+                                        <option value="Undergraduate">
+                                            Undergraduate
+                                        </option>
                                         <option value="Student">Student</option>
-                                        <option value="Non-Student">Non-Student</option>
+                                        <option value="Non-Student">
+                                            Non-Student
+                                        </option>
                                     </select>
                                     <span className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color"></span>
                                 </div>
@@ -287,9 +294,7 @@ const FormSemnas = (props) => {
                                     Cancel
                                 </button>
                             </Link>
-                            <button
-                                className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]"
-                            >
+                            <button className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]">
                                 Next
                             </button>
                         </div>

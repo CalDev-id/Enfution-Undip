@@ -105,12 +105,12 @@ const TimeLine = ({ name }) => {
                                     </span>{" "}
                                     24th July - 15th August
                                 </p>
-                                <p>
+                                {/* <p>
                                     <span className="text-[#EB9928]">
                                         Grand Opening :
                                     </span>{" "}
                                     19th August
-                                </p>
+                                </p> */}
                                 <p>
                                     <span className="text-[#EB9928]">
                                         Case Distribution :
@@ -133,13 +133,13 @@ const TimeLine = ({ name }) => {
                                 <p>
                                     {" "}
                                     <span className="text-[#EB9928]">
-                                        Announcement (top 20) :{" "}
+                                        Announcement (Top 20) :{" "}
                                     </span>
                                     16th September
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
-                                        Semifinal Paper Submission :
+                                        Semifinal Video Submission :
                                     </span>{" "}
                                     23rd September
                                 </p>
@@ -163,16 +163,16 @@ const TimeLine = ({ name }) => {
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
-                                        CT :{" "}
+                                        Critical Thinking :{" "}
                                     </span>
                                     8th October
                                 </p>
-                                <p>
+                                {/* <p>
                                     <span className="text-[#EB9928]">
                                         Final Assesment :{" "}
                                     </span>
                                     13st October
-                                </p>
+                                </p> */}
                                 <p>
                                     <span className="text-[#EB9928]">
                                         Winner Announcement :{" "}

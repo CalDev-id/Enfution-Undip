@@ -49,9 +49,9 @@ return [
             'root'   => public_path() . '/uploads/semnas_ktm',
         ],
 
-        'semnas_file' => [
+        'semnas_payment_slip' => [
             'driver' => 'local',
-            'root'   => public_path() . '/uploads/semnas_file',
+            'root'   => public_path() . '/uploads/semnas_payment_slip',
         ],
 
         's3' => [

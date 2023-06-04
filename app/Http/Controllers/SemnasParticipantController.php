@@ -120,7 +120,8 @@ class SemnasParticipantController extends Controller
         // dd(SemnasParticipantController::getTicketPrice());
         SemnasParticipant::create($filterData);
         Session::put([
-            'id_peserta' => SemnasParticipant::where('full_name', $filterData['full_name'])->first()->id,
+            'id_peserta' => SemnasParticipant::all()->sortByDesc('created_at')->where('full_name', $filterData['full_name'])->first()->id,
+            // 'id_peserta' => SemnasParticipant::where('email', $filterData['email'])->first()->id,
             'event' => SemnasParticipantController::$event,
         ]);
         return redirect()->route('national-seminar.payment-confirmation');

@@ -52,10 +52,10 @@ const FormET2 = (props) => {
     return (
         <>
             <div className="bg-[#FFF9EE] pt-20 w-full min-h-screen text-[#1E2E40]">
-                <Head title="Registration -  Early Talk 1" />
+                <Head title="Registration -  Early Talk 2" />
                 <div className="container pb-32 bg-[#FFF9EE]">
                     <h1 className="text-center font-semibold text-5xl mb-10">
-                        Registration Form ET1
+                        Registration Form ET2
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
                         <Link href={route("national-seminar.form-semnas")}>
@@ -64,12 +64,12 @@ const FormET2 = (props) => {
                             </button>
                         </Link>
                         <Link href={route("national-seminar.form-et1")}>
-                            <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
+                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
                                 Early Talk1
                             </button>
                         </Link>
                         <Link href={route("national-seminar.form-et2")}>
-                            <button className="btn btn-outline w-24 sm:w-60 rounded-none">
+                            <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
                                 Early Talk 2
                             </button>
                         </Link>
@@ -124,7 +124,7 @@ const FormET2 = (props) => {
                                         <input
                                             type="radio"
                                             name="radio-1"
-                                            className="checkbox mr-3"
+                                            className="checkbox mr-3 focus:border-[#EB9928] focus:ring-[#EB9928]"
                                             onClick={(gender) =>
                                                 setGender("Male")
                                             }
@@ -152,7 +152,7 @@ const FormET2 = (props) => {
                                 </p>
                                 <input
                                     type="text"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                     onChange={(phone) =>
                                         setPhone(phone.target.value)
                                     }
@@ -203,6 +203,9 @@ const FormET2 = (props) => {
                                             setStatus(status.target.value)
                                         }
                                     >
+                                        <option value="" disabled selected>
+                                            Choose One
+                                        </option>
                                         <option value="Undergraduate">
                                             Undergraduate
                                         </option>

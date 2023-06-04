@@ -71,7 +71,7 @@ Route::post('/registration-EarlyTalk2', [SemnasParticipantController::class, 'st
 
 
 Route::get('/payment-confirmation-semnas', [SemnasTransactionController::class, 'transaction'])->name('national-seminar.payment-confirmation');
-Route::post('/payment-confirmation-semnas', [SemnasTransactionController::class, 'simpan'])->middleware('payment-semnas');
+Route::post('/payment-confirmation-semnas', [SemnasTransactionController::class, 'save']);
 
 
 

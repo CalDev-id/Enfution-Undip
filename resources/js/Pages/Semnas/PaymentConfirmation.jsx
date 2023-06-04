@@ -7,9 +7,9 @@ const PaymentConfirmation = (props) => {
     const [account_number, setNumber] = useState("");
     const [bank_name, setBank] = useState("");
     const [payment_slip, setSlip] = useState("");
-    // const [amount, setAmount] = useState(props.total);
-    // const [bayar_via, setVia] = useState("");
+
     const errors = props.errors;
+    const name = props.name;
     console.log(props);
     const data = {
         account_name,
@@ -24,6 +24,10 @@ const PaymentConfirmation = (props) => {
 
         for (const d in data) {
             fd.append(`${d}`, data[d]);
+        }
+
+        for (const [i, val] of fd.entries()) {
+            console.log(`${val}`);
         }
         router.post("/payment-confirmation-semnas", fd);
     };
@@ -84,9 +88,9 @@ const PaymentConfirmation = (props) => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                                value={props.name}
-                                disabled
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                readOnly
+                                value={name}
                             />
                         </div>
                         <div className="mb-5 md:mx-10">
@@ -96,7 +100,7 @@ const PaymentConfirmation = (props) => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                 onChange={(bank) => setBank(bank.target.value)}
                             />
                         </div>
@@ -106,8 +110,8 @@ const PaymentConfirmation = (props) => {
                                 <span className="text-[#EB9928]">*</span>{" "}
                             </p>
                             <input
-                                type="email"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                type="text"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                 onChange={(acc_name) =>
                                     setName(acc_name.target.value)
                                 }
@@ -121,7 +125,7 @@ const PaymentConfirmation = (props) => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                 onChange={(acc_number) =>
                                     setNumber(acc_number.target.value)
                                 }

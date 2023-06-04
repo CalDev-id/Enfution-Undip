@@ -34,7 +34,7 @@ const FormSession = () => {
                     <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5 text-slate-500">
                         Early Bird
                     </p>
-                    <div className="md:mx-10 mb-5 hidden">
+                    <div className="md:mx-10 mb-5">
                         <p className="font-semibold">
                             Person / Bundle ?{" "}
                             <span className="text-[#EB9928]">*</span>{" "}

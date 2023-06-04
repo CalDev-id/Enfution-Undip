@@ -77,7 +77,6 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                             </ul>
                         </div>
-                        {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
                         <img
                             className="w-12 cursor-pointer"
                             src="images/logoNav.png"

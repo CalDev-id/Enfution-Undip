@@ -11,6 +11,7 @@ use function Symfony\Component\VarDumper\Dumper\esc;
 use App\Http\Requests\Storesemnas_transactionRequest;
 use App\Http\Requests\Updatesemnas_transactionRequest;
 use App\Models\SemnasReferralCode;
+use Illuminate\Http\Request;
 
 class SemnasTransactionController extends Controller
 {
@@ -42,46 +43,46 @@ class SemnasTransactionController extends Controller
         "summit" => [
             "default" => 0,
             "EB" => [
-                "open" => '2023-05-31 08:00:00',
-                "closed" => '2023-05-31 08:15:59',
+                "open" => '2023-06-02 09:00:00',
+                "closed" => '2023-06-02 09:15:59',
             ],
             "PS1" => [
-                "open" => '2023-05-31 08:16:00',
-                "closed" => '2023-05-31 08:16:59',
+                "open" => '2023-06-02 09:20:00',
+                "closed" => '2023-06-02 09:22:59',
             ],
             "PS2" => [
-                "open" => '2023-05-31 08:17:00',
-                "closed" => '2023-05-31 08:30:00',
+                "open" => '2023-06-02 09:23:00',
+                "closed" => '2023-06-02 09:30:00',
             ],
         ],
         "talk-1" => [
             "default" => 0,
             "EB" => [
-                "open" => '2023-05-31 08:00:00',
-                "closed" => '2023-05-31 08:22:59',
+                "open" => '2023-06-02 13:00:00',
+                "closed" => '2023-06-02 13:10:59',
             ],
             "PS1" => [
-                "open" => '2023-05-31 08:23:00',
-                "closed" => '2023-05-31 08:23:59',
+                "open" => '2023-06-02 13:11:00',
+                "closed" => '2023-06-02 13:14:59',
             ],
             "PS2" => [
-                "open" => '2023-05-31 08:24:00',
-                "closed" => '2023-05-31 08:30:00',
+                "open" => '2023-06-02 13:15:00',
+                "closed" => '2023-06-02 13:30:00',
             ],
         ],
         "talk-2" => [
             "default" => 0,
             "EB" => [
-                "open" => '2023-05-31 08:00:00',
-                "closed" => '2023-05-31 08:40:59',
+                "open" => '2023-06-02 13:00:00',
+                "closed" => '2023-06-02 13:25:59',
             ],
             "PS1" => [
-                "open" => '2023-05-31 08:41:00',
-                "closed" => '2023-05-31 08:41:59',
+                "open" => '2023-06-02 13:26:00',
+                "closed" => '2023-06-02 13:27:59',
             ],
             "PS2" => [
-                "open" => '2023-05-31 08:42:00',
-                "closed" => '2023-05-31 08:43:00',
+                "open" => '2023-06-02 13:28:00',
+                "closed" => '2023-06-02 13:43:00',
             ],
         ],
     ];
@@ -131,16 +132,13 @@ class SemnasTransactionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function simpan(Storesemnas_transactionRequest $request)
+    public function save(Request $request)
     {
         //
-
-
         $rules = [
             'account_name' => 'required|string|max:100',
             'account_number' => 'required|string|max:100',
-            'amount' => 'required',
-            'bayar_via' => 'required',
+            'bank_name' => 'required',
             'payment_slip' => 'required|file|max:2048|mimes:jpg,png',
         ];
 
@@ -152,26 +150,32 @@ class SemnasTransactionController extends Controller
 
         $idPeserta = session('id_peserta');
         $idCoupon = SemnasParticipant::where('id', $idPeserta)->first()->id_referral_code;
-        $totalPrice = SemnasTransactionController::getTicketPrice() * (1 - SemnasTransactionController::getDiscount($idCoupon));
+        $totalPrice = SemnasTransactionController::getTicketPrice();
+        if ($idCoupon) {
+            $totalPrice = SemnasTransactionController::getTicketPrice() * (1 - SemnasTransactionController::getDiscount($idCoupon));
+        }
 
         $filterData = [
             'account_name' => esc(request('account_name')),
             'account_number' => esc(request('account_number')),
             'amount' => esc($totalPrice),
-            'bayar_via' => esc(request('bayar_via')),
+            'bank_name' => esc(request('bank_name')),
             'id_peserta' => esc($idPeserta),
             'status_periode' => esc(SemnasTransactionController::$event_period),
         ];
 
-        dd($filterData);
 
         if ($validateData['payment_slip'] != null) {
             Storage::disk('semnas_payment_slip')->put('', $validateData['payment_slip']);
             $filterData['bukti_bayar'] = Storage::disk('semnas_payment_slip')->put('', $validateData['payment_slip']);
         }
 
-        SemnasTransaction::created($filterData);
-        dd("berhasil bayar boss!!");
+        // dd($filterData);
+
+        $createdTrx = SemnasTransaction::create($filterData);
+        if ($createdTrx) {
+            dd("berhasil bayar boss!!");
+        }
     }
 
 
@@ -183,14 +187,15 @@ class SemnasTransactionController extends Controller
         // $data['name'] =  "Ucup";
 
         $idCoupon = SemnasParticipant::where('id', session('id_peserta'))->first()->id_referral_code;
+        // dd(session('id_peserta'));
         // $idCoupon = 3;
         // $data['total'] = session('ticketPrice');
-        $data['total'] = SemnasTransactionController::getTicketPrice() * (1 - SemnasTransactionController::getDiscount($idCoupon));
+        $data['total'] = SemnasTransactionController::getTicketPrice();
         // $data['total'] = 10000;
-        // if ($idCoupon) {
-        //     $data['total'] = session('ticketPrice') - 10000;
-        // $data['total'] = SemnasTransactionController::getTicketPrice();
-        // }
+        if ($idCoupon) {
+            $data['total'] = SemnasTransactionController::getTicketPrice() * (1 - SemnasTransactionController::getDiscount($idCoupon));
+            // $data['total'] = session('ticketPrice') - 10000;
+        }
         return Inertia::render('Semnas/PaymentConfirmation', $data);
     }
 
