@@ -16,7 +16,7 @@ const NationalSeminar = () => {
 
             <Hero active={"national"} />
 
-            <AboutUs active={"national"} />\
+            <AboutUs active={"national"} />
 
             <EventsSemnas />
 

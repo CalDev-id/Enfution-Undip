@@ -149,13 +149,13 @@ const Navbar = ({ method = "get", active }) => {
                                         : "hidden"
                                 }
                             >
-                                <Link href={route("national-seminar")}>
+                                <Link href={"/registration-national-seminar"}>
                                     <p className="text-center text-xs px-3">
                                         NATIONAL SEMINAR
                                     </p>
                                 </Link>
                                 <div className="my-1 flex mx-auto w-10 border-b border-black"></div>
-                                <Link href={route("dbcc")}>
+                                <Link href={"/registration-dbcc"}>
                                     <p className="text-center text-xs px-2">
                                         {" "}
                                         DIPONEGORO BUSINESS

@@ -115,14 +115,13 @@ const EventsSemnas = () => {
                                             Coming Soon
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            One of Indonesian Ring 1 government
+                                        A young and fresh entrepreneur
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:mr-20 px-4">
                                         <h1 className="text-xl font-semibold mb-3">
-                                            The role of government and public
-                                            policy in supporting the creative
-                                            economy
+                                        Leveraging the power of collaboration in creative industries
+
                                         </h1>
                                         <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
                                             Coming Soon{" "}
@@ -141,7 +140,7 @@ const EventsSemnas = () => {
                                             Coming Soon
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            One of Indonesian Ring 1 government
+                                        A young and fresh entrepreneur
                                         </p>
                                     </div>
                                 </div>
@@ -156,14 +155,12 @@ const EventsSemnas = () => {
                                             Coming Soon
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            One of Indonesian Ring 1 government
+                                        A senior entrepreneur
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-20 px-4">
                                         <h1 className="text-xl font-semibold mb-3">
-                                            The role of government and public
-                                            policy in supporting the creative
-                                            economy
+                                        Embracing Innovation: Adapting to Changing Markets and Staying Ahead of the Curve
                                         </h1>
                                         <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
                                             Coming Soon{" "}
@@ -190,8 +187,14 @@ const EventsSemnas = () => {
                                         </div>
                                     </Link>
                                     <Link href="/">
-                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t mb-5 from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Pre-Sale 2</p>
+                                            <p>Rp. xxx</p>
+                                        </div>
+                                    </Link>
+                                    <Link href="/">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                            <p>Normal Registration</p>
                                             <p>Rp. xxx</p>
                                         </div>
                                     </Link>
@@ -286,9 +289,9 @@ const EventsSemnas = () => {
                                                 <p>REGISTER NOW</p>
                                             </div>
                                         </Link>
-                                        <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
+                                        {/* <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             FREE!
-                                        </p>
+                                        </p> */}
                                     </div>
                                 </div>
 
@@ -366,10 +369,10 @@ const EventsSemnas = () => {
                                             for society as a whole
                                         </p>
                                         <p className="font-semibold text-xl">
-                                            JUNY{" "}
+                                        SEPTEMBER{" "}
                                             <span className="text-[#EB9928]">
                                                 {" "}
-                                                14th
+                                                16th
                                             </span>
                                             , 2023
                                         </p>
@@ -378,9 +381,9 @@ const EventsSemnas = () => {
                                                 <p>REGISTER NOW</p>
                                             </div>
                                         </Link>
-                                        <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
+                                        {/* <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             FREE!
-                                        </p>
+                                        </p> */}
                                     </div>
                                 </div>
 
