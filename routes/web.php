@@ -58,20 +58,20 @@ Route::get('/registration-coaching-clinic', function () {
 Route::controller(SemnasParticipantController::class)->name('national-seminar.')->group(function () {
     Route::get('/national-seminar', 'index')->name('main');
     // Load form
-    Route::get('/registration-national-seminar', 'create')->name('form-semnas');
-    Route::get('/registration-EarlyTalk1', 'create')->name('form-et1');
-    Route::get('/registration-EarlyTalk2', 'create')->name('form-et2');
+    Route::get('/registration-national-seminar', 'create')->name('form-summit')->middleware('url-semnas');
+    Route::get('/registration-EarlyTalk1', 'create')->name('form-et1')->middleware('url-semnas');
+    Route::get('/registration-EarlyTalk2', 'create')->name('form-et2')->middleware('url-semnas');
     // Process Form
 });
 
 // Sementara kek gini dulu dah yak, nanti gua cara lain lagi wkwk
-Route::post('/registration-national-seminar', [SemnasParticipantController::class, 'store']);
-Route::post('/registration-EarlyTalk1', [SemnasParticipantController::class, 'store']);
-Route::post('/registration-EarlyTalk2', [SemnasParticipantController::class, 'store']);
+Route::post('/registration-national-seminar', [SemnasParticipantController::class, 'store'])->middleware('url-semnas');
+Route::post('/registration-EarlyTalk1', [SemnasParticipantController::class, 'store'])->middleware('url-semnas');
+Route::post('/registration-EarlyTalk2', [SemnasParticipantController::class, 'store'])->middleware('url-semnas');
 
 
-Route::get('/payment-confirmation-semnas', [SemnasTransactionController::class, 'transaction'])->name('national-seminar.payment-confirmation');
-Route::post('/payment-confirmation-semnas', [SemnasTransactionController::class, 'save']);
+Route::get('/payment-confirmation-semnas', [SemnasTransactionController::class, 'transaction'])->name('national-seminar.payment-confirmation')->middleware('payment-semnas');
+Route::post('/payment-confirmation-semnas', [SemnasTransactionController::class, 'save'])->middleware('payment-semnas');
 
 
 

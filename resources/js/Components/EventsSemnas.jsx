@@ -178,7 +178,7 @@ const EventsSemnas = () => {
                                 <div className="flex justify-center mb-20 flex-wrap">
                                     <Link
                                         href={route(
-                                            "national-seminar.form-semnas"
+                                            "national-seminar.form-summit"
                                         )}
                                     >
                                         <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
@@ -188,8 +188,11 @@ const EventsSemnas = () => {
                                     </Link>
                                     <Link
                                         href={route(
-                                            "national-seminar.form-semnas"
+                                            "national-seminar.form-summit"
                                         )}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                        }}
                                     >
                                         <div className="hover:shadow-xl opacity-50 bg-gradient-to-t mb-5  from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Pre-Sale 1</p>
@@ -198,15 +201,25 @@ const EventsSemnas = () => {
                                     </Link>
                                     <Link
                                         href={route(
-                                            "national-seminar.form-semnas"
+                                            "national-seminar.form-summit"
                                         )}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                        }}
                                     >
                                         <div className="hover:shadow-xl opacity-50 bg-gradient-to-t mb-5 from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Pre-Sale 2</p>
                                             <p>Rp. xxx</p>
                                         </div>
                                     </Link>
-                                    <Link href="/">
+                                    <Link
+                                        href={route(
+                                            "national-seminar.form-summit"
+                                        )}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                        }}
+                                    >
                                         <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Normal Registration</p>
                                             <p>Rp. xxx</p>
@@ -291,7 +304,7 @@ const EventsSemnas = () => {
                                             critical thinking itself.
                                         </p>
                                         <p className="font-semibold text-xl">
-                                            JUNY{" "}
+                                            JUNE{" "}
                                             <span className="text-[#EB9928]">
                                                 {" "}
                                                 14th

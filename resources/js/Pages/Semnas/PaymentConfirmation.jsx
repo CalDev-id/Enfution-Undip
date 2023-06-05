@@ -1,4 +1,4 @@
-import { Link, router } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
 import numeral from "numeral";
 import { useEffect, useState } from "react";
 
@@ -7,16 +7,24 @@ const PaymentConfirmation = (props) => {
     const [account_number, setNumber] = useState("");
     const [bank_name, setBank] = useState("");
     const [payment_slip, setSlip] = useState("");
-    const [modalOpen, setModalOpen] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
 
-    const errors = props.errors;
-    const name = props.name;
-    console.log(props);
+    // const errors = props.errors ?? "";
+    const name = props.name ?? "";
+    const modal = props.modal;
+
     const data = {
         account_name,
         account_number,
         bank_name,
         payment_slip,
+    };
+
+    const resetForm = () => {
+        setName("");
+        setNumber("");
+        setBank("");
+        setSlip("");
     };
 
     const handleSubmit = (e) => {
@@ -26,23 +34,29 @@ const PaymentConfirmation = (props) => {
         for (const d in data) {
             fd.append(`${d}`, data[d]);
         }
-
-        for (const [i, val] of fd.entries()) {
-            console.log(`${val}`);
-        }
         router.post("/payment-confirmation-semnas", fd);
     };
 
+    const redirectURL = () => {
+        const time = 1.1;
+        redirectTime = setTimeout(() => {
+            router.post("/payment-confirmation-semnas");
+        }, 60 * 1000 * time);
+    };
+
     useEffect(() => {
-        if (Object.keys(errors).length == 0) {
-            // resetForm();
+        // redirectURL();
+        if (Object.keys(errors).length == 0 && modal) {
+            resetForm();
+            setModalOpen(true);
         } else {
-            console.log(errors);
+            // console.log(errors);
         }
-    }, [errors]);
+    }, [errors, modal]);
 
     return (
         <div className="w-full bg-[#FFF9EE] min-h-screen pb-20">
+            <Head title="Payment Confirmation - National Seminar" />
             <div className="container flex-col flex justify-center mx-auto">
                 <h1 className="text-center font-semibold text-5xl mb-10 pt-20">
                     Payment Confirmation
@@ -135,7 +149,7 @@ const PaymentConfirmation = (props) => {
 
                     <div className="text-center pt-10">
                         <p className="font-semibold text-lg">
-                            Payment Proof
+                            Payment Proof (with .jpg and .png formats)
                             <span className="text-[#EB9928]">*</span>
                         </p>
                         <p className="text-[#EB9928] font-semibold mb-3">
@@ -183,14 +197,14 @@ const PaymentConfirmation = (props) => {
                             backgroundImage: `url("images/subscribe.svg")`,
                         }}
                     >
-                        <img
+                        {/* <img
                             src="images/btnClose.svg"
                             alt=""
                             onClick={() => {
                                 setModalOpen(false);
                             }}
                             className="absolute sm:right-32 sm:top-16 cursor-pointer right-8 top-8"
-                        />
+                        /> */}
                         <h3 className="pb-2 text-2xl font-bold text-dark sm:text-5xl">
                             Thank You!
                         </h3>
@@ -208,14 +222,11 @@ const PaymentConfirmation = (props) => {
                             from us, please contact us
                         </p>
 
-                        <button
-                            className="underline italic"
-                            onClick={() => {
-                                setModalOpen(false);
-                            }}
-                        >
-                            Return to homepage
-                        </button>
+                        <Link href={route("national-seminar.main")}>
+                            <button className="underline italic">
+                                Return to homepage
+                            </button>
+                        </Link>
                         <img
                             src="images/logoEnfu.svg"
                             alt=""

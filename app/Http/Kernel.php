@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'payment-semnas' => \App\Http\Middleware\PaymentSemnas::class,
+        'url-semnas' => \App\Http\Middleware\URLSemnas::class,
     ];
 }

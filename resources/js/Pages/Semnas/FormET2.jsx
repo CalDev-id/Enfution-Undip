@@ -29,7 +29,7 @@ const FormET2 = (props) => {
         ktm,
         coupon,
     };
-    const errors = props.errors;
+    // const errors = props.errors;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -45,7 +45,7 @@ const FormET2 = (props) => {
         if (Object.keys(errors).length == 0) {
             // resetForm();
         } else {
-            console.log(errors);
+            // console.log(errors);
         }
     }, [errors]);
 
@@ -74,8 +74,33 @@ const FormET2 = (props) => {
                         </button>
                     </div>
 
+                    <div
+                        className={
+                            props.info
+                                ? "alert alert-warning w-fit sm:w-max sm:mx-10 mb-5"
+                                : "hidden"
+                        }
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="stroke-current shrink-0 h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                            />
+                        </svg>
+                        <span>
+                            Sorry, please fill in the registration again
+                        </span>
+                    </div>
+
                     <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5">
-                        Early Bird
+                        {props.time_regist}
                     </p>
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -111,6 +136,12 @@ const FormET2 = (props) => {
                                         setFaculty(faculty.target.value)
                                     }
                                 />
+                                {errors != null &&
+                                    errors.faculty_departements_batch && (
+                                        <span className="text-red-600">
+                                            {errors.faculty_departements_batch}
+                                        </span>
+                                    )}
                             </div>
 
                             <div className="md:mx-10 mb-5">
@@ -142,6 +173,11 @@ const FormET2 = (props) => {
                                         <p className="">Female</p>
                                     </div>
                                 </div>
+                                {errors != null && errors.gender && (
+                                    <span className="text-red-600">
+                                        {errors.gender}
+                                    </span>
+                                )}
                             </div>
 
                             <div className="mb-5 md:mx-10">
@@ -156,6 +192,11 @@ const FormET2 = (props) => {
                                         setPhone(phone.target.value)
                                     }
                                 />
+                                {errors != null && errors.phone_number && (
+                                    <span className="text-red-600">
+                                        {errors.phone_number}
+                                    </span>
+                                )}
                             </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -172,6 +213,11 @@ const FormET2 = (props) => {
                                         setPlaceDOB(place_dob.target.value)
                                     }
                                 />
+                                {errors != null && errors.place_dob && (
+                                    <span className="text-red-600">
+                                        The place and dob field is required.
+                                    </span>
+                                )}
                             </div>
 
                             <div className="mb-5 md:mx-10">
@@ -186,6 +232,11 @@ const FormET2 = (props) => {
                                         setLine(id_line.target.value)
                                     }
                                 />
+                                {errors != null && errors.line_id && (
+                                    <span className="text-red-600">
+                                        {errors.line_id}
+                                    </span>
+                                )}
                             </div>
 
                             <div className="mb-5 md:mx-10">
@@ -213,8 +264,12 @@ const FormET2 = (props) => {
                                             Non-Student
                                         </option>
                                     </select>
-                                    <span className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color"></span>
                                 </div>
+                                {errors != null && errors.status && (
+                                    <span className="text-red-600">
+                                        {errors.status}
+                                    </span>
+                                )}
                             </div>
 
                             <div className="mb-5 md:mx-10">
@@ -231,6 +286,11 @@ const FormET2 = (props) => {
                                         setEmail(email.target.value)
                                     }
                                 />
+                                {errors != null && errors.email && (
+                                    <span className="text-red-600">
+                                        {errors.email}
+                                    </span>
+                                )}
                             </div>
                             <div className="mb-5 md:mx-10">
                                 <p className="font-semibold">
@@ -246,6 +306,11 @@ const FormET2 = (props) => {
                                         setUnirversity(uni.target.value)
                                     }
                                 />
+                                {errors != null && errors.university && (
+                                    <span className="text-red-600">
+                                        {errors.university}
+                                    </span>
+                                )}
                             </div>
                             <div className="mb-5 md:mx-10">
                                 <p className="font-semibold">
@@ -264,9 +329,9 @@ const FormET2 = (props) => {
                                 />
                             </div>
                         </div>
-
                         <p className="font-semibold md:mx-10">
-                            KTM <span className="text-[#EB9928]">*</span>{" "}
+                            KTM (with .jpg and .png formats)
+                            <span className="text-[#EB9928]">*</span>{" "}
                         </p>
                         <p className="text-[#EB9928] mb-2 md:mx-10">
                             (Only freshmen from Management of Diponegoro

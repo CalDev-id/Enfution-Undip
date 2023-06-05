@@ -20,69 +20,48 @@ class SemnasTransactionController extends Controller
 
     static private $ticketPrice = [
         "summit" => [
-            "default" => 0,
+            "NORMAL" => 300000,
             "EB" => 250000,
             "PS1" => 270000,
             "PS2" => 280000
         ],
         "talk-1" => [
-            "default" => 0,
-            "EB" => 200000,
-            "PS1" => 210000,
-            "PS2" => 220000
+            "NORMAL" => 250000,
         ],
         "talk-2" => [
-            "default" => 0,
-            "EB" => 100000,
-            "PS1" => 120000,
-            "PS2" => 150000
+            "NORMAL" => 180000,
         ],
     ];
 
-    static private $timeRegist = [
+    static public $timeRegist = [
         "summit" => [
-            "default" => 0,
             "EB" => [
-                "open" => '2023-06-02 09:00:00',
-                "closed" => '2023-06-02 09:15:59',
+                "open" => '2023-06-05 10:00:00',
+                "closed" => '2023-06-05 11:05:59',
             ],
             "PS1" => [
-                "open" => '2023-06-02 09:20:00',
-                "closed" => '2023-06-02 09:22:59',
+                "open" => '2023-06-05 11:06:00',
+                "closed" => '2023-06-05 11:10:59',
             ],
             "PS2" => [
-                "open" => '2023-06-02 09:23:00',
-                "closed" => '2023-06-02 09:30:00',
+                "open" => '2023-06-05 11:11:00',
+                "closed" => '2023-06-05 11:15:59',
+            ],
+            "NORMAL" => [
+                "open" => '2023-06-05 11:16:00',
+                "closed" => '2023-06-05 13:30:00',
             ],
         ],
         "talk-1" => [
-            "default" => 0,
-            "EB" => [
-                "open" => '2023-06-02 13:00:00',
-                "closed" => '2023-06-02 13:10:59',
-            ],
-            "PS1" => [
-                "open" => '2023-06-02 13:11:00',
-                "closed" => '2023-06-02 13:14:59',
-            ],
-            "PS2" => [
-                "open" => '2023-06-02 13:15:00',
-                "closed" => '2023-06-02 13:30:00',
+            "NORMAL" => [
+                "open" => '2023-06-05 09:23:00',
+                "closed" => '2023-06-05 09:30:00',
             ],
         ],
         "talk-2" => [
-            "default" => 0,
-            "EB" => [
-                "open" => '2023-06-02 13:00:00',
-                "closed" => '2023-06-02 13:25:59',
-            ],
-            "PS1" => [
-                "open" => '2023-06-02 13:26:00',
-                "closed" => '2023-06-02 13:27:59',
-            ],
-            "PS2" => [
-                "open" => '2023-06-02 13:28:00',
-                "closed" => '2023-06-02 13:43:00',
+            "NORMAL" => [
+                "open" => '2023-06-05 09:23:00',
+                "closed" => '2023-06-05 09:30:00',
             ],
         ],
     ];
@@ -105,22 +84,30 @@ class SemnasTransactionController extends Controller
     static private function getTicketPrice()
     {
         $currentDateTime = Carbon::now();
-        // dd(session('event'));
-        if ($currentDateTime->between(
-            Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['EB']['open']),
-            Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['EB']['closed'])
-        )) {
-            SemnasTransactionController::$event_period = "EB";
-            return SemnasTransactionController::$ticketPrice[session('event')]["EB"];
-        } elseif ($currentDateTime->between(
-            Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['PS1']['open']),
-            Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['PS1']['closed'])
-        )) {
-            SemnasTransactionController::$event_period = "PS1";
-            return SemnasTransactionController::$ticketPrice[session('event')]["PS1"];
+        if (session('event') == 'summit') {
+            if ($currentDateTime->between(
+                Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['EB']['open']),
+                Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['EB']['closed'])
+            )) {
+                SemnasTransactionController::$event_period = "EB";
+                return SemnasTransactionController::$ticketPrice[session('event')]["EB"];
+            } elseif ($currentDateTime->between(
+                Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['PS1']['open']),
+                Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['PS1']['closed'])
+            )) {
+                SemnasTransactionController::$event_period = "PS1";
+                return SemnasTransactionController::$ticketPrice[session('event')]["PS1"];
+            } elseif ($currentDateTime->between(
+                Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['PS2']['open']),
+                Carbon::parse(SemnasTransactionController::$timeRegist[session('event')]['PS2']['closed'])
+            )) {
+                SemnasTransactionController::$event_period = "PS2";
+                return SemnasTransactionController::$ticketPrice[session('event')]["PS2"];
+            }
         }
-        SemnasTransactionController::$event_period = "PS2";
-        return SemnasTransactionController::$ticketPrice[session('event')]["PS2"];
+
+        SemnasTransactionController::$event_period = "NORMAL";
+        return SemnasTransactionController::$ticketPrice[session('event')]["NORMAL"];
     }
 
     static private function getDiscount($idCoupon)
@@ -135,6 +122,29 @@ class SemnasTransactionController extends Controller
     public function save(Request $request)
     {
         //
+
+        $idPeserta = session('id_peserta');
+        $existPeserta = SemnasParticipant::where('id', $idPeserta)->first();
+        $event = session('event');
+
+        if (!$existPeserta) {
+            session()->forget(['id_peserta', 'event']);
+            switch ($event) {
+                case 'summit':
+                    return redirect()->route('national-seminar.form-summit')->with("not_success", true);
+                    break;
+                case 'talk-1':
+                    return redirect()->route('national-seminar.form-et1')->with("not_success", true);
+                    break;
+                case 'talk-2':
+                    return redirect()->route('national-seminar.form-et2')->with("not_success", true);
+                    break;
+                default:
+                    return false;
+                    break;
+            }
+        }
+
         $rules = [
             'account_name' => 'required|string|max:100',
             'account_number' => 'required|string|max:100',
@@ -148,8 +158,7 @@ class SemnasTransactionController extends Controller
             return false;
         }
 
-        $idPeserta = session('id_peserta');
-        $idCoupon = SemnasParticipant::where('id', $idPeserta)->first()->id_referral_code;
+        $idCoupon = $existPeserta->id_referral_code;
         $totalPrice = SemnasTransactionController::getTicketPrice();
         if ($idCoupon) {
             $totalPrice = SemnasTransactionController::getTicketPrice() * (1 - SemnasTransactionController::getDiscount($idCoupon));
@@ -160,8 +169,8 @@ class SemnasTransactionController extends Controller
             'account_number' => esc(request('account_number')),
             'amount' => esc($totalPrice),
             'bank_name' => esc(request('bank_name')),
-            'id_peserta' => esc($idPeserta),
             'status_periode' => esc(SemnasTransactionController::$event_period),
+            'status_bayar' => "PAID",
         ];
 
 
@@ -170,11 +179,10 @@ class SemnasTransactionController extends Controller
             $filterData['bukti_bayar'] = Storage::disk('semnas_payment_slip')->put('', $validateData['payment_slip']);
         }
 
-        // dd($filterData);
-
-        $createdTrx = SemnasTransaction::create($filterData);
+        $createdTrx = SemnasTransaction::where('id_peserta', $idPeserta)->update($filterData);
         if ($createdTrx) {
-            dd("berhasil bayar boss!!");
+            session()->forget(['id_peserta', 'event']);
+            return Inertia::render('Semnas/PaymentConfirmation', ['modal' => true]);
         }
     }
 

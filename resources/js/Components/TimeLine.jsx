@@ -431,7 +431,7 @@ const TimeLine = ({ name }) => {
                                         {" "}
                                         Open Registration :{" "}
                                     </span>
-                                    14th July
+                                    14th June
                                 </p>
                             </div>
                         )}
