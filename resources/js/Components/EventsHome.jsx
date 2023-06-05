@@ -31,7 +31,7 @@ const EventsHome = () => {
                                 </p>
                                 <div className="flex mb-3 flex-wrap">
                                     <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mr-3">
-                                        Coacing Session
+                                        Coaching Session
                                     </p>
                                     <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mr-3">
                                         Coaching Clinic

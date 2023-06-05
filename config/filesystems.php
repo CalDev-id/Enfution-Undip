@@ -39,9 +39,19 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
+        ],
+
+        'semnas_ktm' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/semnas_ktm',
+        ],
+
+        'semnas_payment_slip' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/semnas_payment_slip',
         ],
 
         's3' => [

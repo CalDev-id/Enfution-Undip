@@ -107,12 +107,6 @@ const TimeLine = ({ name }) => {
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
-                                        Grand Opening :
-                                    </span>{" "}
-                                    19th August
-                                </p>
-                                <p>
-                                    <span className="text-[#EB9928]">
                                         Case Distribution :
                                     </span>{" "}
                                     20th August
@@ -133,13 +127,13 @@ const TimeLine = ({ name }) => {
                                 <p>
                                     {" "}
                                     <span className="text-[#EB9928]">
-                                        Announcement (top 20) :{" "}
+                                        Announcement (Top 20) :{" "}
                                     </span>
                                     16th September
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
-                                        Semifinal Paper Submission :
+                                        Video Presentation Submission :
                                     </span>{" "}
                                     23rd September
                                 </p>
@@ -159,19 +153,13 @@ const TimeLine = ({ name }) => {
                                     <span className="text-[#EB9928]">
                                         Live Q&A :{" "}
                                     </span>
-                                    7st October
+                                    7th October
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
-                                        CT :{" "}
+                                        Critical Thinking :{" "}
                                     </span>
                                     8th October
-                                </p>
-                                <p>
-                                    <span className="text-[#EB9928]">
-                                        Final Assesment :{" "}
-                                    </span>
-                                    13st October
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
@@ -443,7 +431,7 @@ const TimeLine = ({ name }) => {
                                         {" "}
                                         Open Registration :{" "}
                                     </span>
-                                    14th July
+                                    14th June
                                 </p>
                             </div>
                         )}
@@ -528,7 +516,9 @@ const TimeLine = ({ name }) => {
                         )}
                         {active == 2 && (
                             <div className="section-content strategy active">
-                                <h2 className="mb-2 font-semibold">OCTOBER</h2>
+                                <h2 className="mb-2 font-semibold">
+                                    September
+                                </h2>
                                 <p>
                                     <span className="text-[#EB9928]">
                                         Close Registration :

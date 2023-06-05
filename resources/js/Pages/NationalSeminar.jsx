@@ -13,18 +13,12 @@ const NationalSeminar = () => {
         <section className="bg-[#FFF9EE]">
             <Head title="National Seminar" />
             <Navbar active={"national"} />
-
             <Hero active={"national"} />
-
-            <AboutUs active={"national"} />\
-
+            <AboutUs active={"national"} />
             <EventsSemnas />
-
             <GallerySemnas />
-            
             <TestiPageSemnas />
             <Footer active={"semnas"} />
-
         </section>
     );
 };

@@ -1,10 +1,58 @@
-import { Head, Link } from "@inertiajs/react";
-import { useState } from "react";
+import { Head, Link, router } from "@inertiajs/react";
+import { useEffect, useState } from "react";
 
-const FormET1 = () => {
+const FormET1 = (props) => {
     const [open, setOpen] = useState(false);
     const [bundle, setBundle] = useState(false);
+    const [full_name, setName] = useState("");
+    const [faculty_departements_batch, setFaculty] = useState("");
+    const [gender, setGender] = useState("");
+    const [place_dob, setPlaceDOB] = useState("");
+    const [status, setStatus] = useState("");
+    const [university, setUnirversity] = useState("");
+    const [phone_number, setPhone] = useState("");
+    const [line_id, setLine] = useState("");
+    const [email, setEmail] = useState("");
+    const [ktm, setKtm] = useState("");
+    const [coupon, setCoupon] = useState("");
 
+    const data = {
+        full_name,
+        faculty_departements_batch,
+        gender,
+        place_dob,
+        status,
+        university,
+        phone_number,
+        line_id,
+        email,
+        ktm,
+        coupon,
+    };
+    // const errors = props.errors;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let fd = new FormData();
+
+        for (const d in data) {
+            fd.append(`${d}`, data[d]);
+        }
+
+        for (const key in fd) {
+            console.log(key);
+        }
+        // console.log(fd);
+        router.post("/registration-EarlyTalk1", fd);
+    };
+
+    useEffect(() => {
+        if (Object.keys(errors).length == 0) {
+            // resetForm();
+        } else {
+            // console.log(errors);
+        }
+    }, [errors]);
 
     return (
         <>
@@ -12,525 +60,319 @@ const FormET1 = () => {
                 <Head title="Registration -  Early Talk 1" />
                 <div className="container pb-32 bg-[#FFF9EE]">
                     <h1 className="text-center font-semibold text-5xl mb-10">
-                        Registration Form
+                        Registration Form ET1
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
-                        <Link href="/registration-national-seminar">
+                        {/* <Link href={route("national-seminar.form-semnas")}>
                             <button className="btn btn-outline w-28 sm:w-60 rounded-none">
                                 National Seminar
                             </button>
                         </Link>
-                        <Link href="/registration-EarlyTalk1">
+                        <Link href={route("national-seminar.form-et1")}>
                             <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
                                 Early Talk1
                             </button>
                         </Link>
-                        <Link href="/registration-EarlyTalk2">
-                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
+                        <Link href={route("national-seminar.form-et2")}>
+                            <button className="btn btn-outline w-24 sm:w-60 rounded-none">
                                 Early Talk 2
                             </button>
-                        </Link>
+                        </Link> */}
+
+                        <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
+                            Early Talk1
+                        </button>
+                    </div>
+
+                    <div
+                        className={
+                            props.info
+                                ? "alert alert-warning w-fit sm:w-max sm:mx-10 mb-5"
+                                : "hidden"
+                        }
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="stroke-current shrink-0 h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                            />
+                        </svg>
+                        <span>
+                            Sorry, please fill in the registration again
+                        </span>
                     </div>
 
                     <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5">
-                        Early Bird
+                        {props.time_regist}
                     </p>
-                    {/* <div className="md:mx-10 mb-5">
-                        <p className="font-semibold">
-                            Person / Bundle ?{" "}
+                    <form onSubmit={handleSubmit} encType="multipart/form-data">
+                        <div className="grid grid-cols-1 md:grid-cols-2">
+                            <div className="md:mx-10 mb-5">
+                                <p className="font-semibold">
+                                    Full Name{" "}
+                                    <span className="text-[#EB9928]">*</span>{" "}
+                                </p>
+                                <input
+                                    type="text"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                    onChange={(name) =>
+                                        setName(name.target.value)
+                                    }
+                                />
+                                {errors != null && errors.full_name && (
+                                    <span className="text-red-600">
+                                        {errors.full_name}
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="md:mx-10 mb-5">
+                                <p className="font-semibold">
+                                    Faculty/Department/Batch{" "}
+                                    <span className="text-[#EB9928]">*</span>{" "}
+                                </p>
+                                <input
+                                    type="text"
+                                    placeholder="*ex Economic/Management/2021"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                    onChange={(faculty) =>
+                                        setFaculty(faculty.target.value)
+                                    }
+                                />
+                                {errors != null &&
+                                    errors.faculty_departements_batch && (
+                                        <span className="text-red-600">
+                                            {errors.faculty_departements_batch}
+                                        </span>
+                                    )}
+                            </div>
+
+                            <div className="md:mx-10 mb-5">
+                                <p className="font-semibold">
+                                    Gender{" "}
+                                    <span className="text-[#EB9928]">*</span>{" "}
+                                </p>
+                                <div className="flex">
+                                    <div className="flex my-2 self-center mr-5">
+                                        <input
+                                            type="radio"
+                                            name="radio-1"
+                                            className="checkbox mr-3 focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                            onClick={(gender) =>
+                                                setGender("Male")
+                                            }
+                                        />
+                                        <p className="">Male</p>
+                                    </div>
+                                    <div className="flex my-2 self-center">
+                                        <input
+                                            type="radio"
+                                            name="radio-1"
+                                            className="checkbox mr-3 outline-1 outline-[#1E2E40] focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                            onClick={(gender) =>
+                                                setGender("Female")
+                                            }
+                                        />
+                                        <p className="">Female</p>
+                                    </div>
+                                </div>
+                                {errors != null && errors.gender && (
+                                    <span className="text-red-600">
+                                        {errors.gender}
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="mb-5 md:mx-10">
+                                <p className="font-semibold">
+                                    Phone Number{" "}
+                                    <span className="text-[#EB9928]">*</span>{" "}
+                                </p>
+                                <input
+                                    type="text"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                    onChange={(phone) =>
+                                        setPhone(phone.target.value)
+                                    }
+                                />
+                                {errors != null && errors.phone_number && (
+                                    <span className="text-red-600">
+                                        {errors.phone_number}
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2">
+                            <div className="md:mx-10 mb-5">
+                                <p className="font-semibold">
+                                    Place, Date of Birth{" "}
+                                    <span className="text-[#EB9928]">*</span>{" "}
+                                </p>
+                                <input
+                                    type="text"
+                                    placeholder="Place, DD/MM/YYYY"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                    onChange={(place_dob) =>
+                                        setPlaceDOB(place_dob.target.value)
+                                    }
+                                />
+                                {errors != null && errors.place_dob && (
+                                    <span className="text-red-600">
+                                        The place and dob field is required.
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="mb-5 md:mx-10">
+                                <p className="font-semibold">
+                                    Line ID{" "}
+                                    <span className="text-[#EB9928]">*</span>{" "}
+                                </p>
+                                <input
+                                    type="text"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                    onChange={(id_line) =>
+                                        setLine(id_line.target.value)
+                                    }
+                                />
+                                {errors != null && errors.line_id && (
+                                    <span className="text-red-600">
+                                        {errors.line_id}
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="mb-5 md:mx-10">
+                                <p className="font-semibold">
+                                    Status
+                                    <span className="text-[#EB9928]">
+                                        *
+                                    </span>{" "}
+                                </p>
+                                <div className="relative">
+                                    <select
+                                        className="focus:border-[#EB9928] focus:ring-[#EB9928] w-full appearance-none rounded-lg border-[1.5px] border-[#1E2E40] bg-transparent py-3 px-5 font-medium text-body-color outline-none transition active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                        onChange={(status) =>
+                                            setStatus(status.target.value)
+                                        }
+                                    >
+                                        <option value="" disabled selected>
+                                            Choose One
+                                        </option>
+                                        <option value="Undergraduate">
+                                            Undergraduate
+                                        </option>
+                                        <option value="Student">Student</option>
+                                        <option value="Non-Student">
+                                            Non-Student
+                                        </option>
+                                    </select>
+                                </div>
+                                {errors != null && errors.status && (
+                                    <span className="text-red-600">
+                                        {errors.status}
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="mb-5 md:mx-10">
+                                <p className="font-semibold">
+                                    E-mail
+                                    <span className="text-[#EB9928]">
+                                        *
+                                    </span>{" "}
+                                </p>
+                                <input
+                                    type="text"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                    onChange={(email) =>
+                                        setEmail(email.target.value)
+                                    }
+                                />
+                                {errors != null && errors.email && (
+                                    <span className="text-red-600">
+                                        {errors.email}
+                                    </span>
+                                )}
+                            </div>
+                            <div className="mb-5 md:mx-10">
+                                <p className="font-semibold">
+                                    University/Institute
+                                    <span className="text-[#EB9928]">
+                                        *
+                                    </span>{" "}
+                                </p>
+                                <input
+                                    type="text"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                    onChange={(uni) =>
+                                        setUnirversity(uni.target.value)
+                                    }
+                                />
+                                {errors != null && errors.university && (
+                                    <span className="text-red-600">
+                                        {errors.university}
+                                    </span>
+                                )}
+                            </div>
+                            <div className="mb-5 md:mx-10">
+                                <p className="font-semibold">
+                                    Coupon/Referral Code
+                                    <span className="text-[#EB9928]">
+                                        *
+                                    </span>{" "}
+                                </p>
+                                <input
+                                    type="text"
+                                    placeholder="if any"
+                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                    onChange={(coupon) =>
+                                        setCoupon(coupon.target.value)
+                                    }
+                                />
+                            </div>
+                        </div>
+                        <p className="font-semibold md:mx-10">
+                            KTM (Format in .jpg and .png)
                             <span className="text-[#EB9928]">*</span>{" "}
                         </p>
-                        <p className="text-[#EB9928] mb-2">
-                            Get discount for bundle registration
+                        <p className="text-[#EB9928] mb-2 md:mx-10">
+                            (Only freshmen from Management of Diponegoro
+                            University)
                         </p>
-                        <div className="flex">
-                            <div className="flex my-2 self-center mr-5">
-                                <input
-                                    type="radio"
-                                    name="bundle"
-                                    className="checkbox mr-3"
-                                    onChange={() => {
-                                        setBundle(false);
-                                    }}
-                                />
-                                <p className="">Person</p>
-                            </div>
-                            <div className="flex my-2 self-center">
-                                <input
-                                    type="radio"
-                                    name="bundle"
-                                    onChange={() => {
-                                        setBundle(true);
-                                    }}
-                                    className="checkbox mr-3 outline-1 outline-[#1E2E40]"
-                                />
-                                <p className="">Bundle</p>
-                            </div>
-                        </div>
-                    </div> */}
-                    {bundle && (
-                        <p className="font-semibold text-[#EB9928] mb-3 md:mx-10">
-                            1st Person
-                        </p>
-                    )}
-                    <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Full Name{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
+                        <div className="grid md:grid-cols-2 md:mr-40 md:ml-10">
                             <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                type="file"
+                                id="file-ktm"
+                                className="file-input file-input-bordered w-full focus:border-[#EB9928] focus:ring-[#EB9928]"
+                                onChange={(e) => {
+                                    setKtm(e.target.files[0]);
+                                }}
+                                placeholder="Format in .jpg and .png"
                             />
                         </div>
 
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Faculty/Department/Batch{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                placeholder="Faculty/Department/Batch"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Gender <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <div className="flex">
-                                <div className="flex my-2 self-center mr-5">
-                                    <input
-                                        type="radio"
-                                        name="radio-1"
-                                        className="checkbox mr-3"
-                                        onChange={() => {}}
-                                    />
-                                    <p className="">Male</p>
-                                </div>
-                                <div className="flex my-2 self-center">
-                                    <input
-                                        type="radio"
-                                        name="radio-1"
-                                        className="checkbox mr-3 outline-1 outline-[#1E2E40]"
-                                    />
-                                    <p className="">Female</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Phone Number{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Place, Date of Birth{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                placeholder="Place, DD/MM/YYYY"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Line ID{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Status<span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            {/* <input
-                                type="text"
-                                placeholder="//"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                            /> */}
-                            <div className="relative">
-                                <select
-                                    name="car_type"
-                                    className="w-full focus:border-[#EB9928] focus:ring-[#EB9928] appearance-none rounded-lg border-[1.5px] border-[#1E2E40] bg-transparent py-3 px-5 font-medium text-body-color outline-none transition active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                        <div className="flex justify-center mt-10">
+                            <Link href={route("national-seminar.main")}>
+                                <button
+                                    type="button"
+                                    className="btn btn-outline w-28 sm:w-48 rounded-none mx-10"
                                 >
-                                    <option value="Sedan">Undergraduate</option>
-                                    <option value="Suv">Student</option>
-                                    <option value="Box">Non-Student</option>
-                                </select>
-                                <span className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color"></span>
-                            </div>
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                E-mail
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                University/Institute
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="email"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Coupon/Referral Code
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                placeholder="if any"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                    </div>
-
-                    {bundle && (
-                        <div>
-                            {bundle && (
-                                <p className="font-semibold text-[#EB9928] mb-3 md:mx-10">
-                                    2nd Person
-                                </p>
-                            )}
-                                                <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Full Name{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Faculty/Department/Batch{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                placeholder="Faculty/Department/Batch"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Gender <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <div className="flex">
-                                <div className="flex my-2 self-center mr-5">
-                                    <input
-                                        type="radio"
-                                        name="radio-1"
-                                        className="checkbox mr-3"
-                                        onChange={() => {}}
-                                    />
-                                    <p className="">Male</p>
-                                </div>
-                                <div className="flex my-2 self-center">
-                                    <input
-                                        type="radio"
-                                        name="radio-1"
-                                        className="checkbox mr-3 outline-1 outline-[#1E2E40]"
-                                    />
-                                    <p className="">Female</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Phone Number{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Place, Date of Birth{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                placeholder="Place, DD/MM/YYYY"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Line ID{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Status<span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            {/* <input
-                                type="text"
-                                placeholder="//"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                            /> */}
-                            <div className="relative">
-                                <select
-                                    name="car_type"
-                                    className="w-full focus:border-[#EB9928] focus:ring-[#EB9928] appearance-none rounded-lg border-[1.5px] border-[#1E2E40] bg-transparent py-3 px-5 font-medium text-body-color outline-none transition active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                >
-                                    <option value="Sedan">Undergraduate</option>
-                                    <option value="Suv">Student</option>
-                                    <option value="Box">Non-Student</option>
-                                </select>
-                                <span className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color"></span>
-                            </div>
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                E-mail
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                University/Institute
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="email"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Coupon/Referral Code
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                placeholder="if any"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                    </div>
-
-                            {bundle && (
-                                <p className="font-semibold text-[#EB9928] mb-3 md:mx-10">
-                                    3rd Person
-                                </p>
-                                
-                            )}
-                                                <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Full Name{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Faculty/Department/Batch{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                placeholder="Faculty/Department/Batch"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Gender <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <div className="flex">
-                                <div className="flex my-2 self-center mr-5">
-                                    <input
-                                        type="radio"
-                                        name="radio-1"
-                                        className="checkbox mr-3"
-                                        onChange={() => {}}
-                                    />
-                                    <p className="">Male</p>
-                                </div>
-                                <div className="flex my-2 self-center">
-                                    <input
-                                        type="radio"
-                                        name="radio-1"
-                                        className="checkbox mr-3 outline-1 outline-[#1E2E40]"
-                                    />
-                                    <p className="">Female</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Phone Number{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="md:mx-10 mb-5">
-                            <p className="font-semibold">
-                                Place, Date of Birth{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                placeholder="Place, DD/MM/YYYY"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Line ID{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Status<span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            {/* <input
-                                type="text"
-                                placeholder="//"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
-                            /> */}
-                            <div className="relative">
-                                <select
-                                    name="car_type"
-                                    className="w-full focus:border-[#EB9928] focus:ring-[#EB9928] appearance-none rounded-lg border-[1.5px] border-[#1E2E40] bg-transparent py-3 px-5 font-medium text-body-color outline-none transition active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                >
-                                    <option value="Sedan">Undergraduate</option>
-                                    <option value="Suv">Student</option>
-                                    <option value="Box">Non-Student</option>
-                                </select>
-                                <span className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color"></span>
-                            </div>
-                        </div>
-
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                E-mail
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                University/Institute
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="email"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                        <div className="mb-5 md:mx-10">
-                            <p className="font-semibold">
-                                Coupon/Referral Code
-                                <span className="text-[#EB9928]">*</span>{" "}
-                            </p>
-                            <input
-                                type="text"
-                                placeholder="if any"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                            />
-                        </div>
-                    </div>
-                        </div>
-
-                    )}
-
-                    <p className="font-semibold md:mx-10">
-                        KTM <span className="text-[#EB9928]">*</span>{" "}
-                    </p>
-                    <p className="text-[#EB9928] mb-2 md:mx-10">
-                        (Only freshmen from Management of Diponegoro University)
-                    </p>
-                    <div className="grid md:grid-cols-2 md:mr-40 md:ml-10">
-                        <input
-                            type="file"
-                            className="file-input file-input-bordered w-full focus:border-[#EB9928] focus:ring-[#EB9928]"
-                        />
-                    </div>
-
-                    <div className="flex justify-center mt-10">
-                        <Link href="/national-seminar">
-                            <button className="btn btn-outline w-28 sm:w-48 rounded-none mx-10">
-                                Cancel
-                            </button>
-                        </Link>
-                        <Link href="/payment-confirmation-semnas">
+                                    Cancel
+                                </button>
+                            </Link>
                             <button className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]">
                                 Next
                             </button>
-                        </Link>
-                    </div>
+                        </div>
+                    </form>
                     <Link href="/">
                         <p className="underline text-center mt-10 font-light">
                             Return to Homepage

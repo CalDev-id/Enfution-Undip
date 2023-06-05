@@ -8,10 +8,13 @@ const Sponsors = () => {
                     className="w-60 mr-10 flex mx-auto sm:mx-0 sm:block mb-5 sm:mb-0 sm:mr-20"
                 />
                 <div className="self-center">
+                    <div className="flex">
+                    <span className="text-3xl font-black">“</span>
                     <p className="md:max-w-lg font-bold text-xl mb-3">
-                        Creativity comes from looking for the unexpected and
+                    Creativity comes from looking for the unexpected and
                         stepping outside your own experience.
                     </p>
+                    </div>
                     <p className="border-l-4 border-[#EB9928] pl-5 py-2 md:max-w-2xl">
                         We will learn that computers, amazing as they are, still
                         cannot come close to being as effective as human beings.

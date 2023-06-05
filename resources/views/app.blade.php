@@ -14,7 +14,7 @@
         <!-- <link rel="stylesheet" href="build/assets/app-c310be9c.css"> -->
 
         <!-- Scripts -->
-        @routes
+        @routes()
         @viteReactRefresh
         @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
         @inertiaHead
