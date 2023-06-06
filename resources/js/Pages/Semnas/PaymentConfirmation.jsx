@@ -9,7 +9,7 @@ const PaymentConfirmation = (props) => {
     const [payment_slip, setSlip] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
 
-    // const errors = props.errors ?? "";
+    const errors = props.errors;
     const name = props.name ?? "";
     const modal = props.modal;
 
@@ -34,6 +34,11 @@ const PaymentConfirmation = (props) => {
         for (const d in data) {
             fd.append(`${d}`, data[d]);
         }
+
+        for (const [i, val] of fd.entries()) {
+            console.log(val);
+        }
+
         router.post("/payment-confirmation-semnas", fd);
     };
 
@@ -50,7 +55,7 @@ const PaymentConfirmation = (props) => {
             resetForm();
             setModalOpen(true);
         } else {
-            // console.log(errors);
+            console.log(errors);
         }
     }, [errors, modal]);
 
@@ -117,6 +122,11 @@ const PaymentConfirmation = (props) => {
                                 className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
                                 onChange={(bank) => setBank(bank.target.value)}
                             />
+                            {errors != null && errors.bank_name && (
+                                <span className="text-red-600">
+                                    {errors.bank_name}
+                                </span>
+                            )}
                         </div>
                         <div className="mb-5 md:mx-10">
                             <p className="font-semibold text-center text-lg">
@@ -130,6 +140,11 @@ const PaymentConfirmation = (props) => {
                                     setName(acc_name.target.value)
                                 }
                             />
+                            {errors != null && errors.account_name && (
+                                <span className="text-red-600">
+                                    {errors.account_name}
+                                </span>
+                            )}
                         </div>
 
                         <div className="mb-5 md:mx-10">
@@ -144,6 +159,11 @@ const PaymentConfirmation = (props) => {
                                     setNumber(acc_number.target.value)
                                 }
                             />
+                            {errors != null && errors.account_number && (
+                                <span className="text-red-600">
+                                    {errors.account_number}
+                                </span>
+                            )}
                         </div>
                     </div>
 
@@ -162,14 +182,19 @@ const PaymentConfirmation = (props) => {
                                 setSlip(e.target.files[0]);
                             }}
                         />
+                        {errors != null && errors.payment_slip && (
+                            <span className="text-red-600 text-center block">
+                                {errors.payment_slip}
+                            </span>
+                        )}
                     </div>
 
                     <div className="flex justify-center mt-20">
-                        <Link href="/">
+                        {/* <Link href="/">
                             <button className="btn btn-outline w-28 sm:w-48 rounded-none mx-10">
                                 Back
                             </button>
-                        </Link>
+                        </Link> */}
                         <button className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]">
                             Submit
                         </button>
@@ -191,20 +216,11 @@ const PaymentConfirmation = (props) => {
                     }
                 >
                     <div
-                        // onClick={()=>{setModalOpen = false}}
                         className="w-full h-full relative sm:scale-75 xl:scale-90 max-w-lg max-h-96 xl:max-w-[984px] xl:max-h-[561px] bg-cover bg-center bg-no-repeat py-8 md:py-20 rounded-3xl xl:rounded-none px-4 sm:px-8 text-center"
                         style={{
                             backgroundImage: `url("images/subscribe.svg")`,
                         }}
                     >
-                        {/* <img
-                            src="images/btnClose.svg"
-                            alt=""
-                            onClick={() => {
-                                setModalOpen(false);
-                            }}
-                            className="absolute sm:right-32 sm:top-16 cursor-pointer right-8 top-8"
-                        /> */}
                         <h3 className="pb-2 text-2xl font-bold text-dark sm:text-5xl">
                             Thank You!
                         </h3>

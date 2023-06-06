@@ -467,18 +467,6 @@ const TimeLine = ({ name }) => {
                                         : "step step01"
                                 }
                                 onClick={() => {
-                                    setActive(1);
-                                }}
-                            >
-                                <div className="step-inner">July</div>
-                            </li>
-                            <li
-                                className={
-                                    active == 2
-                                        ? "step step02 active"
-                                        : "step step02"
-                                }
-                                onClick={() => {
                                     setActive(2);
                                 }}
                             >
@@ -490,11 +478,7 @@ const TimeLine = ({ name }) => {
                             <div
                                 id="line-progress"
                                 className={
-                                    active == 1
-                                        ? "w-[33%]"
-                                        : active == 2
-                                        ? "w-[100%]"
-                                        : "w-[100%]"
+                                    active == 1 ? "w-[100%]" : "w-[100%]"
                                 }
                             ></div>
                         </div>
@@ -502,19 +486,6 @@ const TimeLine = ({ name }) => {
 
                     <div id="progress-content-section">
                         {active == 1 && (
-                            <div className="section-content discovery active">
-                                <h2 className="mb-2 font-semibold">JULY</h2>
-                                <p>
-                                    {" "}
-                                    <span className="text-[#EB9928]">
-                                        {" "}
-                                        Open Registration :{" "}
-                                    </span>
-                                    15th July
-                                </p>
-                            </div>
-                        )}
-                        {active == 2 && (
                             <div className="section-content strategy active">
                                 <h2 className="mb-2 font-semibold">
                                     September

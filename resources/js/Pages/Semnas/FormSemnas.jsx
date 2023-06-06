@@ -29,7 +29,7 @@ const FormSemnas = (props) => {
         ktm,
         coupon,
     };
-    // const errors = props.errors;
+    const errors = props.errors;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -61,17 +61,6 @@ const FormSemnas = (props) => {
                         <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
                             National Seminar
                         </button>
-
-                        {/* <Link href={route("national-seminar.form-et1")}>
-                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
-                                Early Talk1
-                            </button>
-                        </Link>
-                        <Link href={route("national-seminar.form-et2")}>
-                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
-                                Early Talk 2
-                            </button>
-                        </Link> */}
                     </div>
 
                     <div
@@ -252,8 +241,9 @@ const FormSemnas = (props) => {
                                         onChange={(status) =>
                                             setStatus(status.target.value)
                                         }
+                                        defaultValue=""
                                     >
-                                        <option value="" disabled selected>
+                                        <option value="" disabled>
                                             Choose One
                                         </option>
                                         <option value="Undergraduate">
