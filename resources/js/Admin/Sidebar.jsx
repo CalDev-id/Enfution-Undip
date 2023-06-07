@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-const Sidebar = () => {
-    const [selectedIndex, setSelectedIndex] = useState("");
+const Sidebar = ({ index }) => {
     return (
         <>
             <aside className="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl bg-black">
@@ -15,26 +14,20 @@ const Sidebar = () => {
                 </div>
                 <nav className="text-white text-base font-semibold pt-3">
                     <a
-                        href=""
-                        onClick={(e) => {
-                            setSelectedIndex(1);
-                        }}
+                        href={route("dashboard")}
                         className={
-                            selectedIndex == 1
+                            index == 1
                                 ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"
-                                : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item dashboard"
+                                : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
                         }
                     >
-                        <i className="fas fa-tachometer-alt mr-3"></i>
+                        <i className="fas fa-sticky-note mr-3"></i>
                         Dashboard
                     </a>
                     <a
-                        href=""
-                        onClick={(e) => {
-                            setSelectedIndex(2);
-                        }}
+                        href={route("dashboard-semnas")}
                         className={
-                            selectedIndex == 2
+                            index == 2
                                 ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"
                                 : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
                         }
@@ -43,12 +36,9 @@ const Sidebar = () => {
                         National Seminar
                     </a>
                     <a
-                        href=""
-                        onClick={(e) => {
-                            setSelectedIndex(3);
-                        }}
+                        href={route("dashboard-DBCC")}
                         className={
-                            selectedIndex == 3
+                            index == 3
                                 ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"
                                 : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
                         }

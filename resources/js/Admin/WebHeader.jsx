@@ -11,10 +11,13 @@ const WebHeader = () => {
                     x-data="{ isOpen: false }"
                     className="relative w-1/2 flex justify-end"
                 >
-                    <Link href="">
-                        <button className="relative btn text-white">
-                            Logout
-                        </button>
+                    <Link
+                        href={route("logout")}
+                        className="relative btn text-white"
+                        method="post"
+                        as="button"
+                    >
+                        Logout
                     </Link>
                 </div>
             </header>

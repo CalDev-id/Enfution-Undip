@@ -120,7 +120,6 @@ class SemnasParticipantController extends Controller
 
         $filterData = [
             'full_name' => esc(request('full_name')),
-            'faculty_departements_batch' => esc(request('faculty_departements_batch')),
             'gender' => esc(request('gender')),
             'place_dob' => esc(request('place_dob')),
             'status' => esc(request('status')),
@@ -129,6 +128,10 @@ class SemnasParticipantController extends Controller
             'email' => esc(request('email')),
             'event' => SemnasParticipantController::$event,
         ];
+
+        if (request('faculty_departements_batch')) {
+            $filterData['faculty_departements_batch'] = esc(request('faculty_departements_batch'));
+        }
 
         if (request('university')) {
             $filterData['university'] = esc(request('university'));
@@ -143,8 +146,11 @@ class SemnasParticipantController extends Controller
         if (request('coupon')) {
             // dd(request('coupon'));
             $couponExists = SemnasReferralCode::where('code', request('coupon'))->first();
-            if ($couponExists) {
+            $couponQty = (int) $couponExists->qty;
+            if ($couponExists && $couponQty > 0) {
                 $filterData['id_referral_code'] = $couponExists->id;
+                $couponQty--;
+                $couponExists->update(['qty' => $couponQty]);
             }
         }
 

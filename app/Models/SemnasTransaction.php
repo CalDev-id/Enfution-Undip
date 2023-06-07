@@ -11,6 +11,17 @@ class SemnasTransaction extends Model
 
     protected $guarded = ['id'];
     protected $table = 'semnas_transactions';
+    protected $with = ['peserta_semnas'];
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when(
+            $filters['event'] ?? false,
+            fn ($query, $event) =>
+            $query->whereHas('peserta_semnas', fn ($query) => $query->where('event', $event))
+        );
+    }
+
 
     public function peserta_semnas()
     {
