@@ -29,7 +29,7 @@ const FormET2 = (props) => {
         ktm,
         coupon,
     };
-    // const errors = props.errors;
+    const errors = props.errors;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -58,17 +58,6 @@ const FormET2 = (props) => {
                         Registration Form ET2
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
-                        {/* <Link href={route("national-seminar.form-semnas")}>
-                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
-                                National Seminar
-                            </button>
-                        </Link>
-                        <Link href={route("national-seminar.form-et1")}>
-                            <button className="btn btn-outline w-28 sm:w-60 rounded-none">
-                                Early Talk1
-                            </button>
-                        </Link>
-                        <Link href={route("national-seminar.form-et2")}> */}
                         <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
                             Early Talk 2
                         </button>
@@ -252,8 +241,9 @@ const FormET2 = (props) => {
                                         onChange={(status) =>
                                             setStatus(status.target.value)
                                         }
+                                        defaultValue=""
                                     >
-                                        <option value="" disabled selected>
+                                        <option value="" disabled>
                                             Choose One
                                         </option>
                                         <option value="Undergraduate">

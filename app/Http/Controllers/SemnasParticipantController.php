@@ -101,7 +101,7 @@ class SemnasParticipantController extends Controller
         // dd($request);
         $rules = [
             'full_name' => 'required|string|max:255',
-            'faculty_departements_batch' => 'required|string|max:100',
+            'faculty_departements_batch' => 'nullable|string|max:100',
             'gender' => 'required',
             'place_dob' => 'required|string|max:100',
             'status' => 'required',

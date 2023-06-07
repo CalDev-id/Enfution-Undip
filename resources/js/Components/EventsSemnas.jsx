@@ -29,7 +29,6 @@ const EventsSemnas = () => {
                 Our Series of Events
             </h1>
             <div className="mb-10 flex mx-auto w-20 border-b-2 border-[#EB9928]"></div>
-            {/* <img src="images/eventTop.png" alt="" /> */}
             <div className="w-full xl:px-60 flex justify-evenly border-t-2 border-[#EB9928] border-b-2 py-2 font-semibold mx-auto">
                 <button
                     onClick={() => {
@@ -87,7 +86,7 @@ const EventsSemnas = () => {
                                             Coming Soon
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            One of Indonesian Ring 1 government
+                                            A young and fresh entrepreneur
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-20 px-4">
@@ -115,7 +114,7 @@ const EventsSemnas = () => {
                                             Coming Soon
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            A young and fresh entrepreneur
+                                            A senior entrepreneur
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:mr-20 px-4">
@@ -140,7 +139,7 @@ const EventsSemnas = () => {
                                             Coming Soon
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            A young and fresh entrepreneur
+                                            A senior entrepreneur
                                         </p>
                                     </div>
                                 </div>
@@ -155,7 +154,7 @@ const EventsSemnas = () => {
                                             Coming Soon
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            A senior entrepreneur
+                                            One of Indonesian Ring 1 government
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-20 px-4">
@@ -303,14 +302,6 @@ const EventsSemnas = () => {
                                             challenges, beginning with enhancing
                                             critical thinking itself.
                                         </p>
-                                        <p className="font-semibold text-xl">
-                                            JUNE{" "}
-                                            <span className="text-[#EB9928]">
-                                                {" "}
-                                                14th
-                                            </span>
-                                            , 2023
-                                        </p>
                                         <Link href="/registration-EarlyTalk1">
                                             <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
                                                 <p>REGISTER NOW</p>
@@ -392,22 +383,11 @@ const EventsSemnas = () => {
                                             brighter future for ourselves and
                                             for society as a whole
                                         </p>
-                                        <p className="font-semibold text-xl">
-                                            SEPTEMBER{" "}
-                                            <span className="text-[#EB9928]">
-                                                {" "}
-                                                16th
-                                            </span>
-                                            , 2023
-                                        </p>
                                         <Link href="/registration-EarlyTalk2">
-                                            <div className="bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
+                                            <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
                                                 <p>REGISTER NOW</p>
                                             </div>
                                         </Link>
-                                        {/* <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
-                                            FREE!
-                                        </p> */}
                                     </div>
                                 </div>
 
@@ -418,11 +398,6 @@ const EventsSemnas = () => {
                                 />
                             </div>
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-20 border-r-2 border-l-2 border-b-2 border-[#EB9928]">
-                                {/* <img
-                                    className="hidden container w-96 sm:w-[1200px] sm:flex justify-center mx-auto"
-                                    src="images/timelineUtama.svg"
-                                    alt=""
-                                /> */}
                                 <div className="">
                                     <TimeLine name={"et2"} />
                                 </div>
