@@ -53,7 +53,6 @@ export default function Login({ status, canResetPassword }) {
 
                     <InputError message={errors.email} className="mt-2" />
                 </div>
-
                 <div className="mt-4">
                     <InputLabel htmlFor="password" value="Password" />
 
@@ -69,7 +68,6 @@ export default function Login({ status, canResetPassword }) {
 
                     <InputError message={errors.password} className="mt-2" />
                 </div>
-
                 <div className="block mt-4">
                     <label className="flex items-center">
                         <Checkbox
@@ -84,7 +82,6 @@ export default function Login({ status, canResetPassword }) {
                         </span>
                     </label>
                 </div>
-
                 <div className="flex items-center justify-end mt-4">
                     {canResetPassword && (
                         <Link
@@ -94,9 +91,10 @@ export default function Login({ status, canResetPassword }) {
                             Forgot your password?
                         </Link>
                     )}
-
-                    <PrimaryButton className="ml-4">Log in</PrimaryButton>
-                </div>
+                    <PrimaryButton className="ml-4 btn" disabled={processing}>
+                        Log in
+                    </PrimaryButton>
+                </div>{" "}
             </form>
         </GuestLayout>
     );
