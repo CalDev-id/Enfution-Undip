@@ -36,7 +36,7 @@ const Sidebar = ({ index }) => {
                         National Seminar
                     </a>
                     <a
-                        href={route("dashboard-DBCC")}
+                        href={route("dashboard")}
                         className={
                             index == 3
                                 ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"

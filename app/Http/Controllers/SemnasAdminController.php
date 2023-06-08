@@ -31,27 +31,23 @@ class SemnasAdminController extends Controller
 
     public function semnas()
     {
-        session()->put('page', request('page') ?? 1);
-        $filter = request('event');
         $data["title"] = "Dashboard";
         $data["sectionTitle"] = "Transactions National Seminar";
         $data["selectedTable"] = 1;
         $data["active"] = 2;
-
-        $transactions = SemnasTransaction::where('status_bayar', "PAID")->where('status_verif', "PENDING")->paginate(5);
-        $req = ['event'];
-        if ($filter) {
-            $transactions = SemnasTransaction::filter(request($req))->where('status_bayar', "PAID")->where('status_verif', "PENDING")->paginate(5)->withQueryString();
-        }
+        $req = ['event', 'search'];
+        $transactions = SemnasTransaction::filter(request($req))->where('status_bayar', "PAID")->where('status_verif', "PENDING")->paginate(5)->withQueryString();
 
         foreach ($transactions as $trx) {
             $trx = $trx->peserta_semnas;
         }
 
-        session()->put(['page' => request('page') ?? 1, 'event' => $filter != null ? $filter : ""]);
+        session()->put(['page' => request('page') ?? 1, 'event' => request('event') ?? ""]);
 
         $data['transactions'] = $transactions;
         $data['filter'] = session('event');
+        $data['search'] = request('search');
+        $data['info'] = session('success') ?? session('rejected') ?? "";
 
         return Inertia::render("Dashboard", $data);
     }
@@ -87,5 +83,15 @@ class SemnasAdminController extends Controller
         $data["page"] = session('page');
         $data["event"] = session('event');
         return Inertia::render("Dashboard", $data);
+    }
+
+
+    public function reject(SemnasTransaction $transaction)
+    {        // dd($transaction);
+        $transaction->update(['status_verif' => "REJECTED"]);
+        $event = session('event') ?? '';
+        $page = session('page');
+        $url = "/dashboard/national-seminar?event=$event&page=$page";
+        return redirect()->to($url)->with('rejected', [$transaction->account_name, 'rejected']);
     }
 }

@@ -7,7 +7,12 @@ import MainDashboard from "./Admin/MainDashboard";
 export default function Dashboard(props) {
     const views = [
         <MainDashboard semnas={props.semnas} />,
-        <SemnasAdmin trx={props.transactions} filter={props.filter} />,
+        <SemnasAdmin
+            trx={props.transactions}
+            filter={props.filter}
+            search={props.search}
+            info={props.info ?? ""}
+        />,
         <DetailSemnas
             data_peserta={props.data_diri}
             page={props.page}

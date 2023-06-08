@@ -72,7 +72,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/getPaymentSlip', [SemnasAdminController::class, 'payment']);
     Route::get('/detail-semnas-participant/{participant}', [SemnasAdminController::class, 'detail']);
     Route::get('/sendVerif/{participant}', [MailController::class, 'sendVerif']);
-    Route::get('/rejected/{participant}', [MailController::class, 'reject']);
+    Route::get('/rejected/{transaction}', [SemnasAdminController::class, 'reject']);
 });
 // Akhir Dashboard
 

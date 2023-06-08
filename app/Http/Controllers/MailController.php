@@ -18,6 +18,6 @@ class MailController extends Controller
         $event = session('event') ?? '';
         $page = session('page');
         $url = "/dashboard/national-seminar?event=$event&page=$page";
-        return redirect()->to($url);
+        return redirect()->to($url)->with('success', [$participant->full_name, 'success']);
     }
 }

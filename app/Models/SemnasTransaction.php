@@ -16,6 +16,11 @@ class SemnasTransaction extends Model
     public function scopeFilter($query, array $filters)
     {
         $query->when(
+            $filters['search'] ?? false,
+            fn ($query, $search) =>
+            $query->where(fn ($query) => $query->where('account_name', 'like', '%' . $search . '%')->orWhere('account_number', 'like', '%' . $search . '%'))
+        );
+        $query->when(
             $filters['event'] ?? false,
             fn ($query, $event) =>
             $query->whereHas('peserta_semnas', fn ($query) => $query->where('event', $event))
