@@ -3,7 +3,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const FormSemnas = (props) => {
-    const [open, setOpen] = useState(false);
     const [full_name, setName] = useState("");
     const [faculty_departements_batch, setFaculty] = useState("");
     const [gender, setGender] = useState("");

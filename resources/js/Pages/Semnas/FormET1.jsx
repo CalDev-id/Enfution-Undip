@@ -39,9 +39,6 @@ const FormET1 = (props) => {
             fd.append(`${d}`, data[d]);
         }
 
-        for (const key in fd) {
-            console.log(key);
-        }
         // console.log(fd);
         router.post("/registration-EarlyTalk1", fd);
     };

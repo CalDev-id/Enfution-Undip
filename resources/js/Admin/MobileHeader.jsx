@@ -61,13 +61,14 @@ const MobileHeader = () => {
                         <i className="fas fa-table mr-3"></i>
                         Tables
                     </a>
-                    <a
-                        href="#"
-                        className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
-                    >
-                        <i className="fas fa-sign-out-alt mr-3"></i>
-                        Logout
-                    </a>
+                    <form action={route("logout")} method="post">
+                        <button
+                            type="submit"
+                            className="relative btn text-white"
+                        >
+                            Logout
+                        </button>
+                    </form>
                 </nav>
             </header>
         </>
