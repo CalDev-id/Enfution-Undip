@@ -27,7 +27,7 @@ const Footer = ({active}) => {
                                                 className="w-10 mr-3"
                                                 alt=""
                                             />
-                                            <Link href="https://www.instagram.com/enfutionundip/">enfutionundip</Link>
+                                            <a href="https://www.instagram.com/enfutionundip/" target="_blank">enfutionundip</a>
                                         </li>
                                         <li className="flex items-center mb-3">
                                             <img
@@ -35,7 +35,7 @@ const Footer = ({active}) => {
                                                 className="w-10 mr-3"
                                                 alt=""
                                             />
-                                            <Link href="https://www.tiktok.com/@enfutionundip">@enfutionundip</Link>
+                                            <a href="https://www.tiktok.com/@enfutionundip" target="_blank">@enfutionundip</a>
                                         </li>
                                         <li className="flex items-center">
                                             <img
@@ -43,7 +43,7 @@ const Footer = ({active}) => {
                                                 className="w-10 mr-3"
                                                 alt=""
                                             />
-                                            <Link href="https://www.linkedin.com/company/enfution/?originalSubdomain=id">Enfution Undip</Link>
+                                            <a href="https://www.linkedin.com/company/enfution/?originalSubdomain=id" target="_blank">Enfution Undip</a>
                                         </li>
                                     </ul>
                                 </div>

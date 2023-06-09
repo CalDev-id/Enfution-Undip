@@ -86,7 +86,7 @@ const HomePage = () => {
                             maybe next time
                         </button>
                         <img
-                            src="images/logoEnfu.svg"
+                            src="images/LogoEnfu.svg"
                             alt=""
                             onClick={() => {
                                 setModalOpen(false);
