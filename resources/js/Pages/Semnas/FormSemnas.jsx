@@ -179,6 +179,7 @@ const FormSemnas = (props) => {
                                     onChange={(phone) =>
                                         setPhone(phone.target.value)
                                     }
+                                    placeholder="+628xxxxx (not using (-) separator)"
                                 />
                                 {errors != null && errors.phone_number && (
                                     <span className="text-red-600">
@@ -219,6 +220,7 @@ const FormSemnas = (props) => {
                                     onChange={(id_line) =>
                                         setLine(id_line.target.value)
                                     }
+                                    placeholder="@enfution15"
                                 />
                                 {errors != null && errors.line_id && (
                                     <span className="text-red-600">
@@ -323,6 +325,7 @@ const FormSemnas = (props) => {
                             KTM (with .jpg and .png formats)
                             <span className="text-[#EB9928]">*</span>{" "}
                         </p>
+
                         <p className="text-[#EB9928] mb-2 md:mx-10">
                             (Only freshmen from Management of Diponegoro
                             University)
@@ -337,6 +340,11 @@ const FormSemnas = (props) => {
                                 }}
                             />
                         </div>
+                        {errors != null && errors.ktm && (
+                            <span className="text-red-600 md:mx-10">
+                                {errors.ktm}
+                            </span>
+                        )}
 
                         <div className="flex justify-center mt-10">
                             <Link href={route("national-seminar.main")}>

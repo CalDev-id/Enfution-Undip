@@ -4,15 +4,68 @@ const MobileHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <header className="w-full bg-black py-5 px-6 sm:hidden">
+            <header className="w-full bg-black py-5 px-6 sm:hidden flex justify-between">
+                <div className="navbar-end w-fit">
+                    <div className="dropdown">
+                        <label
+                            tabIndex={0}
+                            className="btn btn-ghost btn-circle"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 text-white"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M4 6h16M4 12h16M4 18h7"
+                                />
+                            </svg>
+                        </label>
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                        >
+                            <li>
+                                <a
+                                    href={route("dashboard")}
+                                    className="active:bg-dark active:text-white"
+                                >
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={route("dashboard-semnas")}
+                                    className="active:bg-dark active:text-white"
+                                >
+                                    National Seminar
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={route("dashboard")}
+                                    className="active:bg-dark active:text-white"
+                                >
+                                    DBCC
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div className="flex items-center justify-between">
                     <a
-                        href=""
+                        href={route("home")}
                         className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
                     >
-                        Admin
+                        Enfution
                     </a>
-                    <button
+
+                    {/* <button
                         className={
                             isOpen
                                 ? "hidden"
@@ -35,11 +88,12 @@ const MobileHeader = () => {
                         }}
                     >
                         close
-                    </button>
+                    </button> */}
                 </div>
 
                 {/* <!-- Dropdown Nav --> */}
-                <nav className={isOpen ? "flex flex-col pt-4" : "hidden"}>
+
+                {/* <nav className={isOpen ? "flex flex-col pt-4" : "hidden"}>
                     <a
                         href=""
                         className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
@@ -69,7 +123,7 @@ const MobileHeader = () => {
                             Logout
                         </button>
                     </form>
-                </nav>
+                </nav> */}
             </header>
         </>
     );

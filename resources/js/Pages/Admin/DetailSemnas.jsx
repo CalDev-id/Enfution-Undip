@@ -1,10 +1,10 @@
 import { Head } from "@inertiajs/react";
 import { useState } from "react";
 
-const DetailSemnas = ({ data_peserta, page, event }) => {
+const DetailSemnas = ({ data_peserta, page, event, status }) => {
     const prev_url = `/dashboard/national-seminar?event=${event}${
         page != null ? `&page=${page}` : ""
-    }`;
+    }${status != null ? `&status=${status}` : ""}`;
 
     return (
         <>
@@ -53,7 +53,18 @@ const DetailSemnas = ({ data_peserta, page, event }) => {
                         <tr>
                             <th>Phone Number</th>
                             <td>:</td>
-                            <td>{data_peserta.phone_number}</td>
+                            <td>
+                                <span>{data_peserta.phone_number}</span>
+                                <a
+                                    href={`https://wa.me/${data_peserta.phone_number}`}
+                                    target="_blank"
+                                    className="link"
+                                >
+                                    <span className="badge badge-primary text-lg py-3 ml-3">
+                                        Chat Now
+                                    </span>
+                                </a>
+                            </td>
                         </tr>
                         <tr>
                             <th>Line ID</th>

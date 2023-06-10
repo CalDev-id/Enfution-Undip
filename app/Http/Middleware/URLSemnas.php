@@ -19,7 +19,6 @@ class URLSemnas
     {
 
         $currentDateTime = Carbon::now();
-        // dd(session('event'));
         if (URLSemnas::checkEvent() == 'summit') {
             if (!$currentDateTime->between(
                 Carbon::parse(SemnasTransactionController::$timeRegist[URLSemnas::checkEvent()]['EB']['open']),
