@@ -12,11 +12,13 @@ export default function Dashboard(props) {
             filter={props.filter}
             search={props.search}
             info={props.info ?? ""}
+            status={props.status ?? ""}
         />,
         <DetailSemnas
             data_peserta={props.data_diri}
             page={props.page}
             event={props.event}
+            status={props.status ?? ""}
         />,
     ];
     console.log(props);

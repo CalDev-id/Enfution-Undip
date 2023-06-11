@@ -55,7 +55,7 @@ const FormET2 = (props) => {
                 <Head title="Registration -  Early Talk 2" />
                 <div className="container pb-32 bg-[#FFF9EE]">
                     <h1 className="text-center font-semibold text-5xl mb-10">
-                        Registration Form ET2
+                        Registration Form
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
                         <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
@@ -180,6 +180,7 @@ const FormET2 = (props) => {
                                     onChange={(phone) =>
                                         setPhone(phone.target.value)
                                     }
+                                    placeholder="+628xxxxx (not using (-) separator)"
                                 />
                                 {errors != null && errors.phone_number && (
                                     <span className="text-red-600">
@@ -220,6 +221,7 @@ const FormET2 = (props) => {
                                     onChange={(id_line) =>
                                         setLine(id_line.target.value)
                                     }
+                                    placeholder="@enfution15"
                                 />
                                 {errors != null && errors.line_id && (
                                     <span className="text-red-600">
@@ -337,6 +339,11 @@ const FormET2 = (props) => {
                                 }}
                             />
                         </div>
+                        {errors != null && errors.ktm && (
+                            <span className="text-red-600 md:mx-10">
+                                {errors.ktm}
+                            </span>
+                        )}
 
                         <div className="flex justify-center mt-10">
                             <Link href={route("national-seminar.main")}>

@@ -1,17 +1,21 @@
 import Paginator from "@/Components/Paginator";
-import { Link } from "@inertiajs/react";
 import numeral from "numeral";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
-const SemnasAdmin = ({ trx, filter, search, info }) => {
+const SemnasAdmin = ({ trx, filter, search, info, status }) => {
     const [id, setId] = useState("");
     const [buktiBayar, setbuktiBayar] = useState("");
+    const [konfirmasi, setKonfirmasi] = useState("");
     const transactions = trx.data;
+
     const event = ["Summit", "Early Talk 1", "Early Talk 2"];
     const urlEvent = ["summit", "talk-1", "talk-2"];
     const urlFilter = "/dashboard/national-seminar?event=";
+    const status_verif = ["DONE", "REJECTED", "PENDING"];
+    let urlStatus = "&status=";
 
-    let no = (trx.current_page - 1) * 5 + 1;
+    let no = (trx.current_page - 1) * 10 + 1;
     const options = {
         year: "numeric",
         month: "short",
@@ -34,7 +38,10 @@ const SemnasAdmin = ({ trx, filter, search, info }) => {
         if (id != "") {
             getBuktiBayar(id);
         }
-    }, [id]);
+        if (konfirmasi != "") {
+            alertAction(konfirmasi);
+        }
+    }, [id, konfirmasi]);
 
     const listTransactions = (trx) => {
         return trx.map((t) => {
@@ -71,18 +78,36 @@ const SemnasAdmin = ({ trx, filter, search, info }) => {
                             >
                                 Detail
                             </a>
-                            <a
-                                href={`/rejected/${t.id}`}
-                                className="btn btn-error text-white"
-                            >
-                                Tolak
-                            </a>
-                            <a
-                                href={`/sendVerif/${t.id_peserta}`}
-                                className="btn btn-success"
-                            >
-                                Verif
-                            </a>
+                            {status == status_verif[2] ? (
+                                <>
+                                    <button
+                                        className="btn btn-error text-white"
+                                        onClick={() => {
+                                            setKonfirmasi([
+                                                t.id,
+                                                t.account_name,
+                                                0,
+                                            ]);
+                                        }}
+                                    >
+                                        Tolak
+                                    </button>
+                                    <button
+                                        className="btn btn-success"
+                                        onClick={() => {
+                                            setKonfirmasi([
+                                                t.id_peserta,
+                                                t.account_name,
+                                                1,
+                                            ]);
+                                        }}
+                                    >
+                                        Verif
+                                    </button>
+                                </>
+                            ) : (
+                                ""
+                            )}
                         </div>
                     </td>
                 </tr>
@@ -90,60 +115,160 @@ const SemnasAdmin = ({ trx, filter, search, info }) => {
         });
     };
 
+    const alertAction = ([id, acc_name, action]) => {
+        const info = [
+            {
+                judul: "Konfirmasi Tolak",
+                teks: `Apakah anda yakin menolak transaksi ${acc_name}`,
+                respon: `Ditolak`,
+                href: `/rejected/${id}`,
+            },
+            {
+                judul: "Konfirmasi Terima",
+                teks: `Apakah anda yakin menerima transaksi ${acc_name}`,
+                respon: `Diverifikasi`,
+                href: `/sendVerif/${id}`,
+            },
+        ];
+        Swal.fire({
+            title: info[action].judul,
+            text: info[action].teks,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya",
+            cancelButtonText: "Tidak",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Swal.fire("Berhasil", info[action].respon, "success");
+                setTimeout(() => {
+                    window.location.href = info[action].href;
+                }, 500);
+            }
+        });
+    };
+
     return (
         <>
-            <div className="flex justify-between items-center">
-                <details className="dropdown my-5">
-                    <summary className="m-1 btn">
-                        {filter == ""
-                            ? "All"
-                            : filter == "summit"
-                            ? event[0]
-                            : filter == "talk-1"
-                            ? event[1]
-                            : event[2]}
-                    </summary>
-                    <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
-                        <li>
-                            <a
-                                href={
-                                    filter == ""
-                                        ? urlFilter + urlEvent[0]
-                                        : urlFilter
-                                }
-                                className="active:bg-dark active:text-white"
-                            >
-                                {filter == "" ? event[0] : "All"}
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href={
-                                    filter == "" || filter == "summit"
-                                        ? urlFilter + urlEvent[1]
-                                        : urlFilter + urlEvent[0]
-                                }
-                                className="active:bg-dark active:text-white"
-                            >
-                                {filter == "" || filter == "summit"
-                                    ? event[1]
-                                    : event[0]}
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href={
-                                    filter == "talk-2"
-                                        ? urlFilter + urlEvent[1]
-                                        : urlFilter + urlEvent[2]
-                                }
-                                className="active:bg-dark active:text-white"
-                            >
-                                {filter == "talk-2" ? event[1] : event[2]}
-                            </a>
-                        </li>
-                    </ul>
-                </details>
+            <div className="flex justify-between items-center mb-3">
+                <div className="filter flex flex-wrap justify-between items-center">
+                    <details className="dropdown">
+                        <summary className="m-1 btn">
+                            {filter == ""
+                                ? "All"
+                                : filter == "summit"
+                                ? event[0]
+                                : filter == "talk-1"
+                                ? event[1]
+                                : event[2]}
+                        </summary>
+                        <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                            <li>
+                                <a
+                                    href={
+                                        filter == ""
+                                            ? urlFilter + urlEvent[0]
+                                            : urlFilter
+                                    }
+                                    className="active:bg-dark active:text-white"
+                                >
+                                    {filter == "" ? event[0] : "All"}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={
+                                        filter == "" || filter == "summit"
+                                            ? urlFilter + urlEvent[1]
+                                            : urlFilter + urlEvent[0]
+                                    }
+                                    className="active:bg-dark active:text-white"
+                                >
+                                    {filter == "" || filter == "summit"
+                                        ? event[1]
+                                        : event[0]}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={
+                                        filter == "talk-2"
+                                            ? urlFilter + urlEvent[1]
+                                            : urlFilter + urlEvent[2]
+                                    }
+                                    className="active:bg-dark active:text-white"
+                                >
+                                    {filter == "talk-2" ? event[1] : event[2]}
+                                </a>
+                            </li>
+                        </ul>
+                    </details>
+                    <details className="dropdown">
+                        <summary
+                            className={
+                                status == "" || status == status_verif[2]
+                                    ? "m-1 btn btn-warning"
+                                    : status == status_verif[0]
+                                    ? "m-1 btn btn-success"
+                                    : "m-1 btn btn-error text-white"
+                            }
+                        >
+                            {status == "" || status == status_verif[2]
+                                ? status_verif[2]
+                                : status == status_verif[0]
+                                ? status_verif[0]
+                                : status_verif[1]}
+                        </summary>
+                        <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                            <li>
+                                <a
+                                    href={
+                                        status == "" ||
+                                        status == status_verif[2]
+                                            ? urlFilter +
+                                              filter +
+                                              urlStatus +
+                                              status_verif[0]
+                                            : urlFilter +
+                                              filter +
+                                              urlStatus +
+                                              status_verif[2]
+                                    }
+                                    className="active:bg-dark active:text-white"
+                                >
+                                    {status == "" || status == status_verif[2]
+                                        ? status_verif[0]
+                                        : status_verif[2]}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={
+                                        status == "" ||
+                                        status == status_verif[0] ||
+                                        status == status_verif[2]
+                                            ? urlFilter +
+                                              filter +
+                                              urlStatus +
+                                              status_verif[1]
+                                            : urlFilter +
+                                              filter +
+                                              urlStatus +
+                                              status_verif[0]
+                                    }
+                                    className="active:bg-dark active:text-white"
+                                >
+                                    {status == "" ||
+                                    status == status_verif[0] ||
+                                    status == status_verif[2]
+                                        ? status_verif[1]
+                                        : status_verif[0]}
+                                </a>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
 
                 <form action="/dashboard/national-seminar" method="get">
                     <div className="form-control">
@@ -151,7 +276,7 @@ const SemnasAdmin = ({ trx, filter, search, info }) => {
                             <input
                                 type="text"
                                 placeholder={search ?? "Search…"}
-                                className="input input-bordered focus:border-black focus:ring-black focus:outline-none"
+                                className="input input-bordered w-full focus:border-black focus:ring-black focus:outline-none"
                                 name="search"
                             />
                             <button type="submit" className="btn btn-square">

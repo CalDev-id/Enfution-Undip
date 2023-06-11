@@ -112,6 +112,12 @@ class SemnasParticipantController extends Controller
             'ktm' => 'nullable|file|max:2048|mimes:jpg,png',
         ];
 
+        // dd(request());
+        if (request('status') != "Non-Student" && request('status')) {
+            $rules['faculty_departements_batch'] = 'required|string|max:100';
+            $rules['university'] = 'required|string|max:150';
+        }
+
         $validateData = $request->validate($rules);
 
         if (!$validateData) {
@@ -144,7 +150,6 @@ class SemnasParticipantController extends Controller
 
         // Get id coupun if any
         if (request('coupon')) {
-            // dd(request('coupon'));
             $couponExists = SemnasReferralCode::where('code', request('coupon'))->first();
             $couponQty = (int) $couponExists->qty;
             if ($couponExists && $couponQty > 0) {
@@ -154,7 +159,6 @@ class SemnasParticipantController extends Controller
             }
         }
 
-        // dd(SemnasParticipantController::getTicketPrice());
         SemnasParticipant::create($filterData);
 
         $tempTrx = [

@@ -6,7 +6,7 @@ const Sidebar = ({ index }) => {
             <aside className="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl bg-black">
                 <div className="p-6">
                     <a
-                        href="index.html"
+                        href={route("home")}
                         className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
                     >
                         Enfution

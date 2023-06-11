@@ -36,8 +36,8 @@ class SemnasTransactionController extends Controller
     static public $timeRegist = [
         "summit" => [
             "EB" => [
-                "open" => '2023-06-06 00:00:00',
-                "closed" => '2023-06-05 11:05:59',
+                "open" => '2023-06-10 00:00:00',
+                "closed" => '2023-06-10 21:05:59',
             ],
             "PS1" => [
                 "open" => '2023-06-05 11:06:00',
@@ -49,19 +49,19 @@ class SemnasTransactionController extends Controller
             ],
             "NORMAL" => [
                 "open" => '2023-06-05 11:16:00',
-                "closed" => '2023-06-06 13:30:00',
+                "closed" => '2023-06-10 23:30:00',
             ],
         ],
         "talk-1" => [
             "NORMAL" => [
-                "open" => '2023-06-06 19:00:00',
-                "closed" => '2023-06-06 20:30:00',
+                "open" => '2023-06-10 00:00:00',
+                "closed" => '2023-06-10 20:30:00',
             ],
         ],
         "talk-2" => [
             "NORMAL" => [
-                "open" => '2023-06-06 09:23:00',
-                "closed" => '2023-06-06 17:30:00',
+                "open" => '2023-06-10 09:23:00',
+                "closed" => '2023-06-10 20:30:00',
             ],
         ],
     ];
@@ -189,20 +189,12 @@ class SemnasTransactionController extends Controller
 
     public function transaction()
     {
-        // SemnasTransactionController::getDiscount(1);
-        // dd(session()->get('id_peserta'));
         $data['name'] =  SemnasParticipant::where('id', session('id_peserta'))->first()->full_name;
-        // $data['name'] =  "Ucup";
 
         $idCoupon = SemnasParticipant::where('id', session('id_peserta'))->first()->id_referral_code;
-        // dd(session('id_peserta'));
-        // $idCoupon = 3;
-        // $data['total'] = session('ticketPrice');
         $data['total'] = SemnasTransactionController::getTicketPrice();
-        // $data['total'] = 10000;
         if ($idCoupon) {
             $data['total'] = SemnasTransactionController::getTicketPrice() * (1 - SemnasTransactionController::getDiscount($idCoupon));
-            // $data['total'] = session('ticketPrice') - 10000;
         }
         return Inertia::render('Semnas/PaymentConfirmation', $data);
     }

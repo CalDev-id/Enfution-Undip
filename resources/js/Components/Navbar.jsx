@@ -148,7 +148,9 @@ const Navbar = ({ method = "get", active }) => {
                                         : "hidden"
                                 }
                             >
-                                <Link href={route("national-seminar.main")}>
+                                <Link
+                                    href={route("national-seminar.form-summit")}
+                                >
                                     <p className="text-center text-xs px-3">
                                         NATIONAL SEMINAR
                                     </p>

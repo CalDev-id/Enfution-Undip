@@ -6,6 +6,7 @@ use App\Models\SemnasParticipant;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\SemnasTransaction;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SemnasAdminController extends Controller
 {
@@ -35,19 +36,25 @@ class SemnasAdminController extends Controller
         $data["sectionTitle"] = "Transactions National Seminar";
         $data["selectedTable"] = 1;
         $data["active"] = 2;
-        $req = ['event', 'search'];
-        $transactions = SemnasTransaction::filter(request($req))->where('status_bayar', "PAID")->where('status_verif', "PENDING")->paginate(5)->withQueryString();
+        $req = ['event', 'search', 'status'];
+        if (request('status') == null) {
+            request()->merge([
+                "status" => "PENDING"
+            ]);
+        }
+        $transactions = SemnasTransaction::filter(request($req))->where('status_bayar', "PAID")->orderBy('updated_at', 'desc')->paginate(10)->withQueryString();
 
         foreach ($transactions as $trx) {
             $trx = $trx->peserta_semnas;
         }
 
-        session()->put(['page' => request('page') ?? 1, 'event' => request('event') ?? ""]);
+        session()->put(['page' => request('page') ?? 1, 'event' => request('event') ?? "", 'status' => request('status') ?? ""]);
 
         $data['transactions'] = $transactions;
         $data['filter'] = session('event');
-        $data['search'] = request('search');
         $data['info'] = session('success') ?? session('rejected') ?? "";
+        $data['search'] = request('search');
+        $data['status'] = request('status');
 
         return Inertia::render("Dashboard", $data);
     }
@@ -82,16 +89,18 @@ class SemnasAdminController extends Controller
         $data["active"] = 2;
         $data["page"] = session('page');
         $data["event"] = session('event');
+        $data['status'] = session('status');
         return Inertia::render("Dashboard", $data);
     }
 
-
     public function reject(SemnasTransaction $transaction)
-    {        // dd($transaction);
+    {
+
         $transaction->update(['status_verif' => "REJECTED"]);
         $event = session('event') ?? '';
         $page = session('page');
         $url = "/dashboard/national-seminar?event=$event&page=$page";
         return redirect()->to($url)->with('rejected', [$transaction->account_name, 'rejected']);
+        // return redirect()->to($url);
     }
 }
