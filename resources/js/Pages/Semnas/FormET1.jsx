@@ -38,8 +38,6 @@ const FormET1 = (props) => {
         for (const d in data) {
             fd.append(`${d}`, data[d]);
         }
-
-        // console.log(fd);
         router.post("/registration-EarlyTalk1", fd);
     };
 

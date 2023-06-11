@@ -190,21 +190,11 @@ const PaymentConfirmation = (props) => {
                     </div>
 
                     <div className="flex justify-center mt-20">
-                        {/* <Link href="/">
-                            <button className="btn btn-outline w-28 sm:w-48 rounded-none mx-10">
-                                Back
-                            </button>
-                        </Link> */}
                         <button className="btn w-28 sm:w-48 rounded-none mx-10 bg-[#1E2E40]">
                             Submit
                         </button>
                     </div>
                 </form>
-                <Link href="/">
-                    <p className="underline text-center mt-10 font-light">
-                        Return to Homepage
-                    </p>
-                </Link>
             </div>
 
             <section>

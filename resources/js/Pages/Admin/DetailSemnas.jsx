@@ -1,6 +1,3 @@
-import { Head } from "@inertiajs/react";
-import { useState } from "react";
-
 const DetailSemnas = ({ data_peserta, page, event, status }) => {
     const prev_url = `/dashboard/national-seminar?event=${event}${
         page != null ? `&page=${page}` : ""
