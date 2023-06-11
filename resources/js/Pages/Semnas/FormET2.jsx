@@ -304,22 +304,6 @@ const FormET2 = (props) => {
                                     </span>
                                 )}
                             </div>
-                            <div className="mb-5 md:mx-10">
-                                <p className="font-semibold">
-                                    Coupon/Referral Code
-                                    <span className="text-[#EB9928]">
-                                        *
-                                    </span>{" "}
-                                </p>
-                                <input
-                                    type="text"
-                                    placeholder="if any"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                                    onChange={(coupon) =>
-                                        setCoupon(coupon.target.value)
-                                    }
-                                />
-                            </div>
                         </div>
                         <p className="font-semibold md:mx-10">
                             KTM (with .jpg and .png formats)
