@@ -49,13 +49,13 @@ class SemnasTransactionController extends Controller
             ],
             "NORMAL" => [
                 "open" => '2023-06-11 20:16:00',
-                "closed" => '2023-06-11 20:30:00',
+                "closed" => '2023-06-11 23:30:00',
             ],
         ],
         "talk-1" => [
             "NORMAL" => [
                 "open" => '2023-06-11 00:00:00',
-                "closed" => '2023-06-11 23:30:00',
+                "closed" => '2023-06-12 23:30:00',
             ],
         ],
         "talk-2" => [
