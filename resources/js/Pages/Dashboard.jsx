@@ -21,7 +21,6 @@ export default function Dashboard(props) {
             status={props.status ?? ""}
         />,
     ];
-    console.log(props);
 
     return (
         <>

@@ -36,50 +36,35 @@ class SemnasTransactionController extends Controller
     static public $timeRegist = [
         "summit" => [
             "EB" => [
-                "open" => '2023-06-10 00:00:00',
-                "closed" => '2023-06-10 21:05:59',
+                "open" => '2023-06-11 00:00:00',
+                "closed" => '2023-06-11 21:22:59',
             ],
             "PS1" => [
-                "open" => '2023-06-05 11:06:00',
-                "closed" => '2023-06-05 11:10:59',
+                "open" => '2023-06-11 20:11:00',
+                "closed" => '2023-06-11 21:23:59',
             ],
             "PS2" => [
-                "open" => '2023-06-05 11:11:00',
-                "closed" => '2023-06-05 11:15:59',
+                "open" => '2023-06-11 20:11:00',
+                "closed" => '2023-06-11 21:27:59',
             ],
             "NORMAL" => [
-                "open" => '2023-06-05 11:16:00',
-                "closed" => '2023-06-10 23:30:00',
+                "open" => '2023-06-11 20:16:00',
+                "closed" => '2023-06-11 20:30:00',
             ],
         ],
         "talk-1" => [
             "NORMAL" => [
-                "open" => '2023-06-10 00:00:00',
-                "closed" => '2023-06-10 20:30:00',
+                "open" => '2023-06-11 00:00:00',
+                "closed" => '2023-06-11 23:30:00',
             ],
         ],
         "talk-2" => [
             "NORMAL" => [
-                "open" => '2023-06-10 09:23:00',
-                "closed" => '2023-06-10 20:30:00',
+                "open" => '2023-06-11 09:23:00',
+                "closed" => '2023-06-11 23:30:00',
             ],
         ],
     ];
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     static private function getTicketPrice()
     {
@@ -116,13 +101,8 @@ class SemnasTransactionController extends Controller
         return $discountPercent;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function save(Request $request)
     {
-        //
-
         $idPeserta = session('id_peserta');
         $existPeserta = SemnasParticipant::where('id', $idPeserta)->first();
         $event = session('event');
@@ -190,44 +170,11 @@ class SemnasTransactionController extends Controller
     public function transaction()
     {
         $data['name'] =  SemnasParticipant::where('id', session('id_peserta'))->first()->full_name;
-
         $idCoupon = SemnasParticipant::where('id', session('id_peserta'))->first()->id_referral_code;
         $data['total'] = SemnasTransactionController::getTicketPrice();
         if ($idCoupon) {
             $data['total'] = SemnasTransactionController::getTicketPrice() * (1 - SemnasTransactionController::getDiscount($idCoupon));
         }
         return Inertia::render('Semnas/PaymentConfirmation', $data);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(SemnasTransaction $semnas_transaction)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SemnasTransaction $semnas_transaction)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Updatesemnas_transactionRequest $request, SemnasTransaction $semnas_transaction)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SemnasTransaction $semnas_transaction)
-    {
-        //
     }
 }

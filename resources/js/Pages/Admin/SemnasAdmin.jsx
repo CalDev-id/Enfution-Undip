@@ -141,7 +141,6 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
             cancelButtonText: "Tidak",
         }).then((result) => {
             if (result.isConfirmed) {
-                // Swal.fire("Berhasil", info[action].respon, "success");
                 setTimeout(() => {
                     window.location.href = info[action].href;
                 }, 500);

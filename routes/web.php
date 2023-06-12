@@ -6,6 +6,7 @@ use App\Http\Controllers\SemnasAdminController;
 use App\Http\Controllers\SemnasParticipantController;
 use App\Http\Controllers\SemnasTransactionController;
 use App\Models\semnas_participant;
+use App\Models\SemnasParticipant;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -19,23 +20,23 @@ Route::get('/', function () {
 
 // Awal Semnas
 
-Route::controller(SemnasParticipantController::class)->name('national-seminar.')->group(function () {
-    Route::get('/national-seminar', 'index')->name('main');
+Route::get('/national-seminar', [SemnasParticipantController::class, 'index'])->name('national-seminar.main');
+
+Route::controller(SemnasParticipantController::class)->middleware('url-semnas')->group(function () {
     // Load form
-    Route::get('/registration-national-seminar', 'create')->name('form-summit')->middleware('url-semnas');
-    Route::get('/registration-EarlyTalk1', 'create')->name('form-et1')->middleware('url-semnas');
-    Route::get('/registration-EarlyTalk2', 'create')->name('form-et2')->middleware('url-semnas');
+    Route::get('/registration-national-seminar', 'create')->name('national-seminar.form-summit');
+    Route::get('/registration-EarlyTalk1', 'create')->name('national-seminar.form-et1');
+    Route::get('/registration-EarlyTalk2', 'create')->name('national-seminar.form-et2');
     // Process Form
+    Route::post('/registration-national-seminar', 'store');
+    Route::post('/registration-EarlyTalk1', 'store');
+    Route::post('/registration-EarlyTalk2', 'store');
 });
 
-// Sementara kek gini dulu dah yak, nanti gua cara lain lagi wkwk
-Route::post('/registration-national-seminar', [SemnasParticipantController::class, 'store'])->middleware('url-semnas');
-Route::post('/registration-EarlyTalk1', [SemnasParticipantController::class, 'store'])->middleware('url-semnas');
-Route::post('/registration-EarlyTalk2', [SemnasParticipantController::class, 'store'])->middleware('url-semnas');
-
-
-Route::get('/payment-confirmation-semnas', [SemnasTransactionController::class, 'transaction'])->name('national-seminar.payment-confirmation')->middleware('payment-semnas');
-Route::post('/payment-confirmation-semnas', [SemnasTransactionController::class, 'save'])->middleware('payment-semnas');
+Route::controller(SemnasTransactionController::class)->middleware('payment-semnas')->group(function () {
+    Route::get('/payment-confirmation-semnas', 'transaction')->name('national-seminar.payment-confirmation');
+    Route::post('/payment-confirmation-semnas', 'save');
+});
 
 // Akhir Semnas
 

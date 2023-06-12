@@ -15,9 +15,6 @@ use function Symfony\Component\VarDumper\Dumper\esc;
 
 class SemnasParticipantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
 
     static private $view;
     static private $event;
@@ -55,12 +52,8 @@ class SemnasParticipantController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create(Request $request)
+    public function create()
     {
-
         $data = [];
         $currentDateTime = Carbon::now();
         if (SemnasParticipantController::$event == "summit") {
@@ -92,13 +85,8 @@ class SemnasParticipantController extends Controller
         return Inertia::render("Semnas/" . SemnasParticipantController::$view, $data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-
-        // dd($request);
         $rules = [
             'full_name' => 'required|string|max:255',
             'faculty_departements_batch' => 'nullable|string|max:100',
@@ -112,7 +100,6 @@ class SemnasParticipantController extends Controller
             'ktm' => 'nullable|file|max:2048|mimes:jpg,png',
         ];
 
-        // dd(request());
         if (request('status') != "Non-Student" && request('status')) {
             $rules['faculty_departements_batch'] = 'required|string|max:100';
             $rules['university'] = 'required|string|max:150';
@@ -170,33 +157,5 @@ class SemnasParticipantController extends Controller
             'event' => SemnasParticipantController::$event,
         ]);
         return redirect()->route('national-seminar.payment-confirmation');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SemnasParticipant $semnas_participant)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SemnasParticipant $semnas_participant)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SemnasParticipant $semnas_participant)
-    {
-        //
     }
 }

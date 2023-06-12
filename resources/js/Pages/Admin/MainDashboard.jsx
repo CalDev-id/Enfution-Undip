@@ -1,7 +1,6 @@
 import numeral from "numeral";
 
 const MainDashboard = ({ semnas, dbcc }) => {
-    console.log(semnas);
     return (
         <>
             {/* Informasi Pendapatan */}

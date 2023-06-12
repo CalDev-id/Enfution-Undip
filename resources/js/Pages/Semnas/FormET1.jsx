@@ -38,8 +38,6 @@ const FormET1 = (props) => {
         for (const d in data) {
             fd.append(`${d}`, data[d]);
         }
-
-        // console.log(fd);
         router.post("/registration-EarlyTalk1", fd);
     };
 
@@ -305,22 +303,6 @@ const FormET1 = (props) => {
                                         {errors.university}
                                     </span>
                                 )}
-                            </div>
-                            <div className="mb-5 md:mx-10">
-                                <p className="font-semibold">
-                                    Coupon/Referral Code
-                                    <span className="text-[#EB9928]">
-                                        *
-                                    </span>{" "}
-                                </p>
-                                <input
-                                    type="text"
-                                    placeholder="if any"
-                                    className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                                    onChange={(coupon) =>
-                                        setCoupon(coupon.target.value)
-                                    }
-                                />
                             </div>
                         </div>
                         <p className="font-semibold md:mx-10">

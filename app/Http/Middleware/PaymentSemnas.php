@@ -15,7 +15,7 @@ class PaymentSemnas
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!session()->has('id_peserta') && !session()->has('event')) {
+        if (!session()->has('id_peserta') || session('event') == "") {
             return redirect()->back();
         }
         return $next($request);

@@ -101,6 +101,5 @@ class SemnasAdminController extends Controller
         $page = session('page');
         $url = "/dashboard/national-seminar?event=$event&page=$page";
         return redirect()->to($url)->with('rejected', [$transaction->account_name, 'rejected']);
-        // return redirect()->to($url);
     }
 }
