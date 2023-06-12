@@ -80,6 +80,17 @@ const DetailSemnas = ({ data_peserta, page, event, status }) => {
                             </td>
                         </tr>
                         <tr>
+                            <th>Faculty/Departments/Batch</th>
+                            <td>:</td>
+                            <td>
+                                {data_peserta.faculty_departements_batch ?? (
+                                    <span className="badge badge-warning text-lg p-3 font-bold">
+                                        None
+                                    </span>
+                                )}
+                            </td>
+                        </tr>
+                        <tr>
                             <th>Status</th>
                             <td>:</td>
                             <td>{data_peserta.status}</td>

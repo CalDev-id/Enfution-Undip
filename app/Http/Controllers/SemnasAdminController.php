@@ -20,7 +20,7 @@ class SemnasAdminController extends Controller
 
         $data['semnas'] = [
             "pendapatan" => SemnasTransaction::where('status_bayar', "PAID")->where('status_verif', "DONE")->sum('amount'),
-            "pendaftar" => count(SemnasTransaction::all()),
+            "pendaftar" => count(SemnasTransaction::all()->where('status_bayar', "PAID")),
             "pending" => count(SemnasTransaction::all()->where('status_bayar', "PAID")->where('status_verif', "PENDING")),
             "done" => count(SemnasTransaction::all()->where('status_bayar', "PAID")->where('status_verif', "DONE")),
             "rejected" => count(SemnasTransaction::all()->where('status_bayar', "PAID")->where('status_verif', "REJECTED")),
@@ -79,7 +79,7 @@ class SemnasAdminController extends Controller
             "line_id" => $participant->line_id,
             "email" => $participant->email,
             "university" => $participant->university,
-            "faculty_departments_batch" => $participant->faculty_departments_batch,
+            "faculty_departements_batch" => $participant->faculty_departements_batch,
             "status" => $participant->status,
             "event" => $participant->event,
             "ktm" => $participant->ktm,

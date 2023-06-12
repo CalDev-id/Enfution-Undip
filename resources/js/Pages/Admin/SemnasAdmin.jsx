@@ -1,4 +1,5 @@
 import Paginator from "@/Components/Paginator";
+import { router } from "@inertiajs/react";
 import numeral from "numeral";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -7,6 +8,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
     const [id, setId] = useState("");
     const [buktiBayar, setbuktiBayar] = useState("");
     const [konfirmasi, setKonfirmasi] = useState("");
+    const [keyword, setKeyword] = useState("");
     const transactions = trx.data;
 
     const event = ["Summit", "Early Talk 1", "Early Talk 2"];
@@ -22,6 +24,13 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
         day: "2-digit",
         hour: "2-digit",
         minute: "2-digit",
+    };
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        router.get(
+            urlFilter + filter + urlStatus + status + "&search=" + keyword
+        );
     };
 
     const getBuktiBayar = () => {
@@ -269,16 +278,19 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     </details>
                 </div>
 
-                <form action="/dashboard/national-seminar" method="get">
+                <form action={handleSearch}>
                     <div className="form-control">
                         <div className="input-group">
                             <input
                                 type="text"
                                 placeholder={search ?? "Search…"}
                                 className="input input-bordered w-full focus:border-black focus:ring-black focus:outline-none"
-                                name="search"
+                                onChange={(e) => setKeyword(e.target.value)}
                             />
-                            <button type="submit" className="btn btn-square">
+                            <button
+                                onClick={handleSearch}
+                                className="btn btn-square"
+                            >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-6 w-6"
