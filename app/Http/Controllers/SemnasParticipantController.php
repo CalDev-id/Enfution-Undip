@@ -96,7 +96,7 @@ class SemnasParticipantController extends Controller
             'university' => 'nullable|string|max:150',
             'phone_number' => 'required|string|max:16',
             'line_id' => 'required|string|max:20',
-            'email' => 'required|max:200|unique:semnas_participants,email|email:rfc,dns',
+            'email' => 'required|max:200|email:rfc,dns',
             'ktm' => 'nullable|file|max:2048|mimes:jpg,png',
         ];
 
@@ -131,8 +131,11 @@ class SemnasParticipantController extends Controller
         }
 
         if ($validateData['ktm'] != null) {
-            Storage::disk('semnas_ktm')->put('', $validateData['ktm']);
-            $filterData['ktm'] = Storage::disk('semnas_ktm')->put('', $validateData['ktm']);
+            $path = '/home/n1567050/public_html/uploads/semnas_ktm'; 
+            $extension = $validateData['ktm']->getClientOriginalExtension();
+            $filename = uniqid().'.'.$extension;
+            $validateData['ktm']->move($path, $filename);
+            $filterData['ktm'] = $filename;
         }
 
         // Get id coupun if any
