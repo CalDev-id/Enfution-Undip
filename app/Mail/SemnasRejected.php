@@ -18,10 +18,18 @@ class SemnasRejected extends Mailable
      * Create a new message instance.
      */
     public $transaction;
+    static private $rejected;
     public function __construct(SemnasTransaction $transaction)
     {
         //
         $this->transaction = $transaction;
+        if ($transaction->peserta_semnas->event == "talk-1") {
+            SemnasRejected::$rejected = " Early Talk 1.0";
+        } elseif ($transaction->peserta_semnas->event == "talk-2") {
+            SemnasRejected::$rejected = "Early Talk 2.0";
+        } else {
+            SemnasRejected::$rejected = "National Seminar Summit";
+        }
     }
 
     /**
@@ -30,7 +38,7 @@ class SemnasRejected extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Semnas Rejected',
+            subject: "Oops! Sorry, We Couldn't Process Your Registration for the" . SemnasRejected::$rejected,
         );
     }
 

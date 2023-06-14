@@ -32,7 +32,7 @@ class SemnasAdminController extends Controller
 
     public function semnas()
     {
-        $data["title"] = "Dashboard";
+        $data["title"] = "National Seminar";
         $data["sectionTitle"] = "Transactions National Seminar";
         $data["selectedTable"] = 1;
         $data["active"] = 2;
@@ -68,7 +68,7 @@ class SemnasAdminController extends Controller
     public function detail(SemnasParticipant $participant)
     {
 
-        $data["title"] = "Participants Semnas";
+        $data["title"] = "Participant Detail";
         $data['sectionTitle'] = "Participant Detail - $participant->full_name";
         $data['data_diri'] = [
             "id" => $participant->id,

@@ -20,9 +20,17 @@ class SemnasVerif extends Mailable
      */
 
     public $participant;
+    static private $greeting;
     public function __construct(SemnasParticipant $participant)
     {
         $this->participant = $participant;
+        if ($participant->event == "talk-1") {
+            SemnasVerif::$greeting = "Early Talk 1.0!";
+        } elseif ($participant->event == "talk-2") {
+            SemnasVerif::$greeting = "Early Talk 2.0!";
+        } else {
+            SemnasVerif::$greeting = "National Seminar Summit!";
+        }
     }
 
     /**
@@ -31,7 +39,7 @@ class SemnasVerif extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Semnas Verif',
+            subject: "Woohoo! You're All Set for the " . SemnasVerif::$greeting,
         );
     }
 

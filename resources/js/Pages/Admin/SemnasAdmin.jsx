@@ -278,7 +278,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     </details>
                 </div>
 
-                <form action={handleSearch}>
+                <form>
                     <div className="form-control">
                         <div className="input-group">
                             <input
