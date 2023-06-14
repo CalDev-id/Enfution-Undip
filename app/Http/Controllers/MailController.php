@@ -13,7 +13,6 @@ class MailController extends Controller
 {
     public function sendVerif(SemnasParticipant $participant)
     {
-        // dd($participant);
         $update = SemnasTransaction::where('id_peserta', $participant->id)->update(['status_verif' => 'DONE']);
         if ($update) {
             Mail::to($participant->email)->send(new SemnasVerif($participant));
