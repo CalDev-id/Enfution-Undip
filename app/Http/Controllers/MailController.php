@@ -25,13 +25,13 @@ class MailController extends Controller
 
     public function sendRejected(SemnasTransaction $transaction)
     {
-        $update = $transaction->update(['status_verif' => "REJECTED"]);
-        if ($update) {
-            Mail::to($transaction->peserta_semnas->email)->send(new SemnasRejected($transaction));
-            $event = session('event') ?? '';
-            $page = session('page');
-            $url = "/dashboard/national-seminar?event=$event&page=$page";
-            return redirect()->to($url)->with('rejected', [$transaction->account_name, 'rejected']);
-        }
+        Mail::to($transaction->peserta_semnas->email)->send(new SemnasRejected($transaction));
+        // $update = $transaction->update(['status_verif' => "REJECTED"]);
+        // if ($update) {
+        //     $event = session('event') ?? '';
+        //     $page = session('page');
+        //     $url = "/dashboard/national-seminar?event=$event&page=$page";
+        //     return redirect()->to($url)->with('rejected', [$transaction->account_name, 'rejected']);
+        // }
     }
 }
