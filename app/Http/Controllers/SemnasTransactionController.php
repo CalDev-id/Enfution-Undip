@@ -55,7 +55,7 @@ class SemnasTransactionController extends Controller
         "talk-1" => [
             "NORMAL" => [
                 "open" => '2023-06-11 00:00:00',
-                "closed" => '2023-06-12 23:30:00',
+                "closed" => '2023-06-11 23:30:00',
             ],
         ],
         "talk-2" => [
@@ -155,9 +155,12 @@ class SemnasTransactionController extends Controller
 
 
         if ($validateData['payment_slip'] != null) {
-            Storage::disk('semnas_payment_slip')->put('', $validateData['payment_slip']);
-            $filterData['bukti_bayar'] = Storage::disk('semnas_payment_slip')->put('', $validateData['payment_slip']);
-        }
+            $path = '/home/n1567050/public_html/uploads/semnas_payment_slip';
+            $extension = $validateData['payment_slip']->getClientOriginalExtension();
+            $filename = uniqid().'.'.$extension;
+            $validateData['payment_slip']->move($path, $filename);
+            $filterData['bukti_bayar'] = $filename;
+        }   
 
         $createdTrx = SemnasTransaction::where('id_peserta', $idPeserta)->update($filterData);
         if ($createdTrx) {
