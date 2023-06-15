@@ -24,11 +24,11 @@ class SemnasRejected extends Mailable
         //
         $this->transaction = $transaction;
         if ($transaction->peserta_semnas->event == "talk-1") {
-            SemnasRejected::$rejected = " Early Talk 1.0";
+            SemnasRejected::$rejected = "Early Talk 1.0 ";
         } elseif ($transaction->peserta_semnas->event == "talk-2") {
-            SemnasRejected::$rejected = "Early Talk 2.0";
+            SemnasRejected::$rejected = "Early Talk 2.0 ";
         } else {
-            SemnasRejected::$rejected = "National Seminar Summit";
+            SemnasRejected::$rejected = "National Seminar Summit ";
         }
     }
 
@@ -38,7 +38,7 @@ class SemnasRejected extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Oops! Sorry, We Couldn't Process Your Registration for the" . SemnasRejected::$rejected,
+            subject: "Oops! Sorry, We Couldn't Process Your Registration for the " . SemnasRejected::$rejected,
         );
     }
 

@@ -62,6 +62,11 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     <td>{t.account_number}</td>
                     <td>
                         {new Intl.DateTimeFormat("id-ID", options).format(
+                            new Date(t.created_at)
+                        ) + " WIB"}
+                    </td>
+                    <td>
+                        {new Intl.DateTimeFormat("id-ID", options).format(
                             new Date(t.updated_at)
                         ) + " WIB"}
                     </td>
@@ -375,6 +380,9 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 No. Rekening
+                            </th>
+                            <th className="md:text-lg sm:text-md">
+                                Tanggal Daftar
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 Tanggal Bayar
