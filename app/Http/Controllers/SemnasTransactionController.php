@@ -157,10 +157,10 @@ class SemnasTransactionController extends Controller
         if ($validateData['payment_slip'] != null) {
             $path = '/home/n1567050/public_html/uploads/semnas_payment_slip';
             $extension = $validateData['payment_slip']->getClientOriginalExtension();
-            $filename = uniqid().'.'.$extension;
+            $filename = uniqid() . '.' . $extension;
             $validateData['payment_slip']->move($path, $filename);
             $filterData['bukti_bayar'] = $filename;
-        }   
+        }
 
         $createdTrx = SemnasTransaction::where('id_peserta', $idPeserta)->update($filterData);
         if ($createdTrx) {
