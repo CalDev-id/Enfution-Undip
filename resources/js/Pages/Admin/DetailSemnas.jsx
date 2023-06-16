@@ -20,7 +20,7 @@ const DetailSemnas = ({ data_peserta, page, event, status }) => {
                     ""
                 )}
             </div>
-            <div className="overflow-x-auto bg-slate-500 rounded-lg shadow-xl md:w-1/2 sm:w-full text-black">
+            <div className="overflow-x-auto bg-slate-500 rounded-lg shadow-xl md:w-full lg:w-3/4 sm:w-full text-black">
                 <table className="table w-full sm:text-lg md:text-xl table-zebra table-auto">
                     <tbody>
                         <tr>
@@ -69,24 +69,17 @@ const DetailSemnas = ({ data_peserta, page, event, status }) => {
                             <td>{data_peserta.line_id}</td>
                         </tr>
                         <tr>
-                            <th>University</th>
+                            <th>University - Detail</th>
                             <td>:</td>
                             <td>
-                                {data_peserta.university ?? (
-                                    <span className="badge badge-warning text-lg p-3 font-bold">
-                                        None
-                                    </span>
-                                )}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Faculty/Departments/Batch</th>
-                            <td>:</td>
-                            <td>
-                                {data_peserta.faculty_departements_batch ?? (
-                                    <span className="badge badge-warning text-lg p-3 font-bold">
-                                        None
-                                    </span>
+                                {data_peserta.university ? (
+                                    `${data_peserta.university} - ${data_peserta.faculty_departements_batch}`
+                                ) : (
+                                    <>
+                                        <span className="badge badge-warning text-lg p-3 font-bold mr-1">
+                                            None
+                                        </span>
+                                    </>
                                 )}
                             </td>
                         </tr>
