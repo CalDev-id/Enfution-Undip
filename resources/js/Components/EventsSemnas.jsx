@@ -180,7 +180,7 @@ const EventsSemnas = () => {
                                             "national-seminar.form-summit"
                                         )}
                                     >
-                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
                                             <p>Rp. xxx</p>
                                         </div>
@@ -384,7 +384,7 @@ const EventsSemnas = () => {
                                             for society as a whole
                                         </p>
                                         <Link href="/registration-EarlyTalk2">
-                                            <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
+                                            <div className="hover:shadow-xl opacity-50 bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
                                                 <p>REGISTER NOW</p>
                                             </div>
                                         </Link>
