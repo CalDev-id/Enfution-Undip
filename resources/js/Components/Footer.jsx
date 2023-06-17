@@ -1,6 +1,50 @@
-import { Link } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
+import { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 
 const Footer = ({active}) => {
+    const [email, setEmail] = useState("");
+
+    const data = {
+        email,
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const isValidEmail = /^[A-Za-z0-9._%+-]+@gmail.com$/i.test(email);
+
+        if (!isValidEmail) {
+            // Display an error message or handle invalid email case
+            Swal.fire({
+                icon: 'error',
+                text: 'Please enter a valid Gmail address.',
+                confirmButtonColor: "#3085d6",
+            });
+            return;
+        }
+
+        let fd = new FormData();
+
+        for (const d in data) {
+            fd.append(`${d}`, data[d]);
+        }
+
+        const { scrollX, scrollY } = window;
+
+        // console.log(fd);
+        await router.post("/subscribe", fd);
+
+        // Reset the email input value
+        setEmail("");
+
+        Swal.fire({
+            icon: 'success',
+            text: 'You have successfully subscribed to our newsletter!',
+            confirmButtonColor: "#3085d6",
+        })
+    };
+
     return (
         <>
             <div className="bg-[#FFCE2E] py-10">
@@ -60,21 +104,29 @@ const Footer = ({active}) => {
                                     
                                 </p>
                                 <div className="relative my-2">
-                                    <input
-                                        type="text"
-                                        // value={post}
-                                        placeholder="Email Address"
-                                        // onChange={(post) =>
-                                        //     setPost(post.target.value)
-                                        // }
-                                        className="input w-full border-[#FFCE2E] border-2 focus:ring-0 focus:outline-none rounded-3xl pl-14 text-sm py-5 pr-32"
-                                    />
-                                    <button
-                                        className="bg-[#FFCE2E] absolute z-10 right-0 bottom-0 text-white rounded-full px-6 py-3 font-medium"
-                                        type="button"
-                                    >
-                                        Subscribe
-                                    </button>
+                                    <form onSubmit={handleSubmit} encType="multipart/form-data">
+                                        <input
+                                            type="email"
+                                            required
+                                            id="email-input"
+                                            // value={post}
+                                            placeholder="Email Address"
+                                            // onChange={(post) =>
+                                            //     setPost(post.target.value)
+                                            // }
+                                            className="input w-full border-[#FFCE2E] border-2 focus:ring-0 focus:outline-none rounded-3xl pl-14 text-sm py-5 pr-32"
+                                            value={email}
+                                            onChange={(e) =>
+                                                setEmail(e.target.value)
+                                            }
+                                        />
+                                        <button
+                                            className="bg-[#FFCE2E] absolute z-10 right-0 bottom-0 text-white rounded-full px-6 py-3 font-medium"
+                                            type="submit"
+                                        >
+                                            Subscribe
+                                        </button>
+                                    </form>
                                 </div>
                                 <p className="text-right">
                                 By clicking subscribe, you agree <br />
@@ -82,7 +134,6 @@ const Footer = ({active}) => {
                                 notifications.
                             </p>
                             </div>
-
                         </div>
                     </div>
                 </div>
