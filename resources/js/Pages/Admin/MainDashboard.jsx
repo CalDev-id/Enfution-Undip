@@ -31,7 +31,7 @@ const MainDashboard = ({ semnas, dbcc }) => {
             {/* Akhir Informasi Pendapatan */}
 
             {/* Informasi Semnas */}
-            <h1 className="text-xl font-bold my-5">Semnas Infografis</h1>
+            <h1 className="text-xl font-bold my-5 mt-10">Semnas Infografis</h1>
             <div className="flex flex-wrap w-full gap-3">
                 <div className="card w-80 h-52 bg-dark">
                     <div className="card-body">
@@ -122,6 +122,22 @@ const MainDashboard = ({ semnas, dbcc }) => {
                 </div>
             </div>
             {/* Akhir Informasi DBCC */}
+
+            {/* Informasi Subscriber */}
+            <h1 className="text-xl font-bold my-5 mt-10">Subscriber Infografis</h1>
+            <div className="flex flex-wrap w-full gap-3">
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">Pendaftar</h2>
+                        <div className="card-actions justify-center items-center bg-white h-full rounded-md">
+                            <span className="text-3xl text-center font-bold">
+                                {semnas.subscriber}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* Akhir Informasi Subscriber */}
         </>
     );
 };
