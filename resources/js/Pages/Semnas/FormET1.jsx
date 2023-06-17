@@ -205,7 +205,7 @@ const FormET1 = (props) => {
                                 />
                                 {errors != null && errors.place_dob && (
                                     <span className="text-red-600">
-                                        The place and dob field is required.
+                                        {errors.place_dob}
                                     </span>
                                 )}
                             </div>

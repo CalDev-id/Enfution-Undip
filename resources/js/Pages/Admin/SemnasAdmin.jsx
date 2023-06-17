@@ -62,6 +62,11 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     <td>{t.account_number}</td>
                     <td>
                         {new Intl.DateTimeFormat("id-ID", options).format(
+                            new Date(t.created_at)
+                        ) + " WIB"}
+                    </td>
+                    <td>
+                        {new Intl.DateTimeFormat("id-ID", options).format(
                             new Date(t.updated_at)
                         ) + " WIB"}
                     </td>
@@ -160,7 +165,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
     return (
         <>
             <div className="flex justify-between items-center mb-3">
-                <div className="filter flex flex-wrap justify-between items-center">
+                <div className="filter flex flex-wrap sm:justify-between justify-start gap-2 items-center">
                     <details className="dropdown">
                         <summary className="m-1 btn">
                             {filter == ""
@@ -276,6 +281,21 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                             </li>
                         </ul>
                     </details>
+                    {status == "DONE" && filter != "" ? (
+                        <a
+                            href={
+                                "/printSemnas?event=" +
+                                filter +
+                                urlStatus +
+                                status
+                            }
+                            className="btn btn-accent m-1"
+                        >
+                            Cetak
+                        </a>
+                    ) : (
+                        ""
+                    )}
                 </div>
 
                 <form>
@@ -375,6 +395,9 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 No. Rekening
+                            </th>
+                            <th className="md:text-lg sm:text-md">
+                                Tanggal Daftar
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 Tanggal Bayar

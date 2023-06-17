@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SemnasAdminController;
 use App\Http\Controllers\SemnasParticipantController;
 use App\Http\Controllers\SemnasTransactionController;
@@ -78,6 +79,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/detail-semnas-participant/{participant}', [SemnasAdminController::class, 'detail']);
     Route::get('/sendVerif/{participant}', [MailController::class, 'sendVerif']);
     Route::get('/rejected/{transaction}', [MailController::class, 'sendRejected']);
+    Route::get('/printSemnas', [ReportController::class, 'printVerif']);
 });
 // Akhir Dashboard
 
