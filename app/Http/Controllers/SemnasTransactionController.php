@@ -36,7 +36,7 @@ class SemnasTransactionController extends Controller
     static public $timeRegist = [
         "summit" => [
             "EB" => [
-                "open" => '2023-06-15 00:00:01',
+                "open" => '2023-07-15 00:00:01',
                 "closed" => '2023-07-22 23:59:59',
             ],
             "PS1" => [
@@ -60,7 +60,7 @@ class SemnasTransactionController extends Controller
         ],
         "talk-2" => [
             "NORMAL" => [
-                "open" => '2023-06-13 00:00:01',
+                "open" => '2023-08-13 00:00:01',
                 "closed" => '2023-09-10 23:59:59',
             ],
         ],
