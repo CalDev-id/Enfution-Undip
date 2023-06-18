@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "@inertiajs/react";
 import TimeLine from "./TimeLine";
 
-const EventsSemnas = () => {
+const EventsSemnas = ({ ticketPrice, event }) => {
     const [selectedIndex, setSelectedIndex] = useState(1);
 
     const dbccAtas =

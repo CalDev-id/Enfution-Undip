@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\SemnasParticipant;
 use App\Models\SemnasTransaction;
 use App\Models\SemnasReferralCode;
-
+use App\Policies\SemnasParticipantPolicy;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use function Symfony\Component\VarDumper\Dumper\esc;
@@ -26,7 +26,52 @@ class SemnasParticipantController extends Controller
 
     public function index()
     {
-        return Inertia::render('NationalSeminar');
+        $event = ['summit', 'talk-1', 'talk-2'];
+        $currentDateTime = Carbon::now();
+        $time_regist = "NORMAL";
+
+        if ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['EB']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['EB']['closed'])
+        )) {
+            SemnasParticipantController::$event = "summit";
+            $time_regist = "EB";
+        } elseif ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS1']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS1']['closed'])
+        )) {
+            SemnasParticipantController::$event = "summit";
+            $time_regist = "PS1";
+        } elseif ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS2']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS2']['closed'])
+        )) {
+            SemnasParticipantController::$event = "summit";
+            $time_regist = "PS2";
+        } elseif ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['NORMAL']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['NORMAL']['closed'])
+        )) {
+            SemnasParticipantController::$event = "summit";
+            $time_regist = "PS2";
+        } elseif ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["talk-1"]['NORMAL']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["talk-1"]['NORMAL']['closed'])
+        )) {
+            SemnasParticipantController::$event = "talk-1";
+        } elseif ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["talk-2"]['NORMAL']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["talk-2"]['NORMAL']['closed'])
+        )) {
+            SemnasParticipantController::$event = "talk-2";
+        }
+
+
+        $data = [
+            "event" => SemnasParticipantController::$event,
+            "ticketPrice" => SemnasTransactionController::$ticketPrice[SemnasParticipantController::$event][$time_regist]
+        ];
+        return Inertia::render('NationalSeminar', $data);
     }
 
 
@@ -131,9 +176,9 @@ class SemnasParticipantController extends Controller
         }
 
         if ($validateData['ktm'] != null) {
-            $path = '/home/n1567050/public_html/uploads/semnas_ktm'; 
+            $path = '/home/n1567050/public_html/uploads/semnas_ktm';
             $extension = $validateData['ktm']->getClientOriginalExtension();
-            $filename = uniqid().'.'.$extension;
+            $filename = uniqid() . '.' . $extension;
             $validateData['ktm']->move($path, $filename);
             $filterData['ktm'] = $filename;
         }
