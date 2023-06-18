@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\SemnasParticipant;
 use App\Models\SemnasTransaction;
 use App\Models\SemnasReferralCode;
-
+use App\Policies\SemnasParticipantPolicy;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use function Symfony\Component\VarDumper\Dumper\esc;
@@ -26,7 +26,37 @@ class SemnasParticipantController extends Controller
 
     public function index()
     {
-        return Inertia::render('NationalSeminar');
+        $currentDateTime = Carbon::now();
+        $time_regist = "";
+
+        if ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['EB']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['EB']['closed'])
+        )) {
+            $time_regist = "EB";
+        } elseif ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS1']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS1']['closed'])
+        )) {
+            $time_regist = "PS1";
+        } elseif ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS2']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS2']['closed'])
+        )) {
+            $time_regist = "PS2";
+        } elseif ($currentDateTime->between(
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['NORMAL']['open']),
+            Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['NORMAL']['closed'])
+        )) {
+            $time_regist = "NORMAL";
+        }
+
+
+        $data = [
+            "ticketPrice" => SemnasTransactionController::$ticketPrice["summit"][$time_regist] ?? 0,
+            "timeRegist" => $time_regist,
+        ];
+        return Inertia::render('NationalSeminar', $data);
     }
 
 
@@ -82,6 +112,10 @@ class SemnasParticipantController extends Controller
         if (session()->has('not_success')) {
             $data['info'] = session('not_success');
         }
+
+        if (session()->has('email_not_valid')) {
+            $data['email_not_valid'] = session('email_not_valid');
+        }
         return Inertia::render("Semnas/" . SemnasParticipantController::$view, $data);
     }
 
@@ -111,6 +145,28 @@ class SemnasParticipantController extends Controller
             return false;
         }
 
+        if (request('email')) {
+            $getDomain = explode('@', request('email'));
+            $lastDomain = end($getDomain);
+            if ($lastDomain != "gmail.com") {
+                session()->flash("email_not_valid", "Please enter a valid Gmail address.");
+                switch (session('event')) {
+                    case 'summit':
+                        return redirect()->route('national-seminar.form-summit');
+                        break;
+                    case 'talk-1':
+                        return redirect()->route('national-seminar.form-et1');
+                        break;
+                    case 'talk-2':
+                        return redirect()->route('national-seminar.form-et2');
+                        break;
+                    default:
+                        return false;
+                        break;
+                }
+            }
+        }
+
         $filterData = [
             'full_name' => esc(request('full_name')),
             'gender' => esc(request('gender')),
@@ -131,9 +187,9 @@ class SemnasParticipantController extends Controller
         }
 
         if ($validateData['ktm'] != null) {
-            $path = '/home/n1567050/public_html/uploads/semnas_ktm'; 
+            $path = '/home/n1567050/public_html/uploads/semnas_ktm';
             $extension = $validateData['ktm']->getClientOriginalExtension();
-            $filename = uniqid().'.'.$extension;
+            $filename = uniqid() . '.' . $extension;
             $validateData['ktm']->move($path, $filename);
             $filterData['ktm'] = $filename;
         }
