@@ -26,50 +26,35 @@ class SemnasParticipantController extends Controller
 
     public function index()
     {
-        $event = ['summit', 'talk-1', 'talk-2'];
         $currentDateTime = Carbon::now();
-        $time_regist = "NORMAL";
+        $time_regist = "";
 
         if ($currentDateTime->between(
             Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['EB']['open']),
             Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['EB']['closed'])
         )) {
-            SemnasParticipantController::$event = "summit";
             $time_regist = "EB";
         } elseif ($currentDateTime->between(
             Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS1']['open']),
             Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS1']['closed'])
         )) {
-            SemnasParticipantController::$event = "summit";
             $time_regist = "PS1";
         } elseif ($currentDateTime->between(
             Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS2']['open']),
             Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['PS2']['closed'])
         )) {
-            SemnasParticipantController::$event = "summit";
             $time_regist = "PS2";
         } elseif ($currentDateTime->between(
             Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['NORMAL']['open']),
             Carbon::parse(SemnasTransactionController::$timeRegist["summit"]['NORMAL']['closed'])
         )) {
-            SemnasParticipantController::$event = "summit";
-            $time_regist = "PS2";
-        } elseif ($currentDateTime->between(
-            Carbon::parse(SemnasTransactionController::$timeRegist["talk-1"]['NORMAL']['open']),
-            Carbon::parse(SemnasTransactionController::$timeRegist["talk-1"]['NORMAL']['closed'])
-        )) {
-            SemnasParticipantController::$event = "talk-1";
-        } elseif ($currentDateTime->between(
-            Carbon::parse(SemnasTransactionController::$timeRegist["talk-2"]['NORMAL']['open']),
-            Carbon::parse(SemnasTransactionController::$timeRegist["talk-2"]['NORMAL']['closed'])
-        )) {
-            SemnasParticipantController::$event = "talk-2";
+            $time_regist = "NORMAL";
         }
 
 
         $data = [
-            "event" => SemnasParticipantController::$event,
-            "ticketPrice" => SemnasTransactionController::$ticketPrice[SemnasParticipantController::$event][$time_regist]
+            "ticketPrice" => SemnasTransactionController::$ticketPrice["summit"][$time_regist] ?? 0,
+            "timeRegist" => $time_regist,
         ];
         return Inertia::render('NationalSeminar', $data);
     }

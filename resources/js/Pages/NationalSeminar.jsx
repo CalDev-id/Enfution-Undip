@@ -9,14 +9,16 @@ import Testi from "@/Components/Testi";
 import TestiPageSemnas from "@/Components/TestiPageSemnas";
 
 const NationalSeminar = (props) => {
-    console.log(props);
     return (
         <section className="bg-[#FFF9EE]">
             <Head title="National Seminar" />
             <Navbar active={"national"} />
             <Hero active={"national"} />
             <AboutUs active={"national"} />
-            <EventsSemnas ticketPrice={props.ticketPrice} event={props.event} />
+            <EventsSemnas
+                ticketPrice={props.ticketPrice}
+                timeRegist={props.timeRegist}
+            />
             <GallerySemnas />
             <TestiPageSemnas />
             <Footer active={"semnas"} />

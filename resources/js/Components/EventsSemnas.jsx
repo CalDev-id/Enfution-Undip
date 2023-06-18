@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "@inertiajs/react";
 import TimeLine from "./TimeLine";
+import numeral from "numeral";
 
-const EventsSemnas = ({ ticketPrice, event }) => {
+const EventsSemnas = ({ ticketPrice, timeRegist }) => {
     const [selectedIndex, setSelectedIndex] = useState(1);
 
     const dbccAtas =
@@ -180,48 +181,102 @@ const EventsSemnas = ({ ticketPrice, event }) => {
                                             "national-seminar.form-summit"
                                         )}
                                     >
-                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div
+                                            className={`hover:shadow-xl ${
+                                                timeRegist == "EB"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Early Bird</p>
-                                            <p>Rp. xxx</p>
+                                            <p>
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegist == "EB"
+                                                        ? numeral(
+                                                              ticketPrice
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
                                     <Link
                                         href={route(
                                             "national-seminar.form-summit"
                                         )}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                        }}
                                     >
-                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t mb-5  from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div
+                                            className={`hover:shadow-xl ${
+                                                timeRegist == "PS1"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t mb-5  from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Pre-Sale 1</p>
-                                            <p>Rp. xxx</p>
+                                            <p>
+                                                {" "}
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegist == "PS1"
+                                                        ? numeral(
+                                                              ticketPrice
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
                                     <Link
                                         href={route(
                                             "national-seminar.form-summit"
                                         )}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                        }}
                                     >
-                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t mb-5 from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div
+                                            className={`hover:shadow-xl ${
+                                                timeRegist == "PS2"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t mb-5 from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Pre-Sale 2</p>
-                                            <p>Rp. xxx</p>
+                                            <p>
+                                                {" "}
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegist == "PS2"
+                                                        ? numeral(
+                                                              ticketPrice
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
                                     <Link
                                         href={route(
                                             "national-seminar.form-summit"
                                         )}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                        }}
                                     >
-                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div
+                                            className={`hover:shadow-xl ${
+                                                timeRegist == "NORMAL"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Normal Registration</p>
-                                            <p>Rp. xxx</p>
+                                            <p>
+                                                {" "}
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegist == "NORMAL"
+                                                        ? numeral(
+                                                              ticketPrice
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
                                 </div>
