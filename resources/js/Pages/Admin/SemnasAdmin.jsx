@@ -59,6 +59,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     <th>{no++}</th>
                     <td>{t.peserta_semnas.full_name}</td>
                     <td>{t.account_name}</td>
+                    <td>{t.bank_name}</td>
                     <td>{t.account_number}</td>
                     <td>
                         {new Intl.DateTimeFormat("id-ID", options).format(
@@ -392,6 +393,9 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 Akun Peserta
+                            </th>
+                            <th className="md:text-lg sm:text-md">
+                                Via
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 No. Rekening
