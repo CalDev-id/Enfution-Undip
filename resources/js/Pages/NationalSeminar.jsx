@@ -8,14 +8,17 @@ import GallerySemnas from "@/Components/GallerySemnas";
 import Testi from "@/Components/Testi";
 import TestiPageSemnas from "@/Components/TestiPageSemnas";
 
-const NationalSeminar = () => {
+const NationalSeminar = (props) => {
     return (
         <section className="bg-[#FFF9EE]">
             <Head title="National Seminar" />
             <Navbar active={"national"} />
             <Hero active={"national"} />
             <AboutUs active={"national"} />
-            <EventsSemnas />
+            <EventsSemnas
+                ticketPrice={props.ticketPrice}
+                timeRegist={props.timeRegist}
+            />
             <GallerySemnas />
             <TestiPageSemnas />
             <Footer active={"semnas"} />
