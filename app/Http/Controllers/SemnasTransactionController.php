@@ -18,7 +18,7 @@ class SemnasTransactionController extends Controller
 
     static private $event_period;
 
-    static private $ticketPrice = [
+    static public $ticketPrice = [
         "summit" => [
             "NORMAL" => 300000,
             "EB" => 250000,
