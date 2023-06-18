@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SemnasParticipant;
+use App\Models\Subscriber;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\SemnasTransaction;
@@ -21,6 +22,7 @@ class SemnasAdminController extends Controller
         $data['semnas'] = [
             "pendapatan" => SemnasTransaction::where('status_bayar', "PAID")->where('status_verif', "DONE")->sum('amount'),
             "pendaftar" => count(SemnasTransaction::all()->where('status_bayar', "PAID")),
+            "subscriber" => count(Subscriber::all()),
             "pending" => count(SemnasTransaction::all()->where('status_bayar', "PAID")->where('status_verif', "PENDING")),
             "done" => count(SemnasTransaction::all()->where('status_bayar', "PAID")->where('status_verif', "DONE")),
             "rejected" => count(SemnasTransaction::all()->where('status_bayar', "PAID")->where('status_verif', "REJECTED")),

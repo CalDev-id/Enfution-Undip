@@ -86,9 +86,9 @@ const Events = ({ hrefDbcc }) => {
                                 </h1>
                                 <div className="flex justify-center mb-20 flex-wrap">
                                     <Link href="/registration-dbcc">
-                                        <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] hover:shadow-xl text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] hover:shadow-xl text-xl opacity-50 text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
-                                            <p>Rp. 230.000</p>
+                                            <p>Rp. xxx</p>
                                         </div>
                                     </Link>
                                     <Link href="">
@@ -132,9 +132,9 @@ const Events = ({ hrefDbcc }) => {
                                 </h1>
                                 <div className="flex justify-center mb-20 flex-wrap">
                                     <Link href="/registration-coaching-session">
-                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E]  text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E]  text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
-                                            <p>Rp. 15.000</p>
+                                            <p>Rp. xxx</p>
                                         </div>
                                     </Link>
                                     <Link href="/">
@@ -178,9 +178,9 @@ const Events = ({ hrefDbcc }) => {
                                 </h1>
                                 <div className="flex justify-center mb-20 flex-wrap">
                                     <Link href="/registration-coaching-clinic">
-                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
-                                            <p>Rp. 15.000</p>
+                                            <p>Rp. xxx</p>
                                         </div>
                                     </Link>
                                     <Link href="/">

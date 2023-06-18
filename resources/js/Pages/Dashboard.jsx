@@ -3,6 +3,8 @@ import { Head } from "@inertiajs/react";
 import SemnasAdmin from "./Admin/SemnasAdmin";
 import DetailSemnas from "./Admin/DetailSemnas";
 import MainDashboard from "./Admin/MainDashboard";
+import SubscriberAdmin from "./Admin/SubscriberAdmin";
+import NewsLetter from "./Admin/NewsLetter";
 
 export default function Dashboard(props) {
     const views = [
@@ -19,6 +21,12 @@ export default function Dashboard(props) {
             page={props.page}
             event={props.event}
             status={props.status ?? ""}
+        />,
+        <SubscriberAdmin
+            trx={props.subscribers}
+            search={props.search}
+        />,
+        <NewsLetter
         />,
     ];
 

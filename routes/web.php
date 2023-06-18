@@ -6,6 +6,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SemnasAdminController;
 use App\Http\Controllers\SemnasParticipantController;
 use App\Http\Controllers\SemnasTransactionController;
+use App\Http\Controllers\NewsletterController;
 use App\Models\semnas_participant;
 use App\Models\SemnasParticipant;
 use Illuminate\Foundation\Application;
@@ -41,6 +42,11 @@ Route::controller(SemnasTransactionController::class)->middleware('payment-semna
 
 // Akhir Semnas
 
+// Awal Subscribe
+
+Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('subscribe');
+
+// Akhir Subscribe
 
 // Awal DBCC
 
@@ -75,6 +81,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [SemnasAdminController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/national-seminar', [SemnasAdminController::class, 'semnas'])->name('dashboard-semnas');
     Route::get('/dashboard/DBCC', [SemnasAdminController::class, 'DBCC'])->name('dashboard-DBCC');
+    Route::get('/dashboard/subscriber', [NewsletterController::class, 'index'])->name('dashboard-subscriber');
+    Route::get('/newsLetter', [NewsletterController::class, 'newsLetter'])->name('newsLetter');
+    Route::post('/sendNewsLetter', [NewsletterController::class, 'sendNewsLetter']);
     Route::get('/getPaymentSlip', [SemnasAdminController::class, 'payment']);
     Route::get('/detail-semnas-participant/{participant}', [SemnasAdminController::class, 'detail']);
     Route::get('/sendVerif/{participant}', [MailController::class, 'sendVerif']);

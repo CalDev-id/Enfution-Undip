@@ -46,6 +46,17 @@ const Sidebar = ({ index }) => {
                         <i className="fas fa-table mr-3"></i>
                         DBCC
                     </a>
+                    <a
+                        href={route("dashboard-subscriber")}
+                        className={
+                            index == 4
+                                ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"
+                                : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
+                        }
+                    >
+                        <i className="fas fa-sticky-note mr-3"></i>
+                        Subscriber
+                    </a>
                 </nav>
             </aside>
         </>

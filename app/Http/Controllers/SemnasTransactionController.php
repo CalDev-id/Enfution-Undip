@@ -37,7 +37,7 @@ class SemnasTransactionController extends Controller
         "summit" => [
             "EB" => [
                 "open" => '2023-07-15 00:00:01',
-                "closed" => '2023-07-22 23:22:59',
+                "closed" => '2023-07-22 23:59:59',
             ],
             "PS1" => [
                 "open" => '2023-07-23 00:00:01',
