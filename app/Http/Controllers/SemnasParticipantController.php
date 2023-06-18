@@ -112,6 +112,10 @@ class SemnasParticipantController extends Controller
         if (session()->has('not_success')) {
             $data['info'] = session('not_success');
         }
+
+        if (session()->has('email_not_valid')) {
+            $data['email_not_valid'] = session('email_not_valid');
+        }
         return Inertia::render("Semnas/" . SemnasParticipantController::$view, $data);
     }
 
@@ -139,6 +143,28 @@ class SemnasParticipantController extends Controller
 
         if (!$validateData) {
             return false;
+        }
+
+        if (request('email')) {
+            $getDomain = explode('@', request('email'));
+            $lastDomain = end($getDomain);
+            if ($lastDomain != "gmail.com") {
+                session()->flash("email_not_valid", "Please enter a valid Gmail address.");
+                switch (session('event')) {
+                    case 'summit':
+                        return redirect()->route('national-seminar.form-summit');
+                        break;
+                    case 'talk-1':
+                        return redirect()->route('national-seminar.form-et1');
+                        break;
+                    case 'talk-2':
+                        return redirect()->route('national-seminar.form-et2');
+                        break;
+                    default:
+                        return false;
+                        break;
+                }
+            }
         }
 
         $filterData = [

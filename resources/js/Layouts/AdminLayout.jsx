@@ -20,11 +20,7 @@ const AdminLayout = ({ children, title, index }) => {
 
                         <footer className="w-full bg-white text-right p-4">
                             Built by{" "}
-                            <a
-                                target="_blank"
-                                href="https://davidgrzyb.com"
-                                className="underline"
-                            >
+                            <a href={route("home")} className="underline">
                                 Enfution
                             </a>
                             .

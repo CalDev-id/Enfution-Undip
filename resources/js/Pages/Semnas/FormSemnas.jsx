@@ -276,12 +276,19 @@ const FormSemnas = (props) => {
                                     onChange={(email) =>
                                         setEmail(email.target.value)
                                     }
+                                    placeholder="example@gmail.com"
                                 />
                                 {errors != null && errors.email && (
                                     <span className="text-red-600">
                                         {errors.email}
                                     </span>
                                 )}
+                                {props.email_not_valid != null &&
+                                    props.email_not_valid && (
+                                        <span className="text-red-600">
+                                            {props.email_not_valid}
+                                        </span>
+                                    )}
                             </div>
                             <div className="mb-5 md:mx-10">
                                 <p className="font-semibold">
