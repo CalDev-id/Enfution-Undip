@@ -396,6 +396,9 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                             </th>
                             <th className="md:text-lg sm:text-md">Via</th>
                             <th className="md:text-lg sm:text-md">
+                                Via
+                            </th>
+                            <th className="md:text-lg sm:text-md">
                                 No. Rekening
                             </th>
                             <th className="md:text-lg sm:text-md">
