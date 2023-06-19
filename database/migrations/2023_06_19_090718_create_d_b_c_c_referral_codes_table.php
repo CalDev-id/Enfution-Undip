@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subscribers', function (Blueprint $table) {
-            $table->id();
-            $table->string('email')->unique();
+        Schema::create('dbcc_referral_codes', function (Blueprint $table) {
+            $table->id('id');
+            $table->string('code', 255);
+            $table->integer('qty');
+            $table->string('diskon_persen', 10);
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subscribers');
+        Schema::dropIfExists('dbcc_referral_codes');
     }
 };

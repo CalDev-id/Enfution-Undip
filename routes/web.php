@@ -55,23 +55,23 @@ Route::get('/DBCC', function () {
 })->name('dbcc');
 
 Route::get('/registration-dbcc', function () {
-    // return Inertia::render('DBCC/FormDBCC');
-    return redirect()->route('dbcc');
+    return Inertia::render('DBCC/FormDBCC');
+    // return redirect()->route('dbcc');
 })->name('form-dbcc');
 
 Route::get('/registration-coaching-session', function () {
-    // return Inertia::render('DBCC/FormSession');
-    return redirect()->route('dbcc');
+    return Inertia::render('DBCC/FormSession');
+    // return redirect()->route('dbcc');
 })->name('form-session');
 
 Route::get('/registration-coaching-clinic', function () {
-    // return Inertia::render('DBCC/FormClinic');
-    return redirect()->route('dbcc');
+    return Inertia::render('DBCC/FormClinic');
+    // return redirect()->route('dbcc');
 })->name('form-clinic');
 
 Route::get('/payment-confirmation-dbcc', function () {
-    // return Inertia::render('DBCC/PaymentConfirmation');
-    return redirect()->route('dbcc');
+    return Inertia::render('DBCC/PaymentConfirmation');
+    // return redirect()->route('dbcc');
 })->name('payment-confirmation');
 
 // Akhir DBCC
