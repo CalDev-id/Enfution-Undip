@@ -215,21 +215,21 @@ const EventsSemnas = () => {
                     {selectedIndex == 2 && (
                         <div className="py-10">
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 xl:px-20">
-                                <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
+                                <h1 className="font-bold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     Early Talk 1
                                 </h1>
                                 <div className="flex flex-col xl:flex-row mb-20">
                                     <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0">
                                         <img
                                             className=""
-                                            src="images/orangHitam.svg"
+                                            src="images/speaker/vina.svg"
                                             alt=""
                                         />
                                         <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
-                                            Coming Soon
+                                        Vina Muliana
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            xxx
+                                        BUMN Career Professional & Education Content Creator
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-16 px-4 max-w-2xl">
@@ -237,13 +237,13 @@ const EventsSemnas = () => {
                                             Build Critical Thinking to Improve
                                             Economy Creative
                                         </p>{" "}
-                                        <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
-                                            Coming Soon{" "}
+                                        <p className="border-l-4 italic border-[#EB9928] py-1 my-2 pl-4 mb-3">
+                                        Kesuksesan itu ketika kamu bisa menjadi inspirasi dan berkontribusi untuk kemajuan diri dan orang-orang sekitar.
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
-                                            Nama Speaker
+                                            Vina Muliana
                                         </p>
-                                        <p className="mb-3">xxx</p>
+                                        <p className="mb-3 text-slate-500">BUMN Career Professional & Education Content Creator</p>
                                         <p className="italic mb-3">
                                             “Critical thinking is the ability to
                                             think for yourself and to reliably
@@ -277,10 +277,10 @@ const EventsSemnas = () => {
                                             critical thinking itself.
                                         </p>
                                         <p className="font-semibold text-xl">
-                                            JUNY{" "}
+                                            JULY{" "}
                                             <span className="text-[#EB9928]">
                                                 {" "}
-                                                14th
+                                                15th
                                             </span>
                                             , 2023
                                         </p>
@@ -289,9 +289,9 @@ const EventsSemnas = () => {
                                                 <p>REGISTER NOW</p>
                                             </div>
                                         </Link>
-                                        {/* <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
-                                            FREE!
-                                        </p> */}
+                                        <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
+                                            15K
+                                        </p>
                                     </div>
                                 </div>
 
