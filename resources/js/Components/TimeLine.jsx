@@ -283,7 +283,7 @@ const TimeLine = ({ name }) => {
                     <div id="progress-content-section">
                         {active == 1 && (
                             <div className="section-content discovery active">
-                                <h2 className="mb-2 font-semibold">July</h2>
+                                <h2 className="mb-2 font-semibold">SEPTEMBER</h2>
                                 <p>
                                     {" "}
                                     <span className="text-[#EB9928]">
