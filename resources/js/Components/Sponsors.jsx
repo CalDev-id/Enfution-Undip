@@ -9,11 +9,11 @@ const Sponsors = () => {
                 />
                 <div className="self-center">
                     <div className="flex">
-                    <span className="text-3xl font-black">“</span>
-                    <p className="md:max-w-lg font-bold text-xl mb-3">
-                    Creativity comes from looking for the unexpected and
-                        stepping outside your own experience.
-                    </p>
+                        <span className="text-3xl font-black">“</span>
+                        <p className="md:max-w-lg font-bold text-xl mb-3">
+                            Creativity comes from looking for the unexpected and
+                            stepping outside your own experience.
+                        </p>
                     </div>
                     <p className="border-l-4 border-[#EB9928] pl-5 py-2 md:max-w-2xl">
                         We will learn that computers, amazing as they are, still
@@ -42,10 +42,54 @@ const Sponsors = () => {
                         </p>
                     </div>
                     <div className="flex justify-between flex-col sm:flex-row">
-                        <div className="w-full sm:mr-1 mb-3 sm:mb-0 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-60 flex justify-center">
+                        <div className="w-full sm:mr-1 mb-3 sm:mb-0 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-60">
                             <p className="text-[#EB9928] font-bold text-2xl text-center my-5">
                                 Media Partner
                             </p>
+                            <div className="flex justify-center mx-auto">
+                                <img
+                                    src="images/sponsors/HMIGUndip.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/sponsors/webinarindonesia.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/sponsors/InfoEventNasional.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/sponsors/webinarKita.png"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/sponsors/webnasional.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div className="flex mx-5 my-3 md:justify-center justify-evenly">
+                                <img
+                                    className="w-fit md:mr-5"
+                                    src="images/sponsors/BEMFEB.png"
+                                    alt=""
+                                />
+                                <img
+                                    className="w-fit"
+                                    src="images/sponsors/eventcenter.png"
+                                    alt=""
+                                />
+                                <img
+                                    className="w-fit md:ml-5"
+                                    src="images/sponsors/eventnasional.png"
+                                    alt=""
+                                />
+                            </div>
+                            <img
+                                className="mx-auto my-3"
+                                src="images/sponsors/Talent.png"
+                                alt=""
+                            />
                         </div>
                         <div className="w-full sm:ml-2 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-60 flex justify-center">
                             <p className="text-[#EB9928] font-bold text-2xl text-center my-5">
@@ -55,7 +99,7 @@ const Sponsors = () => {
                     </div>
                 </div>
             </div>
-            <img src="images/eventBtm.png" alt="" className="mb-40"/>
+            <img src="images/eventBtm.png" alt="" className="mb-40" />
         </>
     );
 };
