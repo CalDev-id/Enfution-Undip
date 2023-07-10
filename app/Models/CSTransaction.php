@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\DBCCTeam;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class DBCCTransaction extends Model
+class CSTransaction extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    protected $table = 'dbcc_transactions';
+    protected $table = "cs_transactions";
 
     public function scopeFilter($query, array $filters)
     {
@@ -31,8 +30,8 @@ class DBCCTransaction extends Model
         );
     }
 
-    public function dbcc_team()
+    public function cs_participant()
     {
-        return $this->belongsTo(DBCCTeam::class, 'id_team');
+        return $this->belongsTo(CoachingSessionParticipant::class, 'id_first_member');
     }
 }

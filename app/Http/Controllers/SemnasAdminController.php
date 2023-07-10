@@ -11,27 +11,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class SemnasAdminController extends Controller
 {
-
-    public function index()
-    {
-        $data["title"] = "Dashboard";
-        $data["sectionTitle"] = "Welcome to Dashboard, Admin!";
-        $data["selectedTable"] = 0;
-        $data["active"] = 1;
-
-        $data['semnas'] = [
-            "pendapatan" => SemnasTransaction::where('status_bayar', "PAID")->where('status_verif', "DONE")->sum('amount'),
-            "pendaftar" => count(SemnasTransaction::all()->where('status_bayar', "PAID")),
-            "subscriber" => count(Subscriber::all()),
-            "pending" => count(SemnasTransaction::all()->where('status_bayar', "PAID")->where('status_verif', "PENDING")),
-            "done" => count(SemnasTransaction::all()->where('status_bayar', "PAID")->where('status_verif', "DONE")),
-            "rejected" => count(SemnasTransaction::all()->where('status_bayar', "PAID")->where('status_verif', "REJECTED")),
-        ];
-
-
-        return Inertia::render("Dashboard", $data);
-    }
-
     public function semnas()
     {
         $data["title"] = "National Seminar";

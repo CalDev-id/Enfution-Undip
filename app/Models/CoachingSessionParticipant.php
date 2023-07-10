@@ -10,4 +10,14 @@ class CoachingSessionParticipant extends Model
     use HasFactory;
     protected $guarded = ['id'];
     protected $table = "cs_participants";
+
+    public function dbcc_team()
+    {
+        return $this->belongsTo(DBCCTeam::class, 'id_team');
+    }
+
+    public function cs_transaksi()
+    {
+        return $this->hasOne(CSTransaction::class, "id_first_member");
+    }
 }

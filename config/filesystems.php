@@ -44,6 +44,21 @@ return [
             'throw' => false,
         ],
 
+        'dbcc_members' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/dbcc_members',
+        ],
+
+        'cs_members' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/cs_members',
+        ],
+
+        'cc_members' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/cc_members',
+        ],
+
         'semnas_ktm' => [
             'driver' => 'local',
             'root'   => public_path() . '/uploads/semnas_ktm',
@@ -52,6 +67,26 @@ return [
         'semnas_payment_slip' => [
             'driver' => 'local',
             'root'   => public_path() . '/uploads/semnas_payment_slip',
+        ],
+
+        'dbcc_payment_slip' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/dbcc_payment_slip',
+        ],
+
+        'cs_payment_slip' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/cs_payment_slip',
+        ],
+
+        'cc_payment_slip' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/cc_payment_slip',
+        ],
+
+        'cc_paper' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/cc_papers',
         ],
 
         's3' => [

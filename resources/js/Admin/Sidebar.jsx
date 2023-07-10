@@ -21,7 +21,6 @@ const Sidebar = ({ index }) => {
                                 : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
                         }
                     >
-                        <i className="fas fa-sticky-note mr-3"></i>
                         Dashboard
                     </a>
                     <a
@@ -32,29 +31,46 @@ const Sidebar = ({ index }) => {
                                 : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
                         }
                     >
-                        <i className="fas fa-sticky-note mr-3"></i>
                         National Seminar
                     </a>
                     <a
-                        href={route("dashboard")}
+                        href={route("dashboard-DBCC")}
                         className={
                             index == 3
                                 ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"
                                 : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
                         }
                     >
-                        <i className="fas fa-table mr-3"></i>
                         DBCC
                     </a>
                     <a
-                        href={route("dashboard-subscriber")}
+                        href={route("dashboard-CS")}
                         className={
                             index == 4
                                 ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"
                                 : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
                         }
                     >
-                        <i className="fas fa-sticky-note mr-3"></i>
+                        Coaching Session
+                    </a>
+                    <a
+                        href={route("dashboard-CC")}
+                        className={
+                            index == 5
+                                ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"
+                                : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
+                        }
+                    >
+                        Coaching Clinic
+                    </a>
+                    <a
+                        href={route("dashboard-subscriber")}
+                        className={
+                            index == 6
+                                ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"
+                                : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
+                        }
+                    >
                         Subscriber
                     </a>
                 </nav>

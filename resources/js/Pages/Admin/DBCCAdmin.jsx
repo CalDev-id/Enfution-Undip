@@ -4,20 +4,20 @@ import numeral from "numeral";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const SemnasAdmin = ({ trx, filter, search, info, status }) => {
+const DBCCAdmin = ({ trx, filter, search, info, status }) => {
     const [id, setId] = useState("");
     const [buktiBayar, setbuktiBayar] = useState("");
     const [konfirmasi, setKonfirmasi] = useState("");
     const [keyword, setKeyword] = useState("");
-    const transactions = trx.data;
 
-    const event = ["Summit", "Early Talk 1", "Early Talk 2"];
-    const urlEvent = ["summit", "talk-1", "talk-2"];
-    const urlFilter = "/dashboard/national-seminar?event=";
+    const periode = ["Early Bird", "Normal"];
+    const urlPeriode = ["EB", "NR"];
+    const urlFilter = "/dashboard/DBCC?periode=";
     const status_verif = ["DONE", "REJECTED", "PENDING"];
     let urlStatus = "&status=";
 
     let no = (trx.current_page - 1) * 10 + 1;
+
     const options = {
         year: "numeric",
         month: "short",
@@ -34,12 +34,12 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
     };
 
     const getBuktiBayar = () => {
-        fetch(`/getPaymentSlipSemnas?id=${id}`, {
+        fetch(`/getPaymentSlipDBCC?id=${id}`, {
             method: "GET",
         })
             .then((response) => response.json())
             .then((data) => {
-                setbuktiBayar(`/uploads/semnas_payment_slip/${data.bukti}`);
+                setbuktiBayar(`/uploads/dbcc_payment_slip/${data.bukti}`);
             });
     };
 
@@ -57,9 +57,9 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
             return (
                 <tr className="text-center" key={no}>
                     <th>{no++}</th>
-                    <td>{t.peserta_semnas.full_name}</td>
+                    <td>{t.dbcc_team.team_name}</td>
                     <td>{t.account_name}</td>
-                    <td>{t.bank_name}</td>
+                    <td>{t.metode_bayar}</td>
                     <td>{t.account_number}</td>
                     <td>
                         {new Intl.DateTimeFormat("id-ID", options).format(
@@ -86,9 +86,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     <td className="flex justify-around">
                         <div className="btn-group">
                             <a
-                                href={
-                                    "/detail-semnas-participant/" + t.id_peserta
-                                }
+                                href={"/detail-dbcc-participant/" + t.id_team}
                                 className="btn btn-primary"
                             >
                                 Detail
@@ -99,7 +97,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                                         className="btn btn-error text-white"
                                         onClick={() => {
                                             setKonfirmasi([
-                                                t.id,
+                                                t.dbcc_team.id,
                                                 t.account_name,
                                                 0,
                                             ]);
@@ -111,7 +109,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                                         className="btn btn-success"
                                         onClick={() => {
                                             setKonfirmasi([
-                                                t.id_peserta,
+                                                t.dbcc_team.id,
                                                 t.account_name,
                                                 1,
                                             ]);
@@ -136,13 +134,13 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                 judul: "Konfirmasi Tolak",
                 teks: `Apakah anda yakin menolak transaksi ${acc_name}`,
                 respon: `Ditolak`,
-                href: `/rejected/${id}`,
+                href: `/DBCCRejected/${id}`,
             },
             {
                 judul: "Konfirmasi Terima",
                 teks: `Apakah anda yakin menerima transaksi ${acc_name}`,
                 respon: `Diverifikasi`,
-                href: `/sendVerif/${id}`,
+                href: `/DBCCVerif/${id}`,
             },
         ];
         Swal.fire({
@@ -162,58 +160,44 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
             }
         });
     };
-
     return (
         <>
+            {/* Filter and Search */}
             <div className="flex justify-between items-center mb-3">
                 <div className="filter flex flex-wrap sm:justify-between justify-start gap-2 items-center">
                     <details className="dropdown">
                         <summary className="m-1 btn">
                             {filter == ""
                                 ? "All"
-                                : filter == "summit"
-                                ? event[0]
-                                : filter == "talk-1"
-                                ? event[1]
-                                : event[2]}
+                                : filter == "EB"
+                                ? periode[0]
+                                : periode[1]}
                         </summary>
                         <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
                             <li>
                                 <a
                                     href={
                                         filter == ""
-                                            ? urlFilter + urlEvent[0]
+                                            ? urlFilter + urlPeriode[0]
                                             : urlFilter
                                     }
                                     className="active:bg-dark active:text-white"
                                 >
-                                    {filter == "" ? event[0] : "All"}
+                                    {filter == "" ? periode[0] : "All"}
                                 </a>
                             </li>
                             <li>
                                 <a
                                     href={
-                                        filter == "" || filter == "summit"
-                                            ? urlFilter + urlEvent[1]
-                                            : urlFilter + urlEvent[0]
+                                        filter == "" || filter == "EB"
+                                            ? urlFilter + urlPeriode[1]
+                                            : urlFilter + urlPeriode[0]
                                     }
                                     className="active:bg-dark active:text-white"
                                 >
-                                    {filter == "" || filter == "summit"
-                                        ? event[1]
-                                        : event[0]}
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href={
-                                        filter == "talk-2"
-                                            ? urlFilter + urlEvent[1]
-                                            : urlFilter + urlEvent[2]
-                                    }
-                                    className="active:bg-dark active:text-white"
-                                >
-                                    {filter == "talk-2" ? event[1] : event[2]}
+                                    {filter == "" || filter == "EB"
+                                        ? periode[1]
+                                        : periode[0]}
                                 </a>
                             </li>
                         </ul>
@@ -285,7 +269,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     {status == "DONE" && filter != "" ? (
                         <a
                             href={
-                                "/printSemnas?event=" +
+                                "/printDBCC?periode=" +
                                 filter +
                                 urlStatus +
                                 status
@@ -371,10 +355,10 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     )}
 
                     {info[1] == "success" ? (
-                        <span>Peserta {info[0]} berhasil diverifikasi</span>
+                        <span>Tim {info[0]} berhasil diverifikasi</span>
                     ) : (
                         <span>
-                            Transaksi dengan nama akun {info[0]} ditolak!
+                            Transaksi dengan nama tim {info[0]} ditolak!
                         </span>
                     )}
                 </div>
@@ -382,18 +366,15 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                 ""
             )}
 
+            {/* Table Transactions */}
             <div className="overflow-x-auto">
                 <table className="table w-full md:text-lg sm:text-md">
                     {/* head */}
                     <thead>
                         <tr className="text-center text-lg">
                             <th className="md:text-lg sm:text-md">#</th>
-                            <th className="md:text-lg sm:text-md">
-                                Nama Peserta
-                            </th>
-                            <th className="md:text-lg sm:text-md">
-                                Akun Peserta
-                            </th>
+                            <th className="md:text-lg sm:text-md">Nama Tim</th>
+                            <th className="md:text-lg sm:text-md">Akun Tim</th>
                             <th className="md:text-lg sm:text-md">Via</th>
                             <th className="md:text-lg sm:text-md">
                                 No. Rekening
@@ -413,7 +394,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                             <th className="md:text-lg sm:text-md">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>{listTransactions(transactions)}</tbody>
+                    <tbody>{listTransactions(trx.data)}</tbody>
                 </table>
 
                 {/* Modal Button */}
@@ -438,6 +419,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                 </div>
             </div>
 
+            {/* Pagination */}
             <div className="mt-5 flex justify-between items-center">
                 <span>
                     Show of {trx.data.length} entries, {trx.current_page} of{" "}
@@ -449,4 +431,4 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
     );
 };
 
-export default SemnasAdmin;
+export default DBCCAdmin;

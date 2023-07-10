@@ -1,6 +1,6 @@
 import numeral from "numeral";
 
-const MainDashboard = ({ semnas, dbcc }) => {
+const MainDashboard = ({ semnas, dbcc, cs, cc, subs }) => {
     return (
         <>
             {/* Informasi Pendapatan */}
@@ -21,7 +21,31 @@ const MainDashboard = ({ semnas, dbcc }) => {
                         <h2 className="card-title text-white">DBCC</h2>
                         <div className="card-actions justify-center items-center bg-primary h-full rounded-md">
                             <span className="text-3xl text-center font-bold text-white">
-                                IDR {numeral(0).format("0,0")}
+                                IDR {numeral(dbcc.pendapatan).format("0,0")}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">
+                            Coaching Session
+                        </h2>
+                        <div className="card-actions justify-center items-center bg-primary h-full rounded-md">
+                            <span className="text-3xl text-center font-bold text-white">
+                                IDR {numeral(cs.pendapatan).format("0,0")}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">
+                            Coaching Clinic
+                        </h2>
+                        <div className="card-actions justify-center items-center bg-primary h-full rounded-md">
+                            <span className="text-3xl text-center font-bold text-white">
+                                IDR {numeral(cc.pendapatan).format("0,0")}
                             </span>
                         </div>
                     </div>
@@ -85,7 +109,7 @@ const MainDashboard = ({ semnas, dbcc }) => {
                         <h2 className="card-title text-white">Pendaftar</h2>
                         <div className="card-actions justify-center items-center bg-white h-full rounded-md">
                             <span className="text-3xl text-center font-bold">
-                                none
+                                {dbcc.pendaftar}
                             </span>
                         </div>
                     </div>
@@ -95,7 +119,7 @@ const MainDashboard = ({ semnas, dbcc }) => {
                         <h2 className="card-title text-white">Menunggu</h2>
                         <div className="card-actions justify-center items-center bg-warning h-full rounded-md">
                             <span className="text-3xl text-center font-bold">
-                                none
+                                {dbcc.pending}
                             </span>
                         </div>
                     </div>
@@ -105,7 +129,7 @@ const MainDashboard = ({ semnas, dbcc }) => {
                         <h2 className="card-title text-white">Ditolak</h2>
                         <div className="card-actions justify-center items-center bg-danger h-full rounded-md">
                             <span className="text-3xl text-center font-bold text-white">
-                                none
+                                {dbcc.rejected}
                             </span>
                         </div>
                     </div>
@@ -115,7 +139,7 @@ const MainDashboard = ({ semnas, dbcc }) => {
                         <h2 className="card-title text-white">Diverifikasi</h2>
                         <div className="card-actions justify-center items-center bg-accent h-full rounded-md">
                             <span className="text-3xl text-center font-bold">
-                                none
+                                {dbcc.done}
                             </span>
                         </div>
                     </div>
@@ -123,15 +147,113 @@ const MainDashboard = ({ semnas, dbcc }) => {
             </div>
             {/* Akhir Informasi DBCC */}
 
-            {/* Informasi Subscriber */}
-            <h1 className="text-xl font-bold my-5 mt-10">Subscriber Infografis</h1>
+            {/* Informasi Coaching Session */}
+            <h1 className="text-xl font-bold my-5 mt-10">
+                Coaching Session Infografis
+            </h1>
             <div className="flex flex-wrap w-full gap-3">
                 <div className="card w-80 h-52 bg-dark">
                     <div className="card-body">
                         <h2 className="card-title text-white">Pendaftar</h2>
                         <div className="card-actions justify-center items-center bg-white h-full rounded-md">
                             <span className="text-3xl text-center font-bold">
-                                {semnas.subscriber}
+                                {cs.pendaftar}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">Menunggu</h2>
+                        <div className="card-actions justify-center items-center bg-warning h-full rounded-md">
+                            <span className="text-3xl text-center font-bold">
+                                {cs.pending}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">Ditolak</h2>
+                        <div className="card-actions justify-center items-center bg-danger h-full rounded-md">
+                            <span className="text-3xl text-center font-bold text-white">
+                                {cs.rejected}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">Diverifikasi</h2>
+                        <div className="card-actions justify-center items-center bg-accent h-full rounded-md">
+                            <span className="text-3xl text-center font-bold">
+                                {cs.done}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* Akhir Informasi Coaching Session */}
+
+            {/* Informasi Coaching Clinic */}
+            <h1 className="text-xl font-bold my-5 mt-10">
+                Coaching Clinic Infografis
+            </h1>
+            <div className="flex flex-wrap w-full gap-3">
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">Pendaftar</h2>
+                        <div className="card-actions justify-center items-center bg-white h-full rounded-md">
+                            <span className="text-3xl text-center font-bold">
+                                {cc.pendaftar}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">Menunggu</h2>
+                        <div className="card-actions justify-center items-center bg-warning h-full rounded-md">
+                            <span className="text-3xl text-center font-bold">
+                                {cc.pending}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">Ditolak</h2>
+                        <div className="card-actions justify-center items-center bg-danger h-full rounded-md">
+                            <span className="text-3xl text-center font-bold text-white">
+                                {cc.rejected}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">Diverifikasi</h2>
+                        <div className="card-actions justify-center items-center bg-accent h-full rounded-md">
+                            <span className="text-3xl text-center font-bold">
+                                {cc.done}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* Akhir Informasi Coaching Clinic */}
+
+            {/* Informasi Subscriber */}
+            <h1 className="text-xl font-bold my-5 mt-10">
+                Subscriber Infografis
+            </h1>
+            <div className="flex flex-wrap w-full gap-3">
+                <div className="card w-80 h-52 bg-dark">
+                    <div className="card-body">
+                        <h2 className="card-title text-white">Pendaftar</h2>
+                        <div className="card-actions justify-center items-center bg-white h-full rounded-md">
+                            <span className="text-3xl text-center font-bold">
+                                {subs.subscriber}
                             </span>
                         </div>
                     </div>

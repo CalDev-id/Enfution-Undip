@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SemnasRejected;
+use App\Mail\CCVerif;
+use App\Mail\CSVerif;
+use App\Mail\DBCCVerif;
+use App\Mail\CCRejected;
+use App\Mail\CSRejected;
+use App\Models\DBCCTeam;
 use App\Mail\SemnasVerif;
+use App\Mail\DBCCRejected;
+use App\Mail\SemnasRejected;
 use Illuminate\Http\Request;
+use App\Models\CCTransaction;
+use App\Models\CSTransaction;
+use App\Models\DBCCParticipant;
+use App\Models\DBCCTransaction;
 use App\Models\SemnasParticipant;
 use App\Models\SemnasTransaction;
 use Illuminate\Support\Facades\Mail;
+use App\Models\CoachingClinicParticipant;
+use App\Models\CoachingSessionParticipant;
 
 class MailController extends Controller
 {
@@ -32,6 +45,85 @@ class MailController extends Controller
             $page = session('page');
             $url = "/dashboard/national-seminar?event=$event&page=$page";
             return redirect()->to($url)->with('rejected', [$transaction->account_name, 'rejected']);
+        }
+    }
+
+
+    public function DBCCVerif(DBCCTeam $team)
+    {
+        $update = DBCCTransaction::where('id_team', $team->id)->update(['status_verif' => 'DONE']);
+        $email = DBCCParticipant::where('id_team', $team->id)->first()->email;
+        if ($update) {
+            Mail::to($email)->send(new DBCCVerif($team));
+            $periode = session('periode') ?? '';
+            $page = session('page');
+            $url = "/dashboard/DBCC?periode=$periode&page=$page";
+            return redirect()->to($url)->with('success', [$team->team_name, 'success']);
+        }
+    }
+
+    public function DBCCRejected(DBCCTeam $team)
+    {
+        $update = DBCCTransaction::where('id_team', $team->id)->update(['status_verif' => 'REJECTED']);
+        $email = DBCCParticipant::where('id_team', $team->id)->first()->email;
+        if ($update) {
+            Mail::to($email)->send(new DBCCRejected($team));
+            $periode = session('periode') ?? '';
+            $page = session('page');
+            $url = "/dashboard/DBCC?periode=$periode&page=$page";
+            return redirect()->to($url)->with('rejected', [$team->team_name, 'rejected']);
+        }
+    }
+
+    public function CSVerif(CoachingSessionParticipant $participant)
+    {
+        $update = CSTransaction::where('id_first_member', $participant->id)->update(['status_verif' => 'DONE']);
+        $email = $participant->email;
+        if ($update) {
+            Mail::to($email)->send(new CSVerif($participant));
+            $periode = session('periode') ?? '';
+            $page = session('page');
+            $url = "/dashboard/coaching-session?periode=$periode&page=$page";
+            return redirect()->to($url)->with('success', [$participant->cs_transaksi->account_name, 'success']);
+        }
+    }
+
+    public function CSRejected(CoachingSessionParticipant $participant)
+    {
+        $update = CSTransaction::where('id_first_member', $participant->id)->update(['status_verif' => 'REJECTED']);
+        $email = $participant->email;
+        if ($update) {
+            Mail::to($email)->send(new CSRejected($participant));
+            $periode = session('periode') ?? '';
+            $page = session('page');
+            $url = "/dashboard/coaching-session?periode=$periode&page=$page";
+            return redirect()->to($url)->with('rejected', [$participant->cs_transaksi->account_name, 'rejected']);
+        }
+    }
+
+    public function CCVerif(CoachingClinicParticipant $participant)
+    {
+        $update = CCTransaction::where('id_first_member', $participant->id)->update(['status_verif' => 'DONE']);
+        $email = $participant->email;
+        if ($update) {
+            Mail::to($email)->send(new CCVerif($participant));
+            $periode = session('periode') ?? '';
+            $page = session('page');
+            $url = "/dashboard/coaching-clinic?periode=$periode&page=$page";
+            return redirect()->to($url)->with('success', [$participant->cc_transaksi->account_name, 'success']);
+        }
+    }
+
+    public function CCRejected(CoachingClinicParticipant $participant)
+    {
+        $update = CCTransaction::where('id_first_member', $participant->id)->update(['status_verif' => 'REJECTED']);
+        $email = $participant->email;
+        if ($update) {
+            Mail::to($email)->send(new CCRejected($participant));
+            $periode = session('periode') ?? '';
+            $page = session('page');
+            $url = "/dashboard/coaching-clinic?periode=$periode&page=$page";
+            return redirect()->to($url)->with('rejected', [$participant->cc_transaksi->account_name, 'rejected']);
         }
     }
 }

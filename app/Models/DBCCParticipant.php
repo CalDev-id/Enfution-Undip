@@ -13,6 +13,6 @@ class DBCCParticipant extends Model
 
     public function dbcc_team()
     {
-        $this->belongsTo(DBCCTeam::class, 'id_team');
+        return $this->belongsTo(DBCCTeam::class, 'id_team');
     }
 }
