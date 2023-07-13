@@ -34,7 +34,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
     };
 
     const getBuktiBayar = () => {
-        fetch(`/getPaymentSlip?id=${id}`, {
+        fetch(`/getPaymentSlipSemnas?id=${id}`, {
             method: "GET",
         })
             .then((response) => response.json())
@@ -394,9 +394,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                             <th className="md:text-lg sm:text-md">
                                 Akun Peserta
                             </th>
-                            <th className="md:text-lg sm:text-md">
-                                Via
-                            </th>
+                            <th className="md:text-lg sm:text-md">Via</th>
                             <th className="md:text-lg sm:text-md">
                                 No. Rekening
                             </th>
@@ -440,7 +438,7 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                 </div>
             </div>
 
-            <div className="mt-5 flex justify-between">
+            <div className="mt-5 flex justify-between items-center">
                 <span>
                     Show of {trx.data.length} entries, {trx.current_page} of{" "}
                     {trx.last_page} Pages
