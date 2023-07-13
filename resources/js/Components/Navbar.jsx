@@ -49,7 +49,7 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                                 <li tabIndex={0}>
                                     <Link
-                                        href={route("dbcc")}
+                                        href={route("dbcc.main")}
                                         className={
                                             active === "dbcc"
                                                 ? "text-[#EB9928] justify-between active:bg-[#FFCE2E]"
@@ -102,7 +102,7 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                                 <li tabIndex={0}>
                                     <Link
-                                        href={route("dbcc")}
+                                        href={route("dbcc.main")}
                                         className={
                                             active === "dbcc"
                                                 ? "text-[#EB9928] active:bg-[#FFCE2E]"
@@ -156,7 +156,7 @@ const Navbar = ({ method = "get", active }) => {
                                     </p>
                                 </Link>
                                 <div className="my-1 flex mx-auto w-10 border-b border-black"></div>
-                                <Link href={"/registration-dbcc"}>
+                                <Link href={route("dbcc.form-summit")}>
                                     <p className="text-center text-xs px-2">
                                         {" "}
                                         DIPONEGORO BUSINESS
