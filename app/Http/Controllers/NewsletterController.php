@@ -17,14 +17,14 @@ class NewsletterController extends Controller
         $data["title"] = "Dashboard";
         $data["sectionTitle"] = "Subscribers";
         $data["selectedTable"] = 3;
-        $data["active"] = 4;
+        $data["active"] = 6;
         $req = ['search'];
 
         $subscribers = Subscriber::filter(request($req))->paginate(5)->withQueryString();
 
         $data['subscribers'] = $subscribers;
         $data['search'] = request('search');
-        
+
         return Inertia::render("Dashboard", $data);
     }
 
@@ -74,6 +74,6 @@ class NewsletterController extends Controller
         }
 
         return redirect()->back()->with('success2', 'Newsletter berhasil dikirim!')
-        ->withInput(['subject' => '', 'description' => '']);
+            ->withInput(['subject' => '', 'description' => '']);
     }
 }
