@@ -1,8 +1,6 @@
 import { Link } from "@inertiajs/react";
 
 const Paginator = ({ pages }) => {
-    // console.log("isi dari contacts", pages.links);
-
     return (
         <div className="btn-group">
             {pages.links[0].url && (
