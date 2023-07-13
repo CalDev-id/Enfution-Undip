@@ -187,7 +187,7 @@ class SemnasParticipantController extends Controller
         }
 
         if ($validateData['ktm'] != null) {
-            $path = '/home/n1567050/public_html/uploads/semnas_ktm';
+            $path = 'uploads/semnas_ktm';
             $extension = $validateData['ktm']->getClientOriginalExtension();
             $filename = uniqid() . '.' . $extension;
             $validateData['ktm']->move($path, $filename);
