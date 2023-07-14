@@ -177,7 +177,13 @@ class DBCCParticipantController extends Controller
             'event' => DBCCParticipantController::$event,
         ];
 
-        DBCCParticipant::create($filterData);
+        $teamLeader = DBCCParticipant::create($filterData);
+
+        $filterDataTeamLeader = [
+            'id_leader' => $teamLeader->id,
+        ];
+
+        DBCCTeam::where('id', $team->id)->update($filterDataTeamLeader);
 
         // Person 2
         $rules2 = [
