@@ -22,8 +22,6 @@ const DBCCPage = (props) => {
                 timeRegist={props.timeRegist}
             />
 
-            <Events hrefDbcc={"/form-dbcc"}/>
-
             <Galery />
 
             <TestiPage />
