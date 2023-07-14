@@ -34,7 +34,7 @@ class NewsletterController extends Controller
         $data["sectionTitle"] = "Send Newsletter";
         $data["selectedTable"] = 4;
         $data["active"] = 4;
-        
+
         return Inertia::render("Dashboard", $data);
     }
 
