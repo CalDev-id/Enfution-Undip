@@ -67,5 +67,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'payment-semnas' => \App\Http\Middleware\PaymentSemnas::class,
         'url-semnas' => \App\Http\Middleware\URLSemnas::class,
+        'payment-dbcc' => \App\Http\Middleware\PaymentDBCC::class,
+        'url-dbcc' => \App\Http\Middleware\URLDBCC::class,
     ];
 }

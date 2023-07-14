@@ -26,7 +26,7 @@ class SemnasTransactionController extends Controller
             "PS2" => 280000
         ],
         "talk-1" => [
-            "NORMAL" => 200000,
+            "NORMAL" => 15000,
         ],
         "talk-2" => [
             "NORMAL" => 180000,
@@ -155,7 +155,7 @@ class SemnasTransactionController extends Controller
 
 
         if ($validateData['payment_slip'] != null) {
-            $path = '/home/n1567050/public_html/uploads/semnas_payment_slip';
+            $path = 'uploads/semnas_payment_slip';
             $extension = $validateData['payment_slip']->getClientOriginalExtension();
             $filename = uniqid() . '.' . $extension;
             $validateData['payment_slip']->move($path, $filename);

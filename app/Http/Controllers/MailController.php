@@ -48,7 +48,6 @@ class MailController extends Controller
         }
     }
 
-
     public function DBCCVerif(DBCCTeam $team)
     {
         $update = DBCCTransaction::where('id_team', $team->id)->update(['status_verif' => 'DONE']);

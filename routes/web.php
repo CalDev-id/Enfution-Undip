@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\CCAdminController;
 use App\Http\Controllers\CSAdminController;
+use App\Http\Controllers\CSParticipantController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DBCCAdminController;
+use App\Http\Controllers\DBCCParticipantController;
+use App\Http\Controllers\DBCCTransactionController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
@@ -46,6 +49,42 @@ Route::controller(SemnasTransactionController::class)->middleware('payment-semna
 
 // Akhir Semnas
 
+// Awal DBCC | CS | CC
+
+Route::get('/DBCC', [DBCCParticipantController::class, 'index'])->name('dbcc.main');
+
+Route::controller(DBCCParticipantController::class)->middleware('url-dbcc')->group(function () {
+    // Load Form
+    Route::get('/registration-dbcc', 'create')->name('dbcc.form-summit');
+    // Route::get('/registration-coaching-session', 'create')->name('dbcc.form-cs');
+    // Route::get('/registration-coaching-clinic', 'create')->name('dbcc.form-cc');
+    // Process Form
+    Route::post('/registration-dbcc', 'store');
+    // Route::post('/registration-coaching-session', 'store');
+    // Route::post('/registration-coaching-clinic', 'store');
+});
+
+Route::controller(CSParticipantController::class)->middleware('url-cs')->group(function () {
+    // Load Form
+    Route::get('/registration-coaching-session', 'create')->name('dbcc.form-cs');
+    // Process Form
+    Route::get('/registration-coaching-session', 'store');
+});
+
+Route::controller(CCParticipantController::class)->middleware('url-cc')->group(function () {
+    // Load Form
+    Route::get('/registration-coaching-clinic', 'create')->name('dbcc.form-cc');
+    // Process Form
+    Route::get('/registration-coaching-clinic', 'store');
+});
+
+Route::controller(DBCCTransactionController::class)->middleware('payment-dbcc')->group(function () {
+    Route::get('/payment-confirmation-dbcc', 'transaction')->name('dbcc.payment-confirmation');
+    Route::post('/payment-confirmation-dbcc', 'save');
+});
+
+// Akhir DBCC | CS | CC
+
 // Awal Subscribe
 
 Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('subscribe');
@@ -54,14 +93,15 @@ Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('sub
 
 // Awal DBCC
 
-Route::get('/DBCC', function () {
-    return Inertia::render('DBCCPage');
-})->name('dbcc');
+// Route::get('/DBCC', function () {
+//     return Inertia::render('DBCCPage');
+// })->name('dbcc');
 
-Route::get('/registration-dbcc', function () {
-    return Inertia::render('DBCC/FormDBCC');
-    // return redirect()->route('dbcc');
-})->name('form-dbcc');
+
+// Route::get('/registration-dbcc', function () {
+//     return Inertia::render('DBCC/FormDBCC');
+//     // return redirect()->route('dbcc');
+// })->name('form-dbcc');
 
 Route::get('/registration-coaching-session', function () {
     return Inertia::render('DBCC/FormSession');
@@ -73,10 +113,10 @@ Route::get('/registration-coaching-clinic', function () {
     // return redirect()->route('dbcc');
 })->name('form-clinic');
 
-Route::get('/payment-confirmation-dbcc', function () {
-    return Inertia::render('DBCC/PaymentConfirmation');
-    // return redirect()->route('dbcc');
-})->name('payment-confirmation');
+// Route::get('/payment-confirmation-dbcc', function () {
+//     return Inertia::render('DBCC/PaymentConfirmation');
+//     // return redirect()->route('dbcc');
+// })->name('payment-confirmation');
 
 // Akhir DBCC
 

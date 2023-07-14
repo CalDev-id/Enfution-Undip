@@ -10,7 +10,6 @@ use App\Models\CoachingClinicParticipant;
 class CCAdminController extends Controller
 {
     //
-    //
     public function index()
     {
         $data["title"] = "Coaching Clinic";

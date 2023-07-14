@@ -34,8 +34,8 @@ const SubscriberAdmin = ({ trx, filter, search, info }) => {
 
     return (
         <>
-            <div className="flex justify-between items-center">
-                <div className="my-5">
+            <div className="flex justify-between items-center mb-3">
+                <div className="">
                     <a href="/newsLetter">
                     <div className="m-1 btn">
                         Send Newsletter
