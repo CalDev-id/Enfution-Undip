@@ -39,29 +39,33 @@
     {{-- Link Meeting --}}
     <div>
       <p>By this email, we also would like to give you information that the link for the microsoft teams event can be accessed through:</p>
+      <p>Link Group : <br><a href="https://bit.ly/GroupTeamsCS" target="_blank">https://bit.ly/GroupTeamsCS</a></p>
+      <p>Link Meeting : <br><a href="https://bit.ly/JoinMeetingCS" target="_blank">https://bit.ly/JoinMeetingCS</a></p>
       <table cellpadding="0" cellspacing="0" style="margin-top: 10px; margin-bottom: 20px;">
           <tr style="text-align: left;">
-            <td>Link Group</td>
+            <td>Meeting ID</td>
             <td style="display: inline-block; margin: 0 10px;">:</td>
-            <td><a href="google.com" target="_blank">Link Group</a></td>
+            <td>415 663 819 108</td>
           </tr>
           <tr style="text-align: left;">
-            <td>Link Meeting</td>
+            <td>Passcode</td>
             <td style="display: inline-block; margin: 0 10px;">:</td>
-            <td><a href="google.com" target="_blank">Link Meeting</a></td>
+            <td>Nq8A9F</td>
           </tr>
-        </table>
+      </table>
     </div>
 
     {{-- Special for DBCC participant --}}
     <div>
-      <p><span style="font-style: italic; font-weight: 700;">This is exclusive access for the registered participants only, please make sure you keep the link to yourself.</span> <br><br>You can download the booklet and virtual background on: <br> <a href="https://bit.ly/BookletDBCC23" target="_blank">https://bit.ly/BookletDBCC23</a></p>
+        <p><span style="font-style: italic; font-weight: 700;">This is exclusive access for the registered participants only, please make sure you keep the link to yourself.</span> <br><br>You can download the booklet and virtual background on: <br> <a href="https://bit.ly/BookletDBCC23" target="_blank">https://bit.ly/BookletDBCC23</a> <br> <a href="https://bit.ly/VBGCoachingSession23" target="_blank">https://bit.ly/VBGCoachingSession23</a></p>
     </div>
 
     {{-- Salam --}}
+    <br>
     <div>
       <p>Thank you for your registration! <br> See you!</p>
     </div>
+    <br>
 
     {{-- Info --}}
     <div>
