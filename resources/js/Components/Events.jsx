@@ -97,7 +97,8 @@ const Events = ({ ticketPrice, timeRegist }) => {
                                         >
                                             <p>Early Bird</p>
                                             <p>
-                                                Rp
+                                                {" "}
+                                                Rp.{" "}
                                                 {`${
                                                     timeRegist == "EB"
                                                         ? numeral(
