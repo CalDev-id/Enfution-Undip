@@ -93,16 +93,6 @@ Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('sub
 
 // Awal DBCC
 
-// Route::get('/DBCC', function () {
-//     return Inertia::render('DBCCPage');
-// })->name('dbcc');
-
-
-// Route::get('/registration-dbcc', function () {
-//     return Inertia::render('DBCC/FormDBCC');
-//     // return redirect()->route('dbcc');
-// })->name('form-dbcc');
-
 Route::get('/registration-coaching-session', function () {
     return Inertia::render('DBCC/FormSession');
     // return redirect()->route('dbcc');
@@ -113,10 +103,6 @@ Route::get('/registration-coaching-clinic', function () {
     // return redirect()->route('dbcc');
 })->name('form-clinic');
 
-// Route::get('/payment-confirmation-dbcc', function () {
-//     return Inertia::render('DBCC/PaymentConfirmation');
-//     // return redirect()->route('dbcc');
-// })->name('payment-confirmation');
 
 // Akhir DBCC
 

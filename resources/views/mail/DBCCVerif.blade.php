@@ -17,19 +17,21 @@
     {{-- Document Link --}}
     <div style="margin-bottom: 20px">
       {{-- Twibbon Link --}}
-      <p>The twibbon can be accessed through the link below: <br> <a href="google.com" target="_blank">Link Twibbon</a> <br> Or you can edit directly through: <br> <a href="google.com" target="_blank">link twibonnize</a></p>
+      <p>The twibbon can be accessed through the link below: <br> <a href="https://bit.ly/TwibbonDBCC23" target="_blank" style="display: block; margin-bottom: 12px">https://bit.ly/TwibbonDBCC23</a> Or you can edit directly through: <br> <a href="https://twb.nz/twibbondbcc2023" target="_blank">https://twb.nz/twibbondbcc2023</a></p>
 
       {{-- Proof Link --}}
-      <p>Furthermore, you can click the link below to submit the proof of uploaded twibbon: <br> <a href="google.com" target="_blank">Link Upload Proof</a> <br> The twibbon will be used as a ticket to get invited to the Google Classroom (the case will be distributed through this platform).</p>
+      <p style="margin-top: 24px">Furthermore, you can click the link below to submit the proof of uploaded twibbon: <br> <a href="https://bit.ly/SubmitTwibbonDBCC23" target="_blank">https://bit.ly/SubmitTwibbonDBCC23</a> <br> The twibbon will be used as a ticket to get invited to the Google Classroom (the case will be distributed through this platform).</p>
 
       {{-- Booklet Link --}}
-      <p>Participants are expected to understand all of the information regarding DBCC 2023. Therefore, we would like to remind all participants to carefully review the General Booklet through the link below: <br> <a href="https://bit.ly/BookletDBCC23" target="_blank">https://bit.ly/BookletDBCC23</a></p>
+      <p style="margin-top: 24px">Participants are expected to understand all of the information regarding DBCC 2023. Therefore, we would like to remind all participants to carefully review the General Booklet through the link below: <br> <a href="https://bit.ly/BookletDBCC23" target="_blank">https://bit.ly/BookletDBCC23</a></p>
     </div>
 
     {{-- Salam --}}
+    <br>
     <div>
       <p>Thank you for your registration! <br> Good luck!</p>
     </div>
+    <br>
 
     {{-- Info --}}
     <div>

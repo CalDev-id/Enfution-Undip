@@ -241,7 +241,7 @@ class ReportController extends Controller
             case 'EB':
                 ReportController::$event = "Early Bird";
                 break;
-            case 'NR':
+            case 'NORMAL':
                 ReportController::$event = "Normal Registration";
                 break;
         }
@@ -454,7 +454,7 @@ class ReportController extends Controller
             case 'EB':
                 ReportController::$event = "Early Bird";
                 break;
-            case 'NR':
+            case 'NORMAL':
                 ReportController::$event = "Normal Registration";
                 break;
         }
@@ -667,7 +667,7 @@ class ReportController extends Controller
             case 'EB':
                 ReportController::$event = "Early Bird";
                 break;
-            case 'NR':
+            case 'NORMAL':
                 ReportController::$event = "Normal Registration";
                 break;
         }
