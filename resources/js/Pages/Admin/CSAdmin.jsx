@@ -11,7 +11,7 @@ const CSAdmin = ({ trx, filter, search, info, status }) => {
     const [keyword, setKeyword] = useState("");
 
     const periode = ["Early Bird", "Normal"];
-    const urlPeriode = ["EB", "NR"];
+    const urlPeriode = ["EB", "NORMAL"];
     const urlFilter = "/dashboard/coaching-session?periode=";
     const status_verif = ["DONE", "REJECTED", "PENDING"];
     let urlStatus = "&status=";
