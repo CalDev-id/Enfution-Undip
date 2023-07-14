@@ -1,11 +1,33 @@
+import { useEffect, useState } from "react";
+
 const DetailCS = ({ team, data_peserta, page, periode, status }) => {
+    const [file, setFile] = useState("");
+    const [folder, setFolder] = useState("");
+    const [id, setID] = useState("");
+    const [kode, setKode] = useState("");
+    const [ext, setExt] = useState("");
     let no = 0;
-    // console.log(data_peserta);
-    let ext = data_peserta[0].member_photo.split(".");
-    ext = ext[ext.length - 1];
     const prev_url = `/dashboard/coaching-session?periode=${periode}${
         page != null ? `&page=${page}` : ""
     }${status != null ? `&status=${status}` : ""}`;
+
+    const getPaymentDBCCOrMemberPhoto = () => {
+        fetch(`/getDetailFileCS?id=${id}&kode=${kode}`, {
+            method: "GET",
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                let ext = data.file.split(".");
+                setExt(ext[ext.length - 1]);
+                setFile(`${folder}${data.file}`);
+            });
+    };
+
+    useEffect(() => {
+        if (id != "" && kode != "") {
+            getPaymentDBCCOrMemberPhoto();
+        }
+    }, [id, kode]);
 
     return (
         <>
@@ -16,6 +38,22 @@ const DetailCS = ({ team, data_peserta, page, periode, status }) => {
                 <label
                     className="btn btn-success md:text-xl"
                     htmlFor={"my-modal-1"}
+                    onClick={() => {
+                        setID(data_peserta[0].id);
+                        setKode("p");
+                        setFolder("/uploads/cs_payment_dbcc_proof/");
+                    }}
+                >
+                    DBCC Payment Slip
+                </label>
+                <label
+                    className="btn btn-warning md:text-xl"
+                    htmlFor={"my-modal-1"}
+                    onClick={() => {
+                        setID(data_peserta[0].id);
+                        setKode("m");
+                        setFolder("/uploads/cs_members/");
+                    }}
                 >
                     See Member's Photos
                 </label>
@@ -132,15 +170,11 @@ const DetailCS = ({ team, data_peserta, page, periode, status }) => {
                                 className="pdfobject w-full sm:h-[60vh] h-[30vh]"
                                 type="application/pdf"
                                 title="Embedded PDF"
-                                src={`/uploads/cs_members/${data_peserta[0].member_photo}`}
+                                src={file}
                             ></embed>
                         </div>
                     ) : (
-                        <img
-                            src={`/uploads/cs_members/${data_peserta[0].member_photo}`}
-                            alt=""
-                            className="w-full"
-                        />
+                        <img src={file} alt="" className="w-full" />  
                     )}
 
                     <div className="modal-action">
@@ -151,19 +185,21 @@ const DetailCS = ({ team, data_peserta, page, periode, status }) => {
                             Tutup
                         </label>
                         <a
-                            href={
-                                team == ""
-                                    ? `/uploads/cs_members/${data_peserta[0].member_photo}`
-                                    : `/uploads/dbcc_members/${data_peserta[0].member_photo}`
-                            }
+                            href={file}
                             className="btn btn-primary"
-                            download={`member-cs - ${
+                            download={`${
+                                kode == "m"
+                                    ? "member-cs"
+                                    : "dbcc-payment-proof-cs"
+                            } - ${
                                 team != ""
                                     ? team.team_name
                                     : data_peserta[0].full_name
                             }`}
                         >
-                            Unduh Identitas Peserta
+                            {kode == "m"
+                                ? "Unduh Identitas Peserta"
+                                : "Unduh Bukti Pembayaran DBCC"}
                         </a>
                     </div>
                 </div>
