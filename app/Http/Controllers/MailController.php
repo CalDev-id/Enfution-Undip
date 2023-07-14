@@ -10,6 +10,7 @@ use App\Mail\CSRejected;
 use App\Models\DBCCTeam;
 use App\Mail\SemnasVerif;
 use App\Mail\DBCCRejected;
+use Illuminate\Support\Str;
 use App\Mail\SemnasRejected;
 use Illuminate\Http\Request;
 use App\Models\CCTransaction;
@@ -21,6 +22,7 @@ use App\Models\SemnasTransaction;
 use Illuminate\Support\Facades\Mail;
 use App\Models\CoachingClinicParticipant;
 use App\Models\CoachingSessionParticipant;
+use Illuminate\Support\Testing\Fakes\Fake;
 
 class MailController extends Controller
 {
@@ -50,7 +52,12 @@ class MailController extends Controller
 
     public function DBCCVerif(DBCCTeam $team)
     {
-        $update = DBCCTransaction::where('id_team', $team->id)->update(['status_verif' => 'DONE']);
+        $str_random = Str::random(8);
+        $updated_data = [
+            "status_verif" => "DONE",
+            "dbcc_registration_code" => $team->team_name . "-" . $str_random
+        ];
+        $update = DBCCTransaction::where('id_team', $team->id)->update($updated_data);
         $email = DBCCParticipant::where('id_team', $team->id)->first()->email;
         if ($update) {
             Mail::to($email)->send(new DBCCVerif($team));
