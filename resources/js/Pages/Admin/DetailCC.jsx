@@ -13,7 +13,7 @@ const DetailCC = ({ data_peserta, page, periode, status }) => {
     }${status != null ? `&status=${status}` : ""}`;
 
     const getPaperOrMemberPhoto = () => {
-        fetch(`/getDetailFile?id=${id}&kode=${kode}`, {
+        fetch(`/getDetailFileCC?id=${id}&kode=${kode}`, {
             method: "GET",
         })
             .then((response) => response.json())
