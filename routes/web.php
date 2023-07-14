@@ -128,6 +128,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Coaching Session
     Route::get('/dashboard/coaching-session', [CSAdminController::class, 'index'])->name('dashboard-CS');
     Route::get('/getPaymentSlipCS', [CSAdminController::class, 'payment']);
+    Route::get('/getDetailFileCS', [CSAdminController::class, 'file']);
     Route::get('/detail-cs-participant/{participant}', [CSAdminController::class, 'detail']);
     Route::get('/CSVerif/{participant}', [MailController::class, 'CSVerif']);
     Route::get('/CSRejected/{participant}', [MailController::class, 'CSRejected']);
@@ -136,7 +137,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Coaching Clinic
     Route::get('/dashboard/coaching-clinic', [CCAdminController::class, 'index'])->name('dashboard-CC');
     Route::get('/getPaymentSlipCC', [CCAdminController::class, 'payment']);
-    Route::get('/getDetailFile', [CCAdminController::class, 'file']);
+    Route::get('/getDetailFileCC', [CCAdminController::class, 'file']);
     Route::get('/detail-cc-participant/{participant}', [CCAdminController::class, 'detail']);
     Route::get('/CCVerif/{participant}', [MailController::class, 'CCVerif']);
     Route::get('/CCRejected/{participant}', [MailController::class, 'CCRejected']);

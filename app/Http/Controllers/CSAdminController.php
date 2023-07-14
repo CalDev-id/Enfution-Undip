@@ -42,6 +42,12 @@ class CSAdminController extends Controller
         return ["bukti" => $buktiBayar];
     }
 
+    public function file()
+    {
+        $file = request('kode') == "p" ? CoachingSessionParticipant::where('id', request('id'))->first()->dbcc_payment_slip : CoachingSessionParticipant::where('id', request('id'))->first()->member_photo;
+        return ["file" => $file];
+    }
+
     public function detail(CoachingSessionParticipant $participant)
     {
         $data['team'] = $participant->id_team ? $participant->dbcc_team : "";
