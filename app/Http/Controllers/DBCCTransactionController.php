@@ -28,12 +28,12 @@ class DBCCTransactionController extends Controller
     static public $timeRegist = [
         "summit" => [
             "EB" => [
-                "open" => '2023-07-13 00:00:01',
-                "closed" => '2023-07-13 23:59:59',
+                "open" => '2023-07-16 00:00:01',
+                "closed" => '2023-07-21 23:59:59',
             ],
             "NORMAL" => [
-                "open" => '2023-07-14 00:00:01',
-                "closed" => '2023-10-14 23:59:59',
+                "open" => '2023-07-24 00:00:01',
+                "closed" => '2023-08-15 23:59:59',
             ],
         ],
     ];
