@@ -71,7 +71,9 @@ const PaymentConfirmationCS = (props) => {
                 </p>
 
                 <p className="bg-[#1E2E40] text-white text-center py-3 text-xl font-semibold mb-5 mx-10">
-                    IDR {numeral(props.total).format("0,0.00")}
+                    {props.total != 0
+                        ? `IDR ${numeral(props.total).format("0,0.00")}`
+                        : "FREE"}
                 </p>
 
                 <div className="flex justify-center md:px-10 lg:px-20">
@@ -186,24 +188,26 @@ const PaymentConfirmationCS = (props) => {
                             </p>
                             <input
                                 type="text"
-                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md" readOnly
+                                className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
+                                readOnly
                                 value={name}
                             />
                         </div>
                         <div className="mb-5 md:mx-10">
                             <p className="font-semibold text-center text-lg">
-                                Payment Method <span className="text-[#EB9928]">*</span>{" "}
+                                Payment Method{" "}
+                                <span className="text-[#EB9928]">*</span>{" "}
                             </p>
                             <input
                                 type="text"
                                 className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md"
                                 onChange={(bank) => setBank(bank.target.value)}
-                                />
-                                {errors != null && errors.payment_method && (
-                                    <span className="text-red-600">
-                                        {errors.payment_method}
-                                    </span>
-                                )}
+                            />
+                            {errors != null && errors.payment_method && (
+                                <span className="text-red-600">
+                                    {errors.payment_method}
+                                </span>
+                            )}
                         </div>
                         <div className="mb-5 md:mx-10">
                             <p className="font-semibold text-center text-lg">
@@ -246,10 +250,13 @@ const PaymentConfirmationCS = (props) => {
 
                     <div className="text-center pt-10">
                         <p className="font-semibold text-lg">
-                            Payment Proof<span className="text-[#EB9928]">*</span>
+                            Payment Proof
+                            <span className="text-[#EB9928]">*</span>
                         </p>
-                        <p className="text-[#EB9928] font-semibold mb-3">
-                            Payment Slip
+                        <p className="text-[#EB9928] font-bold mb-3">
+                            {props.total != 0
+                                ? "Payment Slip"
+                                : "Please upload your DBCC payment slip"}
                         </p>
                         <input
                             type="file"
@@ -306,7 +313,9 @@ const PaymentConfirmationCS = (props) => {
                             Your registration has completed. For further notice,
                             will be announced through your email.
                         </p>
-                        <p className=" text-sm text-center leading-relaxed text-body-color max-w-sm flex mx-auto justify-center">*we will give the link through email</p>
+                        <p className=" text-sm text-center leading-relaxed text-body-color max-w-sm flex mx-auto justify-center">
+                            *we will give the link through email
+                        </p>
 
                         <p className="mb-5 text-sm text-center leading-relaxed text-body-color max-w-sm flex mx-auto">
                             *if within 2x24 hours you don’t receive any email
@@ -314,14 +323,14 @@ const PaymentConfirmationCS = (props) => {
                         </p>
 
                         <Link href={route("dbcc.main")}>
-                        <button
-                            className="underline italic"
-                            onClick={() => {
-                                setModalOpen(false);
-                            }}
-                        >
-                            Return to homepage
-                        </button>
+                            <button
+                                className="underline italic"
+                                onClick={() => {
+                                    setModalOpen(false);
+                                }}
+                            >
+                                Return to homepage
+                            </button>
                         </Link>
                         <img
                             src="images/logoEnfu.svg"

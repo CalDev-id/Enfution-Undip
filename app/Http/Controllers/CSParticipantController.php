@@ -291,20 +291,20 @@ class CSParticipantController extends Controller
                 'dbcc_registration_code' => 'required|string|max:20',
                 'dbcc_payment_slip' => 'required|file|max:2048|mimes:jpg,png'
             ];
-    
+
             $validateDataDBCCParticipant = $request->validate($rulesdbccparticipant);
-    
+
             if (!$validateDataDBCCParticipant) {
                 return false;
             }
 
             $team = DBCCTeam::where('team_name', $validateDataDBCCParticipant['team_name'])->first();
-    
+
             $filterDataDBCCParticipant = [
                 'id_team' => $team->id,
                 'dbcc_registration_code' => esc(request('dbcc_registration_code')),
             ];
-    
+
             if ($validateDataDBCCParticipant['dbcc_payment_slip'] != null) {
                 $path = 'uploads/cs_payment_dbcc_proof';
                 $extension = $validateDataDBCCParticipant['dbcc_payment_slip']->getClientOriginalExtension();
@@ -314,7 +314,7 @@ class CSParticipantController extends Controller
             }
         }
 
-        
+
         $Person1 = CoachingSessionParticipant::create($filterData);
 
         if ($filterData['dbcc_participant'] != 'Y') {
