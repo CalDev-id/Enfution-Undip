@@ -3,7 +3,7 @@ import { Link } from "@inertiajs/react";
 import TimeLine from "./TimeLine";
 import numeral from "numeral";
 
-const Events = ({ ticketPrice, timeRegist }) => {
+const Events = ({ ticketPrice, timeRegist, ticketPriceCS, timeRegistCS }) => {
     const [selectedIndex, setSelectedIndex] = useState(1);
 
     const dbccAtas =
@@ -97,7 +97,8 @@ const Events = ({ ticketPrice, timeRegist }) => {
                                         >
                                             <p>Early Bird</p>
                                             <p>
-                                                Rp
+                                                {" "}
+                                                Rp.{" "}
                                                 {`${
                                                     timeRegist == "EB"
                                                         ? numeral(
@@ -165,16 +166,50 @@ const Events = ({ ticketPrice, timeRegist }) => {
                                     Register Below
                                 </h1>
                                 <div className="flex justify-center mb-20 flex-wrap">
-                                    <Link href="/registration-coaching-session">
-                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E]  text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                    <Link href={route(
+                                            "dbcc.form-cs"
+                                        )}>
+                                        <div className={`hover:shadow-xl ${
+                                                timeRegistCS == "EB"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Early Bird</p>
-                                            <p>Rp. xxx</p>
+                                            <p>
+                                                {" "}
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegistCS == "EB"
+                                                        ? numeral(
+                                                              ticketPriceCS
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
-                                    <Link href="/registration-coaching-session">
-                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                    <Link href={route(
+                                            "dbcc.form-cs"
+                                        )}>
+                                        <div className={`hover:shadow-xl ${
+                                                timeRegistCS == "NORMAL"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Normal Registration</p>
-                                            <p>Rp. xxx</p>
+                                            <p>
+                                                {" "}
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegistCS == "NORMAL"
+                                                        ? numeral(
+                                                              ticketPriceCS
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
                                 </div>

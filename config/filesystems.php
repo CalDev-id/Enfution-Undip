@@ -54,6 +54,11 @@ return [
             'root'   => public_path() . '/uploads/cs_members',
         ],
 
+        'cs_payment_dbcc_proof' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/cs_payment_dbcc_proof',
+        ],
+
         'cc_members' => [
             'driver' => 'local',
             'root'   => public_path() . '/uploads/cc_members',

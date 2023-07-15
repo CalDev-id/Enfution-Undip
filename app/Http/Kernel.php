@@ -69,5 +69,7 @@ class Kernel extends HttpKernel
         'url-semnas' => \App\Http\Middleware\URLSemnas::class,
         'payment-dbcc' => \App\Http\Middleware\PaymentDBCC::class,
         'url-dbcc' => \App\Http\Middleware\URLDBCC::class,
+        'payment-cs' => \App\Http\Middleware\PaymentCS::class,
+        'url-cs' => \App\Http\Middleware\URLCS::class,
     ];
 }

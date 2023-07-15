@@ -41,10 +41,25 @@ class DBCCParticipantController extends Controller
             $time_regist = "NORMAL";
         }
 
+        $time_registCS = "";
+
+        if ($currentDateTime->between(
+            Carbon::parse(CSTransactionController::$timeRegistCS["cs"]['EB']['open']),
+            Carbon::parse(CSTransactionController::$timeRegistCS["cs"]['EB']['closed'])
+        )) {
+            $time_registCS = "EB";
+        } elseif ($currentDateTime->between(
+            Carbon::parse(CSTransactionController::$timeRegistCS["cs"]['NORMAL']['open']),
+            Carbon::parse(CSTransactionController::$timeRegistCS["cs"]['NORMAL']['closed'])
+        )) {
+            $time_registCS = "NORMAL";
+        }
 
         $data = [
             "ticketPrice" => DBCCTransactionController::$ticketPrice["summit"][$time_regist] ?? 0,
             "timeRegist" => $time_regist,
+            "ticketPriceCS" => CSTransactionController::$ticketPriceCS["cs"][$time_registCS]["Person"] ?? 0,
+            "timeRegistCS" => $time_registCS,
         ];
         return Inertia::render('DBCCPage', $data);
     }
@@ -93,9 +108,9 @@ class DBCCParticipantController extends Controller
 
     public function store(Request $request)
     {
-        // Team
+        // Validate Team
         $rulesteam = [
-            'team_name' => 'required|string|max:255',
+            'team_name' => 'required|string|max:100|unique:dbcc_teams,team_name',
             'faculty_department_batch' => 'required|string|max:100',
             'university_institute' => 'required|string|max:150',
             'member_photo' => 'required|mimetypes:application/pdf|max:2048',
@@ -107,34 +122,7 @@ class DBCCParticipantController extends Controller
             return false;
         }
 
-        $filterDataTeam = [
-            'team_name' => esc(request('team_name')),
-            'faculty_department_batch' => esc(request('faculty_department_batch')),
-            'university_institute' => esc(request('university_institute')),
-            'event' => DBCCParticipantController::$event,
-        ];
-
-        if ($validateDataTeam['member_photo'] != null) {
-            $path = 'uploads/dbcc_members';
-            $extension = $validateDataTeam['member_photo']->getClientOriginalExtension();
-            $filename = uniqid() . '.' . $extension;
-            $validateDataTeam['member_photo']->move($path, $filename);
-            $filterDataTeam['member_photo'] = $filename;
-        }
-
-        if (request('coupon')) {
-            $couponExists = DBCCReferralCode::where('code', request('coupon'))->first();
-            $couponQty = (int) $couponExists->qty;
-            if ($couponExists && $couponQty > 0) {
-                $filterDataTeam['id_referral_code'] = $couponExists->id;
-                $couponQty--;
-                $couponExists->update(['qty' => $couponQty]);
-            }
-        }
-
-        $team = DBCCTeam::create($filterDataTeam);
-
-        // Person 1
+        // Validate Person 1
         $rules = [
             'full_name' => 'required|string|max:255',
             'gender' => 'required',
@@ -166,20 +154,7 @@ class DBCCParticipantController extends Controller
             }
         }
 
-        $filterData = [
-            'full_name' => esc(request('full_name')),
-            'gender' => esc(request('gender')),
-            'place_dob' => esc(request('place_dob')),
-            'phone_number' => esc(request('phone_number')),
-            'line_id' => esc(request('line_id')),
-            'email' => esc(request('email')),
-            'id_team' => $team->id,
-            'event' => DBCCParticipantController::$event,
-        ];
-
-        DBCCParticipant::create($filterData);
-
-        // Person 2
+        // Validate Person 2
         $rules2 = [
             'full_name2' => 'required|string|max:255',
             'gender2' => 'required',
@@ -211,20 +186,7 @@ class DBCCParticipantController extends Controller
             }
         }
 
-        $filterData2 = [
-            'full_name' => esc(request('full_name2')),
-            'gender' => esc(request('gender2')),
-            'place_dob' => esc(request('place_dob2')),
-            'phone_number' => esc(request('phone_number2')),
-            'line_id' => esc(request('line_id2')),
-            'email' => esc(request('email2')),
-            'id_team' => $team->id,
-            'event' => DBCCParticipantController::$event,
-        ];
-
-        DBCCParticipant::create($filterData2);
-
-        // Person 3
+        // Validate Person 3
         $rules3 = [
             'full_name3' => 'required|string|max:255',
             'gender3' => 'required',
@@ -256,6 +218,71 @@ class DBCCParticipantController extends Controller
             }
         }
 
+        // Team
+        $filterDataTeam = [
+            'team_name' => esc(request('team_name')),
+            'faculty_department_batch' => esc(request('faculty_department_batch')),
+            'university_institute' => esc(request('university_institute')),
+            'event' => DBCCParticipantController::$event,
+        ];
+
+        if ($validateDataTeam['member_photo'] != null) {
+            $path = 'uploads/dbcc_members';
+            $extension = $validateDataTeam['member_photo']->getClientOriginalExtension();
+            $filename = uniqid() . '.' . $extension;
+            $validateDataTeam['member_photo']->move($path, $filename);
+            $filterDataTeam['member_photo'] = $filename;
+        }
+
+        if (request('coupon')) {
+            $couponExists = DBCCReferralCode::where('code', request('coupon'))->first();
+            if ($couponExists) {
+                $couponQty = (int) $couponExists->qty;
+                if ($couponQty > 0) {
+                    $filterDataTeam['id_referral_code'] = $couponExists->id;
+                    $couponQty--;
+                    $couponExists->update(['qty' => $couponQty]);
+                }
+            }
+        }
+
+        $team = DBCCTeam::create($filterDataTeam);
+
+        // Person 1
+        $filterData = [
+            'full_name' => esc(request('full_name')),
+            'gender' => esc(request('gender')),
+            'place_dob' => esc(request('place_dob')),
+            'phone_number' => esc(request('phone_number')),
+            'line_id' => esc(request('line_id')),
+            'email' => esc(request('email')),
+            'id_team' => $team->id,
+            'event' => DBCCParticipantController::$event,
+        ];
+
+        $teamLeader = DBCCParticipant::create($filterData);
+
+        $filterDataTeamLeader = [
+            'id_leader' => $teamLeader->id,
+        ];
+
+        DBCCTeam::where('id', $team->id)->update($filterDataTeamLeader);
+
+        // Person 2
+        $filterData2 = [
+            'full_name' => esc(request('full_name2')),
+            'gender' => esc(request('gender2')),
+            'place_dob' => esc(request('place_dob2')),
+            'phone_number' => esc(request('phone_number2')),
+            'line_id' => esc(request('line_id2')),
+            'email' => esc(request('email2')),
+            'id_team' => $team->id,
+            'event' => DBCCParticipantController::$event,
+        ];
+
+        DBCCParticipant::create($filterData2);
+
+        // Person 3
         $filterData3 = [
             'full_name' => esc(request('full_name3')),
             'gender' => esc(request('gender3')),

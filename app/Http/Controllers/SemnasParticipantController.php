@@ -197,11 +197,13 @@ class SemnasParticipantController extends Controller
         // Get id coupun if any
         if (request('coupon')) {
             $couponExists = SemnasReferralCode::where('code', request('coupon'))->first();
-            $couponQty = (int) $couponExists->qty;
-            if ($couponExists && $couponQty > 0) {
-                $filterData['id_referral_code'] = $couponExists->id;
-                $couponQty--;
-                $couponExists->update(['qty' => $couponQty]);
+            if ($couponExists) {
+                $couponQty = (int) $couponExists->qty;
+                if ($couponQty > 0) {
+                    $filterData['id_referral_code'] = $couponExists->id;
+                    $couponQty--;
+                    $couponExists->update(['qty' => $couponQty]);
+                }
             }
         }
 

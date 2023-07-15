@@ -20,9 +20,9 @@ const DBCCPage = (props) => {
             <Events
                 ticketPrice={props.ticketPrice}
                 timeRegist={props.timeRegist}
+                ticketPriceCS={props.ticketPriceCS}
+                timeRegistCS={props.timeRegistCS}
             />
-
-            <Events hrefDbcc={"/form-dbcc"}/>
 
             <Galery />
 
