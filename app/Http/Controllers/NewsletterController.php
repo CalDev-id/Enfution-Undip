@@ -33,7 +33,7 @@ class NewsletterController extends Controller
         $data["title"] = "Newsletter";
         $data["sectionTitle"] = "Send Newsletter";
         $data["selectedTable"] = 4;
-        $data["active"] = 4;
+        $data["active"] = 6;
 
         return Inertia::render("Dashboard", $data);
     }

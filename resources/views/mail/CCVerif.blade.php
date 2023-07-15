@@ -112,14 +112,14 @@
 
     {{-- Best Regards --}}
     <div style="text-align: left; font-weight: 400; margin-top: 30px">
-      <span style="font-style: italic; font-size: 16px">Best Regards,</span>
+      <span style="font-style: italic; ">Best Regards,</span>
       <pre style="font-family: Arial, Helvetica, sans-serif; margin-top: 0; margin-bottom: 0; font-style: italic;">
-<span style="font-weight: 700; font-size: 16px;">Diponegoro Business Case Competition 2023<br>The 15th ENFUTION 2023</span>
-<span style="font-size: 16px;">Management Student Association</span>
-<span style="font-size: 16px;">Faculty of Economics and Business,</span>
-<span style="font-size: 16px;">Diponegoro University, Semarang, Indonesia</span>
+<span style="font-weight: 700;">Diponegoro Business Case Competition 2023<br>The 15th ENFUTION 2023</span>
+<span>Management Student Association</span>
+<span>Faculty of Economics and Business,</span>
+<span>Diponegoro University, Semarang, Indonesia</span>
 </pre>
-<span style="margin-top: 0; font-size: 16px;">dbcc2023@gmail.com | www.enfution15.com</span>
+<span style="margin-top: 0;">dbcc2023@gmail.com | www.enfution15.com</span>
     </div>
   </div>
 

@@ -17,7 +17,7 @@ class DBCCVerif extends Mailable
     /**
      * Create a new message instance.
      */
-    protected $team;
+    public $team;
     public function __construct(DBCCTeam $team)
     {
         $this->team = $team;

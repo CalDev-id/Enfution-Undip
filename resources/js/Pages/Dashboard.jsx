@@ -13,7 +13,6 @@ import CCAdmin from "./Admin/CCAdmin";
 import DetailCC from "./Admin/DetailCC";
 
 export default function Dashboard(props) {
-    console.log(props);
     const views = [
         <MainDashboard
             semnas={props.semnas}

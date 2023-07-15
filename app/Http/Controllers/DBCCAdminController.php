@@ -48,8 +48,8 @@ class DBCCAdminController extends Controller
     {
         $data["title"] = "Team Detail";
         $data['sectionTitle'] = "Team Detail - " . $team->team_name;
-
         $data['team'] = $team;
+        $data['team']['reg_code'] = DBCCTransaction::where('id_team', $team->id)->first()->dbcc_registration_code;
         $data['participants'] = DBCCParticipant::where('id_team', $team->id)->get();
 
         $data["selectedTable"] = 6;

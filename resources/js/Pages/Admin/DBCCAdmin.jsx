@@ -73,6 +73,16 @@ const DBCCAdmin = ({ trx, filter, search, info, status }) => {
                     </td>
                     <td>IDR {numeral(t.amount).format("0,0")}</td>
                     <td>
+                        {t.dbcc_registration_code &&
+                        t.status_verif == "DONE" ? (
+                            t.dbcc_registration_code
+                        ) : (
+                            <span className="badge badge-error font-bold">
+                                Not Verified
+                            </span>
+                        )}
+                    </td>
+                    <td>
                         <label
                             className="btn btn-secondary"
                             htmlFor={"my-modal-1"}
@@ -387,6 +397,9 @@ const DBCCAdmin = ({ trx, filter, search, info, status }) => {
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 Jumlah Bayar
+                            </th>
+                            <th className="md:text-lg sm:text-md">
+                                DBCC Reg. Code
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 Bukti Bayar

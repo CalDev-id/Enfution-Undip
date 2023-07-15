@@ -14,9 +14,9 @@ const FormSession = () => {
                         Registration Form
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
-                            <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
-                                Coaching Session
-                            </button>
+                        <button className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
+                            Coaching Session
+                        </button>
                     </div>
 
                     <p className="rounded-md border border-[#1E2E40] py-2 text-center italic sm:mx-10 mb-5 text-slate-500">

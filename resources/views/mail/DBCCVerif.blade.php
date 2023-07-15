@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <div style="text-align: justify">
+  <div style="text-align: justify; font-size: 14px">
     {{-- Kata sambutan --}}
     <div>
       <p><span style="font-style: italic; font-weight: 700;">Congratulations!</span> <br> Your team has successfully registered on DBCC 2023. <br> Your registration requirements are fulfilled and valid.</p>
@@ -24,6 +24,9 @@
 
       {{-- Booklet Link --}}
       <p style="margin-top: 24px">Participants are expected to understand all of the information regarding DBCC 2023. Therefore, we would like to remind all participants to carefully review the General Booklet through the link below: <br> <a href="https://bit.ly/BookletDBCC23" target="_blank">https://bit.ly/BookletDBCC23</a></p>
+
+      {{-- DBCC Regist Code --}}
+      <p style="margin-top: 24px"><span style="font-weight: 700;">All DBCC participants get free access to join Coaching Session.</span> You can register the Coaching Session with the registration code below: <br> <span>{{ $team->dbcc_transaksi->dbcc_registration_code }}</span></p>
     </div>
 
     {{-- Salam --}}
@@ -82,14 +85,14 @@
 
     {{-- Best Regards --}}
     <div style="text-align: left; font-weight: 400; margin-top: 30px">
-      <span style="font-style: italic; font-size: 16px">Best Regards,</span>
+      <span style="font-style: italic;">Best Regards,</span>
       <pre style="font-family: Arial, Helvetica, sans-serif; margin-top: 0; margin-bottom: 0; font-style: italic;">
-<span style="font-weight: 700; font-size: 16px;">Diponegoro Business Case Competition 2023<br>The 15th ENFUTION 2023</span>
-<span style="font-size: 16px">Management Student Association</span>
-<span style="font-size: 16px">Faculty of Economics and Business,</span>
-<span style="font-size: 16px">Diponegoro University, Semarang, Indonesia</span>
+<span style="font-weight: 700; ;">Diponegoro Business Case Competition 2023<br>The 15th ENFUTION 2023</span>
+<span>Management Student Association</span>
+<span>Faculty of Economics and Business,</span>
+<span>Diponegoro University, Semarang, Indonesia</span>
 </pre>
-<span style="margin-top: 0; font-size: 16px">dbcc2023@gmail.com | www.enfution15.com</span>
+<span style="margin-top: 0; ">dbcc2023@gmail.com | www.enfution15.com</span>
     </div>
   </div>
 

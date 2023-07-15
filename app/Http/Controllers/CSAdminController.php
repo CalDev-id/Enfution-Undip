@@ -51,7 +51,7 @@ class CSAdminController extends Controller
     public function detail(CoachingSessionParticipant $participant)
     {
         $data['team'] = $participant->id_team ? $participant->dbcc_team : "";
-        $data['participants'] = $participant->id_team ? $data['team']->peserta_cs : CoachingSessionParticipant::where("outside_dbcc", $participant->outside_dbcc)->get();
+        $data['participants'] = !$participant->id_team ? CoachingSessionParticipant::where("outside_dbcc", $participant->outside_dbcc)->get() : ($participant->type == "Bundle" ? $data['team']->peserta_cs : [$participant]);
 
         $data["title"] = "Participant Detail";
         $data['sectionTitle'] = "Participant Detail";
