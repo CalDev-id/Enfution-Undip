@@ -26,7 +26,7 @@
       <p style="margin-top: 24px">Participants are expected to understand all of the information regarding DBCC 2023. Therefore, we would like to remind all participants to carefully review the General Booklet through the link below: <br> <a href="https://bit.ly/BookletDBCC23" target="_blank">https://bit.ly/BookletDBCC23</a></p>
 
       {{-- DBCC Regist Code --}}
-      <p style="margin-top: 24px"><span style="font-weight: 700;">All DBCC participants get free access to join Coaching Session.</span> You can register the Coaching Session with the registration code below: <br> <span>{{ $team->dbcc_transaksi->dbcc_registration_code }}</span></p>
+      <p style="margin-top: 24px"><span style="font-weight: 700;">All DBCC participants get free access to join Coaching Session.</span> You can register the Coaching Session with the registration code below: <br> <span>{{ $team->dbcc_transaksi->dbcc_registration_code }}</span> <br><span style="font-weight: 700; color: red;">** and just upload DBCC payment slip for payment confirmation</span></p>
     </div>
 
     {{-- Salam --}}

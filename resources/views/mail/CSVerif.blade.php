@@ -57,11 +57,7 @@
 
     {{-- Special for DBCC participant --}}
     <div>
-<<<<<<< HEAD
-      <p><span style="font-style: italic; font-weight: 700;">This is exclusive access for the registered participants only, please make sure you keep the link to yourself.</span> <br><br>You can download the booklet and virtual background on: <br> <a href="https://bit.ly/BookletDBCC23" target="_blank">https://bit.ly/BookletDBCC23</a> <br> <a href="https://bit.ly/VBGCoachingSession23" target="_blank">https://bit.ly/VBGCoachingSession23</a></p>
-=======
         <p><span style="font-style: italic; font-weight: 700;">This is exclusive access for the registered participants only, please make sure you keep the link to yourself.</span> <br><br>You can download the booklet and virtual background on: <br> <a href="https://bit.ly/BookletDBCC23" target="_blank">https://bit.ly/BookletDBCC23</a> <br> <a href="https://bit.ly/VBGCoachingSession23" target="_blank">https://bit.ly/VBGCoachingSession23</a></p>
->>>>>>> 8c36a78e3066f2ca5f3fc3e3268f416dfbe90739
     </div>
 
     {{-- Salam --}}
