@@ -71,7 +71,9 @@ const PaymentConfirmationCS = (props) => {
                 </p>
 
                 <p className="bg-[#1E2E40] text-white text-center py-3 text-xl font-semibold mb-5 mx-10">
-                    IDR {numeral(props.total).format("0,0.00")}
+                    {props.total != 0
+                        ? `IDR ${numeral(props.total).format("0,0.00")}`
+                        : "FREE"}
                 </p>
 
                 <div className="flex justify-center md:px-10 lg:px-20">
@@ -249,7 +251,9 @@ const PaymentConfirmationCS = (props) => {
                             Payment Proof<span className="text-[#EB9928]">*</span>
                         </p>
                         <p className="text-[#EB9928] font-semibold mb-3">
-                            Payment Slip
+                            {props.total != 0
+                            ? "Payment Slip"
+                            : "Please upload your DBCC payment slip"}
                         </p>
                         <input
                             type="file"
