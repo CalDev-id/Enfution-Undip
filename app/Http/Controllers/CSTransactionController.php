@@ -106,7 +106,7 @@ class CSTransactionController extends Controller
             return false;
         }
 
-        $totalPrice = CSTransactionController::getTicketPrice() * 1;
+        $totalPrice = session('dbcc_part') == 'Y' ? CSTransactionController::getTicketPrice() * 0 : CSTransactionController::getTicketPrice() * 1;
 
         $filterData = [
             'account_name' => esc(request('account_name')),
@@ -128,7 +128,7 @@ class CSTransactionController extends Controller
 
         $createdTrx = CSTransaction::where('id_first_member', $idPeserta)->update($filterData);
         if ($createdTrx) {
-            session()->forget(['id_peserta', 'event', 'type']);
+            session()->forget(['id_peserta', 'event', 'type', 'dbcc_part']);
             return Inertia::render('DBCC/PaymentConfirmationCS', ['modal' => true]);
         }
     }
@@ -136,7 +136,7 @@ class CSTransactionController extends Controller
     public function transaction()
     {
         $data['name'] =  CoachingSessionParticipant::where('id', session('id_peserta'))->first()->full_name;
-        $data['total'] = CSTransactionController::getTicketPrice() * 1;
+        $data['total'] = session('dbcc_part') == 'Y' ? CSTransactionController::getTicketPrice() * 0 : CSTransactionController::getTicketPrice() * 1;
         return Inertia::render('DBCC/PaymentConfirmationCS', $data);
     }
 }
