@@ -116,6 +116,7 @@ class SemnasParticipantController extends Controller
         if (session()->has('email_not_valid')) {
             $data['email_not_valid'] = session('email_not_valid');
         }
+
         return Inertia::render("Semnas/" . SemnasParticipantController::$view, $data);
     }
 
