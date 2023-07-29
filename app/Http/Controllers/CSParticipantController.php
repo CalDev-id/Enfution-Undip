@@ -288,7 +288,7 @@ class CSParticipantController extends Controller
         if ($filterData['dbcc_participant'] != 'N') {
             $rulesdbccparticipant = [
                 'team_name' => 'required|string|max:100|exists:dbcc_teams,team_name',
-                'dbcc_registration_code' => 'required|string|max:20',
+                'dbcc_registration_code' => 'required|string|max:150|exists:dbcc_transactions,dbcc_registration_code',
                 'dbcc_payment_slip' => 'required|file|max:2048|mimes:jpg,png'
             ];
     
@@ -296,6 +296,23 @@ class CSParticipantController extends Controller
     
             if (!$validateDataDBCCParticipant) {
                 return false;
+            }
+
+            if (request('dbcc_registration_code')) {
+                $countRegistrationCode = CoachingSessionParticipant::where('dbcc_registration_code', request('dbcc_registration_code'))
+                    ->count();
+
+                if ($countRegistrationCode >= 3) {
+                    session()->flash("dbcc_registration_code_count", "Registration code has already been used 3 times.");
+                    switch (session('event')) {
+                        case 'cs':
+                            return redirect()->route('dbcc.form-cs');
+                            break;
+                        default:
+                            return false;
+                            break;
+                    }
+                }
             }
 
             $team = DBCCTeam::where('team_name', $validateDataDBCCParticipant['team_name'])->first();
@@ -353,6 +370,7 @@ class CSParticipantController extends Controller
             'id_peserta' => $tempTrx['id_first_member'],
             'event' => CSParticipantController::$event,
             'type' => $filterDataType['type'],
+            'dbcc_part' => $filterData['dbcc_participant'],
         ]);
         return redirect()->route('cs.payment-confirmation');
     }
