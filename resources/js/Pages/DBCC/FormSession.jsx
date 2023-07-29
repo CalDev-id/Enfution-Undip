@@ -135,11 +135,16 @@ const FormSession = (props) => {
                         </p>
                         <div className="md:mx-10 mb-5">
                             <p className="font-semibold">
-                                Person / Bundle ?{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
+                                Person
+                                {props.time_regist == "Normal"
+                                    ? " / Bundle ?"
+                                    : ""}
+                                <span className="text-[#EB9928]"> *</span>{" "}
                             </p>
                             <p className="text-[#EB9928] mb-2">
-                                Get discount for bundle registration
+                                {props.time_regist == "Normal"
+                                    ? "Get discount for bundle registration"
+                                    : ""}
                             </p>
                             <div className="flex">
                                 <div className="flex my-2 self-center mr-5">
@@ -154,18 +159,24 @@ const FormSession = (props) => {
                                     />
                                     <p className="">Person</p>
                                 </div>
-                                <div className="flex my-2 self-center">
-                                    <input
-                                        type="radio"
-                                        name="bundle"
-                                        onChange={() => {
-                                            setBundle(true);
-                                        }}
-                                        onClick={(type) => setType("Bundle")}
-                                        className="checkbox mr-3 outline-1 outline-[#1E2E40]"
-                                    />
-                                    <p className="">Bundle</p>
-                                </div>
+                                {props.time_regist == "Normal" ? (
+                                    <div className="flex my-2 self-center">
+                                        <input
+                                            type="radio"
+                                            name="bundle"
+                                            onChange={() => {
+                                                setBundle(true);
+                                            }}
+                                            onClick={(type) =>
+                                                setType("Bundle")
+                                            }
+                                            className="checkbox mr-3 outline-1 outline-[#1E2E40]"
+                                        />
+                                        <p className="">Bundle</p>
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
                             </div>
                             {errors != null && errors.type && (
                                 <span className="text-red-600">
@@ -903,6 +914,15 @@ const FormSession = (props) => {
                                         errors.dbcc_registration_code && (
                                             <span className="text-red-600">
                                                 {errors.dbcc_registration_code}
+                                            </span>
+                                        )}
+                                    {props.dbcc_registration_code_count !=
+                                        null &&
+                                        props.dbcc_registration_code_count && (
+                                            <span className="text-red-600">
+                                                {
+                                                    props.dbcc_registration_code_count
+                                                }
                                             </span>
                                         )}
                                 </div>

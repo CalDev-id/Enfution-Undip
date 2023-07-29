@@ -253,7 +253,7 @@ const PaymentConfirmationCS = (props) => {
                             Payment Proof
                             <span className="text-[#EB9928]">*</span>
                         </p>
-                        <p className="text-[#EB9928] font-bold mb-3">
+                        <p className="text-[#EB9928] font-semibold mb-3">
                             {props.total != 0
                                 ? "Payment Slip"
                                 : "Please upload your DBCC payment slip"}
