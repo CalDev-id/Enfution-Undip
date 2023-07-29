@@ -35,8 +35,13 @@ const DetailCS = ({ team, data_peserta, page, periode, status }) => {
                 <a href={prev_url} className="btn btn-primary md:text-xl">
                     Back
                 </a>
+
                 <label
-                    className="btn btn-success md:text-xl"
+                    className={
+                        team == ""
+                            ? "btn btn-success md:text-xl hidden"
+                            : "btn btn-success md:text-xl"
+                    }
                     htmlFor={"my-modal-1"}
                     onClick={() => {
                         setID(data_peserta[0].id);
@@ -78,6 +83,11 @@ const DetailCS = ({ team, data_peserta, page, periode, status }) => {
                             <td>
                                 {`${team.university_institute} - ${team.faculty_department_batch}`}
                             </td>
+                        </tr>
+                        <tr>
+                            <th>Registration Code</th>
+                            <td>:</td>
+                            <td>{data_peserta[0].dbcc_registration_code}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -174,7 +184,7 @@ const DetailCS = ({ team, data_peserta, page, periode, status }) => {
                             ></embed>
                         </div>
                     ) : (
-                        <img src={file} alt="" className="w-full" />  
+                        <img src={file} alt="" className="w-full" />
                     )}
 
                     <div className="modal-action">
