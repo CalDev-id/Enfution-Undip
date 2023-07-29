@@ -71,7 +71,20 @@ const CSAdmin = ({ trx, filter, search, info, status }) => {
                             new Date(t.updated_at)
                         ) + " WIB"}
                     </td>
-                    <td>IDR {numeral(t.amount).format("0,0")}</td>
+                    <td>
+                        {t.cs_participant.dbcc_registration_code ? (
+                            <span className="badge badge-primary">DBCC</span>
+                        ) : (
+                            "IDR " + numeral(t.amount).format("0,0")
+                        )}
+                    </td>
+                    <td>
+                        {t.cs_participant.dbcc_registration_code ?? (
+                            <span className="badge badge-error font-bold">
+                                Not DBCC
+                            </span>
+                        )}
+                    </td>
                     <td>
                         <label
                             className="btn btn-secondary"
@@ -397,6 +410,9 @@ const CSAdmin = ({ trx, filter, search, info, status }) => {
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 Jumlah Bayar
+                            </th>
+                            <th className="md:text-lg sm:text-md">
+                                DBCC Reg. Code
                             </th>
                             <th className="md:text-lg sm:text-md">
                                 Bukti Bayar
