@@ -1,6 +1,6 @@
 const DetailDBCC = ({ team, data_peserta, page, periode, status }) => {
     let no = 0;
-    // console.log(data_peserta);
+    
     const prev_url = `/dashboard/DBCC?periode=${periode}${
         page != null ? `&page=${page}` : ""
     }${status != null ? `&status=${status}` : ""}`;
@@ -32,6 +32,11 @@ const DetailDBCC = ({ team, data_peserta, page, periode, status }) => {
                             <td>
                                 {`${team.university_institute} - ${team.faculty_department_batch}`}
                             </td>
+                        </tr>
+                         <tr>
+                            <th>Registration Code</th>
+                            <td>:</td>
+                            <td>{team.reg_code}</td>
                         </tr>
                     </tbody>
                 </table>
