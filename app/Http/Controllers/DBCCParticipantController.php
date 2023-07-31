@@ -103,6 +103,10 @@ class DBCCParticipantController extends Controller
         if (session()->has('email_not_valid')) {
             $data['email_not_valid'] = session('email_not_valid');
         }
+
+        if (session()->has('refcode_not_found')) {
+            $data['refcode_not_found'] = session('refcode_not_found');
+        }
         return Inertia::render("DBCC/" . DBCCParticipantController::$view, $data);
     }
 
@@ -234,19 +238,47 @@ class DBCCParticipantController extends Controller
             $filterDataTeam['member_photo'] = $filename;
         }
 
+        // if (request('coupon')) {
+        //     $couponExists = DBCCReferralCode::where('code', request('coupon'))->first();
+        //     if ($couponExists) {
+        //         $couponQty = (int) $couponExists->qty;
+        //         if ($couponQty > 0) {
+        //             $filterDataTeam['id_referral_code'] = $couponExists->id;
+        //             $couponQty--;
+        //             $couponExists->update(['qty' => $couponQty]);
+        //         }
+        //     }
+        // }
+
+        $teamExists = null;
         if (request('coupon')) {
             $couponExists = DBCCReferralCode::where('code', request('coupon'))->first();
+            // Cek apakah ada kupon
             if ($couponExists) {
+                $teamExists = DBCCTeam::where('team_name', $filterDataTeam['team_name'])->where('id_referral_code', $couponExists->id)->first();
                 $couponQty = (int) $couponExists->qty;
-                if ($couponQty > 0) {
-                    $filterDataTeam['id_referral_code'] = $couponExists->id;
-                    $couponQty--;
-                    $couponExists->update(['qty' => $couponQty]);
+                if (!$teamExists) {
+                    if ($couponQty > 0) {
+                        $filterData['id_referral_code'] = $couponExists->id;
+                        $couponQty--;
+                        $couponExists->update(['qty' => $couponQty]);
+                    } else {
+                        session()->flash("refcode_not_found", "Referral code is out of stock, please leave the referral code field blank");
+                        return redirect()->route('national-seminar.form-summit');
+                    }
                 }
+            } else {
+                session()->flash("refcode_not_found", "Referral code not found, please leave the referral code field blank.");
+                return redirect()->route('dbcc.form-summit');
             }
         }
 
-        $team = DBCCTeam::create($filterDataTeam);
+
+        if (!$teamExists) {
+            $teamExists = DBCCTeam::create($filterData);
+        }
+
+        // $team = DBCCTeam::create($filterDataTeam);
 
         // Person 1
         $filterData = [
@@ -256,7 +288,7 @@ class DBCCParticipantController extends Controller
             'phone_number' => esc(request('phone_number')),
             'line_id' => esc(request('line_id')),
             'email' => esc(request('email')),
-            'id_team' => $team->id,
+            'id_team' => $teamExists->id,
             'event' => DBCCParticipantController::$event,
         ];
 
@@ -266,7 +298,7 @@ class DBCCParticipantController extends Controller
             'id_leader' => $teamLeader->id,
         ];
 
-        DBCCTeam::where('id', $team->id)->update($filterDataTeamLeader);
+        DBCCTeam::where('id', $teamExists->id)->update($filterDataTeamLeader);
 
         // Person 2
         $filterData2 = [
@@ -276,7 +308,7 @@ class DBCCParticipantController extends Controller
             'phone_number' => esc(request('phone_number2')),
             'line_id' => esc(request('line_id2')),
             'email' => esc(request('email2')),
-            'id_team' => $team->id,
+            'id_team' => $teamExists->id,
             'event' => DBCCParticipantController::$event,
         ];
 
@@ -290,7 +322,7 @@ class DBCCParticipantController extends Controller
             'phone_number' => esc(request('phone_number3')),
             'line_id' => esc(request('line_id3')),
             'email' => esc(request('email3')),
-            'id_team' => $team->id,
+            'id_team' => $teamExists->id,
             'event' => DBCCParticipantController::$event,
         ];
 

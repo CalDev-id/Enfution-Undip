@@ -117,6 +117,10 @@ class SemnasParticipantController extends Controller
             $data['email_not_valid'] = session('email_not_valid');
         }
 
+        if (session()->has('refcode_not_found')) {
+            $data['refcode_not_found'] = session('refcode_not_found');
+        }
+
         return Inertia::render("Semnas/" . SemnasParticipantController::$view, $data);
     }
 
@@ -196,24 +200,39 @@ class SemnasParticipantController extends Controller
         }
 
         // Get id coupun if any
+        $userExist = null;
         if (request('coupon')) {
             $couponExists = SemnasReferralCode::where('code', request('coupon'))->first();
+            // Cek apakah ada kupon
             if ($couponExists) {
+                $userExist = SemnasParticipant::where('phone_number', $filterData['phone_number'])->where('email', $filterData['email'])->where('line_id', $filterData['line_id'])->where('id_referral_code', $couponExists->id)->first();
                 $couponQty = (int) $couponExists->qty;
-                if ($couponQty > 0) {
-                    $filterData['id_referral_code'] = $couponExists->id;
-                    $couponQty--;
-                    $couponExists->update(['qty' => $couponQty]);
+                if (!$userExist) {
+                    if ($couponQty > 0) {
+                        $filterData['id_referral_code'] = $couponExists->id;
+                        $couponQty--;
+                        $couponExists->update(['qty' => $couponQty]);
+                    } else {
+                        session()->flash("refcode_not_found", "Referral code is out of stock, please leave the referral code field blank");
+                        return redirect()->route('national-seminar.form-summit');
+                    }
                 }
+            } else {
+                session()->flash("refcode_not_found", "Referral code not found, please leave the referral code field blank.");
+                return redirect()->route('national-seminar.form-summit');
             }
         }
 
-        SemnasParticipant::create($filterData);
+        if (!$userExist) {
+            SemnasParticipant::create($filterData);
+        }
 
         $tempTrx = [
-            "id_peserta" => SemnasParticipant::all()->sortByDesc('created_at')->where('full_name', $filterData['full_name'])->first()->id,
+            "id_peserta" => SemnasParticipant::all()->sortByDesc('created_at')->where('phone_number', $filterData['phone_number'])->first()->id,
         ];
-        SemnasTransaction::create($tempTrx);
+        if (!$userExist) {
+            SemnasTransaction::create($tempTrx);
+        }
         Session::put([
             'id_peserta' => $tempTrx['id_peserta'],
             'event' => SemnasParticipantController::$event,

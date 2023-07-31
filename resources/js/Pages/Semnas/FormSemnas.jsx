@@ -326,6 +326,12 @@ const FormSemnas = (props) => {
                                             setCoupon(coupon.target.value)
                                         }
                                     />
+                                    {props.refcode_not_found != null &&
+                                        props.refcode_not_found && (
+                                            <span className="text-red-600">
+                                                {props.refcode_not_found}
+                                            </span>
+                                        )}
                                 </div>
                             ) : (
                                 ""

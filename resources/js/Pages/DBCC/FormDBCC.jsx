@@ -26,7 +26,6 @@ const FormDBCC = (props) => {
     const [line_id3, setLine3] = useState("");
     const [email3, setEmail3] = useState("");
 
-
     const data = {
         team_name,
         faculty_department_batch,
@@ -98,11 +97,12 @@ const FormDBCC = (props) => {
                         Registration Form
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
-                        
-                            <button type="button" className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
-                                DBCC
-                            </button>
-
+                        <button
+                            type="button"
+                            className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60"
+                        >
+                            DBCC
+                        </button>
                     </div>
 
                     <div
@@ -143,9 +143,7 @@ const FormDBCC = (props) => {
                             <input
                                 type="text"
                                 className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                                onChange={(team) =>
-                                    setTeam(team.target.value)
-                                }
+                                onChange={(team) => setTeam(team.target.value)}
                             />
                             {errors != null && errors.team_name && (
                                 <span className="text-red-600">
@@ -184,11 +182,12 @@ const FormDBCC = (props) => {
                                     setFaculty(faculty.target.value)
                                 }
                             />
-                            {errors != null && errors.faculty_department_batch && (
-                                <span className="text-red-600">
-                                    {errors.faculty_department_batch}
-                                </span>
-                            )}
+                            {errors != null &&
+                                errors.faculty_department_batch && (
+                                    <span className="text-red-600">
+                                        {errors.faculty_department_batch}
+                                    </span>
+                                )}
                         </div>
                         {props.time_regist == "Normal" ? (
                             <div className="mb-5 md:mx-10">
@@ -206,6 +205,12 @@ const FormDBCC = (props) => {
                                         setCoupon(coupon.target.value)
                                     }
                                 />
+                                {props.refcode_not_found != null &&
+                                    props.refcode_not_found && (
+                                        <span className="text-red-600">
+                                            {props.refcode_not_found}
+                                        </span>
+                                    )}
                             </div>
                         ) : (
                             ""
@@ -224,9 +229,7 @@ const FormDBCC = (props) => {
                             <input
                                 type="text"
                                 className="input input-bordered w-full bg-transparent border-[#1E2E40] rounded-md focus:border-[#EB9928] focus:ring-[#EB9928]"
-                                onChange={(name) =>
-                                    setName(name.target.value)
-                                }
+                                onChange={(name) => setName(name.target.value)}
                             />
                             {errors != null && errors.full_name && (
                                 <span className="text-red-600">
@@ -255,8 +258,7 @@ const FormDBCC = (props) => {
                         </div>
                         <div className="md:mx-10 mb-5">
                             <p className="font-semibold">
-                                Gender{" "}
-                                <span className="text-[#EB9928]">*</span>{" "}
+                                Gender <span className="text-[#EB9928]">*</span>{" "}
                             </p>
                             <div className="flex">
                                 <div className="flex my-2 self-center mr-5">
@@ -265,9 +267,7 @@ const FormDBCC = (props) => {
                                         name="person1"
                                         onChange={() => {}}
                                         className="checkbox mr-3"
-                                        onClick={(gender) =>
-                                            setGender("Male")
-                                        }
+                                        onClick={(gender) => setGender("Male")}
                                     />
                                     <p className="">Male</p>
                                 </div>
@@ -571,10 +571,10 @@ const FormDBCC = (props) => {
                                     </div>
                                 </div>
                                 {errors != null && errors.gender3 && (
-                                <span className="text-red-600">
-                                    {errors.gender3}
-                                </span>
-                            )}
+                                    <span className="text-red-600">
+                                        {errors.gender3}
+                                    </span>
+                                )}
                             </div>
                             <div className="mb-5 md:mx-10">
                                 <p className="font-semibold">
