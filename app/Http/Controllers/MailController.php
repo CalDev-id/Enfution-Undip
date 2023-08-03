@@ -83,7 +83,11 @@ class MailController extends Controller
 
     public function CSVerif(CoachingSessionParticipant $participant)
     {
-        $update = CSTransaction::where('id_first_member', $participant->id)->update(['status_verif' => 'DONE']);
+        $updated_data = [
+            "status_verif" => "DONE",
+            "amount" => 0
+        ];
+        $update = CSTransaction::where('id_first_member', $participant->id)->update($updated_data);
         $email = $participant->email;
         if ($update) {
             Mail::to($email)->send(new CSVerif($participant));
