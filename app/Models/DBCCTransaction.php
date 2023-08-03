@@ -17,7 +17,7 @@ class DBCCTransaction extends Model
         $query->when(
             $filters['search'] ?? false,
             fn ($query, $search) =>
-            $query->where(fn ($query) => $query->where('account_name', 'like', '%' . $search . '%')->orWhere('account_number', 'like', '%' . $search . '%'))
+            $query->where(fn ($query) => $query->where('account_name', 'like', '%' . $search . '%')->orWhere('account_number', 'like', '%' . $search . '%'))->orWhere('dbcc_registration_code', $search)
         );
         $query->when(
             $filters['status'] ?? false,
