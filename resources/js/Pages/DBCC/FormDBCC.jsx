@@ -26,7 +26,6 @@ const FormDBCC = (props) => {
     const [line_id3, setLine3] = useState("");
     const [email3, setEmail3] = useState("");
 
-
     const data = {
         team_name,
         faculty_department_batch,
@@ -98,11 +97,9 @@ const FormDBCC = (props) => {
                         Registration Form
                     </h1>
                     <div className="flex justify-center mb-8 w-full">
-                        
-                            <button type="button" className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
-                                DBCC
-                            </button>
-
+                        <button type="button" className="btn rounded-none bg-[#1E2E40] w-28 sm:w-60">
+                            DBCC
+                        </button>
                     </div>
 
                     <div
@@ -206,6 +203,12 @@ const FormDBCC = (props) => {
                                         setCoupon(coupon.target.value)
                                     }
                                 />
+                                {props.refcode_not_found != null &&
+                                    props.refcode_not_found && (
+                                        <span className="text-red-600">
+                                            {props.refcode_not_found}
+                                        </span>
+                                    )}
                             </div>
                         ) : (
                             ""
