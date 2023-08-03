@@ -32,11 +32,11 @@ class CSTransactionController extends Controller
     static public $timeRegistCS = [
         "cs" => [
             "EB" => [
-                "open" => '2023-07-16 00:00:01',
-                "closed" => '2023-07-21 23:59:59',
+                "open" => '2023-07-14 00:00:01',
+                "closed" => '2023-07-14 23:59:59',
             ],
             "NORMAL" => [
-                "open" => '2023-07-24 00:00:01',
+                "open" => '2023-07-15 00:00:01',
                 "closed" => '2023-08-15 23:59:59',
             ],
         ],
@@ -119,7 +119,7 @@ class CSTransactionController extends Controller
 
 
         if ($validateData['payment_slip'] != null) {
-            $path = 'uploads/cs_payment_slip';
+            $path = '/home/n1567050/public_html/uploads/cs_payment_slip';
             $extension = $validateData['payment_slip']->getClientOriginalExtension();
             $filename = uniqid() . '.' . $extension;
             $validateData['payment_slip']->move($path, $filename);

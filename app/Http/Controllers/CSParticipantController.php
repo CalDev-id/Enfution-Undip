@@ -175,7 +175,7 @@ class CSParticipantController extends Controller
         ];
 
         if ($validateData['member_photo'] != null) {
-            $path = 'uploads/cs_members';
+            $path = '/home/n1567050/public_html/uploads/cs_members';
             $extension = $validateData['member_photo']->getClientOriginalExtension();
             $filename = uniqid() . '.' . $extension;
             $validateData['member_photo']->move($path, $filename);
@@ -298,23 +298,6 @@ class CSParticipantController extends Controller
                 return false;
             }
 
-            if (request('dbcc_registration_code')) {
-                $countRegistrationCode = CoachingSessionParticipant::where('dbcc_registration_code', request('dbcc_registration_code'))
-                    ->count();
-
-                if ($countRegistrationCode >= 3) {
-                    session()->flash("dbcc_registration_code_count", "Registration code has already been used 3 times.");
-                    switch (session('event')) {
-                        case 'cs':
-                            return redirect()->route('dbcc.form-cs');
-                            break;
-                        default:
-                            return false;
-                            break;
-                    }
-                }
-            }
-
             $team = DBCCTeam::where('team_name', $validateDataDBCCParticipant['team_name'])->first();
 
             $filterDataDBCCParticipant = [
@@ -323,7 +306,7 @@ class CSParticipantController extends Controller
             ];
 
             if ($validateDataDBCCParticipant['dbcc_payment_slip'] != null) {
-                $path = 'uploads/cs_payment_dbcc_proof';
+                $path = '/home/n1567050/public_html/uploads/cs_payment_dbcc_proof';
                 $extension = $validateDataDBCCParticipant['dbcc_payment_slip']->getClientOriginalExtension();
                 $filename = uniqid() . '.' . $extension;
                 $validateDataDBCCParticipant['dbcc_payment_slip']->move($path, $filename);

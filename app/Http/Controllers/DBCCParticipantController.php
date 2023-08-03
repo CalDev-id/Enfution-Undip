@@ -103,6 +103,10 @@ class DBCCParticipantController extends Controller
         if (session()->has('email_not_valid')) {
             $data['email_not_valid'] = session('email_not_valid');
         }
+
+        if (session()->has('refcode_not_found')) {
+            $data['refcode_not_found'] = session('refcode_not_found');
+        }
         return Inertia::render("DBCC/" . DBCCParticipantController::$view, $data);
     }
 
@@ -235,14 +239,30 @@ class DBCCParticipantController extends Controller
             $rulesteam['team_name'] = 'required|string|max:100|unique:dbcc_teams,team_name';
             $validateDataTeam = $request->validate($rulesteam);
             if (!$validateDataTeam) {
-                dd("dapet uniquenya");
                 return false;
             }
         }
 
         $teamLeader = null;
         if (!$teamLeaderExist) {
-            $teamLeader = DBCCParticipant::create($filterData);
+            if (request('coupon')) {
+                $couponExistsLeader = DBCCReferralCode::where('code', request('coupon'))->first();
+                // Cek apakah ada kupon
+                if ($couponExistsLeader) {
+                    $couponQtyLeader = (int) $couponExistsLeader->qty;
+                    if ($couponQtyLeader > 0) {
+                        $teamLeader = DBCCParticipant::create($filterData);
+                    } else {
+                        session()->flash("refcode_not_found", "Referral code is out of stock, please leave the referral code field blank");
+                        return redirect()->route('dbcc.form-summit');
+                    }
+                } else {
+                    session()->flash("refcode_not_found", "Referral code not found, please leave the referral code field blank.");
+                    return redirect()->route('dbcc.form-summit');
+                }
+            } else {
+                $teamLeader = DBCCParticipant::create($filterData);
+            }
         } else {
             $teamLeader = $teamLeaderExist;
         }
@@ -261,7 +281,7 @@ class DBCCParticipantController extends Controller
             $couponExists = DBCCReferralCode::where('code', request('coupon'))->first();
             // Cek apakah ada kupon
             if ($couponExists) {
-                $teamExists = DBCCTeam::where('team_name', request('team_name'))->where('id_leader', $teamLeader->id)->where('id_referral_code', $couponExists->id)->first();
+                $teamExists = DBCCTeam::where('team_name', request('team_name'))->where('id_leader', $teamLeader->id)->first();
                 $couponQty = (int) $couponExists->qty;
                 if (!$teamExists) {
                     if ($couponQty > 0) {
@@ -270,13 +290,20 @@ class DBCCParticipantController extends Controller
                         $couponExists->update(['qty' => $couponQty]);
                     } else {
                         session()->flash("refcode_not_found", "Referral code is out of stock, please leave the referral code field blank");
-                        return redirect()->route('national-seminar.form-summit');
+                        return redirect()->route('dbcc.form-summit');
+                    }
+                } elseif ($teamExists) {
+                    if ($teamExists->id_referral_code != $couponExists->id) {
+                        session()->flash("refcode_not_found", "Referral code mismatch, please enter the referral code during your initial registration.");
+                        return redirect()->route('dbcc.form-summit');
                     }
                 }
             } else {
                 session()->flash("refcode_not_found", "Referral code not found, please leave the referral code field blank.");
-                return redirect()->route('national-seminar.form-summit');
+                return redirect()->route('dbcc.form-summit');
             }
+        } else {
+            $teamExists = DBCCTeam::where('team_name', request('team_name'))->where('id_leader', $teamLeader->id)->first();
         }
 
         if ($validateDataTeam['member_photo'] != null) {
@@ -292,8 +319,8 @@ class DBCCParticipantController extends Controller
             DBCCParticipant::where('id', $teamLeader->id)->update(['id_team' => $team->id]);
         }
 
-        // dd($teamLeader->id);
         $leader = DBCCParticipant::where('id', $teamLeader->id)->first();
+
         // Person 2
         $filterData2 = [
             'full_name' => esc(request('full_name2')),
@@ -317,8 +344,6 @@ class DBCCParticipantController extends Controller
             'id_team' => $leader->id_team,
             'event' => DBCCParticipantController::$event,
         ];
-
-
         $tempTrx = [
             "id_team" => DBCCTeam::all()->sortByDesc('created_at')->where('team_name', $filterDataTeam['team_name'])->first()->id,
         ];
