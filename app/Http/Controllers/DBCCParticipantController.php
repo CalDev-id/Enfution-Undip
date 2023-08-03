@@ -103,6 +103,10 @@ class DBCCParticipantController extends Controller
         if (session()->has('email_not_valid')) {
             $data['email_not_valid'] = session('email_not_valid');
         }
+
+        if (session()->has('refcode_not_found')) {
+            $data['refcode_not_found'] = session('refcode_not_found');
+        }
         return Inertia::render("DBCC/" . DBCCParticipantController::$view, $data);
     }
 
@@ -110,7 +114,7 @@ class DBCCParticipantController extends Controller
     {
         // Validate Team
         $rulesteam = [
-            'team_name' => 'required|string|max:100|unique:dbcc_teams,team_name',
+            'team_name' => 'required|string|max:100',
             'faculty_department_batch' => 'required|string|max:100',
             'university_institute' => 'required|string|max:150',
             'member_photo' => 'required|mimetypes:application/pdf|max:2048',
@@ -122,7 +126,7 @@ class DBCCParticipantController extends Controller
             return false;
         }
 
-        // Validate Person 1
+        // Validate Team Leader
         $rules = [
             'full_name' => 'required|string|max:255',
             'gender' => 'required',
@@ -218,13 +222,89 @@ class DBCCParticipantController extends Controller
             }
         }
 
-        // Team
+        // Insert Team Leader
+        $filterData = [
+            'full_name' => esc(request('full_name')),
+            'gender' => esc(request('gender')),
+            'place_dob' => esc(request('place_dob')),
+            'phone_number' => esc(request('phone_number')),
+            'line_id' => esc(request('line_id')),
+            'email' => esc(request('email')),
+            'event' => DBCCParticipantController::$event,
+        ];
+
+        $teamLeaderExist = DBCCParticipant::where('phone_number', $filterData['phone_number'])->where('email', $filterData['email'])->where('line_id', $filterData['line_id'])->first();
+
+        if (!$teamLeaderExist) {
+            $rulesteam['team_name'] = 'required|string|max:100|unique:dbcc_teams,team_name';
+            $validateDataTeam = $request->validate($rulesteam);
+            if (!$validateDataTeam) {
+                return false;
+            }
+        }
+
+        $teamLeader = null;
+        if (!$teamLeaderExist) {
+            if (request('coupon')) {
+                $couponExistsLeader = DBCCReferralCode::where('code', request('coupon'))->first();
+                // Cek apakah ada kupon
+                if ($couponExistsLeader) {
+                    $couponQtyLeader = (int) $couponExistsLeader->qty;
+                    if ($couponQtyLeader > 0) {
+                        $teamLeader = DBCCParticipant::create($filterData);
+                    } else {
+                        session()->flash("refcode_not_found", "Referral code is out of stock, please leave the referral code field blank");
+                        return redirect()->route('dbcc.form-summit');
+                    }
+                } else {
+                    session()->flash("refcode_not_found", "Referral code not found, please leave the referral code field blank.");
+                    return redirect()->route('dbcc.form-summit');
+                }
+            } else {
+                $teamLeader = DBCCParticipant::create($filterData);
+            }
+        } else {
+            $teamLeader = $teamLeaderExist;
+        }
+
         $filterDataTeam = [
             'team_name' => esc(request('team_name')),
             'faculty_department_batch' => esc(request('faculty_department_batch')),
+            'id_leader' => $teamLeader->id,
             'university_institute' => esc(request('university_institute')),
             'event' => DBCCParticipantController::$event,
         ];
+
+        // Check Coupon
+        $teamExists = null;
+        if (request('coupon')) {
+            $couponExists = DBCCReferralCode::where('code', request('coupon'))->first();
+            // Cek apakah ada kupon
+            if ($couponExists) {
+                $teamExists = DBCCTeam::where('team_name', request('team_name'))->where('id_leader', $teamLeader->id)->first();
+                $couponQty = (int) $couponExists->qty;
+                if (!$teamExists) {
+                    if ($couponQty > 0) {
+                        $filterDataTeam['id_referral_code'] = $couponExists->id;
+                        $couponQty--;
+                        $couponExists->update(['qty' => $couponQty]);
+                    } else {
+                        session()->flash("refcode_not_found", "Referral code is out of stock, please leave the referral code field blank");
+                        return redirect()->route('dbcc.form-summit');
+                    }
+                } elseif ($teamExists) {
+                    if ($teamExists->id_referral_code != $couponExists->id) {
+                        session()->flash("refcode_not_found", "Referral code mismatch, please enter the referral code during your initial registration.");
+                        return redirect()->route('dbcc.form-summit');
+                    }
+                }
+            } else {
+                session()->flash("refcode_not_found", "Referral code not found, please leave the referral code field blank.");
+                return redirect()->route('dbcc.form-summit');
+            }
+        } else {
+            $teamExists = DBCCTeam::where('team_name', request('team_name'))->where('id_leader', $teamLeader->id)->first();
+        }
 
         if ($validateDataTeam['member_photo'] != null) {
             $path = 'uploads/dbcc_members';
@@ -234,39 +314,12 @@ class DBCCParticipantController extends Controller
             $filterDataTeam['member_photo'] = $filename;
         }
 
-        if (request('coupon')) {
-            $couponExists = DBCCReferralCode::where('code', request('coupon'))->first();
-            if ($couponExists) {
-                $couponQty = (int) $couponExists->qty;
-                if ($couponQty > 0) {
-                    $filterDataTeam['id_referral_code'] = $couponExists->id;
-                    $couponQty--;
-                    $couponExists->update(['qty' => $couponQty]);
-                }
-            }
+        if (!$teamExists) {
+            $team = DBCCTeam::create($filterDataTeam);
+            DBCCParticipant::where('id', $teamLeader->id)->update(['id_team' => $team->id]);
         }
 
-        $team = DBCCTeam::create($filterDataTeam);
-
-        // Person 1
-        $filterData = [
-            'full_name' => esc(request('full_name')),
-            'gender' => esc(request('gender')),
-            'place_dob' => esc(request('place_dob')),
-            'phone_number' => esc(request('phone_number')),
-            'line_id' => esc(request('line_id')),
-            'email' => esc(request('email')),
-            'id_team' => $team->id,
-            'event' => DBCCParticipantController::$event,
-        ];
-
-        $teamLeader = DBCCParticipant::create($filterData);
-
-        $filterDataTeamLeader = [
-            'id_leader' => $teamLeader->id,
-        ];
-
-        DBCCTeam::where('id', $team->id)->update($filterDataTeamLeader);
+        $leader = DBCCParticipant::where('id', $teamLeader->id)->first();
 
         // Person 2
         $filterData2 = [
@@ -276,11 +329,9 @@ class DBCCParticipantController extends Controller
             'phone_number' => esc(request('phone_number2')),
             'line_id' => esc(request('line_id2')),
             'email' => esc(request('email2')),
-            'id_team' => $team->id,
+            'id_team' => $leader->id_team,
             'event' => DBCCParticipantController::$event,
         ];
-
-        DBCCParticipant::create($filterData2);
 
         // Person 3
         $filterData3 = [
@@ -290,16 +341,20 @@ class DBCCParticipantController extends Controller
             'phone_number' => esc(request('phone_number3')),
             'line_id' => esc(request('line_id3')),
             'email' => esc(request('email3')),
-            'id_team' => $team->id,
+            'id_team' => $leader->id_team,
             'event' => DBCCParticipantController::$event,
         ];
-
-        DBCCParticipant::create($filterData3);
 
         $tempTrx = [
             "id_team" => DBCCTeam::all()->sortByDesc('created_at')->where('team_name', $filterDataTeam['team_name'])->first()->id,
         ];
-        DBCCTransaction::create($tempTrx);
+
+        if (!$teamExists) {
+            DBCCParticipant::create($filterData2);
+            DBCCParticipant::create($filterData3);
+            DBCCTransaction::create($tempTrx);
+        }
+
         Session::put([
             'id_team' => $tempTrx['id_team'],
             'event' => DBCCParticipantController::$event,
