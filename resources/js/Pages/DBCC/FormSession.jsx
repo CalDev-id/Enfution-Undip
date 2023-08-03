@@ -879,12 +879,6 @@ const FormSession = (props) => {
                                             {errors.dbcc_registration_code}
                                         </span>
                                     )}
-                                    {props.dbcc_registration_code_count != null &&
-                                    props.dbcc_registration_code_count && (
-                                        <span className="text-red-600">
-                                            {props.dbcc_registration_code_count}
-                                        </span>
-                                    )}
                                 </div>
                             </div>
 
