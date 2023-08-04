@@ -200,14 +200,15 @@ class SemnasParticipantController extends Controller
         }
 
         // Get id coupun if any
-        $userExist = null;
+        $userExistWithCode = null;
+        $userExistNoCode = null;
         if (request('coupon')) {
             $couponExists = SemnasReferralCode::where('code', request('coupon'))->first();
             // Cek apakah ada kupon
             if ($couponExists) {
-                $userExist = SemnasParticipant::where('phone_number', $filterData['phone_number'])->where('email', $filterData['email'])->where('line_id', $filterData['line_id'])->where('id_referral_code', $couponExists->id)->first();
-                $couponQty = (int) $couponExists->qty;
-                if (!$userExist) {
+                $userExistWithCode = SemnasParticipant::where('phone_number', $filterData['phone_number'])->where('email', $filterData['email'])->where('line_id', $filterData['line_id'])->where('id_referral_code', $couponExists->id)->first();
+                if (!$userExistWithCode) {
+                    $couponQty = (int) $couponExists->qty;
                     if ($couponQty > 0) {
                         $filterData['id_referral_code'] = $couponExists->id;
                         $couponQty--;
@@ -221,16 +222,22 @@ class SemnasParticipantController extends Controller
                 session()->flash("refcode_not_found", "Referral code not found, please leave the referral code field blank.");
                 return redirect()->route('national-seminar.form-summit');
             }
+        } else {
+            $userExistNoCode = SemnasParticipant::where('phone_number', $filterData['phone_number'])->where('email', $filterData['email'])->where('line_id', $filterData['line_id'])->first();
         }
 
-        if (!$userExist) {
+        if (!$userExistWithCode && !$userExistNoCode) {
             SemnasParticipant::create($filterData);
+        } elseif ($userExistWithCode) {
+            $userExistWithCode->update($filterData);
+        } elseif ($userExistNoCode) {
+            $userExistNoCode->update($filterData);
         }
 
         $tempTrx = [
             "id_peserta" => SemnasParticipant::all()->sortByDesc('created_at')->where('phone_number', $filterData['phone_number'])->first()->id,
         ];
-        if (!$userExist) {
+        if (!$userExistWithCode && !$userExistNoCode) {
             SemnasTransaction::create($tempTrx);
         }
         Session::put([
