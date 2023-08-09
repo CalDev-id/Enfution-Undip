@@ -97,7 +97,7 @@ class SemnasTransactionController extends Controller
 
     static private function getDiscount($idCoupon)
     {
-        $discountPercent = SemnasReferralCode::where('id', $idCoupon)->first()->diskon_persen / 100;
+        $discountPercent = ((float) SemnasReferralCode::where('id', $idCoupon)->first()->diskon_persen) / 100;
         return $discountPercent;
     }
 
