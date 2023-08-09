@@ -57,7 +57,7 @@ class DBCCTransactionController extends Controller
 
     static private function getDiscount($idCoupon)
     {
-        $discountPercent = DBCCReferralCode::where('id', $idCoupon)->first()->diskon_persen / 100;
+        $discountPercent = ((float) DBCCReferralCode::where('id', $idCoupon)->first()->diskon_persen) / 100;
         return $discountPercent;
     }
 
