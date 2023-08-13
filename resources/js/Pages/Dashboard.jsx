@@ -23,6 +23,7 @@ export default function Dashboard(props) {
         />,
         <SemnasAdmin
             trx={props.transactions}
+            refcodes={props.referral_codes}
             filter={props.filter}
             search={props.search}
             info={props.info ?? ""}
@@ -38,6 +39,7 @@ export default function Dashboard(props) {
         <NewsLetter />,
         <DBCCAdmin
             trx={props.transactions}
+            refcodes={props.referral_codes}
             filter={props.filter}
             search={props.search}
             info={props.info ?? ""}

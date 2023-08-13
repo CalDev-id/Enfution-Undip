@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SemnasParticipant;
+use App\Models\SemnasReferralCode;
 use App\Models\Subscriber;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
@@ -24,14 +25,21 @@ class SemnasAdminController extends Controller
             ]);
         }
         $transactions = SemnasTransaction::filter(request($req))->where('status_bayar', "PAID")->orderBy('updated_at', 'desc')->paginate(10)->withQueryString();
+        $refcodes = SemnasReferralCode::all();
 
         foreach ($transactions as $trx) {
-            $trx = $trx->peserta_semnas;
+            $trx->peserta_semnas;
+            $trx['ref_code'] =  $trx->peserta_semnas->id_referral_code ? SemnasReferralCode::where('id', $trx->peserta_semnas->id_referral_code)->first()->code : '';
+        }
+
+        foreach ($refcodes as $rc) {
+            $rc['used'] = count(SemnasParticipant::where('id_referral_code', $rc->id)->get());
         }
 
         session()->put(['page' => request('page') ?? 1, 'event' => request('event') ?? "", 'status' => request('status') ?? ""]);
 
         $data['transactions'] = $transactions;
+        $data['referral_codes'] = $refcodes;
         $data['filter'] = session('event');
         $data['info'] = session('success') ?? session('rejected') ?? "";
         $data['search'] = request('search');
