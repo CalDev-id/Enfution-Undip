@@ -4,7 +4,7 @@ import numeral from "numeral";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const SemnasAdmin = ({ trx, filter, search, info, status }) => {
+const SemnasAdmin = ({ trx, refcodes, filter, search, info, status }) => {
     const [id, setId] = useState("");
     const [buktiBayar, setbuktiBayar] = useState("");
     const [konfirmasi, setKonfirmasi] = useState("");
@@ -73,6 +73,15 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     </td>
                     <td>IDR {numeral(t.amount).format("0,0")}</td>
                     <td>
+                        {t.ref_code != "" ? (
+                            t.ref_code
+                        ) : (
+                            <span className="badge badge-error font-bold">
+                                Not Has
+                            </span>
+                        )}
+                    </td>
+                    <td>
                         <label
                             className="btn btn-secondary"
                             htmlFor={"my-modal-1"}
@@ -125,6 +134,21 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                             )}
                         </div>
                     </td>
+                </tr>
+            );
+        });
+    };
+
+    const listRefcodes = (ref) => {
+        no = 1;
+        return ref.map((rc) => {
+            return (
+                <tr className="text-center" key={no}>
+                    <th>{no++}</th>
+                    <td>{rc.code}</td>
+                    <td>{`${rc.diskon_persen}%`}</td>
+                    <td>{rc.qty}</td>
+                    <td>{rc.used}</td>
                 </tr>
             );
         });
@@ -408,6 +432,9 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                                 Jumlah Bayar
                             </th>
                             <th className="md:text-lg sm:text-md">
+                                Referral Code
+                            </th>
+                            <th className="md:text-lg sm:text-md">
                                 Bukti Bayar
                             </th>
                             <th className="md:text-lg sm:text-md">Aksi</th>
@@ -444,6 +471,25 @@ const SemnasAdmin = ({ trx, filter, search, info, status }) => {
                     {trx.last_page} Pages
                 </span>
                 <Paginator pages={trx} />
+            </div>
+
+            <div>
+                <h1 className="text-xl font-bold my-6">Referral Codes</h1>
+                <table className="table w-1/2 md:text-lg sm:text-md">
+                    {/* head */}
+                    <thead>
+                        <tr className="text-center text-lg">
+                            <th className="md:text-lg sm:text-md">#</th>
+                            <th className="md:text-lg sm:text-md">Code</th>
+                            <th className="md:text-lg sm:text-md">
+                                Discount (%)
+                            </th>
+                            <th className="md:text-lg sm:text-md">Remaining</th>
+                            <th className="md:text-lg sm:text-md">Used</th>
+                        </tr>
+                    </thead>
+                    <tbody>{listRefcodes(refcodes)}</tbody>
+                </table>
             </div>
         </>
     );
