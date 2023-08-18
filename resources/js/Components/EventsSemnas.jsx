@@ -324,7 +324,9 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Vina Muliana
                                         </p>
+
                                         <p className="mb-3">BUMN Career Professional & Education Content Creator</p>
+
                                         <p className="italic mb-3">
                                             “Critical thinking is the ability to
                                             think for yourself and to reliably
