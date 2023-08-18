@@ -11,7 +11,8 @@ const Sponsors = () => {
                     <div className="flex">
                         <span className="text-3xl font-black">“</span>
                         <p className="md:max-w-lg font-bold text-xl mb-3">
-                            Creativity comes from looking for the unexpected and
+                        Creativity comes from looking for the unexpected and
+
                             stepping outside your own experience.
                         </p>
                     </div>

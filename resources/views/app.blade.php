@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="icon" type="image/x-icon" href="images/LogoEnfu.svg">
+        <link rel="icon" type="image/x-icon" href="../images/LogoEnfu.svg">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -14,7 +16,7 @@
         <!-- <link rel="stylesheet" href="build/assets/app-c310be9c.css"> -->
 
         <!-- Scripts -->
-        @routes
+        @routes()
         @viteReactRefresh
         @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
         @inertiaHead

@@ -61,14 +61,14 @@ export default function Login({ status, canResetPassword }) {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full "
                         autoComplete="current-password"
                         onChange={(e) => setData("password", e.target.value)}
                     />
 
                     <InputError message={errors.password} className="mt-2" />
                 </div>
-                <div className="block mt-4">
+                {/* <div className="block mt-4">
                     <label className="flex items-center">
                         <Checkbox
                             name="remember"
@@ -81,20 +81,17 @@ export default function Login({ status, canResetPassword }) {
                             Remember me
                         </span>
                     </label>
-                </div>
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
+                </div> */}
+                <div className="flex items-center justify-center mt-4">
+                    {/* {canResetPassword && (
                         <Link
                             href={route("password.request")}
                             className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
                             Forgot your password?
                         </Link>
-                    )}
-
-                    <PrimaryButton className="ml-4 btn" disabled={processing}>
-                        Log in
-                    </PrimaryButton>
+                    )} */}
+                    <PrimaryButton className="btn">Log in</PrimaryButton>
                 </div>{" "}
             </form>
         </GuestLayout>

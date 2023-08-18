@@ -55,21 +55,6 @@ const Galery = () => {
                 <SwiperSlide>
                     <img className="h-72" src="images/swiperDbcc/4.png" alt="" />
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img className="h-72" src="images/swiperDbcc/5.png" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img className="h-72" src="images/swiperDbcc/6.png" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img className="h-72" src="images/swiperDbcc/7.png" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img className="h-72" src="images/swiperDbcc/8.png" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img className="h-72" src="images/swiperDbcc/9.png" alt="" />
-                </SwiperSlide>
             </Swiper>
             </div>
         </>

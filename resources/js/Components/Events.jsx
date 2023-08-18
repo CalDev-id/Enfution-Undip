@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "@inertiajs/react";
 import TimeLine from "./TimeLine";
+import numeral from "numeral";
 
-const Events = ({ hrefDbcc }) => {
+const Events = ({ ticketPrice, timeRegist, ticketPriceCS, timeRegistCS }) => {
     const [selectedIndex, setSelectedIndex] = useState(1);
 
     const dbccAtas =
@@ -85,16 +86,50 @@ const Events = ({ hrefDbcc }) => {
                                     Register Below
                                 </h1>
                                 <div className="flex justify-center mb-20 flex-wrap">
-                                    <Link href="/registration-dbcc">
-                                        <div className="bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] hover:shadow-xl text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                    <Link href={route(
+                                            "dbcc.form-summit"
+                                        )}>
+                                        <div className={`hover:shadow-xl ${
+                                                timeRegist == "EB"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Early Bird</p>
-                                            <p>Rp. 230.000</p>
+                                            <p>
+                                                {" "}
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegist == "EB"
+                                                        ? numeral(
+                                                              ticketPrice
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
-                                    <Link href="">
-                                        <div className=" bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl opacity-50 hover:shadow-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                    <Link href={route(
+                                            "dbcc.form-summit"
+                                        )}>
+                                        <div className={`hover:shadow-xl ${
+                                                timeRegist == "NORMAL"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Normal Registration</p>
-                                            <p>Rp. xxx</p>
+                                            <p>
+                                                {" "}
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegist == "NORMAL"
+                                                        ? numeral(
+                                                              ticketPrice
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
                                 </div>
@@ -131,16 +166,50 @@ const Events = ({ hrefDbcc }) => {
                                     Register Below
                                 </h1>
                                 <div className="flex justify-center mb-20 flex-wrap">
-                                    <Link href="/registration-coaching-session">
-                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E]  text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                    <Link href={route(
+                                            "dbcc.form-cs"
+                                        )}>
+                                        <div className={`hover:shadow-xl ${
+                                                timeRegistCS == "EB"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Early Bird</p>
-                                            <p>Rp. 15.000</p>
+                                            <p>
+                                                {" "}
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegistCS == "EB"
+                                                        ? numeral(
+                                                              ticketPriceCS
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
-                                    <Link href="/">
-                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                    <Link href={route(
+                                            "dbcc.form-cs"
+                                        )}>
+                                        <div className={`hover:shadow-xl ${
+                                                timeRegistCS == "NORMAL"
+                                                    ? ""
+                                                    : "opacity-50"
+                                            } bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
+                                        >
                                             <p>Normal Registration</p>
-                                            <p>Rp. xxx</p>
+                                            <p>
+                                                {" "}
+                                                Rp.{" "}
+                                                {`${
+                                                    timeRegistCS == "NORMAL"
+                                                        ? numeral(
+                                                              ticketPriceCS
+                                                          ).format("0,0")
+                                                        : "xxx"
+                                                }`}
+                                            </p>
                                         </div>
                                     </Link>
                                 </div>
@@ -178,12 +247,12 @@ const Events = ({ hrefDbcc }) => {
                                 </h1>
                                 <div className="flex justify-center mb-20 flex-wrap">
                                     <Link href="/registration-coaching-clinic">
-                                        <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
+                                        <div className="hover:shadow-xl opacity-50 bg-gradient-to-t from-[#EB9928] mb-5 md:mb-0 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Early Bird</p>
-                                            <p>Rp. 15.000</p>
+                                            <p>Rp. xxx</p>
                                         </div>
                                     </Link>
-                                    <Link href="/">
+                                    <Link href="/registration-coaching-clinic">
                                         <div className="hover:shadow-xl bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] opacity-50 text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5">
                                             <p>Normal Registration</p>
                                             <p>Rp. xxx</p>

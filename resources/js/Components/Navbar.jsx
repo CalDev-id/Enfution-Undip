@@ -49,7 +49,7 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                                 <li tabIndex={0}>
                                     <Link
-                                        href={route("dbcc")}
+                                        href={route("dbcc.main")}
                                         className={
                                             active === "dbcc"
                                                 ? "text-[#EB9928] justify-between active:bg-[#FFCE2E]"
@@ -63,7 +63,7 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                                 <li>
                                     <Link
-                                        href={route("national-seminar")}
+                                        href={route("national-seminar.main")}
                                         method={method}
                                         className={
                                             active === "national"
@@ -77,7 +77,6 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                             </ul>
                         </div>
-                        {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
                         <img
                             className="w-12 cursor-pointer"
                             src="images/logoNav.png"
@@ -103,7 +102,7 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                                 <li tabIndex={0}>
                                     <Link
-                                        href={route("dbcc")}
+                                        href={route("dbcc.main")}
                                         className={
                                             active === "dbcc"
                                                 ? "text-[#EB9928] active:bg-[#FFCE2E]"
@@ -117,7 +116,7 @@ const Navbar = ({ method = "get", active }) => {
                                 </li>
                                 <li>
                                     <Link
-                                        href={route("national-seminar")}
+                                        href={route("national-seminar.main")}
                                         method={method}
                                         className={
                                             active === "national"
@@ -149,13 +148,15 @@ const Navbar = ({ method = "get", active }) => {
                                         : "hidden"
                                 }
                             >
-                                <Link href={"/registration-national-seminar"}>
+                                <Link
+                                    href={route("national-seminar.form-summit")}
+                                >
                                     <p className="text-center text-xs px-3">
                                         NATIONAL SEMINAR
                                     </p>
                                 </Link>
                                 <div className="my-1 flex mx-auto w-10 border-b border-black"></div>
-                                <Link href={"/registration-dbcc"}>
+                                <Link href={route("dbcc.form-summit")}>
                                     <p className="text-center text-xs px-2">
                                         {" "}
                                         DIPONEGORO BUSINESS
