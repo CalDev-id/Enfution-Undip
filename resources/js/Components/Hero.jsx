@@ -33,7 +33,7 @@ const Hero = ({ active }) => {
                                     <p className="font-normal text-[#FFF9EE] sm:text-xl text-sm">
                                         Optimizing young generation creativity
                                         <br />
-                                        to Encounter Economic Develpment
+                                        to Encounter Economic Development
                                     </p>
                                 </div>
                             </div>
