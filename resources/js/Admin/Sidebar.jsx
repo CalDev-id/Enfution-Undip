@@ -54,16 +54,6 @@ const Sidebar = ({ index }) => {
                         Coaching Session
                     </a>
                     <a
-                        href={route("dashboard-CC")}
-                        className={
-                            index == 5
-                                ? "flex items-center bg-slate-700 text-white py-4 pl-6 nav-item"
-                                : "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
-                        }
-                    >
-                        Coaching Clinic
-                    </a>
-                    <a
                         href={route("dashboard-subscriber")}
                         className={
                             index == 6
