@@ -80,7 +80,7 @@ const Hero = ({ active }) => {
                                 <br />
                                 Achieving a Sustainable Economy
                             </p>
-                            <div className="flex sm:text-base text-sm justify-center">
+                            <div className="flex justify-center sm:text-base text-sm">
                                 <Link href="/registration-coaching-session">COACHING SESSION</Link>
                                 <p className="mx-2">|</p>
                                 <Link href="/registration-dbcc">DBCC</Link>
