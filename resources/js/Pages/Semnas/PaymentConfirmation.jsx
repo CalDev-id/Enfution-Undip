@@ -224,7 +224,7 @@ const PaymentConfirmation = (props) => {
                         </p>
 
                         <p className="mb-5 text-sm text-center leading-relaxed text-body-color max-w-sm flex mx-auto">
-                            *if within 2x24 hours you don’t receive any email
+                            *if within 1x24 hours you don’t receive any email
                             from us, please contact us
                         </p>
 

@@ -494,15 +494,21 @@ const TimeLine = ({ name }) => {
                                 </h2>
                                 <p>
                                     <span className="text-[#EB9928]">
+                                        Open Registration :
+                                    </span>{" "}
+                                    6th September
+                                </p>
+                                <p>
+                                    <span className="text-[#EB9928]">
                                         Close Registration :
                                     </span>{" "}
-                                    10th September
+                                    16th September
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
                                         Early Talk 2 :
                                     </span>{" "}
-                                    16th September
+                                    17th September
                                 </p>
                             </div>
                         )}

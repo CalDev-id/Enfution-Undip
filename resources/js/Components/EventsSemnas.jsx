@@ -394,21 +394,21 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                     {selectedIndex == 3 && (
                         <div className="py-10">
                             <div className="bg-[#FFF9EE] rounded-[50px] rounded-bl-[30px] border-r-2 border-l-2 border-t-2 border-[#EB9928] rounded-br-[30px] pt-20 md:px-20">
-                                <h1 className="font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
+                                <h1 className="font-bold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-3xl">
                                     Early Talk 2
                                 </h1>
                                 <div className="flex flex-col md:flex-row mb-20">
                                     <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0">
                                         <img
-                                            className=""
-                                            src="images/orangHitam.svg"
+                                            className="xl:w-3/4 justify-center mx-auto"
+                                            src="images/speaker/BESTARI.png"
                                             alt=""
                                         />
                                         <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
-                                            Coming Soon
+                                            Bestari Bellaverina
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            xxx
+                                            Business Intelligence, LINE Indonesia
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-20 px-4 max-w-2xl">
@@ -416,13 +416,13 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             How to Conquer the Economic Industry
                                             to Become a Thought Leader
                                         </p>{" "}
-                                        <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
-                                            Coming Soon{" "}
+                                        <p className="border-l-4 border-[#EB9928] my-1 pl-4 mb-3 italic">
+                                            "Always Data-Driven is a value that I always apply at work. To make decisions in business, we must be able to understand many different aspects of our performance, including the data. It's quite challenging, but also fun!"
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
-                                            Nama Speaker
+                                            Bestari Bellaverina
                                         </p>
-                                        <p className="mb-3">xxx</p>
+                                        <p className="mb-3">Business Intelligence, LINE Indonesia</p>
                                         <p className="italic mb-3">
                                             “Leadership is about taking
                                             responsibility, not making excuses.”{" "}
@@ -451,11 +451,22 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             brighter future for ourselves and
                                             for society as a whole
                                         </p>
+                                        <p className="font-semibold text-xl">
+                                            SEPTEMBER{" "}
+                                            <span className="text-[#EB9928]">
+                                                {" "}
+                                                17th
+                                            </span>
+                                            , 2023
+                                        </p>
                                         <Link href="/registration-EarlyTalk2">
                                             <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
                                                 <p>REGISTER NOW</p>
                                             </div>
                                         </Link>
+                                        <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
+                                            15K
+                                        </p>
                                     </div>
                                 </div>
 
