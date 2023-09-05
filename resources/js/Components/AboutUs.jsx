@@ -186,7 +186,7 @@ const AboutUs = ({ active }) => {
                         <div className="mx-auto flex">
                             <img
                                 className="container w-96 sm:w-[1200px] flex justify-center mx-auto my-10"
-                                src="images/timelineUtama.svg"
+                                src="images/timelineUtama.png"
                                 alt=""
                             />
                         </div>
