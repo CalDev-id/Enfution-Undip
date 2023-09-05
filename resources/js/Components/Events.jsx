@@ -172,7 +172,7 @@ const Events = ({ ticketPrice, timeRegist, ticketPriceCS, timeRegistCS }) => {
                                             {sessionBawah}
                                         </p>
 
-                                        <div className="flex mb-20 flex-wrap">
+                                        <div className="flex mb-20 flex-wrap justify-center">
                                             <Link href={route("dbcc.form-cs")}>
                                                 <div
                                                     className={`hover:shadow-xl ${
