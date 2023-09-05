@@ -33,7 +33,7 @@ const Hero = ({ active }) => {
                                     <p className="font-normal text-[#FFF9EE] sm:text-xl text-sm">
                                         Optimizing young generation creativity
                                         <br />
-                                        to Encounter Economic Develpment
+                                        to Encounter Economic Development
                                     </p>
                                 </div>
                             </div>
@@ -80,9 +80,7 @@ const Hero = ({ active }) => {
                                 <br />
                                 Achieving a Sustainable Economy
                             </p>
-                            <div className="flex sm:text-base text-sm">
-                                <Link href="/registration-coaching-clinic">COACHING CLINIC</Link>
-                                <p className="mx-2">|</p>
+                            <div className="flex justify-center sm:text-base text-sm">
                                 <Link href="/registration-coaching-session">COACHING SESSION</Link>
                                 <p className="mx-2">|</p>
                                 <Link href="/registration-dbcc">DBCC</Link>

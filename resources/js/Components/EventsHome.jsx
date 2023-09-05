@@ -33,9 +33,6 @@ const EventsHome = () => {
                                     <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mr-3">
                                         Coaching Session
                                     </p>
-                                    <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mr-3">
-                                        Coaching Clinic
-                                    </p>
                                     <p className="text-[#FFCE2E] py-1 md:px-5 px-1 border border-[#FFCE2E] rounded-full italic mt-2 sm:mt-0">
                                         DBCC
                                     </p>
@@ -56,7 +53,7 @@ const EventsHome = () => {
                     <div className="container bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] py-10 mb-20">
                         <img
                             className="container w-full sm:w-[1100px] flex justify-center mx-auto"
-                            src="images/timelineDBCC.svg"
+                            src="images/timelineDBCC.png"
                             alt=""
                         />
                     </div>

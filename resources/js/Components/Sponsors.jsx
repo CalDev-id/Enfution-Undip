@@ -11,7 +11,7 @@ const Sponsors = () => {
                     <div className="flex">
                         <span className="text-3xl font-black">“</span>
                         <p className="md:max-w-lg font-bold text-xl mb-3">
-                        Creativity comes from looking for the unexpected and
+                            Creativity comes from looking for the unexpected and
                             stepping outside your own experience.
                         </p>
                     </div>
@@ -42,59 +42,142 @@ const Sponsors = () => {
                         </p>
                     </div>
                     <div className="flex justify-between flex-col sm:flex-row">
-                        <div className="w-full sm:mr-1 mb-3 sm:mb-0 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-60">
-                            <p className="text-[#EB9928] font-bold text-2xl text-center my-5">
-                                Media Partner
+                        <div className="w-full sm:mr-1 mb-3 sm:mb-0 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-72 md:h-60">
+                            <p className="text-[#EB9928] font-bold text-2xl text-center mt-5">
+                                Media Partner & Community Partner
                             </p>
                             <div className="flex justify-center mx-auto">
                                 <img
-                                    src="images/sponsors/HMIGUndip.png"
+                                    src="images/media/1.png"
+                                    className="w-fit h-14 mr-2"
                                     alt=""
                                 />
+                                <img
+                                    src="images/media/2.png"
+                                    className="w-fit h-14 mr-2"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/media/3.png"
+                                    className="w-fit h-14"
+                                    alt=""
+                                />
+                            </div>
+                            <div className="flex justify-center mx-auto">
+                                <img
+                                    src="images/media/4.png"
+                                    className="w-fit h-10"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/media/5.png"
+                                    className="w-fit h-9"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/media/6.png"
+                                    className="w-fit h-10"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/media/7.png"
+                                    className="h-8 w-fit"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/media/8.png"
+                                    className="h-8 w-fit"
+                                    alt=""
+                                />
+                            </div>
+                            <div className="flex justify-center mx-auto my-2">
                                 <img
                                     src="images/sponsors/webinarindonesia.png"
+                                    className="w-7 h-7"
                                     alt=""
                                 />
+                                <img
+                                    src="images/media/2kecil.png"
+                                    className="w-7 h-7"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/sponsors/HMIGUndip.png"
+                                    className="w-7 h-7"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/media/bumi.png"
+                                    className="w-7 h-7"
+                                    alt=""
+                                />
+
                                 <img
                                     src="images/sponsors/InfoEventNasional.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="images/sponsors/webinarKita.png"
+                                    className="w-7 h-7"
                                     alt=""
                                 />
                                 <img
                                     src="images/sponsors/webnasional.png"
+                                    className="w-7 h-7"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/media/semangka.png"
+                                    className="w-7 h-7"
+                                    alt=""
+                                />
+
+                                <img
+                                    src="images/media/HIMAUdayana.png"
+                                    className="w-7 h-7"
                                     alt=""
                                 />
                             </div>
-                            <div className="flex mx-5 my-3 md:justify-center justify-evenly">
+                            <div className="flex mx-5 my-0 md:justify-center justify-evenly flex-wrap">
                                 <img
-                                    className="w-fit md:mr-5"
+                                    className="md:mr-2 w-fit h-7"
                                     src="images/sponsors/BEMFEB.png"
                                     alt=""
                                 />
                                 <img
-                                    className="w-fit"
+                                    className="w-20 h-5"
+                                    src="images/sponsors/Talent.png"
+                                    alt=""
+                                />
+                                <img
+                                    className="w-fit md:ml-2 h-5"
+                                    src="images/media/FiestAR.png"
+                                    alt=""
+                                />
+                                <img
+                                    className="w-fit h-5"
+                                    src="images/sponsors/eventnasional.png"
+                                    alt=""
+                                />
+                                <img
+                                    className="w-fit mx-2 h-5"
                                     src="images/sponsors/eventcenter.png"
                                     alt=""
                                 />
                                 <img
-                                    className="w-fit md:ml-5"
-                                    src="images/sponsors/eventnasional.png"
+                                    className="w-fit h-5"
+                                    src="images/media/RadioU.png"
                                     alt=""
                                 />
                             </div>
-                            <img
-                                className="mx-auto my-3"
-                                src="images/sponsors/Talent.png"
-                                alt=""
-                            />
                         </div>
                         <div className="w-full sm:ml-2 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-60 flex justify-center">
-                            <p className="text-[#EB9928] font-bold text-2xl text-center my-5">
-                                Community Partner
-                            </p>
+                            <div>
+                                <p className="text-[#EB9928] font-bold text-2xl text-center my-5">
+                                    Case Contributor
+                                </p>
+                                <img
+                                    className="mx-auto my-3 w-2/3"
+                                    src="images/sponsors/Tanio.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
