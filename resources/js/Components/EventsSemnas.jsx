@@ -452,7 +452,7 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             for society as a whole
                                         </p>
                                         <Link href="/registration-EarlyTalk2">
-                                            <div className="hover:shadow-xl opacity-50 bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
+                                            <div className="hover:shadow-xl bg-opacity-50 bg-gradient-to-r from-[#EB9928] my-3 to-[#FFCE2E] text-sm text-white text-center italic rounded-full w-36 py-2">
                                                 <p>REGISTER NOW</p>
                                             </div>
                                         </Link>
