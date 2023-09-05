@@ -8,8 +8,7 @@
 </head>
 <body>
 
-  <div class="container">
-      <div style="text-align: justify">
+  <div class="text-align: justify">
     {{-- Kata sambutan --}}
     <div>
       <p>Hello,</p>
