@@ -37,9 +37,25 @@ const Sponsors = () => {
             <div className="bg-[#FFCE2E]  ">
                 <div className="container">
                     <div className="bg-[#FFF9EE] rounded-tl-[50px] rounded-tr-[50px] h-60 rounded-bl-[30px] rounded-br-[30px] mb-3">
-                        <p className="text-[#EB9928] font-bold text-2xl text-center py-5">
+                        <p className="text-[#EB9928] font-bold text-2xl text-center pt-5">
                             Sponsored By
                         </p>
+                        <div className="md:flex md:flex-row items-center justify-center mx-auto">
+                            <div>
+                                <img
+                                    src="images/sponsors/pupuk.svg"
+                                    alt=""
+                                    className="scale-75"
+                                />
+                            </div>
+                            <div className=" max-w-[200px] mx-auto md:max-w-none md:mx-auto">
+                                <img
+                                    src="images/sponsors/brilogo.svg"
+                                    alt=""
+                                    className="scale-50"
+                                />
+                            </div>
+                        </div>
                     </div>
                     <div className="flex justify-between flex-col sm:flex-row">
                         <div className="w-full sm:mr-1 mb-3 sm:mb-0 bg-[#FFF9EE] rounded-[50px] rounded-tl-[30px] rounded-tr-[30px] h-72 md:h-60">
