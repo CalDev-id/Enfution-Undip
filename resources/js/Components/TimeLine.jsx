@@ -365,7 +365,7 @@ const TimeLine = ({ name }) => {
                                     <span className="text-[#EB9928]">
                                         Close Registration :
                                     </span>{" "}
-                                    8th October
+                                    14th October
                                 </p>
                                 <p>
                                     <span className="text-[#EB9928]">
