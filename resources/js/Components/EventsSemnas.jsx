@@ -183,83 +183,6 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                     >
                                         <div
                                             className={`hover:shadow-xl ${
-                                                timeRegist == "EB"
-                                                    ? ""
-                                                    : "opacity-50"
-                                            } bg-gradient-to-t from-[#EB9928] mb-5 to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
-                                        >
-                                            <p>Early Bird</p>
-                                            <p>
-                                                Rp.{" "}
-                                                {`${
-                                                    timeRegist == "EB"
-                                                        ? numeral(
-                                                              ticketPrice
-                                                          ).format("0,0")
-                                                        : "xxx"
-                                                }`}
-                                            </p>
-                                        </div>
-                                    </Link>
-                                    <Link
-                                        href={route(
-                                            "national-seminar.form-summit"
-                                        )}
-                                    >
-                                        <div
-                                            className={`hover:shadow-xl ${
-                                                timeRegist == "PS1"
-                                                    ? ""
-                                                    : "opacity-50"
-                                            } bg-gradient-to-t mb-5  from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
-                                        >
-                                            <p>Pre-Sale 1</p>
-                                            <p>
-                                                {" "}
-                                                Rp.{" "}
-                                                {`${
-                                                    timeRegist == "PS1"
-                                                        ? numeral(
-                                                              ticketPrice
-                                                          ).format("0,0")
-                                                        : "xxx"
-                                                }`}
-                                            </p>
-                                        </div>
-                                    </Link>
-                                    <Link
-                                        href={route(
-                                            "national-seminar.form-summit"
-                                        )}
-                                    >
-                                        <div
-                                            className={`hover:shadow-xl ${
-                                                timeRegist == "PS2"
-                                                    ? ""
-                                                    : "opacity-50"
-                                            } bg-gradient-to-t mb-5 from-[#EB9928] to-[#FFCE2E] text-xl text-white text-center font-semibold rounded-lg w-60 py-4 mx-5`}
-                                        >
-                                            <p>Pre-Sale 2</p>
-                                            <p>
-                                                {" "}
-                                                Rp.{" "}
-                                                {`${
-                                                    timeRegist == "PS2"
-                                                        ? numeral(
-                                                              ticketPrice
-                                                          ).format("0,0")
-                                                        : "xxx"
-                                                }`}
-                                            </p>
-                                        </div>
-                                    </Link>
-                                    <Link
-                                        href={route(
-                                            "national-seminar.form-summit"
-                                        )}
-                                    >
-                                        <div
-                                            className={`hover:shadow-xl ${
                                                 timeRegist == "NORMAL"
                                                     ? ""
                                                     : "opacity-50"
@@ -405,10 +328,12 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             alt=""
                                         />
                                         <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
-                                        Bestari Bellaverina
+
+                                            Bestari Bellaverina
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                        Business Intelligence, LINE Indonesia
+                                            Business Intelligence, LINE Indonesia
+
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-20 px-4 max-w-2xl">
@@ -417,10 +342,12 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             to Become a Thought Leader
                                         </p>{" "}
                                         <p className="border-l-4 border-[#EB9928] my-1 pl-4 mb-3 italic">
-                                        "Always Data-Driven is a value that I always apply at work. To make decisions in business, we must be able to understand many different aspects of our performance, including the data. It's quite challenging, but also fun!"
+
+                                            "Always Data-Driven is a value that I always apply at work. To make decisions in business, we must be able to understand many different aspects of our performance, including the data. It's quite challenging, but also fun!"
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
-                                        Bestari Bellaverina
+                                            Bestari Bellaverina
+
                                         </p>
                                         <p className="mb-3">Business Intelligence, LINE Indonesia</p>
                                         <p className="italic mb-3">

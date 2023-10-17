@@ -81,6 +81,10 @@
             <span> National Seminar Summit. </span>
         @endif 
         We can't wait to see you there, actively participating and contributing your unique perspective to the discussions.</p>
+
+        @if ($participant->event == "talk-2")
+            <p>Here is the link to our Whatsapp Group! Do not forget to join for more updated infos about the Early Talk 2.0: <br><a href="https://chat.whatsapp.com/EQBR0tvPIgxI2UXUgBisyG">https://chat.whatsapp.com/EQBR0tvPIgxI2UXUgBisyG</a></p>  
+        @endif
       <p>If you need anything else in the meantime, feel free to get in touch.</p>
     </div>
 

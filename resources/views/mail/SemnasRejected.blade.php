@@ -8,8 +8,7 @@
 </head>
 <body>
 
-  <div class="container">
-      <div style="text-align: justify">
+  <div class="text-align: justify">
     {{-- Kata sambutan --}}
     <div>
       <p>Hello,</p>
@@ -72,7 +71,6 @@
       </pre>
       <img src="{{ $message->embed('images/LogoSemnas2.png') }}" alt="" width="200">
     </div>
-  </div>
   </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
