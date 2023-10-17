@@ -80,14 +80,14 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                     <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0">
                                         <img
                                             className=""
-                                            src="images/orangHitam.svg"
+                                            src="images/speaker/sandiagauno.svg"
                                             alt=""
                                         />
-                                        <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
+                                        {/* <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
                                             Coming Soon
-                                        </p>
+                                        </p> */}
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            A young and fresh entrepreneur
+                                            One of Indonesian Ring 1 government
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-20 px-4">
@@ -96,11 +96,15 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             policy in supporting the creative
                                             economy
                                         </h1>
-                                        <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
+                                        {/* <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
                                             Coming Soon{" "}
-                                        </p>
+                                        </p> */}
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
-                                            Nama Speaker
+                                            Sandiaga Uno
+                                        </p>
+                                        <p className="mb-3 text-slate-500 font-light">
+                                            Minister of Tourism & Creative
+                                            Economy
                                         </p>
                                     </div>
                                 </div>
@@ -108,14 +112,12 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                     <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0 sm:hidden">
                                         <img
                                             className=""
-                                            src="images/orangHitam.svg"
+                                            src="images/speaker/samuel.svg"
                                             alt=""
                                         />
-                                        <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
-                                            Coming Soon
-                                        </p>
+                                        
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            A senior entrepreneur
+                                            A young and fresh entrepreneur
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:mr-20 px-4">
@@ -123,24 +125,26 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             Leveraging the power of
                                             collaboration in creative industries
                                         </h1>
-                                        <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
+                                        {/* <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
                                             Coming Soon{" "}
-                                        </p>
+                                        </p> */}
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
-                                            Nama Speaker
+                                            Samuel Christ
+                                        </p>
+
+                                        <p className="mb-3 text-slate-500 font-light">
+                                            {" "}
+                                            Co-founder of Seefluencer
                                         </p>
                                     </div>
                                     <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0 hidden sm:block">
                                         <img
                                             className=""
-                                            src="images/orangHitam.svg"
+                                            src="images/speaker/samuel.svg"
                                             alt=""
                                         />
-                                        <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
-                                            Coming Soon
-                                        </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            A senior entrepreneur
+                                            A young and fresh entrepreneur
                                         </p>
                                     </div>
                                 </div>
@@ -148,14 +152,14 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                     <div className="w-60 md:w-72 items-center self-center mb-5 md:mb-0">
                                         <img
                                             className=""
-                                            src="images/orangHitam.svg"
+                                            src="images/speaker/batara.svg"
                                             alt=""
                                         />
-                                        <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
+                                        {/* <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
                                             Coming Soon
-                                        </p>
+                                        </p> */}
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            One of Indonesian Ring 1 government
+                                            A senior entrepreneur
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-20 px-4">
@@ -164,11 +168,15 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             Changing Markets and Staying Ahead
                                             of the Curve
                                         </h1>
-                                        <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
+                                        {/* <p className="border-l-2 border-[#EB9928] py-3 pl-4 mb-3">
                                             Coming Soon{" "}
-                                        </p>
+                                        </p> */}
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
-                                            Nama Speaker
+                                            Batara Sianturi
+                                        </p>
+                                        <p className="mb-3 text-slate-500 font-light">
+                                            {" "}
+                                            CEO of Citibank, N.A., Indonesia
                                         </p>
                                     </div>
                                 </div>
@@ -191,13 +199,13 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             <p>Normal Registration</p>
                                             <p>
                                                 {" "}
-                                                Rp.{" "}
+                                                - SOLD OUT{" "}
                                                 {`${
                                                     timeRegist == "NORMAL"
                                                         ? numeral(
                                                               ticketPrice
                                                           ).format("0,0")
-                                                        : "xxx"
+                                                        : "-"
                                                 }`}
                                             </p>
                                         </div>
@@ -233,7 +241,8 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             Vina Muliana
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            BUMN Career Professional & Education Content Creator
+                                            BUMN Career Professional & Education
+                                            Content Creator
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-16 px-4 max-w-2xl">
@@ -242,14 +251,18 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             Economy Creative
                                         </p>{" "}
                                         <p className="border-l-4 italic border-[#EB9928] py-1 my-2 pl-4 mb-3">
-                                            Kesuksesan itu ketika kamu bisa menjadi inspirasi dan berkontribusi untuk kemajuan diri dan orang-orang sekitar.
+                                            Kesuksesan itu ketika kamu bisa
+                                            menjadi inspirasi dan berkontribusi
+                                            untuk kemajuan diri dan orang-orang
+                                            sekitar.
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Vina Muliana
                                         </p>
-
-                                        <p className="mb-3">BUMN Career Professional & Education Content Creator</p>
-
+                                        <p className="mb-3">
+                                            BUMN Career Professional & Education
+                                            Content Creator
+                                        </p>
                                         <p className="italic mb-3">
                                             “Critical thinking is the ability to
                                             think for yourself and to reliably
@@ -328,12 +341,11 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             alt=""
                                         />
                                         <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
-
                                             Bestari Bellaverina
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
-                                            Business Intelligence, LINE Indonesia
-
+                                            Business Intelligence, LINE
+                                            Indonesia
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-20 px-4 max-w-2xl">
@@ -342,14 +354,21 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             to Become a Thought Leader
                                         </p>{" "}
                                         <p className="border-l-4 border-[#EB9928] my-1 pl-4 mb-3 italic">
-
-                                            "Always Data-Driven is a value that I always apply at work. To make decisions in business, we must be able to understand many different aspects of our performance, including the data. It's quite challenging, but also fun!"
+                                            "Always Data-Driven is a value that
+                                            I always apply at work. To make
+                                            decisions in business, we must be
+                                            able to understand many different
+                                            aspects of our performance,
+                                            including the data. It's quite
+                                            challenging, but also fun!"
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Bestari Bellaverina
-
                                         </p>
-                                        <p className="mb-3">Business Intelligence, LINE Indonesia</p>
+                                        <p className="mb-3">
+                                            Business Intelligence, LINE
+                                            Indonesia
+                                        </p>
                                         <p className="italic mb-3">
                                             “Leadership is about taking
                                             responsibility, not making excuses.”{" "}
