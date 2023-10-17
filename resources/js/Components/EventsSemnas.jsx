@@ -328,10 +328,12 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             alt=""
                                         />
                                         <p className="bg-gradient-to-t from-[#EB9928] to-[#FFCE2E] text-lg text-white px-2 py-3 rounded-bl-3xl rounded-tr-3xl text-center">
+
                                             Bestari Bellaverina
                                         </p>
                                         <p className="text-[#EB9928] md:text-base text-sm text-center">
                                             Business Intelligence, LINE Indonesia
+
                                         </p>
                                     </div>
                                     <div className="items-center self-center md:ml-20 px-4 max-w-2xl">
@@ -340,10 +342,12 @@ const EventsSemnas = ({ ticketPrice, timeRegist }) => {
                                             to Become a Thought Leader
                                         </p>{" "}
                                         <p className="border-l-4 border-[#EB9928] my-1 pl-4 mb-3 italic">
+
                                             "Always Data-Driven is a value that I always apply at work. To make decisions in business, we must be able to understand many different aspects of our performance, including the data. It's quite challenging, but also fun!"
                                         </p>
                                         <p className="text-[#EB9928] md:text-xl text-lg font-semibold">
                                             Bestari Bellaverina
+
                                         </p>
                                         <p className="mb-3">Business Intelligence, LINE Indonesia</p>
                                         <p className="italic mb-3">
